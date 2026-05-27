@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self';
+    connect-src *;
+    script-src 'self' 'unsafe-inline';
+    style-src 'self' 'unsafe-inline';
+  ">
+  <title>人體系統 - 神經系統與泌尿系統測驗</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, "Microsoft JhengHei", sans-serif;
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+      line-height: 1.6;
+      color: #333;
+    }
+    h1, h2, h3 {
+      text-align: center;
+      color: #2c3e50;
+      margin: 50px 0 30px;
+    }
+    .section {
+      margin-bottom: 60px;
+    }
+    .question {
+      margin: 25px 0;
+      padding: 20px;
+      background: #f9fbfc;
+      border-radius: 10px;
+      border-left: 5px solid #3498db;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    .question p {
+      margin: 0 0 12px 0;
+      font-size: 1.1rem;
+    }
+    strong {
+      color: #e74c3c;
+    }
+    select {
+      padding: 10px 14px;
+      font-size: 1.05rem;
+      min-width: 320px;
+      border-radius: 6px;
+      border: 1px solid #bdc3c7;
+      background: white;
+    }
+    select:focus {
+      outline: none;
+      border-color: #3498db;
+      box-shadow: 0 0 0 3px rgba(52,152,219,0.2);
+    }
+    button {
+      display: block;
+      margin: 60px auto;
+      padding: 18px 80px;
+      font-size: 1.35rem;
+      font-weight: bold;
+      background: #27ae60;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    button:hover {
+      background: #219653;
+    }
+    .result {
+      display: none;
+      margin: 40px 0;
+      padding: 30px;
+      background: #f4f6f9;
+      border-radius: 12px;
+      border: 1px solid #dfe6ed;
+    }
+    .total-score {
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-align: center;
+      margin: 30px 0 20px;
+      padding: 20px;
+      background: #d4edda;
+      border-radius: 10px;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+    }
+    .item {
+      margin: 18px 0;
+      padding: 16px;
+      background: white;
+      border-radius: 8px;
+      border: 1px solid #eee;
+    }
+    .correct { color: #27ae60; font-weight: bold; }
+    .wrong   { color: #c0392b; font-weight: bold; }
+    .answer-show {
+      margin-top: 8px;
+      font-size: 0.98rem;
+      color: #555;
+    }
+    #submitMessage {
+      text-align: center;
+      margin-top: 25px;
+      font-size: 1.15rem;
+    }
+    .success { color: #27ae60; }
+    .error   { color: #c0392b; }
+    .subtitle {
+      text-align: center;
+      color: #555;
+      margin-bottom: 30px;
+    }
+  </style>
+</head>
+<body>
+
+<h1>人體系統測驗 - 神經系統與泌尿系統</h1>
+<p class="subtitle">請完成所有題目後按下方按鈕一次提交</p>
+
+<form id="allQuizzes">
+
+  <!-- ====================== 神經系統 ====================== -->
+  <div class="section">
+    <h2>1. 神經系統 - 看圖填充</h2>
+    <div class="question"><p>這是<strong>(____)</strong>，負責接收信息，並對身體各部分<strong>(____)</strong>指令。</p>
+      <select name="ns1"><option value="">請選擇</option><option>腦</option><option>脊髓</option><option>神經</option><option>神經系統</option></select>
+      <select name="ns2"><option value="">請選擇</option><option>發出</option><option>傳遞</option><option>接收</option></select>
+    </div>
+    <div class="question"><p>這是<strong>(____)</strong>，連接腦部，負責傳遞信息到身體各部分。</p>
+      <select name="ns3"><option value="">請選擇</option><option>腦</option><option>脊髓</option><option>神經</option><option>神經系統</option></select>
+    </div>
+    <div class="question"><p>這是<strong>(____)</strong>，連接脊髓和身體各部分，負責傳遞信息。</p>
+      <select name="ns4"><option value="">請選擇</option><option>腦</option><option>脊髓</option><option>神經</option><option>神經系統</option></select>
+    </div>
+    <div class="question"><p>以上三部分組成人體的<strong>(____)</strong>，讓人可以<strong>(____)</strong>, <strong>(____)</strong>和<strong>(____)</strong>動作。</p>
+      <select name="ns5"><option value="">請選擇</option><option>腦</option><option>脊髓</option><option>神經</option><option>神經系統</option></select>
+      <select name="ns6"><option value="">請選擇</option><option>記憶</option><option>思考</option><option>協調</option></select>
+      <select name="ns7"><option value="">請選擇</option><option>記憶</option><option>思考</option><option>協調</option></select>
+      <select name="ns8"><option value="">請選擇</option><option>記憶</option><option>思考</option><option>協調</option></select>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>神經系統包括哪些部分？它們的功能？</h2>
+    <div class="question"><p>1. 腦的功能是 <select name="ns8"><option value="">請選擇</option><option>發出指令</option><option>傳遞信息(連接腦部)</option><option>傳遞信息(連接脊髓和身體各部分)</option></select></p></div>
+    <div class="question"><p>2. 脊髓的功能是 <select name="ns9"><option value="">請選擇</option><option>發出指令</option><option>傳遞信息(連接腦部)</option><option>傳遞信息(連接脊髓和身體各部分)</option></select></p></div>
+    <div class="question"><p>3. 神經的功能是 <select name="ns10"><option value="">請選擇</option><option>發出指令</option><option>傳遞信息(連接腦部)</option><option>傳遞信息(連接脊髓和身體各部分)</option></select></p></div>
+  </div>
+
+  <div class="section">
+    <h2>判斷下圖的活動主要利用神經系統的哪些功能（可多於一個）</h2>
+    <div class="question"><p>1. 計算 → <select name="ns11"><option value="">請選擇</option><option>記憶</option><option>思考</option><option>協調動作</option></select></p></div>
+    <div class="question"><p>2. 背誦 → <select name="ns12"><option value="">請選擇</option><option>記憶</option><option>思考</option><option>協調動作</option></select></p></div>
+    <div class="question"><p>3. 走平衡木 → <select name="ns13"><option value="">請選擇</option><option>記憶</option><option>思考</option><option>協調動作</option></select></p></div>
+    <div class="question"><p>4. 下棋 → <select name="ns14"><option value="">請選擇</option><option>記憶</option><option>思考</option><option>協調動作</option></select></p></div>
+    <div class="question"><p>5. 彈奏樂器 → <select name="ns15"><option value="">請選擇</option><option>記憶</option><option>思考</option><option>協調動作</option></select></p></div>
+  </div>
+
+  <div class="section">
+    <h2>排序 - 神經系統需要怎樣協調身體各部分？</h2>
+    <div class="question"><p>(____) 聽覺神經把老師說話的信息傳到腦部。</p><select name="ns16"><option value="">請選擇</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></div>
+    <div class="question"><p>(____) 志晴站起來，走到同學面前。</p><select name="ns17"><option value="">請選擇</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></div>
+    <div class="question"><p>(____) 腦部接收信息，經過思考，發出指令。</p><select name="ns18"><option value="">請選擇</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></div>
+    <div class="question"><p>(____) 指令沿脊髓傳送到腳部神經。</p><select name="ns19"><option value="">請選擇</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></div>
+    <div class="question"><p>(____) 腳部肌肉收到指令。</p><select name="ns20"><option value="">請選擇</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></div>
+  </div>
+
+  <div class="section">
+    <h2>填充 - 協調男孩跳到對面的跳台的身體部份</h2>
+    <div class="question"><p>1. 看見跳台。<strong>(____)</strong></p><select name="ns21"><option value="">請選擇</option><option>眼睛</option><option>腦</option><option>視覺神經</option><option>脊髓</option><option>運動神經</option></select></div>
+    <div class="question"><p>2. 把信息傳送到腦。<strong>(____)</strong></p><select name="ns22"><option value="">請選擇</option><option>眼睛</option><option>腦</option><option>視覺神經</option><option>脊髓</option><option>運動神經</option></select></div>
+    <div class="question"><p>3. 接收信息，經過思考，發出指令。<strong>(____)</strong></p><select name="ns23"><option value="">請選擇</option><option>眼睛</option><option>腦</option><option>視覺神經</option><option>脊髓</option><option>運動神經</option></select></div>
+    <div class="question"><p>4. 傳遞指令到相關身體部分。<strong>(____)</strong></p><select name="ns24"><option value="">請選擇</option><option>眼睛</option><option>腦</option><option>視覺神經</option><option>脊髓</option><option>運動神經</option></select></div>
+    <div class="question"><p>5. 指示相關部位的肌肉作出跳躍動作。<strong>(____)</strong></p><select name="ns25"><option value="">請選擇</option><option>眼睛</option><option>腦</option><option>視覺神經</option><option>脊髓</option><option>運動神經</option></select></div>
+  </div>
+
+  <div class="section">
+    <h2>以下行為或情況對人體神經系統有益還是有害？有益的加✓；有害的加✗。</h2>
+    <div class="question"><p>吸煙 <select name="ns26"><option value="">請選擇</option><option>✓</option><option>✗</option></select></p></div>
+    <div class="question"><p>嚴重撞擊(例:被球撞擊) <select name="ns27"><option value="">請選擇</option><option>✓</option><option>✗</option></select></p></div>
+    <div class="question"><p>吸收營養 <select name="ns28"><option value="">請選擇</option><option>✓</option><option>✗</option></select></p></div>
+    <div class="question"><p>充足睡眠 <select name="ns29"><option value="">請選擇</option><option>✓</option><option>✗</option></select></p></div>
+    <div class="question"><p>胡亂服藥 <select name="ns30"><option value="">請選擇</option><option>✓</option><option>✗</option></select></p></div>
+    <div class="question"><p>玩滑板時穿上安全裝備 <select name="ns31"><option value="">請選擇</option><option>✓</option><option>✗</option></select></p></div>
+  </div>
+
+  <div class="section">
+    <h2>選擇題</h2>
+    <div class="question"><p>1. 腦、脊髓和神經組成哪個人體系統？<br>
+      <select name="ns32"><option value="">請選擇</option><option>A. 神經系統</option><option>B. 循環系統</option><option>C. 泌尿系統</option><option>D. 呼吸系統</option></select>
+    </div>
+    <div class="question"><p>2. 反射動作對身體有甚麼好處？<br>
+      <select name="ns33"><option value="">請選擇</option><option>A. 增強記憶力</option><option>B. 有助睡眠</option><option>C. 避免受傷</option><option>D. 減少腦部刺激</option></select>
+    </div>
+    <div class="question"><p>3. 神經系統受損，可能會產生甚麼後果？<br>
+      <select name="ns34"><option value="">請選擇</option><option>A. 全身癱瘓</option><option>B. 失去記憶</option><option>C. 雙目失明</option><option>D. 以上三項都是</option></select>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>短答 - 人體內的系統和組織各有甚麼功能？</h2>
+    <div class="question"><p>1. 消化系統 <select name="ns35"><option value="">請選擇</option><option>吸取氧，並排出二氧化碳。</option><option>指揮和協調各個系統。</option><option>過濾血液中的廢物和多餘的水分，然後排出體外。</option><option>消化食物和吸收養分，並把糞便排出體外。</option><option>支持身體和保護器官。</option><option>把體內的血液運送到身體各部分。</option></select></p></div>
+    <div class="question"><p>2. 骨骼組織 <select name="ns36"><option value="">請選擇</option><option>吸取氧，並排出二氧化碳。</option><option>指揮和協調各個系統。</option><option>過濾血液中的廢物和多餘的水分，然後排出體外。</option><option>消化食物和吸收養分，並把糞便排出體外。</option><option>支持身體和保護器官。</option><option>把體內的血液運送到身體各部分。</option></select></p></div>
+    <div class="question"><p>3. 呼吸系統 <select name="ns37"><option value="">請選擇</option><option>吸取氧，並排出二氧化碳。</option><option>指揮和協調各個系統。</option><option>過濾血液中的廢物和多餘的水分，然後排出體外。</option><option>消化食物和吸收養分，並把糞便排出體外。</option><option>支持身體和保護器官。</option><option>把體內的血液運送到身體各部分。</option></select></p></div>
+    <div class="question"><p>4. 循環系統 <select name="ns38"><option value="">請選擇</option><option>吸取氧，並排出二氧化碳。</option><option>指揮和協調各個系統。</option><option>過濾血液中的廢物和多餘的水分，然後排出體外。</option><option>消化食物和吸收養分，並把糞便排出體外。</option><option>支持身體和保護器官。</option><option>把體內的血液運送到身體各部分。</option></select></p></div>
+    <div class="question"><p>5. 神經系統 <select name="ns39"><option value="">請選擇</option><option>吸取氧，並排出二氧化碳。</option><option>指揮和協調各個系統。</option><option>過濾血液中的廢物和多餘的水分，然後排出體外。</option><option>消化食物和吸收養分，並把糞便排出體外。</option><option>支持身體和保護器官。</option><option>把體內的血液運送到身體各部分。</option></select></p></div>
+    <div class="question"><p>6. 泌尿系統 <select name="ns40"><option value="">請選擇</option><option>吸取氧，並排出二氧化碳。</option><option>指揮和協調各個系統。</option><option>過濾血液中的廢物和多餘的水分，然後排出體外。</option><option>消化食物和吸收養分，並把糞便排出體外。</option><option>支持身體和保護器官。</option><option>把體內的血液運送到身體各部分。</option></select></p></div>
+  </div>
+
+  <div class="section">
+    <h2>短答</h2>
+    <div class="question"><p>1. 神經系統負責甚麼工作？ <select name="ns41"><option value="">請選擇</option><option>負責傳遞信息至身體各部分，使我們能夠進行記憶、思考、協調動作等。</option><option>遇到某些突然的刺激，身體會不經思考，便作出即時及快速的反射動作，避免受傷。</option><option>常常保持正確的姿勢、減少身體受到碰撞等</option><option>觸摸熱物縮手、膝跳反射、眨眼</option></select></p></div>
+    <div class="question"><p>2. 甚麼是反射動作？ <select name="ns42"><option value="">請選擇</option><option>負責傳遞信息至身體各部分，使我們能夠進行記憶、思考、協調動作等。</option><option>遇到某些突然的刺激，身體會不經思考，便作出即時及快速的反射動作，避免受傷。</option><option>常常保持正確的姿勢、減少身體受到碰撞等</option><option>觸摸熱物縮手、膝跳反射、眨眼</option></select></p></div>
+    <div class="question"><p>3. 如何保護神經系統？ <select name="ns43"><option value="">請選擇</option><option>負責傳遞信息至身體各部分，使我們能夠進行記憶、思考、協調動作等。</option><option>遇到某些突然的刺激，身體會不經思考，便作出即時及快速的反射動作，避免受傷。</option><option>常常保持正確的姿勢、減少身體受到碰撞等</option><option>觸摸熱物縮手、膝跳反射、眨眼</option></select></p></div>
+    <div class="question"><p>4. 反射動作的例子？ <select name="ns44"><option value="">請選擇</option><option>負責傳遞信息至身體各部分，使我們能夠進行記憶、思考、協調動作等。</option><option>遇到某些突然的刺激，身體會不經思考，便作出即時及快速的反射動作，避免受傷。</option><option>常常保持正確的姿勢、減少身體受到碰撞等</option><option>觸摸熱物縮手、膝跳反射、眨眼</option></select></p></div>
+  </div>
+
+  <div class="section">
+    <h2>填充</h2>
+    <div class="question"><p>1. 人體內有不同的系統和<strong>(____)</strong>，負責不同的工作，這些系統互相<strong>(____)</strong>，維持人體的正常<strong>(____)</strong>。</p>
+      <select name="ns45"><option value="">請選擇</option><option>運作</option><option>組織</option><option>配合</option></select>
+      <select name="ns46"><option value="">請選擇</option><option>運作</option><option>組織</option><option>配合</option></select>
+      <select name="ns47"><option value="">請選擇</option><option>運作</option><option>組織</option><option>配合</option></select>
+    </div>
+    <div class="question"><p>2. 神經系統由腦、<strong>(____)</strong>和神經組成，負責<strong>(____)</strong>各個系統。腦發出<strong>(____)</strong>，脊髓和神經負責<strong>(____)</strong>至身體各部分，使我們能夠進行不同的活動，例如記憶、<strong>(____)</strong>、協調動作等。</p>
+      <select name="ns48"><option value="">請選擇</option><option>傳遞信息</option><option>協調</option><option>脊髓</option><option>思考</option><option>指令</option></select>
+      <select name="ns49"><option value="">請選擇</option><option>傳遞信息</option><option>協調</option><option>脊髓</option><option>思考</option><option>指令</option></select>
+      <select name="ns50"><option value="">請選擇</option><option>傳遞信息</option><option>協調</option><option>脊髓</option><option>思考</option><option>指令</option></select>
+      <select name="ns51"><option value="">請選擇</option><option>傳遞信息</option><option>協調</option><option>脊髓</option><option>思考</option><option>指令</option></select>
+      <select name="ns52"><option value="">請選擇</option><option>傳遞信息</option><option>協調</option><option>脊髓</option><option>思考</option><option>指令</option></select>
+    </div>
+    <div class="question"><p>3. 遇到某些突然的<strong>(____)</strong>，身體會不經<strong>(____)</strong>，便作出<strong>(____)</strong>及<strong>(____)</strong>快速的反射動作，避免<strong>(____)</strong>。</p>
+      <select name="ns53"><option value="">請選擇</option><option>即時</option><option>快速</option><option>刺激</option><option>思考</option><option>受傷</option></select>
+      <select name="ns54"><option value="">請選擇</option><option>即時</option><option>快速</option><option>刺激</option><option>思考</option><option>受傷</option></select>
+      <select name="ns55"><option value="">請選擇</option><option>即時</option><option>快速</option><option>刺激</option><option>思考</option><option>受傷</option></select>
+      <select name="ns56"><option value="">請選擇</option><option>即時</option><option>快速</option><option>刺激</option><option>思考</option><option>受傷</option></select>
+      <select name="ns57"><option value="">請選擇</option><option>即時</option><option>快速</option><option>刺激</option><option>思考</option><option>受傷</option></select>
+    </div>
+    <div class="question"><p>4. 神經系統是人體重要的部分，我們應該小心保護，特別是<strong>(____)</strong>和<strong>(____)</strong>。常常保持正確的<strong>(____)</strong>、減少身體受到<strong>(____)</strong>等，可以避免神經系統受到傷害，確保身體正常運作。</p>
+      <select name="ns58"><option value="">請選擇</option><option>碰撞</option><option>脊柱</option><option>姿勢</option><option>頭部</option></select>
+      <select name="ns59"><option value="">請選擇</option><option>碰撞</option><option>脊柱</option><option>姿勢</option><option>頭部</option></select>
+      <select name="ns60"><option value="">請選擇</option><option>碰撞</option><option>脊柱</option><option>姿勢</option><option>頭部</option></select>
+      <select name="ns61"><option value="">請選擇</option><option>碰撞</option><option>脊柱</option><option>姿勢</option><option>頭部</option></select>
+    </div>
+  </div>
+
+  <!-- ====================== 泌尿系統 ====================== -->
+  <div class="section">
+    <h2>2. 泌尿系統 - 看圖判斷人體怎樣吸收水分？比較以下每組方式，比較健康的加✓；比較不健康的加✗。</h2>
+    <div class="question"><p>吃水果 <select name="us1"><option value="">請選擇</option><option>✓</option><option>✗</option></select></p></div>
+    <div class="question"><p>喝果汁 <select name="us2"><option value="">請選擇</option><option>✓</option><option>✗</option></select></p></div>
+    <div class="question"><p>喝汽水 <select name="us3"><option value="">請選擇</option><option>✓</option><option>✗</option></select></p></div>
+    <div class="question"><p>喝清水 <select name="us4"><option value="">請選擇</option><option>✓</option><option>✗</option></select></p></div>
+    <div class="question"><p>喝即食麵的湯 <select name="us5"><option value="">請選擇</option><option>✓</option><option>✗</option></select></p></div>
+    <div class="question"><p>喝蔬菜湯 <select name="us6"><option value="">請選擇</option><option>✓</option><option>✗</option></select></p></div>
+  </div>
+
+  <div class="section">
+    <h2>選擇題</h2>
+    <div class="question"><p>1. 保護泌尿系統的方法？（可多於一個）<br>
+      <select name="us7"><option value="">請選擇</option><option>A. 每天喝適量的水</option><option>B. 少吃薯片</option><option>C. 想小便時便立刻上廁所</option><option>D. 多吃辛辣食物</option></select>
+    </div>
+    <div class="question"><p>2. 與泌尿系統相關的疾病？（可多於一個）<br>
+      <select name="us8"><option value="">請選擇</option><option>A. 腎結石</option><option>B. 心臟病</option><option>C. 尿道炎</option><option>D. 膀胱癌</option></select>
+    </div>
+    <div class="question"><p>3. 哪項不是人體泌尿系統的組成部分？<br>
+      <select name="us9"><option value="">請選擇</option><option>A. 腎</option><option>B. 胃</option><option>C. 膀胱</option><option>D. 輸尿管</option></select>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>填充 - 泌尿系統各部分功能</h2>
+    <div class="question"><p><strong>(____)</strong>：負責過濾血液中的廢物和多餘的<strong>(____)</strong>。</p>
+      <select name="us10"><option value="">請選擇</option><option>尿道</option><option>輸尿管</option><option>膀胱</option><option>腎</option></select>
+      <select name="us11"><option value="">請選擇</option><option>水分</option><option>尿液</option></select>
+    </div>
+    <div class="question"><p><strong>(____)</strong>：負責輸送<strong>(____)</strong>到膀胱。</p>
+      <select name="us12"><option value="">請選擇</option><option>尿道</option><option>輸尿管</option><option>膀胱</option><option>腎</option></select>
+      <select name="us13"><option value="">請選擇</option><option>水分</option><option>尿液</option></select>
+    </div>
+    <div class="question"><p><strong>(____)</strong>：暫時儲存尿液。</p><select name="us14"><option value="">請選擇</option><option>尿道</option><option>輸尿管</option><option>膀胱</option><option>腎</option></select></div>
+    <div class="question"><p><strong>(____)</strong>：把尿液排出體外。</p><select name="us15"><option value="">請選擇</option><option>尿道</option><option>輸尿管</option><option>膀胱</option><option>腎</option></select></div>
+  </div>
+
+  <div class="section">
+    <h2>泌尿系統包括哪些部分？它們的功能？</h2>
+    <div class="question"><p>腎的功能是 <select name="us16"><option value="">請選擇</option><option>暫時儲存尿液。</option><option>過濾血液中的廢物和多餘的。</option><option>輸送尿液到膀胱。</option><option>把尿液排出體外。</option></select></p></div>
+    <div class="question"><p>輸尿管的功能是 <select name="us17"><option value="">請選擇</option><option>暫時儲存尿液。</option><option>過濾血液中的廢物和多餘的。</option><option>輸送尿液到膀胱。</option><option>把尿液排出體外。</option></select></p></div>
+    <div class="question"><p>膀胱的功能是 <select name="us18"><option value="">請選擇</option><option>暫時儲存尿液。</option><option>過濾血液中的廢物和多餘的。</option><option>輸送尿液到膀胱。</option><option>把尿液排出體外。</option></select></p></div>
+    <div class="question"><p>尿道的功能是 <select name="us19"><option value="">請選擇</option><option>暫時儲存尿液。</option><option>過濾血液中的廢物和多餘的。</option><option>輸送尿液到膀胱。</option><option>把尿液排出體外。</option></select></p></div>
+  </div>
+
+  <div class="section">
+    <h2>短答</h2>
+    <div class="question"><p>1. 水對人體有甚麼作用？舉出兩項。<br>
+      <select name="us20"><option value="">請選擇</option><option>幫助人體運送養分</option><option>透過排汗調節體溫</option><option>人透過喝水和進食吸收水分。</option><option>人透過排汗、排尿和呼氣排出水分。</option></select>
+      <select name="us21"><option value="">請選擇</option><option>幫助人體運送養分</option><option>透過排汗調節體溫</option><option>人透過喝水和進食吸收水分。</option><option>人透過排汗、排尿和呼氣排出水分。</option></select>
+    </p></div>
+    <div class="question"><p>2. 寫出人體吸收水分的途徑。 <select name="us22"><option value="">請選擇</option><option>人透過喝水和進食吸收水分。</option><option>人透過排汗、排尿和呼氣排出水分。</option><option>幫助人體運送養分</option><option>透過排汗調節體溫</option><option>按需要上廁所，不強忍小便</option><option>每天喝適量的水</option><option>少吃高鹽分的食物</option></select></p></div>
+    <div class="question"><p>3. 寫出人體排出水分的途徑。 <select name="us23"><option value="">請選擇</option><option>人透過喝水和進食吸收水分。</option><option>人透過排汗、排尿和呼氣排出水分。</option><option>幫助人體運送養分</option><option>透過排汗調節體溫</option><option>按需要上廁所，不強忍小便</option><option>每天喝適量的水</option><option>少吃高鹽分的食物</option></select></p></div>
+    <div class="question"><p>4. 人體排汗有甚麼作用？ <select name="us24"><option value="">請選擇</option><option>幫助人體運送養分</option><option>透過排汗調節體溫</option><option>人透過喝水和進食吸收水分。</option><option>人透過排汗、排尿和呼氣排出水分。</option></select></p></div>
+    <div class="question"><p>5. 保護泌尿系統的方法, 舉出三項。<br>
+      <select name="us25"><option value="">請選擇</option><option>按需要上廁所，不強忍小便</option><option>每天喝適量的水</option><option>少吃高鹽分的食物</option><option>慢性腎衰竭</option><option>腎結石</option><option>膀胱炎</option></select>
+      <select name="us26"><option value="">請選擇</option><option>按需要上廁所，不強忍小便</option><option>每天喝適量的水</option><option>少吃高鹽分的食物</option><option>慢性腎衰竭</option><option>腎結石</option><option>膀胱炎</option></select>
+      <select name="us27"><option value="">請選擇</option><option>按需要上廁所，不強忍小便</option><option>每天喝適量的水</option><option>少吃高鹽分的食物</option><option>慢性腎衰竭</option><option>腎結石</option><option>膀胱炎</option></select>
+    </p></div>
+    <div class="question"><p>6. 泌尿系統的疾病, 舉出三項。<br>
+      <select name="us28"><option value="">請選擇</option><option>按需要上廁所，不強忍小便</option><option>每天喝適量的水</option><option>少吃高鹽分的食物</option><option>慢性腎衰竭</option><option>腎結石</option><option>膀胱炎</option></select>
+      <select name="us29"><option value="">請選擇</option><option>按需要上廁所，不強忍小便</option><option>每天喝適量的水</option><option>少吃高鹽分的食物</option><option>慢性腎衰竭</option><option>腎結石</option><option>膀胱炎</option></select>
+      <select name="us30"><option value="">請選擇</option><option>按需要上廁所，不強忍小便</option><option>每天喝適量的水</option><option>少吃高鹽分的食物</option><option>慢性腎衰竭</option><option>腎結石</option><option>膀胱炎</option></select>
+    </p></div>
+  </div>
+
+  <div class="section">
+    <h2>填充</h2>
+    <div class="question"><p>1. 水是構成人體的重要成分。身體需要水來維持正常運作，例如幫助人體運送<strong>(____)</strong>，透過排汗<strong>(____)</strong>體溫等。排汗、排尿和<strong>(____)</strong>時，身體會<strong>(____)</strong>水分，因此我們每天應該喝適量的<strong>(____)</strong>和吃含豐富水分的食物，例如水果和蔬菜，以補充水分。</p>
+      <select name="us31"><option value="">請選擇</option><option>調節</option><option>呼氣</option><option>養分</option><option>開水</option><option>流失</option></select>
+      <select name="us32"><option value="">請選擇</option><option>調節</option><option>呼氣</option><option>養分</option><option>開水</option><option>流失</option></select>
+      <select name="us33"><option value="">請選擇</option><option>調節</option><option>呼氣</option><option>養分</option><option>開水</option><option>流失</option></select>
+      <select name="us34"><option value="">請選擇</option><option>調節</option><option>呼氣</option><option>養分</option><option>開水</option><option>流失</option></select>
+      <select name="us35"><option value="">請選擇</option><option>調節</option><option>呼氣</option><option>養分</option><option>開水</option><option>流失</option></select>
+    </div>
+    <div class="question"><p>2. 腎是人體主要的泌尿器官，它把血液中的<strong>(____)</strong>和多餘的水分<strong>(____)</strong>，成為尿液。尿液經過<strong>(____)</strong>進入<strong>(____)</strong>，暫時儲存。當膀胱儲存了相當分量的尿液時，我們便要去廁所。尿液通過<strong>(____)</strong>，排出體外。</p>
+      <select name="us36"><option value="">請選擇</option><option>過濾</option><option>廢物</option><option>膀胱</option><option>尿道</option><option>輸尿管</option></select>
+      <select name="us37"><option value="">請選擇</option><option>過濾</option><option>廢物</option><option>膀胱</option><option>尿道</option><option>輸尿管</option></select>
+      <select name="us38"><option value="">請選擇</option><option>過濾</option><option>廢物</option><option>膀胱</option><option>尿道</option><option>輸尿管</option></select>
+      <select name="us39"><option value="">請選擇</option><option>過濾</option><option>廢物</option><option>膀胱</option><option>尿道</option><option>輸尿管</option></select>
+      <select name="us40"><option value="">請選擇</option><option>過濾</option><option>廢物</option><option>膀胱</option><option>尿道</option><option>輸尿管</option></select>
+    </div>
+    <div class="question"><p>3. 每天喝<strong>(____)</strong>的水、少吃高<strong>(____)</strong>食物、不<strong>(____)</strong>小便等，都有助維持泌尿系統的正常運作，預防患上與泌尿系統有關的疾病。</p>
+      <select name="us41"><option value="">請選擇</option><option>強忍</option><option>適量</option><option>鹽分</option></select>
+      <select name="us42"><option value="">請選擇</option><option>強忍</option><option>適量</option><option>鹽分</option></select>
+      <select name="us43"><option value="">請選擇</option><option>強忍</option><option>適量</option><option>鹽分</option></select>
+    </div>
+  </div>
+
+  <button type="submit">全部提交並顯示答案</button>
+
+  <div id="allResults" class="result">
+    <h2>測驗結果總覽</h2>
+    <div id="scoreTotal" class="total-score"></div>
+    <div id="itemsAll"></div>
+    <div id="submitMessage"></div>
+  </div>
+
+</form>
+
+<script>
+function handleQuizSubmit(formId, resultId, itemsId, scoreId, msgId, correctAnswers) {
+  const form = document.getElementById(formId);
+  const resultDiv = document.getElementById(resultId);
+  const itemsDiv = document.getElementById(itemsId);
+  const scoreDiv = document.getElementById(scoreId);
+  const messageDiv = document.getElementById(msgId);
+
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    const controls = form.querySelectorAll('select');
+    let score = 0;
+    itemsDiv.innerHTML = '';
+
+    const answers = [];
+    const totalQuestions = correctAnswers.length - 1;
+
+    for (let i = 1; i <= totalQuestions; i++) {
+      const q = controls[i-1];
+      const userAnswer = q ? q.value.trim() : '';
+      const correct = correctAnswers[i];
+      const isCorrect = (userAnswer === correct && userAnswer !== '');
+
+      if (isCorrect) score++;
+
+      let questionText = `第 ${i} 題`;
+      if (q) {
+        const p = q.closest('.question')?.querySelector('p');
+        if (p) questionText = p.textContent.trim().replace(/\s*\(\_\_\_\)\s*/g, '(____)');
+      }
+
+      const item = document.createElement('div');
+      item.className = 'item';
+      item.innerHTML = `
+        <strong>${questionText}</strong><br><br>
+        你的答案： <span class="${isCorrect ? 'correct' : 'wrong'}">${userAnswer || '(未作答)'}</span><br>
+        <div class="answer-show">正確答案： <span class="correct">${correct}</span></div>
+        <div>得分： ${isCorrect ? '1' : '0'}</div>
+      `;
+      itemsDiv.appendChild(item);
+
+      answers.push({
+        questionNumber: i,
+        question: questionText,
+        yourAnswer: userAnswer || '(未作答)',
+        correctAnswer: correct,
+        result: isCorrect ? '正確' : '錯誤'
+      });
+    }
+
+    scoreDiv.textContent = `總 分： ${score} / ${totalQuestions}`;
+    resultDiv.style.display = 'block';
+    resultDiv.scrollIntoView({ behavior: 'smooth' });
+
+    const payload = {
+      _subject: "人體系統測驗結果提交",
+      score: `${score} / ${totalQuestions}`,
+      timestamp: new Date().toISOString(),
+      answers: JSON.stringify(answers, null, 2)
+    };
+
+    try {
+      const response = await fetch('https://formspree.io/f/xvzwnvwp', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      messageDiv.innerHTML = response.ok
+        ? '<span class="success">✅ 測驗結果已成功送出！</span>'
+        : '<span class="error">送出失敗，請稍後再試。</span>';
+    } catch (err) {
+      messageDiv.innerHTML = '<span class="error">網路錯誤，無法送出結果。</span>';
+    }
+  });
+}
+
+// 正確答案（嚴格按照表單中所有 <select> 出現的順序）
+const correctAnswers = [
+  null,
+  // 神經系統看圖填充 ns1~ns7
+  "腦", "發出", "脊髓", "神經", "神經系統", "記憶", "思考", "協調",
+  // 神經系統功能 ns8~ns10
+  "發出指令", "傳遞信息(連接腦部)", "傳遞信息(連接脊髓和身體各部分)",
+  // 活動功能 ns11~ns15
+  "思考", "記憶", "協調動作", "思考", "協調動作",
+  // 排序 ns16~ns20 (正確順序: 1,3,4,5,2)
+  "1", "5", "2", "3", "4",
+  // 跳台步驟 ns21~ns25
+  "眼睛", "視覺神經", "腦", "脊髓", "運動神經",
+  // 有益/有害 ns26~ns31
+  "✗", "✗", "✓", "✓", "✗", "✓",
+  // 選擇題 ns32~ns34
+  "A. 神經系統", "C. 避免受傷", "D. 以上三項都是",
+  // 短答系統功能 ns35~ns40
+  "消化食物和吸收養分，並把糞便排出體外。",
+  "支持身體和保護器官。",
+  "吸取氧，並排出二氧化碳。",
+  "把體內的血液運送到身體各部分。",
+  "指揮和協調各個系統。",
+  "過濾血液中的廢物和多餘的水分，然後排出體外。",
+  // 短答神經 ns41~ns44
+  "負責傳遞信息至身體各部分，使我們能夠進行記憶、思考、協調動作等。",
+  "遇到某些突然的刺激，身體會不經思考，便作出即時及快速的反射動作，避免受傷。",
+  "常常保持正確的姿勢、減少身體受到碰撞等",
+  "觸摸熱物縮手、膝跳反射、眨眼",
+  // 填充1 ns45~ns47
+  "組織", "配合", "運作",
+  // 填充2 ns48~ns52
+  "脊髓", "協調", "指令", "傳遞信息", "思考",
+  // 填充3 ns53~ns57
+  "刺激", "思考", "即時", "快速", "受傷",
+  // 填充4 ns58~ns61
+  "頭部", "脊柱", "姿勢", "碰撞",
+  // 泌尿吸收水分 us1~us6
+  "✓", "✗", "✗", "✓", "✗", "✓",
+  // 選擇題 us7~us9 (取第一個正確選項)
+  "A. 每天喝適量的水", "A. 腎結石", "B. 胃",
+  // 泌尿填充 us10~us15
+  "腎", "水分", "輸尿管", "尿液", "膀胱", "尿道",
+  // 泌尿功能 us16~us19
+  "過濾血液中的廢物和多餘的。",
+  "輸送尿液到膀胱。",
+  "暫時儲存尿液。",
+  "把尿液排出體外。",
+  // 短答水 us20~us30
+  "幫助人體運送養分", "透過排汗調節體溫",
+  "人透過喝水和進食吸收水分。",
+  "人透過排汗、排尿和呼氣排出水分。",
+  "透過排汗調節體溫",
+  "按需要上廁所，不強忍小便", "每天喝適量的水", "少吃高鹽分的食物",
+  "慢性腎衰竭", "腎結石", "膀胱炎",
+  // 填充水 us31~us35
+  "養分", "調節", "呼氣", "流失", "開水",
+  // 填充腎 us36~us40
+  "廢物", "過濾", "輸尿管", "膀胱", "尿道",
+  // 填充3 us41~us43
+  "適量", "鹽分", "強忍"
+];
+
+handleQuizSubmit("allQuizzes", "allResults", "itemsAll", "scoreTotal", "submitMessage", correctAnswers);
+</script>
+
+</body>
+</html>
