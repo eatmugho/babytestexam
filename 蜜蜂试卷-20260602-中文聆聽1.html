@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>20260602-中文聆聽1</title>
+    <style>
+        body {
+            font-family: "Microsoft YaHei", "Noto Sans TC", Arial, sans-serif;
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            line-height: 1.6;
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+        }
+        .audio-container {
+            text-align: center;
+            margin: 20px 0;
+            padding: 15px;
+            background: #e8f4ff;
+            border-radius: 8px;
+        }
+        .question {
+            background: white;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .question h3 {
+            margin-top: 0;
+            color: #34495e;
+            margin-bottom: 18px;
+        }
+        .options {
+            margin-bottom: 20px;
+        }
+        .option {
+            margin: 10px 0;
+            padding: 8px 0;
+            font-size: 15.5px;
+        }
+        select {
+            width: 100%;
+            padding: 12px;
+            margin: 15px 0;
+            border: 2px solid #3498db;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+        button {
+            display: block;
+            margin: 30px auto;
+            padding: 12px 30px;
+            font-size: 18px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 8px;
+            display: none;
+        }
+        .correct {
+            background-color: #d5f4e6;
+            color: #27ae60;
+        }
+        .incorrect {
+            background-color: #f8d7da;
+            color: #e74c3c;
+        }
+    </style>
+</head>
+<body>
+    <h1>20260602-中文聆聽1</h1>
+    <p style="text-align:center;">近年，人們用不同輸入法輸入文字，你認為有甚麼好處和壞處呢？<br>聆聽錄音《不老的文字》，完成練習。</p>
+
+    <div class="audio-container">
+        <p><strong>聆聽錄音：</strong></p>
+        <iframe src="https://players.brightcove.net/6144772950001/default_default/index.html?videoId=6175743638001" 
+                width="100%" height="100" allowfullscreen frameborder="0"></iframe>
+    </div>
+
+    <form id="quizForm">
+        <!-- Question 1 -->
+        <div class="question">
+            <h3>1. 下列哪一項是媽媽對志偉寫字的評價？</h3>
+            <div class="options">
+                <div class="option">A. 握筆手勢正確，但坐姿不端正。</div>
+                <div class="option">B. 沒有專注地按筆順來書寫。</div>
+                <div class="option">C. 握筆手勢不正確，但坐姿尚算端正。</div>
+                <div class="option">D. 字體東歪西倒，連筆畫都看不清。</div>
+            </div>
+            <select id="q1" required>
+                <option value="">請選擇答案...</option>
+                <option value="A">A. 握筆手勢正確，但坐姿不端正。</option>
+                <option value="B">B. 沒有專注地按筆順來書寫。</option>
+                <option value="C">C. 握筆手勢不正確，但坐姿尚算端正。</option>
+                <option value="D">D. 字體東歪西倒，連筆畫都看不清。</option>
+            </select>
+        </div>
+
+        <!-- Question 2 -->
+        <div class="question">
+            <h3>2. 下列哪一項是志偉對文字的看法？</h3>
+            <div class="options">
+                <div class="option">A. 文字是一種表達情感的符號。</div>
+                <div class="option">B. 人們都很注重文字寫得好不好看。</div>
+                <div class="option">C. 古文字能充分表達豐富的意義。</div>
+                <div class="option">D. 文字要記載知識，與時並進。</div>
+            </div>
+            <select id="q2" required>
+                <option value="">請選擇答案...</option>
+                <option value="A">A. 文字是一種表達情感的符號。</option>
+                <option value="B">B. 人們都很注重文字寫得好不好看。</option>
+                <option value="C">C. 古文字能充分表達豐富的意義。</option>
+                <option value="D">D. 文字要記載知識，與時並進。</option>
+            </select>
+        </div>
+
+        <!-- Question 3 -->
+        <div class="question">
+            <h3>3. 志偉對手寫文字有甚麼預測？</h3>
+            <div class="options">
+                <div class="option">A. 人們會覺得寫字很沒趣。</div>
+                <div class="option">B. 有一天會被電腦字淘汰。</div>
+                <div class="option">C. 人們只會在意電腦字形好不好看。</div>
+                <div class="option">D. 沒有人喜歡看手寫文字。</div>
+            </div>
+            <select id="q3" required>
+                <option value="">請選擇答案...</option>
+                <option value="A">A. 人們會覺得寫字很沒趣。</option>
+                <option value="B">B. 有一天會被電腦字淘汰。</option>
+                <option value="C">C. 人們只會在意電腦字形好不好看。</option>
+                <option value="D">D. 沒有人喜歡看手寫文字。</option>
+            </select>
+        </div>
+
+        <!-- Question 4 -->
+        <div class="question">
+            <h3>4. 媽媽對很多人使用輸入法輸入中文字有甚麼看法？</h3>
+            <div class="options">
+                <div class="option">A. 好好書寫中文字同樣重要。</div>
+                <div class="option">B. 使用輸入法需要配合好看的字形。</div>
+                <div class="option">C. 反對大家依賴輸入法。</div>
+                <div class="option">D. 希望輸入法輸入的字跟手寫字相似。</div>
+            </div>
+            <select id="q4" required>
+                <option value="">請選擇答案...</option>
+                <option value="A">A. 好好書寫中文字同樣重要。</option>
+                <option value="B">B. 使用輸入法需要配合好看的字形。</option>
+                <option value="C">C. 反對大家依賴輸入法。</option>
+                <option value="D">D. 希望輸入法輸入的字跟手寫字相似。</option>
+            </select>
+        </div>
+
+        <!-- Question 5 -->
+        <div class="question">
+            <h3>5. 下列哪一項不是文字國王對不同輸入法的敘述？</h3>
+            <div class="options">
+                <div class="option">A. 字形輸入法是以字的偏旁來作依據。</div>
+                <div class="option">B. 拼音輸入法是根據字的讀音作為輸入文字的基礎。</div>
+                <div class="option">C. 語音輸入法需要根據字形配合讀音來輸入文字。</div>
+                <div class="option">D. 手寫輸入法是直接在指定的裝置上寫字。</div>
+            </div>
+            <select id="q5" required>
+                <option value="">請選擇答案...</option>
+                <option value="A">A. 字形輸入法是以字的偏旁來作依據。</option>
+                <option value="B">B. 拼音輸入法是根據字的讀音作為輸入文字的基礎。</option>
+                <option value="C">C. 語音輸入法需要根據字形配合讀音來輸入文字。</option>
+                <option value="D">D. 手寫輸入法是直接在指定的裝置上寫字。</option>
+            </select>
+        </div>
+
+        <!-- Question 6 -->
+        <div class="question">
+            <h3>6. 下列哪一項有關輸入法的敘述不正確？</h3>
+            <div class="options">
+                <div class="option">A. 要清楚筆順才可使用字形輸入法。</div>
+                <div class="option">B. 要清楚字的讀音才可使用拼音輸入法。</div>
+                <div class="option">C. 手寫字太難看會影響電腦的判斷。</div>
+                <div class="option">D. 發音不正確會影響語音輸入。</div>
+            </div>
+            <select id="q6" required>
+                <option value="">請選擇答案...</option>
+                <option value="A">A. 要清楚筆順才可使用字形輸入法。</option>
+                <option value="B">B. 要清楚字的讀音才可使用拼音輸入法。</option>
+                <option value="C">C. 手寫字太難看會影響電腦的判斷。</option>
+                <option value="D">D. 發音不正確會影響語音輸入。</option>
+            </select>
+        </div>
+
+        <button type="button" onclick="submitQuiz()">提交答案</button>
+    </form>
+
+    <div id="result" class="result"></div>
+
+    <script>
+        const correctAnswers = {
+            q1: "A",
+            q2: "D",
+            q3: "B",
+            q4: "A",
+            q5: "C",
+            q6: "A"
+        };
+
+        function submitQuiz() {
+            let score = 0;
+            let total = 6;
+            let resultHTML = "<h2>20260602-中文聆聽1結果</h2>";
+
+            for (let i = 1; i <= 6; i++) {
+                const selected = document.getElementById(`q${i}`).value;
+                const correct = correctAnswers[`q${i}`];
+                const isCorrect = selected === correct;
+
+                if (isCorrect) score++;
+
+                const status = isCorrect ? 
+                    `<span style="color:green;font-weight:bold;">✓ 正確</span>` : 
+                    `<span style="color:red;font-weight:bold;">✗ 錯誤 (正確答案：${correct})</span>`;
+
+                resultHTML += `
+                    <div class="option ${isCorrect ? 'correct' : 'incorrect'}">
+                        <strong>第 ${i} 題：</strong> ${status}
+                    </div>`;
+            }
+
+            resultHTML += `<h3>你的得分：${score} / ${total}</h3>`;
+            if (score === total) {
+                resultHTML += `<p style="color:green;font-weight:bold;">恭喜你！全部正確！</p>`;
+            } else if (score >= 4) {
+                resultHTML += `<p style="color:#f39c12;">表現不錯！再接再厲！</p>`;
+            } else {
+                resultHTML += `<p>建議再聆聽錄音，溫習一次。</p>`;
+            }
+
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = resultHTML;
+            resultDiv.style.display = 'block';
+            resultDiv.scrollIntoView({ behavior: "smooth" });
+        }
+
+        // Auto-save progress
+        window.addEventListener('load', () => {
+            for (let i = 1; i <= 6; i++) {
+                const saved = localStorage.getItem(`q${i}`);
+                if (saved) document.getElementById(`q${i}`).value = saved;
+            }
+        });
+
+        // Save answers when changed
+        document.querySelectorAll('select').forEach(select => {
+            select.addEventListener('change', () => {
+                localStorage.setItem(select.id, select.value);
+            });
+        });
+    </script>
+</body>
+</html>
