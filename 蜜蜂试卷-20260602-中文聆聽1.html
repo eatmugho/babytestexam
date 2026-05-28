@@ -1,272 +1,369 @@
 <!DOCTYPE html>
-<html lang="zh-HK">
+<html lang="zh-TW">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>20260602-中文聆聽1</title>
-    <style>
-        body {
-            font-family: "Microsoft YaHei", "Noto Sans TC", Arial, sans-serif;
-            max-width: 900px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: #f9f9f9;
-            line-height: 1.6;
-        }
-        h1 {
-            text-align: center;
-            color: #2c3e50;
-        }
-        .audio-container {
-            text-align: center;
-            margin: 20px 0;
-            padding: 15px;
-            background: #e8f4ff;
-            border-radius: 8px;
-        }
-        .question {
-            background: white;
-            padding: 25px;
-            margin-bottom: 25px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-        .question h3 {
-            margin-top: 0;
-            color: #34495e;
-            margin-bottom: 18px;
-        }
-        .options {
-            margin-bottom: 20px;
-        }
-        .option {
-            margin: 10px 0;
-            padding: 8px 0;
-            font-size: 15.5px;
-        }
-        select {
-            width: 100%;
-            padding: 12px;
-            margin: 15px 0;
-            border: 2px solid #3498db;
-            border-radius: 6px;
-            font-size: 16px;
-        }
-        button {
-            display: block;
-            margin: 30px auto;
-            padding: 12px 30px;
-            font-size: 18px;
-            background-color: #3498db;
-            color: white;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #2980b9;
-        }
-        .result {
-            margin-top: 20px;
-            padding: 20px;
-            border-radius: 8px;
-            display: none;
-        }
-        .correct {
-            background-color: #d5f4e6;
-            color: #27ae60;
-        }
-        .incorrect {
-            background-color: #f8d7da;
-            color: #e74c3c;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self';
+    connect-src *;
+    script-src 'self' 'unsafe-inline';
+    style-src 'self' 'unsafe-inline';
+  ">
+  <title>20260602-普通話 - 《不老的文字》</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, "Microsoft JhengHei", sans-serif;
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+      line-height: 1.6;
+      color: #333;
+    }
+    h1, h2, h3 {
+      text-align: center;
+      color: #2c3e50;
+      margin: 50px 0 30px;
+    }
+    .section {
+      margin-bottom: 60px;
+    }
+    .question {
+      margin: 25px 0;
+      padding: 20px;
+      background: #f9fbfc;
+      border-radius: 10px;
+      border-left: 5px solid #3498db;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    .question p {
+      margin: 0 0 12px 0;
+      font-size: 1.1rem;
+    }
+    .options {
+      margin: 15px 0 20px 0;
+      padding-left: 20px;
+    }
+    .options p {
+      margin: 8px 0;
+      font-size: 1.05rem;
+    }
+    strong {
+      color: #e74c3c;
+    }
+    select {
+      padding: 10px 14px;
+      font-size: 1.02rem;
+      min-width: 100%;
+      border-radius: 6px;
+      border: 1px solid #bdc3c7;
+      background: white;
+      display: block;
+      margin: 15px 0;
+    }
+    select:focus {
+      outline: none;
+      border-color: #3498db;
+      box-shadow: 0 0 0 3px rgba(52,152,219,0.2);
+    }
+    button {
+      display: block;
+      margin: 60px auto;
+      padding: 18px 80px;
+      font-size: 1.35rem;
+      font-weight: bold;
+      background: #27ae60;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    button:hover {
+      background: #219653;
+    }
+    .result {
+      display: none;
+      margin: 40px 0;
+      padding: 30px;
+      background: #f4f6f9;
+      border-radius: 12px;
+      border: 1px solid #dfe6ed;
+    }
+    .total-score {
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-align: center;
+      margin: 30px 0 20px;
+      padding: 20px;
+      background: #d4edda;
+      border-radius: 10px;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+    }
+    .item {
+      margin: 18px 0;
+      padding: 16px;
+      background: white;
+      border-radius: 8px;
+      border: 1px solid #eee;
+    }
+    .correct { color: #27ae60; font-weight: bold; }
+    .wrong   { color: #c0392b; font-weight: bold; }
+    .answer-show {
+      margin-top: 8px;
+      font-size: 0.98rem;
+      color: #555;
+    }
+    #submitMessage {
+      text-align: center;
+      margin-top: 25px;
+      font-size: 1.15rem;
+    }
+    .success { color: #27ae60; }
+    .error   { color: #c0392b; }
+    .subtitle {
+      text-align: center;
+      color: #555;
+      margin-bottom: 30px;
+    }
+    .audio-link {
+      text-align: center;
+      margin: 20px 0;
+      font-size: 1.1rem;
+    }
+  </style>
 </head>
 <body>
-    <h1>20260602-中文聆聽1</h1>
-    <p style="text-align:center;">近年，人們用不同輸入法輸入文字，你認為有甚麼好處和壞處呢？<br>聆聽錄音《不老的文字》，完成練習。</p>
 
-    <div class="audio-container">
-        <p><strong>聆聽錄音：</strong></p>
-        <iframe src="https://players.brightcove.net/6144772950001/default_default/index.html?videoId=6175743638001" 
-                width="100%" height="100" allowfullscreen frameborder="0"></iframe>
+<h1>20260602-普通話 - 《不老的文字》</h1>
+<p class="subtitle">請先聆聽錄音，然後完成以下練習</p>
+
+<div class="audio-link">
+  <a href="https://players.brightcove.net/6144772950001/default_default/index.html?videoId=6175743638001" target="_blank">
+    🎧 聆聽錄音：《不老的文字》
+  </a>
+</div>
+
+<form id="allQuizzes">
+
+  <!-- ====================== 《不老的文字》 ====================== -->
+  <div class="section">
+    <h2>《不老的文字》 聽力理解</h2>
+    
+    <div class="question">
+      <p><strong>1</strong> 下列哪一項是媽媽對志偉寫字的評價？</p>
+      <div class="options">
+        <p>A. 握筆手勢正確，但坐姿不端正。</p>
+        <p>B. 沒有專注地按筆順來書寫。</p>
+        <p>C. 握筆手勢不正確，但坐姿尚算端正。</p>
+        <p>D. 字體東歪西倒，連筆畫都看不清。</p>
+      </div>
+      <p>你的答案：
+        <select name="q1" data-question="1. 媽媽對志偉寫字的評價">
+          <option value="">請選擇答案</option>
+          <option value="A">A. 握筆手勢正確，但坐姿不端正。</option>
+          <option value="B">B. 沒有專注地按筆順來書寫。</option>
+          <option value="C">C. 握筆手勢不正確，但坐姿尚算端正。</option>
+          <option value="D">D. 字體東歪西倒，連筆畫都看不清。</option>
+        </select>
+      </p>
     </div>
 
-    <form id="quizForm">
-        <!-- Question 1 -->
-        <div class="question">
-            <h3>1. 下列哪一項是媽媽對志偉寫字的評價？</h3>
-            <div class="options">
-                <div class="option">A. 握筆手勢正確，但坐姿不端正。</div>
-                <div class="option">B. 沒有專注地按筆順來書寫。</div>
-                <div class="option">C. 握筆手勢不正確，但坐姿尚算端正。</div>
-                <div class="option">D. 字體東歪西倒，連筆畫都看不清。</div>
-            </div>
-            <select id="q1" required>
-                <option value="">請選擇答案...</option>
-                <option value="A">A. 握筆手勢正確，但坐姿不端正。</option>
-                <option value="B">B. 沒有專注地按筆順來書寫。</option>
-                <option value="C">C. 握筆手勢不正確，但坐姿尚算端正。</option>
-                <option value="D">D. 字體東歪西倒，連筆畫都看不清。</option>
-            </select>
-        </div>
+    <div class="question">
+      <p><strong>2</strong> 下列哪一項是志偉對文字的看法？</p>
+      <div class="options">
+        <p>A. 文字是一種表達情感的符號。</p>
+        <p>B. 人們都很注重文字寫得好不好看。</p>
+        <p>C. 古文字能充分表達豐富的意義。</p>
+        <p>D. 文字要記載知識，與時並進。</p>
+      </div>
+      <p>你的答案：
+        <select name="q2" data-question="2. 志偉對文字的看法">
+          <option value="">請選擇答案</option>
+          <option value="A">A. 文字是一種表達情感的符號。</option>
+          <option value="B">B. 人們都很注重文字寫得好不好看。</option>
+          <option value="C">C. 古文字能充分表達豐富的意義。</option>
+          <option value="D">D. 文字要記載知識，與時並進。</option>
+        </select>
+      </p>
+    </div>
 
-        <!-- Question 2 -->
-        <div class="question">
-            <h3>2. 下列哪一項是志偉對文字的看法？</h3>
-            <div class="options">
-                <div class="option">A. 文字是一種表達情感的符號。</div>
-                <div class="option">B. 人們都很注重文字寫得好不好看。</div>
-                <div class="option">C. 古文字能充分表達豐富的意義。</div>
-                <div class="option">D. 文字要記載知識，與時並進。</div>
-            </div>
-            <select id="q2" required>
-                <option value="">請選擇答案...</option>
-                <option value="A">A. 文字是一種表達情感的符號。</option>
-                <option value="B">B. 人們都很注重文字寫得好不好看。</option>
-                <option value="C">C. 古文字能充分表達豐富的意義。</option>
-                <option value="D">D. 文字要記載知識，與時並進。</option>
-            </select>
-        </div>
+    <div class="question">
+      <p><strong>3</strong> 志偉對手寫文字有甚麼預測？</p>
+      <div class="options">
+        <p>A. 人們會覺得寫字很沒趣。</p>
+        <p>B. 有一天會被電腦字淘汰。</p>
+        <p>C. 人們只會在意電腦字形好不好看。</p>
+        <p>D. 沒有人喜歡看手寫文字。</p>
+      </div>
+      <p>你的答案：
+        <select name="q3" data-question="3. 志偉對手寫文字的預測">
+          <option value="">請選擇答案</option>
+          <option value="A">A. 人們會覺得寫字很沒趣。</option>
+          <option value="B">B. 有一天會被電腦字淘汰。</option>
+          <option value="C">C. 人們只會在意電腦字形好不好看。</option>
+          <option value="D">D. 沒有人喜歡看手寫文字。</option>
+        </select>
+      </p>
+    </div>
 
-        <!-- Question 3 -->
-        <div class="question">
-            <h3>3. 志偉對手寫文字有甚麼預測？</h3>
-            <div class="options">
-                <div class="option">A. 人們會覺得寫字很沒趣。</div>
-                <div class="option">B. 有一天會被電腦字淘汰。</div>
-                <div class="option">C. 人們只會在意電腦字形好不好看。</div>
-                <div class="option">D. 沒有人喜歡看手寫文字。</div>
-            </div>
-            <select id="q3" required>
-                <option value="">請選擇答案...</option>
-                <option value="A">A. 人們會覺得寫字很沒趣。</option>
-                <option value="B">B. 有一天會被電腦字淘汰。</option>
-                <option value="C">C. 人們只會在意電腦字形好不好看。</option>
-                <option value="D">D. 沒有人喜歡看手寫文字。</option>
-            </select>
-        </div>
+    <div class="question">
+      <p><strong>4</strong> 媽媽對很多人使用輸入法輸入中文字有甚麼看法？</p>
+      <div class="options">
+        <p>A. 好好書寫中文字同樣重要。</p>
+        <p>B. 使用輸入法需要配合好看的字形。</p>
+        <p>C. 反對大家依賴輸入法。</p>
+        <p>D. 希望輸入法輸入的字跟手寫字相似。</p>
+      </div>
+      <p>你的答案：
+        <select name="q4" data-question="4. 媽媽對輸入法的看法">
+          <option value="">請選擇答案</option>
+          <option value="A">A. 好好書寫中文字同樣重要。</option>
+          <option value="B">B. 使用輸入法需要配合好看的字形。</option>
+          <option value="C">C. 反對大家依賴輸入法。</option>
+          <option value="D">D. 希望輸入法輸入的字跟手寫字相似。</option>
+        </select>
+      </p>
+    </div>
 
-        <!-- Question 4 -->
-        <div class="question">
-            <h3>4. 媽媽對很多人使用輸入法輸入中文字有甚麼看法？</h3>
-            <div class="options">
-                <div class="option">A. 好好書寫中文字同樣重要。</div>
-                <div class="option">B. 使用輸入法需要配合好看的字形。</div>
-                <div class="option">C. 反對大家依賴輸入法。</div>
-                <div class="option">D. 希望輸入法輸入的字跟手寫字相似。</div>
-            </div>
-            <select id="q4" required>
-                <option value="">請選擇答案...</option>
-                <option value="A">A. 好好書寫中文字同樣重要。</option>
-                <option value="B">B. 使用輸入法需要配合好看的字形。</option>
-                <option value="C">C. 反對大家依賴輸入法。</option>
-                <option value="D">D. 希望輸入法輸入的字跟手寫字相似。</option>
-            </select>
-        </div>
+    <div class="question">
+      <p><strong>5</strong> 下列哪一項不是文字國王對不同輸入法的敘述？</p>
+      <div class="options">
+        <p>A. 字形輸入法是以字的偏旁來作依據。</p>
+        <p>B. 拼音輸入法是根據字的讀音作為輸入文字的基礎。</p>
+        <p>C. 語音輸入法需要根據字形配合讀音來輸入文字。</p>
+        <p>D. 手寫輸入法是直接在指定的裝置上寫字。</p>
+      </div>
+      <p>你的答案：
+        <select name="q5" data-question="5. 不是文字國王的敘述">
+          <option value="">請選擇答案</option>
+          <option value="A">A. 字形輸入法是以字的偏旁來作依據。</option>
+          <option value="B">B. 拼音輸入法是根據字的讀音作為輸入文字的基礎。</option>
+          <option value="C">C. 語音輸入法需要根據字形配合讀音來輸入文字。</option>
+          <option value="D">D. 手寫輸入法是直接在指定的裝置上寫字。</option>
+        </select>
+      </p>
+    </div>
 
-        <!-- Question 5 -->
-        <div class="question">
-            <h3>5. 下列哪一項不是文字國王對不同輸入法的敘述？</h3>
-            <div class="options">
-                <div class="option">A. 字形輸入法是以字的偏旁來作依據。</div>
-                <div class="option">B. 拼音輸入法是根據字的讀音作為輸入文字的基礎。</div>
-                <div class="option">C. 語音輸入法需要根據字形配合讀音來輸入文字。</div>
-                <div class="option">D. 手寫輸入法是直接在指定的裝置上寫字。</div>
-            </div>
-            <select id="q5" required>
-                <option value="">請選擇答案...</option>
-                <option value="A">A. 字形輸入法是以字的偏旁來作依據。</option>
-                <option value="B">B. 拼音輸入法是根據字的讀音作為輸入文字的基礎。</option>
-                <option value="C">C. 語音輸入法需要根據字形配合讀音來輸入文字。</option>
-                <option value="D">D. 手寫輸入法是直接在指定的裝置上寫字。</option>
-            </select>
-        </div>
+    <div class="question">
+      <p><strong>6</strong> 下列哪一項有關輸入法的敘述不正確？</p>
+      <div class="options">
+        <p>A. 要清楚筆順才可使用字形輸入法。</p>
+        <p>B. 要清楚字的讀音才可使用拼音輸入法。</p>
+        <p>C. 手寫字太難看會影響電腦的判斷。</p>
+        <p>D. 發音不正確會影響語音輸入。</p>
+      </div>
+      <p>你的答案：
+        <select name="q6" data-question="6. 不正確的輸入法敘述">
+          <option value="">請選擇答案</option>
+          <option value="A">A. 要清楚筆順才可使用字形輸入法。</option>
+          <option value="B">B. 要清楚字的讀音才可使用拼音輸入法。</option>
+          <option value="C">C. 手寫字太難看會影響電腦的判斷。</option>
+          <option value="D">D. 發音不正確會影響語音輸入。</option>
+        </select>
+      </p>
+    </div>
+  </div>
 
-        <!-- Question 6 -->
-        <div class="question">
-            <h3>6. 下列哪一項有關輸入法的敘述不正確？</h3>
-            <div class="options">
-                <div class="option">A. 要清楚筆順才可使用字形輸入法。</div>
-                <div class="option">B. 要清楚字的讀音才可使用拼音輸入法。</div>
-                <div class="option">C. 手寫字太難看會影響電腦的判斷。</div>
-                <div class="option">D. 發音不正確會影響語音輸入。</div>
-            </div>
-            <select id="q6" required>
-                <option value="">請選擇答案...</option>
-                <option value="A">A. 要清楚筆順才可使用字形輸入法。</option>
-                <option value="B">B. 要清楚字的讀音才可使用拼音輸入法。</option>
-                <option value="C">C. 手寫字太難看會影響電腦的判斷。</option>
-                <option value="D">D. 發音不正確會影響語音輸入。</option>
-            </select>
-        </div>
+  <button type="submit">全部提交並顯示答案</button>
 
-        <button type="button" onclick="submitQuiz()">提交答案</button>
-    </form>
+  <div id="allResults" class="result">
+    <h2>測驗結果總覽</h2>
+    <div id="scoreTotal" class="total-score"></div>
+    <div id="itemsAll"></div>
+    <div id="submitMessage"></div>
+  </div>
 
-    <div id="result" class="result"></div>
+</form>
 
-    <script>
-        const correctAnswers = {
-            q1: "A",
-            q2: "D",
-            q3: "B",
-            q4: "A",
-            q5: "C",
-            q6: "A"
-        };
+<script>
+function handleQuizSubmit(formId, resultId, itemsId, scoreId, msgId, correctAnswers) {
+  const form = document.getElementById(formId);
+  const resultDiv = document.getElementById(resultId);
+  const itemsDiv = document.getElementById(itemsId);
+  const scoreDiv = document.getElementById(scoreId);
+  const messageDiv = document.getElementById(msgId);
 
-        function submitQuiz() {
-            let score = 0;
-            let total = 6;
-            let resultHTML = "<h2>20260602-中文聆聽1結果</h2>";
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
 
-            for (let i = 1; i <= 6; i++) {
-                const selected = document.getElementById(`q${i}`).value;
-                const correct = correctAnswers[`q${i}`];
-                const isCorrect = selected === correct;
+    const controls = form.querySelectorAll('select');
+    let score = 0;
+    itemsDiv.innerHTML = '';
 
-                if (isCorrect) score++;
+    const answers = [];
+    const totalQuestions = correctAnswers.length - 1;
 
-                const status = isCorrect ? 
-                    `<span style="color:green;font-weight:bold;">✓ 正確</span>` : 
-                    `<span style="color:red;font-weight:bold;">✗ 錯誤 (正確答案：${correct})</span>`;
+    for (let i = 1; i <= totalQuestions; i++) {
+      const q = controls[i-1];
+      const userAnswer = q ? q.value.trim() : '';
+      const correct = correctAnswers[i];
+      const isCorrect = (userAnswer === correct && userAnswer !== '');
 
-                resultHTML += `
-                    <div class="option ${isCorrect ? 'correct' : 'incorrect'}">
-                        <strong>第 ${i} 題：</strong> ${status}
-                    </div>`;
-            }
+      if (isCorrect) score++;
 
-            resultHTML += `<h3>你的得分：${score} / ${total}</h3>`;
-            if (score === total) {
-                resultHTML += `<p style="color:green;font-weight:bold;">恭喜你！全部正確！</p>`;
-            } else if (score >= 4) {
-                resultHTML += `<p style="color:#f39c12;">表現不錯！再接再厲！</p>`;
-            } else {
-                resultHTML += `<p>建議再聆聽錄音，溫習一次。</p>`;
-            }
+      let questionText = q && q.dataset.question 
+        ? q.dataset.question 
+        : `第 ${i} 題`;
 
-            const resultDiv = document.getElementById('result');
-            resultDiv.innerHTML = resultHTML;
-            resultDiv.style.display = 'block';
-            resultDiv.scrollIntoView({ behavior: "smooth" });
-        }
+      const item = document.createElement('div');
+      item.className = 'item';
+      item.innerHTML = `
+        <strong>${questionText}</strong><br><br>
+        你的答案： <span class="${isCorrect ? 'correct' : 'wrong'}">${userAnswer || '(未作答)'}</span><br>
+        <div class="answer-show">正確答案： <span class="correct">${correct}</span></div>
+        <div>得分： ${isCorrect ? '1' : '0'}</div>
+      `;
+      itemsDiv.appendChild(item);
 
-        // Auto-save progress
-        window.addEventListener('load', () => {
-            for (let i = 1; i <= 6; i++) {
-                const saved = localStorage.getItem(`q${i}`);
-                if (saved) document.getElementById(`q${i}`).value = saved;
-            }
-        });
+      answers.push({
+        questionNumber: i,
+        question: questionText,
+        yourAnswer: userAnswer || '(未作答)',
+        correctAnswer: correct,
+        result: isCorrect ? '正確' : '錯誤'
+      });
+    }
 
-        // Save answers when changed
-        document.querySelectorAll('select').forEach(select => {
-            select.addEventListener('change', () => {
-                localStorage.setItem(select.id, select.value);
-            });
-        });
-    </script>
+    scoreDiv.textContent = `總 分： ${score} / ${totalQuestions}`;
+    resultDiv.style.display = 'block';
+    resultDiv.scrollIntoView({ behavior: 'smooth' });
+
+    const payload = {
+      _subject: "20260602-普通話《不老的文字》結果提交",
+      score: `${score} / ${totalQuestions}`,
+      timestamp: new Date().toISOString(),
+      answers: JSON.stringify(answers, null, 2)
+    };
+
+    try {
+      const response = await fetch('https://formspree.io/f/xvzwnvwp', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      messageDiv.innerHTML = response.ok
+        ? '<span class="success">✅ 測驗結果已成功送出！</span>'
+        : '<span class="error">送出失敗，請稍後再試。</span>';
+    } catch (err) {
+      messageDiv.innerHTML = '<span class="error">網路錯誤，無法送出結果。</span>';
+    }
+  });
+}
+
+// 正確答案
+const correctAnswers = [
+  null,
+  "A",  // 1
+  "D",  // 2
+  "B",  // 3
+  "A",  // 4
+  "C",  // 5
+  "C"   // 6
+];
+
+handleQuizSubmit("allQuizzes", "allResults", "itemsAll", "scoreTotal", "submitMessage", correctAnswers);
+</script>
+
 </body>
 </html>
