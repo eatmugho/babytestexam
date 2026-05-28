@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self';
+    connect-src *;
+    script-src 'self' 'unsafe-inline';
+    style-src 'self' 'unsafe-inline';
+  ">
+  <title>20260603-音樂</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, "Microsoft JhengHei", sans-serif;
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+      line-height: 1.6;
+      color: #333;
+    }
+    h1, h2, h3 {
+      text-align: center;
+      color: #2c3e50;
+      margin: 50px 0 30px;
+    }
+    .section {
+      margin-bottom: 60px;
+    }
+    .question {
+      margin: 25px 0;
+      padding: 20px;
+      background: #f9fbfc;
+      border-radius: 10px;
+      border-left: 5px solid #3498db;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    .question p {
+      margin: 0 0 12px 0;
+      font-size: 1.1rem;
+    }
+    strong {
+      color: #e74c3c;
+    }
+    select {
+      padding: 10px 14px;
+      font-size: 1.05rem;
+      min-width: 180px;
+      border-radius: 6px;
+      border: 1px solid #bdc3c7;
+      background: white;
+    }
+    select:focus {
+      outline: none;
+      border-color: #3498db;
+      box-shadow: 0 0 0 3px rgba(52,152,219,0.2);
+    }
+    button {
+      display: block;
+      margin: 60px auto;
+      padding: 18px 80px;
+      font-size: 1.35rem;
+      font-weight: bold;
+      background: #27ae60;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    button:hover {
+      background: #219653;
+    }
+    .result {
+      display: none;
+      margin: 40px 0;
+      padding: 30px;
+      background: #f4f6f9;
+      border-radius: 12px;
+      border: 1px solid #dfe6ed;
+    }
+    .total-score {
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-align: center;
+      margin: 30px 0 20px;
+      padding: 20px;
+      background: #d4edda;
+      border-radius: 10px;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+    }
+    .item {
+      margin: 18px 0;
+      padding: 16px;
+      background: white;
+      border-radius: 8px;
+      border: 1px solid #eee;
+    }
+    .correct { color: #27ae60; font-weight: bold; }
+    .wrong   { color: #c0392b; font-weight: bold; }
+    .answer-show {
+      margin-top: 8px;
+      font-size: 0.98rem;
+      color: #555;
+    }
+    #submitMessage {
+      text-align: center;
+      margin-top: 25px;
+      font-size: 1.15rem;
+    }
+    .success { color: #27ae60; }
+    .error   { color: #c0392b; }
+    .subtitle {
+      text-align: center;
+      color: #555;
+      margin-bottom: 30px;
+    }
+  </style>
+</head>
+<body>
+
+<h1>20260603-音樂</h1>
+<p class="subtitle">請完成所有題目後按下方按鈕一次提交</p>
+
+<form id="allQuizzes">
+
+  <!-- ====================== 1. 認識C/G大調音階 ====================== -->
+  <div class="section">
+    <h2>1. 認識C/G大調音階</h2>
+    
+    <div class="question">
+      <img src="蜜蜂试卷-20260603-音樂-1.png"/>
+      <p>以上旋律主音 d 的音名是(<select name="q1" data-question="1. 主音 d 的音名"><option value="">請選擇</option><option>C</option><option>G</option><option>F</option><option>F#</option></select>)，t' 的音名是(<select name="q2" data-question="1. t' 的音名"><option value="">請選擇</option><option>C</option><option>G</option><option>F</option><option>F#</option></select>)，是(<select name="q3" data-question="1. 是哪個大調"><option value="">請選擇</option><option>C</option><option>G</option><option>F</option><option>F#</option></select>) 大調的音樂。</p>
+    </div>
+
+    <div class="question">
+      <img src="蜜蜂试卷-20260603-音樂-2.png"/>
+      <p>以上旋律主音 d 的音名是(<select name="q4" data-question="1. 主音 d 的音名 (2)"><option value="">請選擇</option><option>C</option><option>G</option><option>F</option><option>F#</option></select>)，t' 的音名是(<select name="q5" data-question="1. t' 的音名 (2)"><option value="">請選擇</option><option>C</option><option>G</option><option>F</option><option>F#</option></select>)，是(<select name="q6" data-question="1. 是哪個大調 (2)"><option value="">請選擇</option><option>C</option><option>G</option><option>F</option><option>F#</option></select>) 大調的音樂。</p>
+    </div>
+
+    <div class="question">
+      <p>C 大調音階有幾個升號或降號？<br>
+      <select name="q7" data-question="1. C 大調音階升降號"><option value="">請選擇</option><option>1 個降號</option><option>0 個</option><option>1 個升號</option><option>2 個升號</option></select></p>
+    </div>
+
+    <div class="question">
+      <p>G 大調音階有幾個升號或降號？<br>
+      <select name="q8" data-question="1. G 大調音階升降號"><option value="">請選擇</option><option>1 個降號</option><option>0 個</option><option>1 個升號</option><option>2 個升號</option></select></p>
+    </div>
+
+    <div class="question">
+      <p>G 大調音階中，哪個音需要升高半音？<br>
+      <select name="q9" data-question="1. G 大調升高半音的音"><option value="">請選擇</option><option>F</option><option>C</option><option>E</option><option>B</option></select></p>
+    </div>
+
+    <div class="question">
+      <p>哪一組是 G 大調音階的正確音名順序？<br>
+      <select name="q10" data-question="1. G 大調音階正確順序"><option value="">請選擇</option><option>G, A, C, D, E, F#, G, A</option><option>G, B, C, D, E, F#, G, A</option><option>G, A, B, C, D, E, F#, G</option><option>G, A, B, C, D, F, G, A</option></select></p>
+    </div>
+
+    <div class="question">
+      <p>哪一組是 C 大調音階的正確音名順序？<br>
+      <select name="q11" data-question="1. C 大調音階正確順序"><option value="">請選擇</option><option>C, D, F, G, A, B, C, D</option><option>C, D, E, G, A, B, C, D</option><option>C, D, E, F, G, A, C, D</option><option>C, D, E, F, G, A, B, C</option></select></p>
+    </div>
+
+    <div class="question">
+      <p>如果你在五線譜上看到 1 個升號，而且這個升號是 F 升，這最可能是哪個調？<br>
+      <select name="q12" data-question="1. 一個升號 (F#) 是哪個調"><option value="">請選擇</option><option>D 大調</option><option>C 大調</option><option>G 大調</option><option>F 大調</option></select></p>
+    </div>
+
+    <div class="question">
+      <p>C 大調音階中，E 下一個音是什麼？<br>
+      <select name="q13" data-question="1. C 大調 E 下一個音"><option value="">請選擇</option><option>F#</option><option>F</option><option>E#</option><option>G</option></select></p>
+    </div>
+
+    <div class="question">
+      <p>《小時候》歌曲的氣氛是怎樣的？<br>
+      <select name="q14" data-question="1. 《小時候》氣氛"><option value="">請選擇</option><option>悲傷</option><option>溫馨</option><option>激昂</option><option>熱鬧</option></select></p>
+    </div>
+
+    <div class="question">
+      <p>《小時候》原曲版本是哪一個調？<br>
+      <select name="q15" data-question="1. 《小時候》原曲調性"><option value="">請選擇</option><option>D 大調</option><option>C 大調</option><option>G 大調</option><option>F 大調</option></select></p>
+    </div>
+  </div>
+
+  <!-- ====================== 2. 音樂的對比 ====================== -->
+  <div class="section">
+    <h2>2. 音樂的對比</h2>
+    
+    <div class="question">
+      <p>《地獄中的奧菲歐》的作曲家為<br>
+      <select name="q16" data-question="2. 《地獄中的奧菲歐》作曲家"><option value="">請選擇</option><option>貝多芬</option><option>莫扎特</option><option>巴哈</option><option>奧芬巴林</option></select></p>
+    </div>
+
+    <div class="question">
+      <p>《地獄中的奧菲歐》的「肯肯舞」的旋律.它的速度<br>
+      <select name="q17" data-question="2. 肯肯舞 速度"><option value="">請選擇</option><option>快</option><option>慢</option></select></p>
+    </div>
+
+    <div class="question">
+      <p>《地獄中的奧菲歐》的「肯肯舞」的旋律.它的主旋律音高<br>
+      <select name="q18" data-question="2. 肯肯舞 主旋律音高"><option value="">請選擇</option><option>高</option><option>低</option></select></p>
+    </div>
+
+    <div class="question">
+      <p>《地獄中的奧菲歐》的「肯肯舞」的旋律.它的力度<br>
+      <select name="q19" data-question="2. 肯肯舞 力度"><option value="">請選擇</option><option>強</option><option>弱</option></select></p>
+    </div>
+
+    <div class="question">
+      <p>《地獄中的奧菲歐》的「烏龜」的旋律.它的樂器數量<br>
+      <select name="q20" data-question="2. 烏龜 樂器數量"><option value="">請選擇</option><option>多</option><option>少</option></select></p>
+    </div>
+
+    <div class="question">
+      <p>《地獄中的奧菲歐》的「烏龜」的旋律.它的氣氛<br>
+      <select name="q21" data-question="2. 烏龜 氣氛"><option value="">請選擇</option><option>熱鬧</option><option>溫和</option></select></p>
+    </div>
+
+    <div class="question">
+      <p>《滑浪飛船》的聲效不包括<br>
+      <select name="q22" data-question="2. 《滑浪飛船》聲效不包括"><option value="">請選擇</option><option>水聲</option><option>船聲</option><option>怪物聲</option><option>人聲</option></select></p>
+    </div>
+  </div>
+
+  <!-- ====================== 3. 木管樂欣賞 ====================== -->
+  <div class="section">
+    <h2>3. 木管樂欣賞</h2>
+    
+    <div class="question">
+      <img src="蜜蜂试卷-20260603-音樂-3.png"/>
+      <p>樂器1(<select name="q23" data-question="3. 樂器1"><option value="">請選擇</option><option>雙簧管 (oboe)</option><option>巴松管 (bassoon)</option><option>單簧管 (clarinet)</option><option>長笛 (flute)</option></select>)</p>
+      <p>樂器2(<select name="q24" data-question="3. 樂器2"><option value="">請選擇</option><option>雙簧管 (oboe)</option><option>巴松管 (bassoon)</option><option>單簧管 (clarinet)</option><option>長笛 (flute)</option></select>)</p>
+      <p>樂器3(<select name="q25" data-question="3. 樂器3"><option value="">請選擇</option><option>雙簧管 (oboe)</option><option>巴松管 (bassoon)</option><option>單簧管 (clarinet)</option><option>長笛 (flute)</option></select>)</p>
+      <p>樂器4(<select name="q26" data-question="3. 樂器4"><option value="">請選擇</option><option>雙簧管 (oboe)</option><option>巴松管 (bassoon)</option><option>單簧管 (clarinet)</option><option>長笛 (flute)</option></select>)</p>
+    </div>
+
+    <div class="question">
+      <p>吹奏木管樂器時，可按不同的(<select name="q27" data-question="3. 改變音高"><option value="">請選擇</option><option>音鍵</option><option>活塞</option></select>)改變音高。</p>
+    </div>
+
+    <div class="question">
+      <p>(<select name="q28" data-question="3. 較幼 音域較高"><option value="">請選擇</option><option>直吹</option><option>橫吹</option></select>)的(<select name="q29" data-question="3. 較幼 音域較高 樂器"><option value="">請選擇</option><option>長笛</option><option>雙簧管</option></select>)較幼，音域較高。</p>
+    </div>
+
+    <div class="question">
+      <p>(<select name="q30" data-question="3. 較粗 音域較低"><option value="">請選擇</option><option>直吹</option><option>橫吹</option></select>)的(<select name="q31" data-question="3. 較粗 音域較低 樂器"><option value="">請選擇</option><option>長笛</option><option>雙簧管</option></select>)較粗，音域較低。</p>
+    </div>
+
+    <div class="question">
+      <p>(<select name="q32" data-question="3. 較長和較粗"><option value="">請選擇</option><option>單簧管</option><option>巴松管</option></select>)較長和較粗，音域較低。</p>
+    </div>
+
+    <div class="question">
+      <p>單簧管和雙簧管都由裝在(<select name="q33" data-question="3. 簧片位置"><option value="">請選擇</option><option>頂部</option><option>管身</option></select>)的簧片振動管內的空氣發聲。</p>
+    </div>
+
+    <div class="question">
+      <p>音樂的織體為:<br>
+      (<select name="q34" data-question="3. 織體 - 一條主旋律"><option value="">請選擇</option><option>單音音樂</option><option>主調音樂</option><option>複音音樂</option></select>) 一條主旋律配和聲伴奏。<br>
+      (<select name="q35" data-question="3. 織體 - 多條旋律"><option value="">請選擇</option><option>單音音樂</option><option>主調音樂</option><option>複音音樂</option></select>) 多條旋律同時進行。<br>
+      (<select name="q36" data-question="3. 織體 - 只有一條旋律"><option value="">請選擇</option><option>單音音樂</option><option>主調音樂</option><option>複音音樂</option></select>) 只有一條旋律。</p>
+    </div>
+
+    <div class="question">
+      <p>《第九交響曲》（新世界）的作曲家為<br>
+      <select name="q37" data-question="3. 《第九交響曲》作曲家"><option value="">請選擇</option><option>貝多芬</option><option>莫扎特</option><option>巴哈</option><option>德伏扎克</option></select></p>
+    </div>
+
+    <div class="question">
+      <p>《降B大調巴松管協奏曲》的作曲家為<br>
+      <select name="q38" data-question="3. 《降B大調巴松管協奏曲》作曲家"><option value="">請選擇</option><option>貝多芬</option><option>莫扎特</option><option>巴哈</option><option>德伏扎克</option></select></p>
+    </div>
+
+    <div class="question">
+      <p>《降B大調巴松管協奏曲》的織體為<br>
+      <select name="q39" data-question="3. 巴松管協奏曲 織體"><option value="">請選擇</option><option>單音音樂</option><option>主調音樂</option><option>複音音樂</option></select></p>
+    </div>
+
+    <div class="question">
+      <p>二部輪奏《幻變彩虹》的織體為<br>
+      <select name="q40" data-question="3. 二部輪奏 織體"><option value="">請選擇</option><option>單音音樂</option><option>主調音樂</option><option>複音音樂</option></select></p>
+    </div>
+  </div>
+
+  <!-- ====================== 4. 唱唱做做學粵劇 ====================== -->
+  <div class="section">
+    <h2>4. 唱唱做做學粵劇</h2>
+    
+    <div class="question">
+      <p>俗稱[大花面]是哪個行當?<br>
+      <select name="q41" data-question="4. 大花面"><option value="">請選擇</option><option>生</option><option>旦</option><option>淨</option><option>末</option><option>丑</option></select></p>
+    </div>
+
+    <div class="question">
+      <p>俗稱[小花面]是哪個行當?<br>
+      <select name="q42" data-question="4. 小花面"><option value="">請選擇</option><option>生</option><option>旦</option><option>淨</option><option>末</option><option>丑</option></select></p>
+    </div>
+
+    <div class="question">
+      <p>特徵<br>
+      (<select name="q43" data-question="4. 特徵 - 英雄氣概"><option value="">請選擇</option><option>生</option><option>旦</option><option>淨</option><option>末</option><option>丑</option></select>) 有鮮明性格/具英雄氣概的角色<br>
+      (<select name="q44" data-question="4. 特徵 - 年紀較大"><option value="">請選擇</option><option>生</option><option>旦</option><option>淨</option><option>末</option><option>丑</option></select>) 年紀較大/端莊的男性角色<br>
+      (<select name="q45" data-question="4. 特徵 - 滑稽"><option value="">請選擇</option><option>生</option><option>旦</option><option>淨</option><option>末</option><option>丑</option></select>) 飾演滑稽的角色<br>
+      (<select name="q46" data-question="4. 特徵 - 主要男性"><option value="">請選擇</option><option>生</option><option>旦</option><option>淨</option><option>末</option><option>丑</option></select>) 主要的男性角色，一般年輕英俊<br>
+      (<select name="q47" data-question="4. 特徵 - 主要女性"><option value="">請選擇</option><option>生</option><option>旦</option><option>淨</option><option>末</option><option>丑</option></select>) 主要的女性角色，扮相漂亮</p>
+    </div>
+
+    <div class="question">
+      <p>化妝<br>
+      (<select name="q48" data-question="4. 化妝 - 髯口"><option value="">請選擇</option><option>生</option><option>旦</option><option>淨</option><option>末</option><option>丑</option></select>) 佩帶各種類型的髯口<br>
+      (<select name="q49" data-question="4. 化妝 - 笑態"><option value="">請選擇</option><option>生</option><option>旦</option><option>淨</option><option>末</option><option>丑</option></select>) 眼部勾畫成笑態/中間用白色勾畫<br>
+      (<select name="q50" data-question="4. 化妝 - 紅白 (1)"><option value="">請選擇</option><option>生</option><option>旦</option><option>淨</option><option>末</option><option>丑</option></select>) 以紅色和白色為主<br>
+      (<select name="q51" data-question="4. 化妝 - 紅白 (2)"><option value="">請選擇</option><option>生</option><option>旦</option><option>淨</option><option>末</option><option>丑</option></select>) 以紅色和白色為主<br>
+      (<select name="q52" data-question="4. 化妝 - 大花面"><option value="">請選擇</option><option>生</option><option>旦</option><option>淨</option><option>末</option><option>丑</option></select>) 一般以不同的臉譜代表不同的性格，俗稱大花面</p>
+    </div>
+
+    <div class="question">
+      <p>下列哪項有關粵劇是不正確?<br>
+      <select name="q53" data-question="4. 粵劇不正確描述"><option value="">請選擇</option><option>又稱為「廣東大戲」</option><option>是一種綜合藝術</option><option>傳於廣西、香港一帶</option><option>2009年，獲聯合國教科文組織列為「人類非物質文化遺產」。</option></select></p>
+    </div>
+
+    <div class="question">
+      <p>工尺譜是粵劇常用的記譜法，用(<select name="q54" data-question="4. 工尺譜 音高"><option value="">請選擇</option><option>叮板</option><option>文字</option><option>演唱方法</option></select>)表示音高，用(<select name="q55" data-question="4. 工尺譜 節拍"><option value="">請選擇</option><option>叮板</option><option>文字</option><option>演唱方法</option></select>)表示節拍和節奏。</p>
+    </div>
+
+    <div class="question">
+      <p>演唱方法<br>
+      (<select name="q56" data-question="4. 演唱方法 - 真聲"><option value="">請選擇</option><option>平喉</option><option>子喉</option></select>) 真聲<br>
+      (<select name="q57" data-question="4. 演唱方法 - 假聲"><option value="">請選擇</option><option>平喉</option><option>子喉</option></select>) 假聲唱，高八度</p>
+    </div>
+
+    <div class="question">
+      <p>行當演唱<br>
+      (<select name="q58" data-question="4. 行當演唱 - 生,淨"><option value="">請選擇</option><option>平喉</option><option>子喉</option></select>) 生,淨<br>
+      (<select name="q59" data-question="4. 行當演唱 - 旦"><option value="">請選擇</option><option>平喉</option><option>子喉</option></select>) 旦</p>
+    </div>
+
+    <div class="question">
+      <p>《螢火蟲》的唱者用甚麼方法演唱?<br>
+      <select name="q60" data-question="4. 《螢火蟲》演唱方法"><option value="">請選擇</option><option>平喉</option><option>子喉</option></select></p>
+    </div>
+
+    <div class="question">
+      <p>粵劇的唸白是劇中人物(<select name="q61" data-question="4. 唸白 - 對話"><option value="">請選擇</option><option>對話</option><option>獨白</option></select>)或人物之間的(<select name="q62" data-question="4. 唸白 - 獨白"><option value="">請選擇</option><option>對話</option><option>獨白</option></select>)。</p>
+    </div>
+
+    <div class="question">
+      <p>下列哪一種不是粵劇的唸白?<br>
+      <select name="q63" data-question="4. 不是粵劇唸白"><option value="">請選擇</option><option>白欖</option><option>口白</option><option>詩白</option><option>獨白</option></select></p>
+    </div>
+
+    <div class="question">
+      <p>[功課多]是屬於哪一種唸白?<br>
+      <select name="q64" data-question="4. 功課多 唸白類型"><option value="">請選擇</option><option>白欖</option><option>口白</option><option>詩白</option></select></p>
+    </div>
+
+    <div class="question">
+      <p>以下哪一種唸白不是押韻:<br>
+      <select name="q65" data-question="4. 不是押韻的唸白"><option value="">請選擇</option><option>白欖</option><option>口白</option><option>詩白</option></select></p>
+    </div>
+
+    <div class="question">
+      <p>以下哪項不是粵劇的武打:<br>
+      <select name="q66" data-question="4. 不是粵劇武打"><option value="">請選擇</option><option>徒手和手持兵器對打</option><option>拉奏二胡</option><option>單人的舞刀弄槍</option><option>翻騰</option></select></p>
+    </div>
+
+    <div class="question">
+      <p>何建青《白蛇傳 水鬥》選段中出現哪些武打動作？<br>
+      <select name="q67" data-question="4. 白蛇傳 武打動作"><option value="">請選擇</option><option>徒手對打</option><option>手持兵器對打</option><option>單人舞刀弄槍</option><option>翻筋斗</option><option>以上皆是</option></select></p>
+    </div>
+
+    <div class="question">
+      <p>粵劇通過哪項來表達故事情節?<br>
+      <select name="q68" data-question="4. 表達故事情節"><option value="">請選擇</option><option>唱</option><option>唸</option><option>做</option><option>打</option><option>以上皆是</option></select></p>
+    </div>
+  </div>
+
+  <button type="submit">全部提交並顯示答案</button>
+
+  <div id="allResults" class="result">
+    <h2>測驗結果總覽</h2>
+    <div id="scoreTotal" class="total-score"></div>
+    <div id="itemsAll"></div>
+    <div id="submitMessage"></div>
+  </div>
+
+</form>
+
+<script>
+function handleQuizSubmit(formId, resultId, itemsId, scoreId, msgId, correctAnswers) {
+  const form = document.getElementById(formId);
+  const resultDiv = document.getElementById(resultId);
+  const itemsDiv = document.getElementById(itemsId);
+  const scoreDiv = document.getElementById(scoreId);
+  const messageDiv = document.getElementById(msgId);
+
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    const controls = form.querySelectorAll('select');
+    let score = 0;
+    itemsDiv.innerHTML = '';
+
+    const answers = [];
+    const totalQuestions = correctAnswers.length - 1;
+
+    for (let i = 1; i <= totalQuestions; i++) {
+      const q = controls[i-1];
+      const userAnswer = q ? q.value.trim() : '';
+      const correct = correctAnswers[i];
+      const isCorrect = (userAnswer === correct && userAnswer !== '');
+
+      if (isCorrect) score++;
+
+      let questionText = q && q.dataset.question 
+        ? q.dataset.question 
+        : `第 ${i} 題`;
+
+      const item = document.createElement('div');
+      item.className = 'item';
+      item.innerHTML = `
+        <strong>${questionText}</strong><br><br>
+        你的答案： <span class="${isCorrect ? 'correct' : 'wrong'}">${userAnswer || '(未作答)'}</span><br>
+        <div class="answer-show">正確答案： <span class="correct">${correct}</span></div>
+        <div>得分： ${isCorrect ? '1' : '0'}</div>
+      `;
+      itemsDiv.appendChild(item);
+
+      answers.push({
+        questionNumber: i,
+        question: questionText,
+        yourAnswer: userAnswer || '(未作答)',
+        correctAnswer: correct,
+        result: isCorrect ? '正確' : '錯誤'
+      });
+    }
+
+    scoreDiv.textContent = `總 分： ${score} / ${totalQuestions}`;
+    resultDiv.style.display = 'block';
+    resultDiv.scrollIntoView({ behavior: 'smooth' });
+
+    const payload = {
+      _subject: "20260603-音樂結果提交",
+      score: `${score} / ${totalQuestions}`,
+      timestamp: new Date().toISOString(),
+      answers: JSON.stringify(answers, null, 2)
+    };
+
+    try {
+      const response = await fetch('https://formspree.io/f/xvzwnvwp', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      messageDiv.innerHTML = response.ok
+        ? '<span class="success">✅ 測驗結果已成功送出！</span>'
+        : '<span class="error">送出失敗，請稍後再試。</span>';
+    } catch (err) {
+      messageDiv.innerHTML = '<span class="error">網路錯誤，無法送出結果。</span>';
+    }
+  });
+}
+
+// 正確答案（按照 select 出現順序）
+const correctAnswers = [
+  null,
+  // 1. 認識C/G大調音階 (q1-q15)
+  "G","F#","G",
+  "C","F","C",
+  "0 個",
+  "1 個升號",
+  "F",
+  "G, A, B, C, D, E, F#, G",
+  "C, D, E, F, G, A, B, C",
+  "C 大調",
+  "F",
+  "溫馨",
+  "G 大調",
+  // 2. 音樂的對比 (q16-q22)
+  "奧芬巴林",
+  "快",
+  "高",
+  "強",
+  "少",
+  "溫和",
+  "怪物聲",
+  // 3. 木管樂欣賞 (q23-q40)
+  "長笛 (flute)","單簧管 (clarinet)","雙簧管 (oboe)","巴松管 (bassoon)",
+  "音鍵",
+  "橫吹","長笛",
+  "直吹","雙簧管",
+  "巴松管",
+  "管身",
+  "主調音樂","複音音樂","單音音樂",
+  "德伏扎克",
+  "莫扎特",
+  "主調音樂",
+  "複音音樂",
+  // 4. 唱唱做做學粵劇 (q41-q68)
+  "淨",
+  "丑",
+  "淨","末","丑","生","旦",
+  "末","丑","旦","生","淨",
+  "傳於廣西、香港一帶",
+  "文字","叮板",
+  "平喉","子喉",
+  "平喉","子喉",
+  "子喉",
+  "獨白","對話",
+  "獨白",
+  "白欖",
+  "口白",
+  "拉奏二胡",
+  "以上皆是",
+  "以上皆是"
+];
+
+handleQuizSubmit("allQuizzes", "allResults", "itemsAll", "scoreTotal", "submitMessage", correctAnswers);
+</script>
+
+</body>
+</html>
