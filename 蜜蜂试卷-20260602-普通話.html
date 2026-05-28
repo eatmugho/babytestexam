@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self';
+    connect-src *;
+    script-src 'self' 'unsafe-inline';
+    style-src 'self' 'unsafe-inline';
+  ">
+  <title>20260602-普通話</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, "Microsoft JhengHei", sans-serif;
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+      line-height: 1.6;
+      color: #333;
+    }
+    h1, h2, h3 {
+      text-align: center;
+      color: #2c3e50;
+      margin: 50px 0 30px;
+    }
+    .section {
+      margin-bottom: 60px;
+    }
+    .question {
+      margin: 25px 0;
+      padding: 20px;
+      background: #f9fbfc;
+      border-radius: 10px;
+      border-left: 5px solid #3498db;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    .question p {
+      margin: 0 0 12px 0;
+      font-size: 1.1rem;
+    }
+    strong {
+      color: #e74c3c;
+    }
+    select {
+      padding: 10px 14px;
+      font-size: 1.05rem;
+      min-width: 180px;
+      border-radius: 6px;
+      border: 1px solid #bdc3c7;
+      background: white;
+    }
+    select:focus {
+      outline: none;
+      border-color: #3498db;
+      box-shadow: 0 0 0 3px rgba(52,152,219,0.2);
+    }
+    button {
+      display: block;
+      margin: 60px auto;
+      padding: 18px 80px;
+      font-size: 1.35rem;
+      font-weight: bold;
+      background: #27ae60;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    button:hover {
+      background: #219653;
+    }
+    .result {
+      display: none;
+      margin: 40px 0;
+      padding: 30px;
+      background: #f4f6f9;
+      border-radius: 12px;
+      border: 1px solid #dfe6ed;
+    }
+    .total-score {
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-align: center;
+      margin: 30px 0 20px;
+      padding: 20px;
+      background: #d4edda;
+      border-radius: 10px;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+    }
+    .item {
+      margin: 18px 0;
+      padding: 16px;
+      background: white;
+      border-radius: 8px;
+      border: 1px solid #eee;
+    }
+    .correct { color: #27ae60; font-weight: bold; }
+    .wrong   { color: #c0392b; font-weight: bold; }
+    .answer-show {
+      margin-top: 8px;
+      font-size: 0.98rem;
+      color: #555;
+    }
+    #submitMessage {
+      text-align: center;
+      margin-top: 25px;
+      font-size: 1.15rem;
+    }
+    .success { color: #27ae60; }
+    .error   { color: #c0392b; }
+    .subtitle {
+      text-align: center;
+      color: #555;
+      margin-bottom: 30px;
+    }
+  </style>
+</head>
+<body>
+
+<h1>20260602-普通話</h1>
+<p class="subtitle">請完成所有題目後按下方按鈕一次提交</p>
+
+<form id="allQuizzes">
+
+  <!-- ====================== 1. 吃點兒甚麼?（點菜） ====================== -->
+  <div class="section">
+    <h2>1. 吃點兒甚麼?（點菜）</h2>
+    
+    <div class="question">
+      <p>填寫聲母。</p>
+      <p>主(<select name="q1" data-question="1. 填寫聲母 - 主(____)力"><option value="">請選擇</option><option>z</option><option>c</option><option>s</option><option>zh</option><option>ch</option><option>sh</option></select>)力</p>
+      <p>阻(<select name="q2" data-question="1. 填寫聲母 - 阻(____)力"><option value="">請選擇</option><option>z</option><option>c</option><option>s</option><option>zh</option><option>ch</option><option>sh</option></select>)力</p>
+      <p>暫(<select name="q3" data-question="1. 填寫聲母 - 暫(____)時"><option value="">請選擇</option><option>z</option><option>c</option><option>s</option><option>zh</option><option>ch</option><option>sh</option></select>)時</p>
+      <p>戰(<select name="q4" data-question="1. 填寫聲母 - 戰(____)士"><option value="">請選擇</option><option>z</option><option>c</option><option>s</option><option>zh</option><option>ch</option><option>sh</option></select>)士</p>
+      <p>插(<select name="q5" data-question="1. 填寫聲母 - 插(____)手"><option value="">請選擇</option><option>z</option><option>c</option><option>s</option><option>zh</option><option>ch</option><option>sh</option></select>)手</p>
+      <p>擦(<select name="q6" data-question="1. 填寫聲母 - 擦(____)手"><option value="">請選擇</option><option>z</option><option>c</option><option>s</option><option>zh</option><option>ch</option><option>sh</option></select>)手</p>
+      <p>菜(<select name="q7" data-question="1. 填寫聲母 - 菜(____)油"><option value="">請選擇</option><option>z</option><option>c</option><option>s</option><option>zh</option><option>ch</option><option>sh</option></select>)油</p>
+      <p>柴(<select name="q8" data-question="1. 填寫聲母 - 柴(____)油"><option value="">請選擇</option><option>z</option><option>c</option><option>s</option><option>zh</option><option>ch</option><option>sh</option></select>)油</p>
+      <p>樹(<select name="q9" data-question="1. 填寫聲母 - 樹(____)立"><option value="">請選擇</option><option>z</option><option>c</option><option>s</option><option>zh</option><option>ch</option><option>sh</option></select>)立</p>
+      <p>塑(<select name="q10" data-question="1. 填寫聲母 - 塑(____)立"><option value="">請選擇</option><option>z</option><option>c</option><option>s</option><option>zh</option><option>ch</option><option>sh</option></select>)立</p>
+      <p>搜(<select name="q11" data-question="1. 填寫聲母 - 搜(____)集"><option value="">請選擇</option><option>z</option><option>c</option><option>s</option><option>zh</option><option>ch</option><option>sh</option></select>)集</p>
+      <p>收(<select name="q12" data-question="1. 填寫聲母 - 收(____)集"><option value="">請選擇</option><option>z</option><option>c</option><option>s</option><option>zh</option><option>ch</option><option>sh</option></select>)集</p>
+    </div>
+
+    <div class="question">
+      <p>聽老師讀句子，把着色字正確的拼音填在括號裏。</p>
+      <p>我最喜歡吃 (<select name="q13" data-question="1. 聽句子 - 我最喜歡吃 (____) 芒果糯米滋"><option value="">請選擇</option><option>cài</option><option>chāo</option><option>chī</option><option>sì</option><option>zhāi</option><option>zhāo</option><option>zhǒng</option><option>zī</option><option>zǒng</option></select>) 芒果糯米滋 (<select name="q14" data-question="1. 聽句子 - 芒果糯米滋 (____)"><option value="">請選擇</option><option>cài</option><option>chāo</option><option>chī</option><option>sì</option><option>zhāi</option><option>zhāo</option><option>zhǒng</option><option>zī</option><option>zǒng</option></select>)。</p>
+      <p>請問這盒冰皮月餅總 (<select name="q15" data-question="1. 聽句子 - 冰皮月餅總 (____)"><option value="">請選擇</option><option>cài</option><option>chāo</option><option>chī</option><option>sì</option><option>zhāi</option><option>zhāo</option><option>zhǒng</option><option>zī</option><option>zǒng</option></select>) 共有多少種 (<select name="q16" data-question="1. 聽句子 - 多少種 (____)"><option value="">請選擇</option><option>cài</option><option>chāo</option><option>chī</option><option>sì</option><option>zhāi</option><option>zhāo</option><option>zhǒng</option><option>zī</option><option>zǒng</option></select>) 口味兒？</p>
+      <p>老陳果然是吃齋 (<select name="q17" data-question="1. 聽句子 - 吃齋 (____)"><option value="">請選擇</option><option>cài</option><option>chāo</option><option>chī</option><option>sì</option><option>zhāi</option><option>zhāo</option><option>zhǒng</option><option>zī</option><option>zǒng</option></select>) 菜了，他又去寺 (<select name="q18" data-question="1. 聽句子 - 寺 (____)"><option value="">請選擇</option><option>cài</option><option>chāo</option><option>chī</option><option>sì</option><option>zhāi</option><option>zhāo</option><option>zhǒng</option><option>zī</option><option>zǒng</option></select>) 廟了。</p>
+      <p>紅油抄 (<select name="q19" data-question="1. 聽句子 - 紅油抄 (____)"><option value="">請選擇</option><option>cài</option><option>chāo</option><option>chī</option><option>sì</option><option>zhāi</option><option>zhāo</option><option>zhǒng</option><option>zī</option><option>zǒng</option></select>) 手是這家餐館的招(<select name="q20" data-question="1. 聽句子 - 招(____)"><option value="">請選擇</option><option>cài</option><option>chāo</option><option>chī</option><option>sì</option><option>zhāi</option><option>zhāo</option><option>zhǒng</option><option>zī</option><option>zǒng</option></select>)牌菜(<select name="q21" data-question="1. 聽句子 - 牌菜(____)"><option value="">請選擇</option><option>cài</option><option>chāo</option><option>chī</option><option>sì</option><option>zhāi</option><option>zhāo</option><option>zhǒng</option><option>zī</option><option>zǒng</option></select>)。</p>
+    </div>
+  </div>
+
+  <!-- ====================== 2. 嚐一嚐（推介） ====================== -->
+  <div class="section">
+    <h2>2. 嚐一嚐（推介）</h2>
+    
+    <div class="question">
+      <p>下面同組的單字在廣州話中讀音一樣，但在普通話裏，聲母卻不一樣，跟老師讀一讀，分辨聲母是 j、q、x 的字。</p>
+      <p>集(<select name="q22" data-question="2. 分辨聲母 j/q/x - 集(____)"><option value="">請選擇</option><option>j</option><option>q</option><option>x</option></select>) 習(<select name="q23" data-question="2. 分辨聲母 j/q/x - 習(____)"><option value="">請選擇</option><option>j</option><option>q</option><option>x</option></select>)</p>
+      <p>牽(<select name="q24" data-question="2. 分辨聲母 j/q/x - 牽(____)"><option value="">請選擇</option><option>j</option><option>q</option><option>x</option></select>) 掀(<select name="q25" data-question="2. 分辨聲母 j/q/x - 掀(____)"><option value="">請選擇</option><option>j</option><option>q</option><option>x</option></select>)</p>
+      <p>夕(<select name="q26" data-question="2. 分辨聲母 j/q/x - 夕(____)"><option value="">請選擇</option><option>j</option><option>q</option><option>x</option></select>) 藉(<select name="q27" data-question="2. 分辨聲母 j/q/x - 藉(____)"><option value="">請選擇</option><option>j</option><option>q</option><option>x</option></select>)</p>
+      <p>決(<select name="q28" data-question="2. 分辨聲母 j/q/x - 決(____)"><option value="">請選擇</option><option>j</option><option>q</option><option>x</option></select>) 缺(<select name="q29" data-question="2. 分辨聲母 j/q/x - 缺(____)"><option value="">請選擇</option><option>j</option><option>q</option><option>x</option></select>)</p>
+      <p>器(<select name="q30" data-question="2. 分辨聲母 j/q/x - 器(____)"><option value="">請選擇</option><option>j</option><option>q</option><option>x</option></select>) 戲(<select name="q31" data-question="2. 分辨聲母 j/q/x - 戲(____)"><option value="">請選擇</option><option>j</option><option>q</option><option>x</option></select>)</p>
+      <p>拘(<select name="q32" data-question="2. 分辨聲母 j/q/x - 拘(____)"><option value="">請選擇</option><option>j</option><option>q</option><option>x</option></select>) 驅(<select name="q33" data-question="2. 分辨聲母 j/q/x - 驅(____)"><option value="">請選擇</option><option>j</option><option>q</option><option>x</option></select>)</p>
+    </div>
+
+    <div class="question">
+      <p>聽老師讀句子，把着色字正確的拼音填在括號裏。</p>
+      <p>爬山時，每上一級石階(<select name="q34" data-question="2. 聽句子 - 石階(____)"><option value="">請選擇</option><option>jiē</option><option>juǎn</option><option>qiáng</option><option>qiū</option><option>quàn</option><option>xiáng</option><option>xī</option><option>xi</option></select>)，我都要深呼吸(<select name="q35" data-question="2. 聽句子 - 呼吸(____)"><option value="">請選擇</option><option>jiē</option><option>juǎn</option><option>qiáng</option><option>qiū</option><option>quàn</option><option>xiáng</option><option>xī</option><option>xi</option></select>)一下才行。</p>
+      <p>這張獎券(<select name="q36" data-question="2. 聽句子 - 獎券(____)"><option value="">請選擇</option><option>jiē</option><option>juǎn</option><option>qiáng</option><option>qiū</option><option>quàn</option><option>xiáng</option><option>xī</option><option>xi</option></select>)可以兌換一個奶油蛋糕卷(<select name="q37" data-question="2. 聽句子 - 蛋糕卷(____)"><option value="">請選擇</option><option>jiē</option><option>juǎn</option><option>qiáng</option><option>qiū</option><option>quàn</option><option>xiáng</option><option>xī</option><option>xi</option></select>)。</p>
+      <p>這個活動的詳(<select name="q38" data-question="2. 聽句子 - 詳(____)"><option value="">請選擇</option><option>jiē</option><option>juǎn</option><option>qiáng</option><option>qiū</option><option>quàn</option><option>xiáng</option><option>xī</option><option>xi</option></select>)情，請參閱牆(<select name="q39" data-question="2. 聽句子 - 牆(____)"><option value="">請選擇</option><option>jiē</option><option>juǎn</option><option>qiáng</option><option>qiū</option><option>quàn</option><option>xiáng</option><option>xī</option><option>xi</option></select>)壁上的海報。</p>
+      <p>過了這個小山丘(<select name="q40" data-question="2. 聽句子 - 山丘(____)"><option value="">請選擇</option><option>jiē</option><option>juǎn</option><option>qiáng</option><option>qiū</option><option>quàn</option><option>xiáng</option><option>xī</option><option>xi</option></select>)，我們就可以休息(<select name="q41" data-question="2. 聽句子 - 休息(____)"><option value="">請選擇</option><option>jiē</option><option>juǎn</option><option>qiáng</option><option>qiū</option><option>quàn</option><option>xiáng</option><option>xī</option><option>xi</option></select>)了。</p>
+    </div>
+
+    <div class="question">
+      <p>下面的字都有相同的部件，而且讀音相近。先想想下面各字的讀音，再聽老師讀單字把正確的拼音填在括號裏。</p>
+      <p>交 (<select name="q42" data-question="2. 讀音相近 - 交 (____)"><option value="">請選擇</option><option>jiāo</option><option>jiǎo</option><option>jù</option><option>jǔ</option><option>quán</option><option>qiáo</option><option>xún</option><option>xùn</option><option>xīng</option><option>xǐng</option></select>)</p>
+      <p>郊 (<select name="q43" data-question="2. 讀音相近 - 郊 (____)"><option value="">請選擇</option><option>jiāo</option><option>jiǎo</option><option>jù</option><option>jǔ</option><option>quán</option><option>qiáo</option><option>xún</option><option>xùn</option><option>xīng</option><option>xǐng</option></select>)</p>
+      <p>餃 (<select name="q44" data-question="2. 讀音相近 - 餃 (____)"><option value="">請選擇</option><option>jiāo</option><option>jiǎo</option><option>jù</option><option>jǔ</option><option>quán</option><option>qiáo</option><option>xún</option><option>xùn</option><option>xīng</option><option>xǐng</option></select>)</p>
+      <p>巨 (<select name="q45" data-question="2. 讀音相近 - 巨 (____)"><option value="">請選擇</option><option>jiāo</option><option>jiǎo</option><option>jù</option><option>jǔ</option><option>quán</option><option>qiáo</option><option>xún</option><option>xùn</option><option>xīng</option><option>xǐng</option></select>)</p>
+      <p>拒 (<select name="q46" data-question="2. 讀音相近 - 拒 (____)"><option value="">請選擇</option><option>jiāo</option><option>jiǎo</option><option>jù</option><option>jǔ</option><option>quán</option><option>qiáo</option><option>xún</option><option>xùn</option><option>xīng</option><option>xǐng</option></select>)</p>
+      <p>矩 (<select name="q47" data-question="2. 讀音相近 - 矩 (____)"><option value="">請選擇</option><option>jiāo</option><option>jiǎo</option><option>jù</option><option>jǔ</option><option>quán</option><option>qiáo</option><option>xún</option><option>xùn</option><option>xīng</option><option>xǐng</option></select>)</p>
+      <p>全 (<select name="q48" data-question="2. 讀音相近 - 全 (____)"><option value="">請選擇</option><option>jiāo</option><option>jiǎo</option><option>jù</option><option>jǔ</option><option>quán</option><option>qiáo</option><option>xún</option><option>xùn</option><option>xīng</option><option>xǐng</option></select>)</p>
+      <p>荃 (<select name="q49" data-question="2. 讀音相近 - 荃 (____)"><option value="">請選擇</option><option>jiāo</option><option>jiǎo</option><option>jù</option><option>jǔ</option><option>quán</option><option>qiáo</option><option>xún</option><option>xùn</option><option>xīng</option><option>xǐng</option></select>)</p>
+      <p>痊 (<select name="q50" data-question="2. 讀音相近 - 痊 (____)"><option value="">請選擇</option><option>jiāo</option><option>jiǎo</option><option>jù</option><option>jǔ</option><option>quán</option><option>qiáo</option><option>xún</option><option>xùn</option><option>xīng</option><option>xǐng</option></select>)</p>
+      <p>喬 (<select name="q51" data-question="2. 讀音相近 - 喬 (____)"><option value="">請選擇</option><option>jiāo</option><option>jiǎo</option><option>jù</option><option>jǔ</option><option>quán</option><option>qiáo</option><option>xún</option><option>xùn</option><option>xīng</option><option>xǐng</option></select>)</p>
+      <p>橋 (<select name="q52" data-question="2. 讀音相近 - 橋 (____)"><option value="">請選擇</option><option>jiāo</option><option>jiǎo</option><option>jù</option><option>jǔ</option><option>quán</option><option>qiáo</option><option>xún</option><option>xùn</option><option>xīng</option><option>xǐng</option></select>)</p>
+      <p>僑 (<select name="q53" data-question="2. 讀音相近 - 僑 (____)"><option value="">請選擇</option><option>jiāo</option><option>jiǎo</option><option>jù</option><option>jǔ</option><option>quán</option><option>qiáo</option><option>xún</option><option>xùn</option><option>xīng</option><option>xǐng</option></select>)</p>
+      <p>旬 (<select name="q54" data-question="2. 讀音相近 - 旬 (____)"><option value="">請選擇</option><option>jiāo</option><option>jiǎo</option><option>jù</option><option>jǔ</option><option>quán</option><option>qiáo</option><option>xún</option><option>xùn</option><option>xīng</option><option>xǐng</option></select>)</p>
+      <p>殉 (<select name="q55" data-question="2. 讀音相近 - 殉 (____)"><option value="">請選擇</option><option>jiāo</option><option>jiǎo</option><option>jù</option><option>jǔ</option><option>quán</option><option>qiáo</option><option>xún</option><option>xùn</option><option>xīng</option><option>xǐng</option></select>)</p>
+      <p>詢 (<select name="q56" data-question="2. 讀音相近 - 詢 (____)"><option value="">請選擇</option><option>jiāo</option><option>jiǎo</option><option>jù</option><option>jǔ</option><option>quán</option><option>qiáo</option><option>xún</option><option>xùn</option><option>xīng</option><option>xǐng</option></select>)</p>
+      <p>星 (<select name="q57" data-question="2. 讀音相近 - 星 (____)"><option value="">請選擇</option><option>jiāo</option><option>jiǎo</option><option>jù</option><option>jǔ</option><option>quán</option><option>qiáo</option><option>xún</option><option>xùn</option><option>xīng</option><option>xǐng</option></select>)</p>
+      <p>腥 (<select name="q58" data-question="2. 讀音相近 - 腥 (____)"><option value="">請選擇</option><option>jiāo</option><option>jiǎo</option><option>jù</option><option>jǔ</option><option>quán</option><option>qiáo</option><option>xún</option><option>xùn</option><option>xīng</option><option>xǐng</option></select>)</p>
+      <p>醒 (<select name="q59" data-question="2. 讀音相近 - 醒 (____)"><option value="">請選擇</option><option>jiāo</option><option>jiǎo</option><option>jù</option><option>jǔ</option><option>quán</option><option>qiáo</option><option>xún</option><option>xùn</option><option>xīng</option><option>xǐng</option></select>)</p>
+    </div>
+  </div>
+
+  <!-- ====================== 3. 愛護地球（演講） ====================== -->
+  <div class="section">
+    <h2>3. 愛護地球（演講）</h2>
+    
+    <div class="question">
+      <p>請選擇正確的語言現象分類：</p>
+      <p>(<select name="q60" data-question="3. 語言現象分類 - (____) 穿上、走過去、摘下來"><option value="">請選擇</option><option>助詞</option><option>語氣詞</option><option>方位詞</option><option>表示方向的動詞</option><option>常見的詞語後綴</option><option>沒有規律的輕聲詞</option><option>重疊形式的名詞/動詞</option><option>夾在詞語中間的「一」和「不」</option></select>) 穿上、走過去、摘下來</p>
+      <p>(<select name="q61" data-question="3. 語言現象分類 - (____) 走吧。"><option value="">請選擇</option><option>助詞</option><option>語氣詞</option><option>方位詞</option><option>表示方向的動詞</option><option>常見的詞語後綴</option><option>沒有規律的輕聲詞</option><option>重疊形式的名詞/動詞</option><option>夾在詞語中間的「一」和「不」</option></select>) 走吧。</p>
+      <p>(<select name="q62" data-question="3. 語言現象分類 - (____) 地、得、看。"><option value="">請選擇</option><option>助詞</option><option>語氣詞</option><option>方位詞</option><option>表示方向的動詞</option><option>常見的詞語後綴</option><option>沒有規律的輕聲詞</option><option>重疊形式的名詞/動詞</option><option>夾在詞語中間的「一」和「不」</option></select>) 地、得、看。</p>
+      <p>(<select name="q63" data-question="3. 語言現象分類 - (____) 子、頭（如：桌子、石頭）"><option value="">請選擇</option><option>助詞</option><option>語氣詞</option><option>方位詞</option><option>表示方向的動詞</option><option>常見的詞語後綴</option><option>沒有規律的輕聲詞</option><option>重疊形式的名詞/動詞</option><option>夾在詞語中間的「一」和「不」</option></select>) 子、頭（如：桌子、石頭）</p>
+      <p>(<select name="q64" data-question="3. 語言現象分類 - (____) 屋裏、下邊"><option value="">請選擇</option><option>助詞</option><option>語氣詞</option><option>方位詞</option><option>表示方向的動詞</option><option>常見的詞語後綴</option><option>沒有規律的輕聲詞</option><option>重疊形式的名詞/動詞</option><option>夾在詞語中間的「一」和「不」</option></select>) 屋裏、下邊</p>
+      <p>(<select name="q65" data-question="3. 語言現象分類 - (____) 爺爺、聽聽"><option value="">請選擇</option><option>助詞</option><option>語氣詞</option><option>方位詞</option><option>表示方向的動詞</option><option>常見的詞語後綴</option><option>沒有規律的輕聲詞</option><option>重疊形式的名詞/動詞</option><option>夾在詞語中間的「一」和「不」</option></select>) 爺爺、聽聽</p>
+      <p>(<select name="q66" data-question="3. 語言現象分類 - (____) 說一說、乾不乾淨"><option value="">請選擇</option><option>助詞</option><option>語氣詞</option><option>方位詞</option><option>表示方向的動詞</option><option>常見的詞語後綴</option><option>沒有規律的輕聲詞</option><option>重疊形式的名詞/動詞</option><option>夾在詞語中間的「一」和「不」</option></select>) 說一說、乾不乾淨</p>
+      <p>(<select name="q67" data-question="3. 語言現象分類 - (____) 規矩/衣服、脾氣/稱呼、眼睛/打聽、記性/意思"><option value="">請選擇</option><option>助詞</option><option>語氣詞</option><option>方位詞</option><option>表示方向的動詞</option><option>常見的詞語後綴</option><option>沒有規律的輕聲詞</option><option>重疊形式的名詞/動詞</option><option>夾在詞語中間的「一」和「不」</option></select>) 規矩/衣服、 脾氣/稱呼、 眼睛/打聽、 記性/意思</p>
+    </div>
+
+    <div class="question">
+      <p>辨析輕聲與非輕聲：</p>
+      <p>(<select name="q68" data-question="3. 輕聲辨析 - (____) 擺設 (動)：擺放可供欣賞的東西"><option value="">請選擇</option><option>bǎi shè</option><option>bǎi she</option><option>dì fang</option><option>dì fāng</option><option>gōng dao</option><option>gōng dào</option><option>gào sù</option><option>gào su</option></select>) 擺設 (動)：擺放可供欣賞的東西</p>
+      <p>(<select name="q69" data-question="3. 輕聲辨析 - (____) 擺設 (名)：藝術品之類的東西"><option value="">請選擇</option><option>bǎi shè</option><option>bǎi she</option><option>dì fang</option><option>dì fāng</option><option>gōng dao</option><option>gōng dào</option><option>gào sù</option><option>gào su</option></select>) 擺設 (名)：藝術品之類的東西</p>
+      <p>(<select name="q70" data-question="3. 輕聲辨析 - (____) 地方：當地或本地"><option value="">請選擇</option><option>bǎi shè</option><option>bǎi she</option><option>dì fang</option><option>dì fāng</option><option>gōng dao</option><option>gōng dào</option><option>gào sù</option><option>gào su</option></select>) 地方：當地或本地</p>
+      <p>(<select name="q71" data-question="3. 輕聲辨析 - (____) 地方：某一區域或部分"><option value="">請選擇</option><option>bǎi shè</option><option>bǎi she</option><option>dì fang</option><option>dì fāng</option><option>gōng dao</option><option>gōng dào</option><option>gào sù</option><option>gào su</option></select>) 地方：某一區域或部分</p>
+      <p>(<select name="q72" data-question="3. 輕聲辨析 - (____) 公道 (名)：公正的道理"><option value="">請選擇</option><option>bǎi shè</option><option>bǎi she</option><option>dì fang</option><option>dì fāng</option><option>gōng dao</option><option>gōng dào</option><option>gào sù</option><option>gào su</option></select>) 公道 (名)：公正的道理</p>
+      <p>(<select name="q73" data-question="3. 輕聲辨析 - (____) 公道 (形)：公平合理"><option value="">請選擇</option><option>bǎi shè</option><option>bǎi she</option><option>dì fang</option><option>dì fāng</option><option>gōng dao</option><option>gōng dào</option><option>gào sù</option><option>gào su</option></select>) 公道 (形)：公平合理</p>
+      <p>(<select name="q74" data-question="3. 輕聲辨析 - (____) 告訴：向法院起訴"><option value="">請選擇</option><option>bǎi shè</option><option>bǎi she</option><option>dì fang</option><option>dì fāng</option><option>gōng dao</option><option>gōng dào</option><option>gào sù</option><option>gào su</option></select>) 告訴：向法院起訴</p>
+      <p>(<select name="q75" data-question="3. 輕聲辨析 - (____) 告訴：說給人聽，使人知道"><option value="">請選擇</option><option>bǎi shè</option><option>bǎi she</option><option>dì fang</option><option>dì fāng</option><option>gōng dao</option><option>gōng dào</option><option>gào sù</option><option>gào su</option></select>) 告訴：說給人聽，使人知道</p>
+    </div>
+  </div>
+
+  <!-- ====================== 4. 小風波（調解） ====================== -->
+  <div class="section">
+    <h2>4. 小風波（調解）</h2>
+    
+    <div class="question">
+      <p>填寫正確的拼音：</p>
+      <p>心(<select name="q76" data-question="4. 填寫拼音 - 心(____)聲"><option value="">請選擇</option><option>mǐn</option><option>qīn</option><option>xīn</option><option>qún</option><option>wēn</option><option>xún</option><option>xùn</option><option>yǔn</option><option>lùn</option><option>shùn</option><option>zhǔn</option></select>)聲、 敏(<select name="q77" data-question="4. 填寫拼音 - 敏(____)捷"><option value="">請選擇</option><option>mǐn</option><option>qīn</option><option>xīn</option><option>qún</option><option>wēn</option><option>xún</option><option>xùn</option><option>yǔn</option><option>lùn</option><option>shùn</option><option>zhǔn</option></select>)捷、 親(<select name="q78" data-question="4. 填寫拼音 - 親(____)任"><option value="">請選擇</option><option>mǐn</option><option>qīn</option><option>xīn</option><option>qún</option><option>wēn</option><option>xún</option><option>xùn</option><option>yǔn</option><option>lùn</option><option>shùn</option><option>zhǔn</option></select>)任</p>
+      <p>溫(<select name="q79" data-question="4. 填寫拼音 - 溫(____)馨"><option value="">請選擇</option><option>mǐn</option><option>qīn</option><option>xīn</option><option>qún</option><option>wēn</option><option>xún</option><option>xùn</option><option>yǔn</option><option>lùn</option><option>shùn</option><option>zhǔn</option></select>)馨、 訊(<select name="q80" data-question="4. 填寫拼音 - 訊(____)號"><option value="">請選擇</option><option>mǐn</option><option>qīn</option><option>xīn</option><option>qún</option><option>wēn</option><option>xún</option><option>xùn</option><option>yǔn</option><option>lùn</option><option>shùn</option><option>zhǔn</option></select>)號、 允(<select name="q81" data-question="4. 填寫拼音 - 允(____)許"><option value="">請選擇</option><option>mǐn</option><option>qīn</option><option>xīn</option><option>qún</option><option>wēn</option><option>xún</option><option>xùn</option><option>yǔn</option><option>lùn</option><option>shùn</option><option>zhǔn</option></select>)許、 群(<select name="q82" data-question="4. 填寫拼音 - 群(____)眾"><option value="">請選擇</option><option>mǐn</option><option>qīn</option><option>xīn</option><option>qún</option><option>wēn</option><option>xún</option><option>xùn</option><option>yǔn</option><option>lùn</option><option>shùn</option><option>zhǔn</option></select>)眾、 詢(<select name="q83" data-question="4. 填寫拼音 - 詢(____)問"><option value="">請選擇</option><option>mǐn</option><option>qīn</option><option>xīn</option><option>qún</option><option>wēn</option><option>xún</option><option>xùn</option><option>yǔn</option><option>lùn</option><option>shùn</option><option>zhǔn</option></select>)問</p>
+      <p>準(<select name="q84" data-question="4. 填寫拼音 - 準(____)則"><option value="">請選擇</option><option>mǐn</option><option>qīn</option><option>xīn</option><option>qún</option><option>wēn</option><option>xún</option><option>xùn</option><option>yǔn</option><option>lùn</option><option>shùn</option><option>zhǔn</option></select>)則、 瞬(<select name="q85" data-question="4. 填寫拼音 - 瞬(____)間"><option value="">請選擇</option><option>mǐn</option><option>qīn</option><option>xīn</option><option>qún</option><option>wēn</option><option>xún</option><option>xùn</option><option>yǔn</option><option>lùn</option><option>shùn</option><option>zhǔn</option></select>)間、 論(<select name="q86" data-question="4. 填寫拼音 - 論(____)證"><option value="">請選擇</option><option>mǐn</option><option>qīn</option><option>xīn</option><option>qún</option><option>wēn</option><option>xún</option><option>xùn</option><option>yǔn</option><option>lùn</option><option>shùn</option><option>zhǔn</option></select>)證</p>
+    </div>
+
+    <div class="question">
+      <p>聽老師讀詞語，把正確的韻母填在括號裏，並標上聲調符號。</p>
+      <p>津(<select name="q87" data-question="4. 韻母填空 - 津(____)貼"><option value="">請選擇</option><option>jīn</option><option>shùn</option><option>xùn</option><option>zūn</option></select>)貼</p>
+      <p>遵(<select name="q88" data-question="4. 韻母填空 - 遵(____)照"><option value="">請選擇</option><option>jīn</option><option>shùn</option><option>xùn</option><option>zūn</option></select>)照</p>
+      <p>順(<select name="q89" data-question="4. 韻母填空 - 順(____)手"><option value="">請選擇</option><option>jīn</option><option>shùn</option><option>xùn</option><option>zūn</option></select>)手</p>
+      <p>遜(<select name="q90" data-question="4. 韻母填空 - 遜(____)色"><option value="">請選擇</option><option>jīn</option><option>shùn</option><option>xùn</option><option>zūn</option></select>)色</p>
+    </div>
+
+    <div class="question">
+      <p>聽老師讀單字，把讀音不同的字圈起來。</p>
+      <p>(<select name="q91" data-question="4. 找出不同讀音 - (____) | 醇 | 骨 | 純 | 馴"><option value="">請選擇</option><option>醇</option><option>骨</option><option>純</option><option>聊</option></select>) | 醇 | 骨 | 純 | 聊</p>
+      <p>(<select name="q92" data-question="4. 找出不同讀音 - (____) | 晉 | 俊 | 盡 | 進"><option value="">請選擇</option><option>晉</option><option>俊</option><option>盡</option><option>進</option></select>) | 晉 | 俊 | 盡 | 進</p>
+      <p>(<select name="q93" data-question="4. 找出不同讀音 - (____) | 巡 | 循 | 秦 | 旬"><option value="">請選擇</option><option>巡</option><option>循</option><option>秦</option><option>旬</option></select>) | 巡 | 循 | 秦 | 旬</p>
+    </div>
+
+    <div class="question">
+      <p>下面的字都有相同的部件，而且讀音相近。聽老師讀單字，把正確的拼音填在括號裏。</p>
+      <p>竣 (<select name="q94" data-question="4. 讀音相近 - 竣 (____)"><option value="">請選擇</option><option>jùn</option><option>jǐn</option><option>jìn</option><option>lún</option><option>lín</option></select>)</p>
+      <p>駿 (<select name="q95" data-question="4. 讀音相近 - 駿 (____)"><option value="">請選擇</option><option>jùn</option><option>jǐn</option><option>jìn</option><option>lún</option><option>lín</option></select>)</p>
+      <p>俊 (<select name="q96" data-question="4. 讀音相近 - 俊 (____)"><option value="">請選擇</option><option>jùn</option><option>jǐn</option><option>jìn</option><option>lún</option><option>lín</option></select>)</p>
+      <p>儘 (<select name="q97" data-question="4. 讀音相近 - 儘 (____)"><option value="">請選擇</option><option>jùn</option><option>jǐn</option><option>jìn</option><option>lún</option><option>lín</option></select>)</p>
+      <p>盡 (<select name="q98" data-question="4. 讀音相近 - 盡 (____)"><option value="">請選擇</option><option>jùn</option><option>jǐn</option><option>jìn</option><option>lún</option><option>lín</option></select>)</p>
+      <p>燼 (<select name="q99" data-question="4. 讀音相近 - 燼 (____)"><option value="">請選擇</option><option>jùn</option><option>jǐn</option><option>jìn</option><option>lún</option><option>lín</option></select>)</p>
+      <p>倫 (<select name="q100" data-question="4. 讀音相近 - 倫 (____)"><option value="">請選擇</option><option>jùn</option><option>jǐn</option><option>jìn</option><option>lún</option><option>lín</option></select>)</p>
+      <p>輪 (<select name="q101" data-question="4. 讀音相近 - 輪 (____)"><option value="">請選擇</option><option>jùn</option><option>jǐn</option><option>jìn</option><option>lún</option><option>lín</option></select>)</p>
+      <p>淪 (<select name="q102" data-question="4. 讀音相近 - 淪 (____)"><option value="">請選擇</option><option>jùn</option><option>jǐn</option><option>jìn</option><option>lún</option><option>lín</option></select>)</p>
+      <p>鄰 (<select name="q103" data-question="4. 讀音相近 - 鄰 (____)"><option value="">請選擇</option><option>jùn</option><option>jǐn</option><option>jìn</option><option>lún</option><option>lín</option></select>)</p>
+      <p>麟 (<select name="q104" data-question="4. 讀音相近 - 麟 (____)"><option value="">請選擇</option><option>jùn</option><option>jǐn</option><option>jìn</option><option>lún</option><option>lín</option></select>)</p>
+    </div>
+  </div>
+
+  <button type="submit">全部提交並顯示答案</button>
+
+  <div id="allResults" class="result">
+    <h2>測驗結果總覽</h2>
+    <div id="scoreTotal" class="total-score"></div>
+    <div id="itemsAll"></div>
+    <div id="submitMessage"></div>
+  </div>
+
+</form>
+
+<script>
+function handleQuizSubmit(formId, resultId, itemsId, scoreId, msgId, correctAnswers) {
+  const form = document.getElementById(formId);
+  const resultDiv = document.getElementById(resultId);
+  const itemsDiv = document.getElementById(itemsId);
+  const scoreDiv = document.getElementById(scoreId);
+  const messageDiv = document.getElementById(msgId);
+
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    const controls = form.querySelectorAll('select');
+    let score = 0;
+    itemsDiv.innerHTML = '';
+
+    const answers = [];
+    const totalQuestions = correctAnswers.length - 1;
+
+    for (let i = 1; i <= totalQuestions; i++) {
+      const q = controls[i-1];
+      const userAnswer = q ? q.value.trim() : '';
+      const correct = correctAnswers[i];
+      const isCorrect = (userAnswer === correct && userAnswer !== '');
+
+      if (isCorrect) score++;
+
+      let questionText = q && q.dataset.question 
+        ? q.dataset.question 
+        : `第 ${i} 題`;
+
+      const item = document.createElement('div');
+      item.className = 'item';
+      item.innerHTML = `
+        <strong>${questionText}</strong><br><br>
+        你的答案： <span class="${isCorrect ? 'correct' : 'wrong'}">${userAnswer || '(未作答)'}</span><br>
+        <div class="answer-show">正確答案： <span class="correct">${correct}</span></div>
+        <div>得分： ${isCorrect ? '1' : '0'}</div>
+      `;
+      itemsDiv.appendChild(item);
+
+      answers.push({
+        questionNumber: i,
+        question: questionText,
+        yourAnswer: userAnswer || '(未作答)',
+        correctAnswer: correct,
+        result: isCorrect ? '正確' : '錯誤'
+      });
+    }
+
+    scoreDiv.textContent = `總 分： ${score} / ${totalQuestions}`;
+    resultDiv.style.display = 'block';
+    resultDiv.scrollIntoView({ behavior: 'smooth' });
+
+    const payload = {
+      _subject: "普通話測驗結果提交",
+      score: `${score} / ${totalQuestions}`,
+      timestamp: new Date().toISOString(),
+      answers: JSON.stringify(answers, null, 2)
+    };
+
+    try {
+      const response = await fetch('https://formspree.io/f/xvzwnvwp', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      messageDiv.innerHTML = response.ok
+        ? '<span class="success">✅ 測驗結果已成功送出！</span>'
+        : '<span class="error">送出失敗，請稍後再試。</span>';
+    } catch (err) {
+      messageDiv.innerHTML = '<span class="error">網路錯誤，無法送出結果。</span>';
+    }
+  });
+}
+
+// 正確答案（嚴格按照 select 出現順序）
+const correctAnswers = [
+  null,
+  // 1. 吃點兒甚麼 (q1-q21)
+  "z","z","zh","zh","ch","c","c","ch","sh","s","s","sh",
+  "chī","zī","zǒng","zhǒng","zhāi","sì","chāo","zhāo","cài",
+  // 2. 嚐一嚐 (q22-q59)
+  "j","x","q","x","x","j","q","j","q","x","x","q",
+  "jiē","xī","quàn","juǎn","xiáng","qiáng","qiū","xi",
+  "jiāo","jiāo","jiǎo","jù","jù","jǔ","quán","quán","quán",
+  "qiáo","qiáo","qiáo","xún","xùn","xún","xīng","xīng","xǐng",
+  // 3. 愛護地球 (q60-q75)
+  "表示方向的動詞","語氣詞","助詞","常見的詞語後綴","方位詞",
+  "重疊形式的名詞/動詞","夾在詞語中間的「一」和「不」","沒有規律的輕聲詞",
+  "bǎi shè","bǎi she","dì fāng","dì fang","gōng dào","gōng dao","gào sù","gào su",
+  // 4. 小風波 (q76-q104)
+  "xīn","mǐn","qīn","wēn","xùn","yǔn","qún","xún","zhǔn","shùn","lùn",
+  "jīn","zūn","shùn","xùn",
+  "骨","俊","秦",
+  "jùn","jùn","jùn","jǐn","jìn","jìn","lún","lún","lún","lín","lín"
+];
+
+handleQuizSubmit("allQuizzes", "allResults", "itemsAll", "scoreTotal", "submitMessage", correctAnswers);
+</script>
+
+</body>
+</html>
