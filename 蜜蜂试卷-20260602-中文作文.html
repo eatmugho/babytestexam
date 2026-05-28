@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self';
+    connect-src *;
+    script-src 'self' 'unsafe-inline';
+    style-src 'self' 'unsafe-inline';
+  ">
+  <title>20260602-中文作文</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, "Microsoft JhengHei", sans-serif;
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+      line-height: 1.6;
+      color: #333;
+    }
+    h1, h2, h3 {
+      text-align: center;
+      color: #2c3e50;
+      margin: 50px 0 30px;
+    }
+    .section {
+      margin-bottom: 60px;
+    }
+    .question {
+      margin: 25px 0;
+      padding: 20px;
+      background: #f9fbfc;
+      border-radius: 10px;
+      border-left: 5px solid #3498db;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    .question p {
+      margin: 0 0 12px 0;
+      font-size: 1.1rem;
+    }
+    .options {
+      margin: 15px 0 20px 0;
+      padding-left: 20px;
+    }
+    .options p {
+      margin: 8px 0;
+      font-size: 1.05rem;
+    }
+    strong {
+      color: #e74c3c;
+    }
+    select {
+      padding: 10px 14px;
+      font-size: 1.02rem;
+      min-width: 100%;
+      border-radius: 6px;
+      border: 1px solid #bdc3c7;
+      background: white;
+      display: block;
+      margin: 15px 0;
+    }
+    select:focus {
+      outline: none;
+      border-color: #3498db;
+      box-shadow: 0 0 0 3px rgba(52,152,219,0.2);
+    }
+    button {
+      display: block;
+      margin: 60px auto;
+      padding: 18px 80px;
+      font-size: 1.35rem;
+      font-weight: bold;
+      background: #27ae60;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    button:hover {
+      background: #219653;
+    }
+    .result {
+      display: none;
+      margin: 40px 0;
+      padding: 30px;
+      background: #f4f6f9;
+      border-radius: 12px;
+      border: 1px solid #dfe6ed;
+    }
+    .total-score {
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-align: center;
+      margin: 30px 0 20px;
+      padding: 20px;
+      background: #d4edda;
+      border-radius: 10px;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+    }
+    .item {
+      margin: 18px 0;
+      padding: 16px;
+      background: white;
+      border-radius: 8px;
+      border: 1px solid #eee;
+    }
+    .correct { color: #27ae60; font-weight: bold; }
+    .wrong   { color: #c0392b; font-weight: bold; }
+    .answer-show {
+      margin-top: 8px;
+      font-size: 0.98rem;
+      color: #555;
+    }
+    #submitMessage {
+      text-align: center;
+      margin-top: 25px;
+      font-size: 1.15rem;
+    }
+    .success { color: #27ae60; }
+    .error   { color: #c0392b; }
+    .subtitle {
+      text-align: center;
+      color: #555;
+      margin-bottom: 30px;
+    }
+    .composition-topic {
+      background: #f0f7ff;
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 30px;
+    }
+    .word-count {
+      font-size: 1rem;
+      color: #555;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<h1>20260602-中文作文</h1>
+<p class="subtitle">請按照以下題目要求，在紙張上完成寫作</p>
+
+<form id="allQuizzes">
+
+  <!-- ====================== 中文作文 ====================== -->
+  <div class="section">
+    <h2>中文作文（實用文 / 記敘文）</h2>
+    
+    <div class="question">
+      <div class="composition-topic">
+        <p><strong>題目一：週記（實用文）</strong></p>
+        <p>你的表哥小明要去旅行一星期。小明托你幫他照顧他的小貓咪咪，期間發生了不少事情。請你寫一篇週記，記述你在這星期與咪咪相處的經歷和感受。</p>
+        <p class="word-count">字數：100-120字（正文，包括標點符號）</p>
+      </div>
+      <p>你的答案：
+        <select name="q1" data-question="1. 週記（實用文）">
+          <option value="">請選擇</option>
+          <option value="完成">已完成（紙上作答）</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <div class="composition-topic">
+        <p><strong>題目二：書信（實用文）</strong></p>
+        <p>小欣和她的表姐小惠很久沒有見面。試以小欣的身份寫一封信給小惠，交代近況，並告訴她最近你在家製作芝士蛋糕的過程和感受。</p>
+        <p class="word-count">字數：100-120字（只計算正文，包括標點符號）</p>
+      </div>
+      <p>你的答案：
+        <select name="q2" data-question="2. 書信（實用文）">
+          <option value="">請選擇</option>
+          <option value="完成">已完成（紙上作答）</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <div class="composition-topic">
+        <p><strong>題目三：記敘文</strong></p>
+        <p>一次難忘的教訓</p>
+        <p class="word-count">字數：100-120字（正文，包括標點符號）</p>
+      </div>
+      <p>你的答案：
+        <select name="q3" data-question="3. 記敘文 - 一次難忘的教訓">
+          <option value="">請選擇</option>
+          <option value="完成">已完成（紙上作答）</option>
+        </select>
+      </p>
+    </div>
+  </div>
+
+  <button type="submit">全部提交並顯示答案</button>
+
+  <div id="allResults" class="result">
+    <h2>測驗結果總覽</h2>
+    <div id="scoreTotal" class="total-score"></div>
+    <div id="itemsAll"></div>
+    <div id="submitMessage"></div>
+  </div>
+
+</form>
+
+<script>
+function handleQuizSubmit(formId, resultId, itemsId, scoreId, msgId, correctAnswers) {
+  const form = document.getElementById(formId);
+  const resultDiv = document.getElementById(resultId);
+  const itemsDiv = document.getElementById(itemsId);
+  const scoreDiv = document.getElementById(scoreId);
+  const messageDiv = document.getElementById(msgId);
+
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    const controls = form.querySelectorAll('select');
+    let score = 0;
+    itemsDiv.innerHTML = '';
+
+    const answers = [];
+    const totalQuestions = correctAnswers.length - 1;
+
+    for (let i = 1; i <= totalQuestions; i++) {
+      const q = controls[i-1];
+      const userAnswer = q ? q.value.trim() : '';
+      const correct = correctAnswers[i];
+      const isCorrect = (userAnswer === correct && userAnswer !== '');
+
+      if (isCorrect) score++;
+
+      let questionText = q && q.dataset.question 
+        ? q.dataset.question 
+        : `第 ${i} 題`;
+
+      const item = document.createElement('div');
+      item.className = 'item';
+      item.innerHTML = `
+        <strong>${questionText}</strong><br><br>
+        你的答案： <span class="${isCorrect ? 'correct' : 'wrong'}">${userAnswer || '(未作答)'}</span><br>
+        <div class="answer-show">正確答案： <span class="correct">${correct}</span></div>
+        <div>得分： ${isCorrect ? '1' : '0'}</div>
+      `;
+      itemsDiv.appendChild(item);
+
+      answers.push({
+        questionNumber: i,
+        question: questionText,
+        yourAnswer: userAnswer || '(未作答)',
+        correctAnswer: correct,
+        result: isCorrect ? '正確' : '錯誤'
+      });
+    }
+
+    scoreDiv.textContent = `總 分： ${score} / ${totalQuestions}`;
+    resultDiv.style.display = 'block';
+    resultDiv.scrollIntoView({ behavior: 'smooth' });
+
+    const payload = {
+      _subject: "20260602-中文作文結果提交",
+      score: `${score} / ${totalQuestions}`,
+      timestamp: new Date().toISOString(),
+      answers: JSON.stringify(answers, null, 2)
+    };
+
+    try {
+      const response = await fetch('https://formspree.io/f/xvzwnvwp', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      messageDiv.innerHTML = response.ok
+        ? '<span class="success">✅ 測驗結果已成功送出！</span>'
+        : '<span class="error">送出失敗，請稍後再試。</span>';
+    } catch (err) {
+      messageDiv.innerHTML = '<span class="error">網路錯誤，無法送出結果。</span>';
+    }
+  });
+}
+
+// 正確答案（作文題目均為紙上作答）
+const correctAnswers = [
+  null,
+  "完成",  // 1
+  "完成",  // 2
+  "完成"   // 3
+];
+
+handleQuizSubmit("allQuizzes", "allResults", "itemsAll", "scoreTotal", "submitMessage", correctAnswers);
+</script>
+
+</body>
+</html>
