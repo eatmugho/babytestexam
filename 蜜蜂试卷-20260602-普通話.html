@@ -335,7 +335,7 @@ function handleQuizSubmit(formId, resultId, itemsId, scoreId, msgId, correctAnsw
     resultDiv.scrollIntoView({ behavior: 'smooth' });
 
     const payload = {
-      _subject: "普通話測驗結果提交",
+      _subject: "20260602-普通話結果提交",
       score: `${score} / ${totalQuestions}`,
       timestamp: new Date().toISOString(),
       answers: JSON.stringify(answers, null, 2)
