@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src *; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline';">
+  <title>20260609-中文_重點詞語</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, "Microsoft JhengHei", sans-serif;
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+      line-height: 1.6;
+      color: #333;
+    }
+    h1, h2, h3 {
+      text-align: center;
+      color: #2c3e50;
+      margin: 50px 0 30px;
+    }
+    .section {
+      margin-bottom: 60px;
+    }
+    .question {
+      margin: 25px 0;
+      padding: 20px;
+      background: #f9fbfc;
+      border-radius: 10px;
+      border-left: 5px solid #3498db;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    .question p {
+      margin: 0 0 12px 0;
+      font-size: 1.1rem;
+    }
+    select {
+      padding: 10px 14px;
+      font-size: 1.02rem;
+      min-width: 100%;
+      border-radius: 6px;
+      border: 1px solid #bdc3c7;
+      background: white;
+      display: block;
+      margin: 15px 0;
+    }
+    select:focus {
+      outline: none;
+      border-color: #3498db;
+      box-shadow: 0 0 0 3px rgba(52,152,219,0.2);
+    }
+    button {
+      display: block;
+      margin: 60px auto;
+      padding: 18px 80px;
+      font-size: 1.35rem;
+      font-weight: bold;
+      background: #27ae60;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    button:hover {
+      background: #219653;
+    }
+    .result {
+      display: none;
+      margin: 40px 0;
+      padding: 30px;
+      background: #f4f6f9;
+      border-radius: 12px;
+      border: 1px solid #dfe6ed;
+    }
+    .total-score {
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-align: center;
+      margin: 30px 0 20px;
+      padding: 20px;
+      background: #d4edda;
+      border-radius: 10px;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+    }
+    .item {
+      margin: 18px 0;
+      padding: 16px;
+      background: white;
+      border-radius: 8px;
+      border: 1px solid #eee;
+    }
+    .correct { color: #27ae60; font-weight: bold; }
+    .wrong   { color: #c0392b; font-weight: bold; }
+    .answer-show {
+      margin-top: 8px;
+      font-size: 0.98rem;
+      color: #555;
+    }
+    #submitMessage {
+      text-align: center;
+      margin-top: 25px;
+      font-size: 1.15rem;
+    }
+    .success { color: #27ae60; }
+    .error   { color: #c0392b; }
+    .subtitle {
+      text-align: center;
+      color: #555;
+      margin-bottom: 30px;
+    }
+  </style>
+</head>
+<body>
+
+<h1>20260609-中文_重點詞語</h1>
+<p class="subtitle">請選擇正確的詞語填入空格</p>
+
+<form id="allQuizzes">
+
+  <!-- ====================== 第一組 ====================== -->
+  <div class="section">
+    <h2>第一組</h2>
+    <div class="question"><p><strong>1</strong> 聽到這個笑話，大家都忍不住(____)起來。</p><select name="q1" data-question="1. 聽到這個笑話，大家都忍不住(____)起來。"></select></div>
+    <div class="question"><p><strong>2</strong> 手機現在已經成為現代人(____)的日常工具。</p><select name="q2" data-question="2. 手機現在已經成為現代人(____)的日常工具。"></select></div>
+    <div class="question"><p><strong>3</strong> 他總是喜歡對別人(____)，讓同事們都很反感。</p><select name="q3" data-question="3. 他總是喜歡對別人(____)"></select></div>
+    <div class="question"><p><strong>4</strong> 樂樂跑步時受傷了，但他只是(____)地說了幾句，以免大家擔心。</p><select name="q4" data-question="4. 但只是(____)地說了幾句"></select></div>
+    <div class="question"><p><strong>5</strong> 他總是樂於為公司(____)，提出很多實用的改善方案。</p><select name="q5" data-question="5. 為公司(____)"></select></div>
+    <div class="question"><p><strong>6</strong> 自從志華改掉馬虎了事的學習態度後，成績(____)。</p><select name="q6" data-question="6. 成績(____)"></select></div>
+    <div class="question"><p><strong>7</strong> 你不要(____)自己的能力，你已經做得很好了。</p><select name="q7" data-question="7. 不要(____)自己的能力"></select></div>
+    <div class="question"><p><strong>8</strong> 小斯正在製作蛋糕，卻發現烤箱壞了，令她十分(____)。</p><select name="q8" data-question="8. 令她十分(____)"></select></div>
+    <div class="question"><p><strong>9</strong> 家輝明知樂樂脾氣不好，還故意招惹他，無疑是(____)。</p><select name="q9" data-question="9. 無疑是(____)"></select></div>
+    <div class="question"><p><strong>10</strong> 哥哥(____)較高的運算和解決問題的能力。</p><select name="q10" data-question="10. 哥哥(____)較高的...能力"></select></div>
+  </div>
+
+  <!-- ====================== 第二組 ====================== -->
+  <div class="section">
+    <h2>第二組</h2>
+    <div class="question"><p><strong>11</strong> (____)，台灣位於板塊帶上，所以當地的居民要經常進行防災演練。</p><select name="q11" data-question="11. (____)，台灣位於板塊帶上"></select></div>
+    <div class="question"><p><strong>12</strong> 這位消防員(____)地提了一下自己的功勞。</p><select name="q12" data-question="12. (____)地提了一下自己的功勞"></select></div>
+    <div class="question"><p><strong>13</strong> 全班同學一起(____)，想出了許多有趣的活動。</p><select name="q13" data-question="13. 一起(____)"></select></div>
+    <div class="question"><p><strong>14</strong> 看著小丑誇張的表演，台下的觀眾忍不住(____)。</p><select name="q14" data-question="14. 忍不住(____)"></select></div>
+    <div class="question"><p><strong>15</strong> 自從換了溫習的方法，他的成績便(____)。</p><select name="q15" data-question="15. 成績便(____)"></select></div>
+    <div class="question"><p><strong>16</strong> 好友之間互相開玩笑可以，但變成(____)就會傷害感情了。</p><select name="q16" data-question="16. 但變成(____)"></select></div>
+    <div class="question"><p><strong>17</strong> 水是人類生存(____)的資源，我們一定要好好珍惜。</p><select name="q17" data-question="17. 人類生存(____)的資源"></select></div>
+    <div class="question"><p><strong>18</strong> 小美一到游泳池就(____)，游得比強強快。</p><select name="q18" data-question="18. 一到游泳池就(____)"></select></div>
+    <div class="question"><p><strong>19</strong> 院子裡的榕樹長得非常(____)。</p><select name="q19" data-question="19. 長得非常(____)"></select></div>
+    <div class="question"><p><strong>20</strong> 每個人都應該(____)自己的長處，為班級貢獻一份心力。</p><select name="q20" data-question="20. 應該(____)自己的長處"></select></div>
+    <div class="question"><p><strong>21</strong> 翻看小時候的照片，讓我想起許多快樂的(____)。</p><select name="q21" data-question="21. 快樂的(____)"></select></div>
+    <div class="question"><p><strong>22</strong> 街頭那道彩色的牆面，其實是藝術家們創作的(____)作品。</p><select name="q22" data-question="22. 創作的(____)作品"></select></div>
+    <div class="question"><p><strong>23</strong> 這麼冷的天氣，你還不穿外套，真是(____)。</p><select name="q23" data-question="23. 真是(____)"></select></div>
+    <div class="question"><p><strong>24</strong> 傳說中的魯班是傑出的(____)，發明了許多實用的工具。</p><select name="q24" data-question="24. 傑出的(____)"></select></div>
+  </div>
+
+  <!-- ====================== 第三組 ====================== -->
+  <div class="section">
+    <h2>第三組</h2>
+    <div class="question"><p><strong>25</strong> 這個家務助理機器人(____)良好的性能，只要收到聲音指令，就能完成指定家務。</p><select name="q25" data-question="25. 機器人(____)良好的性能"></select></div>
+    <div class="question"><p><strong>26</strong> 要做出美味的草莓蛋糕，新鮮草莓是(____)的。</p><select name="q26" data-question="26. 是(____)的"></select></div>
+    <div class="question"><p><strong>27</strong> 小美自小就獲得不少鋼琴比賽的獎項，是(____)的音樂天才。</p><select name="q27" data-question="27. 是(____)的音樂天才"></select></div>
+    <div class="question"><p><strong>28</strong> 他為人大意，做事經常出現錯漏，令人不禁(____)他是否有能力。</p><select name="q28" data-question="28. 令人不禁(____)他"></select></div>
+    <div class="question"><p><strong>29</strong> 他明知自己不熟悉那件事，還硬要逞強，結果只是(____)。</p><select name="q29" data-question="29. 結果只是(____)"></select></div>
+    <div class="question"><p><strong>30</strong> 科學家正在(____)一種新藥，希望能幫助更多病人。</p><select name="q30" data-question="30. 正在(____)一種新藥"></select></div>
+    <div class="question"><p><strong>31</strong> 他講了一個很有趣的故事，大家聽完都(____)。</p><select name="q31" data-question="31. 大家都(____)"></select></div>
+  </div>
+
+  <!-- ====================== 第四組 ====================== -->
+  <div class="section">
+    <h2>第四組</h2>
+    <div class="question"><p><strong>32</strong> 昨天，我和媽媽去醫院探望遭遇車禍而受傷的表哥，為了不讓我們擔心，表哥(____)地一筆帶過意外的經過。</p><select name="q32" data-question="32. (____)地一筆帶過"></select></div>
+    <div class="question"><p><strong>33</strong> 熱帶雨林氣候炎熱，陽光猛烈，而且雨量充足，十分適合植物生長，因此那裏的樹木都長得非常(____)。</p><select name="q33" data-question="33. 長得非常(____)"></select></div>
+    <div class="question"><p><strong>34</strong> 暑假時，我參加了一個烹飪興趣班，同學們紛紛(____)她們的廚藝。</p><select name="q34" data-question="34. 紛紛(____)她們的廚藝"></select></div>
+    <div class="question"><p><strong>35</strong> 我遲遲未能完成今天的功課, 當我感到十分(____)時，老師走過來幫忙。</p><select name="q35" data-question="35. 感到十分(____)"></select></div>
+    <div class="question"><p><strong>36</strong> 自從轉到新部門後，她覺得工作(____)，表現越來越好。</p><select name="q36" data-question="36. 工作(____)"></select></div>
+    <div class="question"><p><strong>37</strong> 在這次市場推廣活動中，大家都(____)，幫公司想出不少新點子。</p><select name="q37" data-question="37. 大家都(____)"></select></div>
+    <div class="question"><p><strong>38</strong> 他早已(____)，完成溫習，所以考試時非常輕鬆。</p><select name="q38" data-question="38. 他早已(____)"></select></div>
+  </div>
+
+  <!-- ====================== 第五組 ====================== -->
+  <div class="section">
+    <h2>第五組</h2>
+    <div class="question"><p><strong>39</strong> 他的木工做得很精細，他真是一個(____)。</p><select name="q39" data-question="39. 真是一個(____)"></select></div>
+    <div class="question"><p><strong>40</strong> 自從志華改掉粗心的壞習慣後，成績(____)，更受到了老師的表揚。</p><select name="q40" data-question="40. 成績(____)"></select></div>
+    <div class="question"><p><strong>41</strong> 張警官雖然年輕，卻(____)了敏銳的觀察力和冷靜的頭腦。</p><select name="q41" data-question="41. 卻(____)了敏銳的..."></select></div>
+    <div class="question"><p><strong>42</strong> 家輝明知樂樂脾氣不好，還故意招惹他，無疑是(____)。</p><select name="q42" data-question="42. 無疑是(____)"></select></div>
+    <div class="question"><p><strong>43</strong> 惠文(____)那個動作鬼鬼祟祟的男人，就是偷了她錢包的小偷。</p><select name="q43" data-question="43. 惠文(____)那個..."></select></div>
+    <div class="question"><p><strong>44</strong> 這個人說話老是(____)，大家都不太喜歡跟他交談。</p><select name="q44" data-question="44. 說話老是(____)"></select></div>
+    <div class="question"><p><strong>45</strong> 純淨的飲用水是人類生存(____)的必需品。</p><select name="q45" data-question="45. 人類生存(____)的必需品"></select></div>
+  </div>
+
+  <!-- ====================== 第六組 ====================== -->
+  <div class="section">
+    <h2>第六組</h2>
+    <div class="question"><p><strong>46</strong> 這塊土地很肥沃，植物生長得十分(____)。</p><select name="q46" data-question="46. 生長得十分(____)"></select></div>
+    <div class="question"><p><strong>47</strong> 樂樂跑步時受傷了，但他只是(____)地說了幾句，以免大家擔心。</p><select name="q47" data-question="47. 只是(____)地說了幾句"></select></div>
+    <div class="question"><p><strong>48</strong> 看到了這洋娃娃，不禁令我(____)起和表妹一起的日子。</p><select name="q48" data-question="48. 令我(____)起...日子"></select></div>
+    <div class="question"><p><strong>49</strong> 為了避免交通擠塞，交通警員把車輛(____)到不同的路線。</p><select name="q49" data-question="49. 把車輛(____)到不同的路線"></select></div>
+    <div class="question"><p><strong>50</strong> 同伴(____)他是膽小鬼，令他很不滿。</p><select name="q50" data-question="50. 同伴(____)他是膽小鬼"></select></div>
+    <div class="question"><p><strong>51</strong> (____)，農曆新年是中國最重要而盛大的傳統節日。</p><select name="q51" data-question="51. (____)，農曆新年是..."></select></div>
+    <div class="question"><p><strong>52</strong> 智能手機已經是生活中(____)的工具。</p><select name="q52" data-question="52. 生活中(____)的工具"></select></div>
+    <div class="question"><p><strong>53</strong> 家輝不擅長運動，卻報名參加長跑比賽，無疑是(____)。</p><select name="q53" data-question="53. 無疑是(____)"></select></div>
+    <div class="question"><p><strong>54</strong> 那名男子神色緊張，難免令人(____)他是否做了壞事。</p><select name="q54" data-question="54. 令人(____)他是否..."></select></div>
+    <div class="question"><p><strong>55</strong> 同學們(____)在不同的區域遊玩。</p><select name="q55" data-question="55. 同學們(____)在不同的區域"></select></div>
+    <div class="question"><p><strong>56</strong> 芷玲竟然在課室的牆壁上(____)。</p><select name="q56" data-question="56. 在牆壁上(____)"></select></div>
+    <div class="question"><p><strong>57</strong> 美華一邊翻閱照片，一邊(____)着與家人旅遊的快樂時光。</p><select name="q57" data-question="57. 一邊(____)着..."></select></div>
+    <div class="question"><p><strong>58</strong> 這位消防員總是(____)地分享自己的工作內容。</p><select name="q58" data-question="58. 總是(____)地分享"></select></div>
+    <div class="question"><p><strong>59</strong> 雨林中的樹木生長得十分(____)。</p><select name="q59" data-question="59. 生長得十分(____)"></select></div>
+    <div class="question"><p><strong>60</strong> 諸葛亮向劉備(____)，讓劉備在赤壁之戰中獲勝。</p><select name="q60" data-question="60. 向劉備(____)"></select></div>
+  </div>
+
+  <button type="submit">全部提交並顯示答案</button>
+
+  <div id="allResults" class="result">
+    <h2>測驗結果總覽</h2>
+    <div id="scoreTotal" class="total-score"></div>
+    <div id="itemsAll"></div>
+    <div id="submitMessage"></div>
+  </div>
+
+</form>
+
+<script>
+// 所有詞語選項
+const words = [
+  "--請選擇--",
+  "具備","研製","能工巧匠","突飛猛進","捧腹大笑",
+  "懷疑","眾所周知","不可或缺","冷嘲熱諷","自討苦吃",
+  "塗鴉","分散","茂盛","回憶","輕描淡寫",
+  "苦惱","發揮","出謀獻策","胸有成竹","如魚得水"
+];
+
+// 正確答案（已完整對應）
+const correctAnswers = [
+  null,
+  "捧腹大笑", "不可或缺", "冷嘲熱諷", "輕描淡寫", "出謀獻策",
+  "突飛猛進", "懷疑", "苦惱", "自討苦吃", "具備",
+  "眾所周知", "輕描淡寫", "出謀獻策", "捧腹大笑", "突飛猛進",
+  "冷嘲熱諷", "不可或缺", "如魚得水", "茂盛", "發揮",
+  "回憶", "塗鴉", "自討苦吃", "能工巧匠", "具備",
+  "不可或缺", "胸有成竹", "懷疑", "自討苦吃", "研製",
+  "捧腹大笑", "輕描淡寫", "茂盛", "發揮", "苦惱",
+  "如魚得水", "出謀獻策", "胸有成竹", "能工巧匠", "突飛猛進",
+  "具備", "自討苦吃", "懷疑", "冷嘲熱諷", "不可或缺",
+  "茂盛", "輕描淡寫", "回憶", "分散", "懷疑",
+  "眾所周知", "不可或缺", "自討苦吃", "懷疑", "分散",
+  "塗鴉", "回憶", "輕描淡寫", "茂盛", "出謀獻策"
+];
+
+// 填充所有下拉選單
+document.querySelectorAll('select').forEach(select => {
+  words.forEach(word => {
+    const opt = document.createElement('option');
+    opt.value = word;
+    opt.textContent = word;
+    select.appendChild(opt);
+  });
+});
+
+function handleQuizSubmit() {
+  const form = document.getElementById("allQuizzes");
+  const resultDiv = document.getElementById("allResults");
+  const itemsDiv = document.getElementById("itemsAll");
+  const scoreDiv = document.getElementById("scoreTotal");
+  const messageDiv = document.getElementById("submitMessage");
+
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    const selects = form.querySelectorAll('select');
+    let score = 0;
+    itemsDiv.innerHTML = '';
+
+    for (let i = 1; i < correctAnswers.length; i++) {
+      const q = selects[i-1];
+      const userAnswer = q ? q.value.trim() : '';
+      const correct = correctAnswers[i];
+      const isCorrect = (userAnswer === correct && userAnswer !== '');
+
+      if (isCorrect) score++;
+
+      const questionWrapper = q.closest('.question');
+      const pElement = questionWrapper ? questionWrapper.querySelector('p') : null;
+      const questionText = pElement ? pElement.innerText : (q.dataset.question || "未知題目");
+
+      const item = document.createElement('div');
+      item.className = 'item';
+      item.innerHTML = `
+        <strong>${questionText}</strong><br><br>
+        你的答案： <span class="${isCorrect ? 'correct' : 'wrong'}">${userAnswer || '(未作答)'}</span><br>
+        <div class="answer-show">正確答案： <span class="correct">${correct}</span></div>
+        <div>得分： ${isCorrect ? '1' : '0'}</div>
+      `;
+      itemsDiv.appendChild(item);
+    }
+
+    scoreDiv.textContent = `總 分： ${score} / ${correctAnswers.length - 1}`;
+    resultDiv.style.display = 'block';
+    resultDiv.scrollIntoView({ behavior: 'smooth' });
+
+    const payload = {
+      _subject: "20260609-中文_重點詞語結果提交",
+      score: `${score} / ${correctAnswers.length - 1}`,
+      timestamp: new Date().toISOString(),
+      answers: JSON.stringify(answers, null, 2)
+    };
+
+    try {
+      await fetch('https://formspree.io/f/xvzwnvwp', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      messageDiv.innerHTML = '<span class="success">✅ 測驗結果已成功送出！</span>';
+    } catch (err) {
+      messageDiv.innerHTML = '<span class="error">送出失敗，請稍後再試。</span>';
+    }
+  });
+}
+
+handleQuizSubmit();
+</script>
+
+</body>
+</html>
