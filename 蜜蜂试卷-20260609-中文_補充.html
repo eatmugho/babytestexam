@@ -1,0 +1,504 @@
+```html
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self';
+    connect-src *;
+    script-src 'self' 'unsafe-inline';
+    style-src 'self' 'unsafe-inline';
+  ">
+  <title>20260609-中文_補充</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, "Microsoft JhengHei", sans-serif;
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+      line-height: 1.6;
+      color: #333;
+    }
+    h1, h2, h3 {
+      text-align: center;
+      color: #2c3e50;
+      margin: 50px 0 30px;
+    }
+    .section {
+      margin-bottom: 60px;
+    }
+    .question {
+      margin: 25px 0;
+      padding: 20px;
+      background: #f9fbfc;
+      border-radius: 10px;
+      border-left: 5px solid #3498db;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    .question p {
+      margin: 0 0 12px 0;
+      font-size: 1.1rem;
+    }
+    strong {
+      color: #e74c3c;
+    }
+    select {
+      padding: 10px 14px;
+      font-size: 1.05rem;
+      min-width: 180px;
+      border-radius: 6px;
+      border: 1px solid #bdc3c7;
+      background: white;
+    }
+    select:focus {
+      outline: none;
+      border-color: #3498db;
+      box-shadow: 0 0 0 3px rgba(52,152,219,0.2);
+    }
+    button {
+      display: block;
+      margin: 60px auto;
+      padding: 18px 80px;
+      font-size: 1.35rem;
+      font-weight: bold;
+      background: #27ae60;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    button:hover {
+      background: #219653;
+    }
+    .result {
+      display: none;
+      margin: 40px 0;
+      padding: 30px;
+      background: #f4f6f9;
+      border-radius: 12px;
+      border: 1px solid #dfe6ed;
+    }
+    .total-score {
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-align: center;
+      margin: 30px 0 20px;
+      padding: 20px;
+      background: #d4edda;
+      border-radius: 10px;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+    }
+    .item {
+      margin: 18px 0;
+      padding: 16px;
+      background: white;
+      border-radius: 8px;
+      border: 1px solid #eee;
+    }
+    .correct { color: #27ae60; font-weight: bold; }
+    .wrong   { color: #c0392b; font-weight: bold; }
+    .answer-show {
+      margin-top: 8px;
+      font-size: 0.98rem;
+      color: #555;
+    }
+    #submitMessage {
+      text-align: center;
+      margin-top: 25px;
+      font-size: 1.15rem;
+    }
+    .success { color: #27ae60; }
+    .error   { color: #c0392b; }
+    .subtitle {
+      text-align: center;
+      color: #555;
+      margin-bottom: 30px;
+    }
+    .blank {
+      display: inline-block;
+      min-width: 120px;
+      border-bottom: 2px solid #333;
+    }
+  </style>
+</head>
+<body>
+
+<h1>20260609-中文_補充</h1>
+<p class="subtitle">請完成所有題目後按下方按鈕一次提交</p>
+
+<form id="allQuizzes">
+
+  <!-- ====================== 第一部分：歎詞、副詞 ====================== -->
+  <div class="section">
+    <h2>第一部分：歎詞、副詞</h2>
+    
+    <div class="question">
+      <p>供詞填充：選出適當的歎詞，填在橫線上。</p>
+      <p>(<select name="q1" data-question="1-1. 為甚麼陳老師會在我家出現呢？"><option value="">請選擇</option><option>哼</option><option>嘩</option><option>咦</option><option>唉</option><option>嗯</option><option>哎呀</option><option>哈哈</option></select>) ！為甚麼陳老師會在我家出現呢？</p>
+      <p>(<select name="q2" data-question="1-2. 你常常說謊，我不會再相信你！"><option value="">請選擇</option><option>哼</option><option>嘩</option><option>咦</option><option>唉</option><option>嗯</option><option>哎呀</option><option>哈哈</option></select>) ！你常常說謊，我不會再相信你！</p>
+      <p>(<select name="q3" data-question="1-3. 嘛！可惜，今天我們去不成遊樂場了！"><option value="">請選擇</option><option>哼</option><option>嘩</option><option>咦</option><option>唉</option><option>嗯</option><option>哎呀</option><option>哈哈</option></select>) 嘛！可惜，今天我們去不成遊樂場了！</p>
+      <p>(<select name="q4" data-question="1-4. 尼亞加拉瀑布的景色真是壯觀極了！"><option value="">請選擇</option><option>哼</option><option>嘩</option><option>咦</option><option>唉</option><option>嗯</option><option>哎呀</option><option>哈哈</option></select>) ！尼亞加拉瀑布的景色真是壯觀極了！</p>
+      <p>(<select name="q5" data-question="1-5. 我決定和你一起去超級市場買東西。"><option value="">請選擇</option><option>哼</option><option>嘩</option><option>咦</option><option>唉</option><option>嗯</option><option>哎呀</option><option>哈哈</option></select>) ！我決定和你一起去超級市場買東西。</p>
+      <p>(<select name="q6" data-question="1-6. 太好笑了！這部喜劇真是太有趣了！"><option value="">請選擇</option><option>哼</option><option>嘩</option><option>咦</option><option>唉</option><option>嗯</option><option>哎呀</option><option>哈哈</option></select>) ！太好笑了！這部喜劇真是太有趣了！</p>
+      <p>(<select name="q7" data-question="1-7. 我剛才吃了很多冰淇淋，現在肚子很痛呀！"><option value="">請選擇</option><option>哼</option><option>嘩</option><option>咦</option><option>唉</option><option>嗯</option><option>哎呀</option><option>哈哈</option></select>) ！我剛才吃了很多冰淇淋，現在肚子很痛呀！</p>
+    </div>
+
+    <div class="question">
+      <p>不供詞填充：依照括號內的提示，在橫線上填上適當的歎詞。</p>
+      <p>（表示鄙視）(<select name="q8" data-question="1-8. 表示鄙視"><option value="">請選擇</option><option>哼</option><option>嘩</option><option>咦</option><option>唉</option><option>嗯</option><option>哎呀</option><option>哈哈</option></select>) ！我才不會跟這種言而無信的人交朋友！</p>
+      <p>（表示驚訝）(<select name="q9" data-question="1-9. 表示驚訝"><option value="">請選擇</option><option>哼</option><option>嘩</option><option>咦</option><option>唉</option><option>嗯</option><option>哎呀</option><option>哈哈</option></select>) ！那不就是志文的哥哥嗎？</p>
+      <p>（表示有趣）(<select name="q10" data-question="1-10. 表示有趣"><option value="">請選擇</option><option>哼</option><option>嘩</option><option>咦</option><option>唉</option><option>嗯</option><option>哎呀</option><option>哈哈</option></select>) ！小丑的表演太滑稽了！</p>
+      <p>（表示明白）(<select name="q11" data-question="1-11. 表示明白"><option value="">請選擇</option><option>哼</option><option>嘩</option><option>咦</option><option>唉</option><option>嗯</option><option>哎呀</option><option>哈哈</option></select>) ！原來是這個步驟出錯了。</p>
+      <p>（表示應答）(<select name="q12" data-question="1-12. 表示應答"><option value="">請選擇</option><option>哼</option><option>嘩</option><option>咦</option><option>唉</option><option>嗯</option><option>哎呀</option><option>哈哈</option></select>) ！你買的漫畫書先借給我看吧！</p>
+      <p>（表示惋惜）(<select name="q13" data-question="1-13. 表示惋惜"><option value="">請選擇</option><option>哼</option><option>嘩</option><option>咦</option><option>唉</option><option>嗯</option><option>哎呀</option><option>哈哈</option></select>) ！妹妹把我珍藏的陶瓷娃娃打破了！</p>
+    </div>
+
+    <div class="question">
+      <p>圈出適當的語氣副詞，完成下列各句。</p>
+      <p>下午突然下起大雨，(<select name="q14" data-question="1-14. 下午突然下起大雨"><option value="">請選擇</option><option>幸好</option><option>果然</option><option>大概</option></select>) 我出門時帶備了雨傘。</p>
+      <p>既然景偉說他不想去燒烤，你又(<select name="q15" data-question="1-15. 既然景偉說他不想去燒烤"><option value="">請選擇</option><option>難道</option><option>何必</option><option>必須</option></select>) 勉強他呢？</p>
+      <p>穎芝(<select name="q16" data-question="1-16. 穎芝十分忙碌"><option value="">請選擇</option><option>居然</option><option>大約</option><option>未免</option></select>) 十分忙碌，所以未能接聽你的電話吧！</p>
+      <p>你(<select name="q17" data-question="1-17. 你先在網站上登記"><option value="">請選擇</option><option>大約</option><option>何必</option><option>必須</option></select>) 先在網站上登記，才可以參加抽獎活動。</p>
+      <p>爸爸要在星期六加班工作，所以我們一家原定的郊遊活動(<select name="q18" data-question="1-18. 原定的郊遊活動延遲"><option value="">請選擇</option><option>只好</option><option>究竟</option><option>竟然</option></select>) 延遲至下星期進行了。</p>
+      <p>欣欣忘了交功課，(<select name="q19" data-question="1-19. 欣欣忘了交功課"><option value="">請選擇</option><option>居然</option><option>未免</option><option>究竟</option></select>) 還向老師撒謊，她這樣做(<select name="q20" data-question="1-20. 她這樣做太過分了"><option value="">請選擇</option><option>未免</option><option>究竟</option><option>何必</option><option>必須</option></select>) 太過分了。</p>
+      <p>我的錢包(<select name="q21" data-question="1-21. 我的錢包在哪兒"><option value="">請選擇</option><option>偏偏</option><option>究竟</option><option>何必</option></select>) 在哪兒？(<select name="q22" data-question="1-22. 我把它遺下在圖書館裏了？"><option value="">請選擇</option><option>難道</option><option>幸好</option><option>到底</option></select>) 我把它遺下在圖書館裏了？</p>
+    </div>
+
+    <div class="question">
+      <p>綜合選詞填充（短文）</p>
+      <p>(<select name="q23" data-question="1-23. 真倒霉！"><option value="">請選擇</option><option>唉</option><option>啊</option><option>一定</option><option>難道</option><option>究竟</option><option>竟然</option></select>) ！真倒霉！今天上課時，我發現心新文具盒不見了。</p>
+      <p>(<select name="q24" data-question="1-24. 被誰偷去的呢？"><option value="">請選擇</option><option>唉</option><option>啊</option><option>一定</option><option>難道</option><option>究竟</option><option>竟然</option></select>) 被誰偷去的呢？</p>
+      <p>(<select name="q25" data-question="1-25. 知道了"><option value="">請選擇</option><option>唉</option><option>啊</option><option>一定</option><option>難道</option><option>究竟</option><option>竟然</option></select>) ！知道了，(<select name="q26" data-question="1-26. 是鄰座的志強偷去的"><option value="">請選擇</option><option>唉</option><option>啊</option><option>一定</option><option>難道</option><option>究竟</option><option>竟然</option></select>) 是鄰座的志強偷去的。</p>
+      <p>(<select name="q27" data-question="1-27. 小清手上拿着的"><option value="">請選擇</option><option>唉</option><option>啊</option><option>一定</option><option>難道</option><option>究竟</option><option>竟然</option></select>) 小清手上拿着的，不正是我的文具盒嗎？</p>
+      <p>(<select name="q28" data-question="1-28. 是她偷走的？"><option value="">請選擇</option><option>唉</option><option>啊</option><option>一定</option><option>難道</option><option>究竟</option><option>竟然</option></select>) 是她偷走的？</p>
+      <p>正當我滿腹疑團的時候，突然發現我的文具盒(<select name="q29" data-question="1-29. 就在我的椅子下面"><option value="">請選擇</option><option>唉</option><option>啊</option><option>一定</option><option>難道</option><option>究竟</option><option>竟然</option></select>) 就在我的椅子下面。</p>
+    </div>
+  </div>
+
+  <!-- ====================== 第二部分：直述句和轉述句 ====================== -->
+  <div class="section">
+    <h2>第二部分：直述句和轉述句</h2>
+    
+    <div class="question">
+      <p>根據提示，在方格內加上冒號和引號，如不需加上標點符號，填 X。</p>
+      <p>家強說 <select name="q30" data-question="2-1. 家強說 直述句"><option value="">請選擇</option><option>：「爸爸，您可以買一部電子遊戲機給我嗎？」</option><option>：爸爸，您可以買一部電子遊戲機給我嗎？</option><option>X</option></select> （直述句）</p>
+      <p>哥哥提醒美欣 <select name="q31" data-question="2-2. 哥哥提醒美欣 轉述句"><option value="">請選擇</option><option>圖書借閱期已屆滿，要把書歸還。</option><option>：「圖書借閱期已屆滿，要把書歸還。」</option><option>X</option></select> （轉述句）</p>
+      <p>媽媽對着弟弟唱歌 <select name="q32" data-question="2-3. 媽媽對着弟弟唱歌 直述句"><option value="">請選擇</option><option>：「小寶寶，快睡吧……」</option><option>：小寶寶，快睡吧……</option><option>X</option></select> （直述句）</p>
+      <p>售貨員問我 <select name="q33" data-question="2-4. 售貨員問我 直述句"><option value="">請選擇</option><option>：「請問您穿甚麼尺碼的鞋子？」</option><option>：請問您穿甚麼尺碼的鞋子？</option><option>X</option></select> （直述句）</p>
+      <p>陳老師向我們宣佈 <select name="q34" data-question="2-5. 陳老師向我們宣佈 轉述句"><option value="">請選擇</option><option>徵文比賽的得獎名單。</option><option>：「徵文比賽的得獎名單。」</option><option>X</option></select> （轉述句）</p>
+      <p>子明問我 <select name="q35" data-question="2-6. 子明問我 轉述句"><option value="">請選擇</option><option>可不可以把書櫃上的中文字典拿給他。</option><option>：「可不可以把書櫃上的中文字典拿給他。」</option><option>X</option></select> （轉述句）</p>
+    </div>
+
+    <div class="question">
+      <p>不供詞填充：在括號內填上適當的代詞，完成下列轉述句。</p>
+      <p>小玲說志明的腳受了傷，不能上學，(<select name="q36" data-question="2-7. 小玲說...放學後會去探望"><option value="">請選擇</option><option>他</option><option>她</option><option>牠</option><option>這</option><option>那</option><option>他們</option><option>我們</option></select>) 放學後會去探望志明。</p>
+      <p>姨母對表哥說(<select name="q37" data-question="2-8. 姨母對表哥說...現在上班去"><option value="">請選擇</option><option>他</option><option>她</option><option>牠</option><option>這</option><option>那</option><option>他們</option><option>我們</option></select>) 現在上班去，要(<select name="q38" data-question="2-9. 要...小心門戶"><option value="">請選擇</option><option>他</option><option>她</option><option>牠</option><option>這</option><option>那</option><option>他們</option><option>我們</option></select>) 小心門戶。</p>
+      <p>校長訓勉(<select name="q39" data-question="2-10. 校長訓勉...要遠離不良分子"><option value="">請選擇</option><option>他</option><option>她</option><option>牠</option><option>這</option><option>那</option><option>他們</option><option>我們</option></select>) ，要(<select name="q40" data-question="2-11. 要...遠離不良分子"><option value="">請選擇</option><option>他</option><option>她</option><option>牠</option><option>這</option><option>那</option><option>他們</option><option>我們</option></select>) 遠離不良分子，不要受(<select name="q41" data-question="2-12. 不要受...的引誘"><option value="">請選擇</option><option>他</option><option>她</option><option>牠</option><option>這</option><option>那</option><option>他們</option><option>我們</option></select>) 的引誘。</p>
+      <p>妹妹對爸爸說，(<select name="q42" data-question="2-13. 妹妹對爸爸說...隻蚊子"><option value="">請選擇</option><option>他</option><option>她</option><option>牠</option><option>這</option><option>那</option><option>他們</option><option>我們</option></select>) 隻蚊子竟敢闖進(<select name="q43" data-question="2-14. 闖進...的房間"><option value="">請選擇</option><option>他</option><option>她</option><option>牠</option><option>這</option><option>那</option><option>他們</option><option>我們</option></select>) 的房間，(<select name="q44" data-question="2-15. ...已把...消滅了"><option value="">請選擇</option><option>他</option><option>她</option><option>牠</option><option>這</option><option>那</option><option>他們</option><option>我們</option></select>) 已把(<select name="q45" data-question="2-16. 已把...消滅了"><option value="">請選擇</option><option>他</option><option>她</option><option>牠</option><option>這</option><option>那</option><option>他們</option><option>我們</option></select>) 消滅了。</p>
+    </div>
+
+    <div class="question">
+      <p>改寫句子：把下列直述句改寫成轉述句。</p>
+      <p>永強問琪琪：「我可不可以借用你的圓珠筆呢？」</p>
+      <p>答案應為：<select name="q46" data-question="2-17. 永強問琪琪 改寫"><option value="">請選擇</option><option>永強問琪琪他可不可以借用她的圓珠筆。</option><option>永強問琪琪：「我可不可以借用你的圓珠筆呢？」</option></select></p>
+      
+      <p>惠兒說：「這幅得獎的水彩畫是我姐姐畫的。」</p>
+      <p>答案應為：<select name="q47" data-question="2-18. 惠兒說 改寫"><option value="">請選擇</option><option>惠兒說這幅得獎的水彩畫是她姐姐畫的。</option><option>惠兒說：「這幅得獎的水彩畫是我姐姐畫的。」</option></select></p>
+      
+      <p>姐姐說：「志輝，你的字典原來放在這個抽屜裏呢！」</p>
+      <p>答案應為：<select name="q48" data-question="2-19. 姐姐說 改寫"><option value="">請選擇</option><option>姐姐告訴志輝，他的字典原來放在那個抽屜裏。</option><option>姐姐說志輝，你的字典原來放在這個抽屜裏呢！</option></select></p>
+    </div>
+  </div>
+
+  <!-- ====================== 第三部分：遞進複句 ====================== -->
+  <div class="section">
+    <h2>第三部分：遞進複句</h2>
+    
+    <div class="question">
+      <p>句子辨析：辨別下列句子，意思合理的加 √；不合理的加 X。</p>
+      <p>(<select name="q49" data-question="3-1. 那名球手非但失去了比賽的資格"><option value="">請選擇</option><option>√</option><option>X</option></select>) 那名球手非但失去了比賽的資格，還沒有晉級。</p>
+      <p>(<select name="q50" data-question="3-2. 那名球手非但沒有晉級"><option value="">請選擇</option><option>√</option><option>X</option></select>) 那名球手非但沒有晉級，還失去了比賽的資格。</p>
+      <p>(<select name="q51" data-question="3-3. 志成受傷後非但沒有哭"><option value="">請選擇</option><option>√</option><option>X</option></select>) 志成受傷後非但沒有哭，還反過來安慰我不用太擔心。</p>
+      <p>(<select name="q52" data-question="3-4. 志成受傷後非但反過來安慰"><option value="">請選擇</option><option>√</option><option>X</option></select>) 志成受傷後非但反過來安慰我不用太擔心，還沒有哭。</p>
+      <p>(<select name="q53" data-question="3-5. 姐姐不只把碗筷洗好"><option value="">請選擇</option><option>√</option><option>X</option></select>) 姐姐不只把碗筷洗好，更把整個廚房收拾得乾乾淨淨。</p>
+      <p>(<select name="q54" data-question="3-6. 姐姐不只把整個廚房收拾"><option value="">請選擇</option><option>√</option><option>X</option></select>) 姐姐不只把整個廚房收拾得乾乾淨淨，更把碗筷洗好。</p>
+    </div>
+
+    <div class="question">
+      <p>句式填充：選出適當的句式填在括號內。</p>
+      <p>(<select name="q55" data-question="3-7. 我坐纜車...坐過山車呢？"><option value="">請選擇</option><option>不只……更……</option><option>尚且……何況……</option></select>) 我坐纜車[  ]會覺得害怕，[  ]是坐過山車呢？</p>
+      <p>(<select name="q56" data-question="3-8. 李老師...助養了多名貧窮的小孩"><option value="">請選擇</option><option>不只……更……</option><option>尚且……何況……</option></select>) 李老師[  ]經常做義工，[  ]助養了多名貧窮的小孩。</p>
+      <p>(<select name="q57" data-question="3-9. 表姐...買了很多和電影相關的產品"><option value="">請選擇</option><option>不只……更……</option><option>尚且……何況……</option></select>) 表姐[  ]看過這個魔法學校系列的所有電影，[  ]買了很多和電影相關的產品。</p>
+      <p>(<select name="q58" data-question="3-10. 我們對師長...是自己的父母呢？"><option value="">請選擇</option><option>不只……更……</option><option>尚且……何況……</option></select>) 我們對師長[  ]要懂得尊重，[  ]是自己的父母呢？</p>
+      <p>(<select name="q59" data-question="3-11. 在下雨天...現在外面狂風暴雨呢？"><option value="">請選擇</option><option>不只……更……</option><option>尚且……何況……</option></select>) 在下雨天[  ]不適宜進行戶外活動，[  ]現在外面狂風暴雨呢？</p>
+      <p>(<select name="q60" data-question="3-12. 小貓露露...真令人感到意外呢！"><option value="">請選擇</option><option>不只……更……</option><option>尚且……何況……</option></select>) 小貓露露[  ]不害怕洗澡，[  ]非常喜歡玩水，真令人感到意外呢！</p>
+    </div>
+
+    <div class="question">
+      <p>改寫句子：根據提供的句式和資料改寫句子。</p>
+      <p>這個問題十分複雜。媽媽不知道怎樣解決。明恩沒媽媽那麼有經驗。（尚且……何況……？）</p>
+      <p>答案：<select name="q61" data-question="3-13. 這個問題十分複雜 改寫"><option value="">請選擇</option><option>這個問題十分複雜，媽媽尚且不知道怎樣解決，何況是明恩呢？</option><option>這個問題十分複雜，媽媽不知道怎樣解決。</option></select></p>
+      
+      <p>我考試不及格。爸爸沒有責罵我。爸爸安慰我不要灰心。（非但……還……）</p>
+      <p>答案：<select name="q62" data-question="3-14. 我考試不及格 改寫"><option value="">請選擇</option><option>我考試不及格，爸爸非但沒有責罵我，還安慰我不要灰心。</option><option>我考試不及格，爸爸責罵我。</option></select></p>
+    </div>
+
+    <div class="question">
+      <p>續寫句子：根據提供的文字，續寫遞進複句。</p>
+      <p>這本兒童故事書不只情節生動有趣，(<select name="q63" data-question="3-15. 這本兒童故事書不只情節生動有趣"><option value="">請選擇</option><option>而且圖畫精美，吸引兒童閱讀。</option><option>但是圖畫很差。</option></select>)</p>
+      <p>我們走在行人道上尚且要留神，(<select name="q64" data-question="3-16. 我們走在行人道上尚且要留神"><option value="">請選擇</option><option>何況是過馬路的時候呢？</option><option>所以很安全。</option></select>)</p>
+      <p>這款手錶非但在本地十分暢銷，(<select name="q65" data-question="3-17. 這款手錶非但在本地十分暢銷"><option value="">請選擇</option><option>還吸引了世界各地的遊客前來購買。</option><option>所以沒人買。</option></select>)</p>
+    </div>
+  </div>
+
+  <!-- ====================== 第四部分：助詞（的、地、得） ====================== -->
+  <div class="section">
+    <h2>第四部分：助詞（的、地、得）</h2>
+    
+    <div class="question">
+      <p>選出適當的結構助詞（的、地、得）填在橫線上。</p>
+      <p>1. 小丑做出滑稽(<select name="q66" data-question="4-1. 小丑做出滑稽"><option value="">請選擇</option><option>的</option><option>地</option><option>得</option></select>) 動作，引(<select name="q67" data-question="4-2. 引觀眾"><option value="">請選擇</option><option>的</option><option>地</option><option>得</option></select>) 觀眾開懷大笑。</p>
+      <p>2. 你們要清楚(<select name="q68" data-question="4-3. 清楚...把"><option value="">請選擇</option><option>的</option><option>地</option><option>得</option></select>) 把小組討論(<select name="q69" data-question="4-4. 小組討論...結果"><option value="">請選擇</option><option>的</option><option>地</option><option>得</option></select>) 結果報告出來。</p>
+      <p>3. 美欣和欣宜爭論(<select name="q70" data-question="4-5. 爭論...面紅耳赤"><option value="">請選擇</option><option>的</option><option>地</option><option>得</option></select>) 面紅耳赤。</p>
+      <p>4. 趁着假期，我們盡情(<select name="q71" data-question="4-6. 盡情...享受"><option value="">請選擇</option><option>的</option><option>地</option><option>得</option></select>) 享受着郊外明媚(<select name="q72" data-question="4-7. 明媚...風光"><option value="">請選擇</option><option>的</option><option>地</option><option>得</option></select>) 風光。</p>
+      <p>5. 最近天氣太熱了，熱(<select name="q73" data-question="4-8. 熱...喘不過氣"><option value="">請選擇</option><option>的</option><option>地</option><option>得</option></select>) 我喘不過氣來，晚上也睡(<select name="q74" data-question="4-9. 睡...不好"><option value="">請選擇</option><option>的</option><option>地</option><option>得</option></select>) 不好。</p>
+      <p>6. 姐姐打扮(<select name="q75" data-question="4-10. 打扮...漂漂亮亮"><option value="">請選擇</option><option>的</option><option>地</option><option>得</option></select>) 漂漂亮亮(<select name="q76" data-question="4-11. 漂漂亮亮..."><option value="">請選擇</option><option>的</option><option>地</option><option>得</option></select>) ，開開心心(<select name="q77" data-question="4-12. 開開心心...去"><option value="">請選擇</option><option>的</option><option>地</option><option>得</option></select>) 去參加朋友(<select name="q78" data-question="4-13. 朋友...生日會"><option value="">請選擇</option><option>的</option><option>地</option><option>得</option></select>) 生日會。</p>
+    </div>
+
+    <div class="question">
+      <p>擴寫句子：把括號內的形容詞加插在句子中，並加上「的」或「地」。</p>
+      <p>這個森林是雀鳥棲息的地方。（茂密）</p>
+      <p>答案：<select name="q79" data-question="4-14. 這個森林是雀鳥棲息的地方（茂密）"><option value="">請選擇</option><option>這個茂密的森林是雀鳥棲息的地方。</option><option>這個森林是雀鳥棲息的地方。</option></select></p>
+      
+      <p>哥哥在媽媽的督促下，終於把房間收拾整齊。（凌亂）</p>
+      <p>答案：<select name="q80" data-question="4-15. 哥哥...房間收拾整齊（凌亂）"><option value="">請選擇</option><option>哥哥在媽媽的督促下，終於把凌亂的房間收拾整齊。</option><option>哥哥把房間收拾整齊。</option></select></p>
+      
+      <p>我們辦妥手續後，便在候機室等候上機。（簡單、耐心）</p>
+      <p>答案：<select name="q81" data-question="4-16. 我們辦妥手續...（簡單、耐心）"><option value="">請選擇</option><option>我們簡單地辦妥手續後，便在候機室耐心地等候上機。</option><option>我們辦妥手續後，便在候機室等候上機。</option></select></p>
+    </div>
+
+    <div class="question">
+      <p>配詞完句：給下列詞語加上「的」或「地」完成句子。</p>
+      <p>看他一副沒精打采(<select name="q82" data-question="4-17. 沒精打采 樣子"><option value="">請選擇</option><option>的</option><option>地</option></select>) 樣子。</p>
+      <p>那病人躺在病牀上，沒精打采(<select name="q83" data-question="4-18. 沒精打采 回答"><option value="">請選擇</option><option>的</option><option>地</option></select>) 回答醫生的問題。</p>
+      <p>駿馬自由自在(<select name="q84" data-question="4-19. 自由自在 在草原"><option value="">請選擇</option><option>的</option><option>地</option></select>) 在遼闊的草原上奔跑着。</p>
+      <p>林先生退休後周遊列國，過着自由自在(<select name="q85" data-question="4-20. 自由自在 的生活"><option value="">請選擇</option><option>的</option><option>地</option></select>) 的生活。</p>
+    </div>
+
+    <div class="question">
+      <p>運用提供的詞語寫句子（造句）</p>
+      <p>(<select name="q86" data-question="4-21. 高興得"><option value="">請選擇</option><option>弟弟高興得在公園裏手舞足蹈，差點絆倒了。</option><option>弟弟高興。</option></select>)</p>
+      <p>(<select name="q87" data-question="4-22. 敏捷地"><option value="">請選擇</option><option>芭蕾舞者在比賽中敏捷地跳着舞。</option><option>芭蕾舞者跳舞。</option></select>)</p>
+      <p>(<select name="q88" data-question="4-23. 五光十色的"><option value="">請選擇</option><option>香港的夜景到處都是五光十色的霓虹燈。</option><option>香港的夜景。</option></select>)</p>
+      <p>(<select name="q89" data-question="4-24. 小心翼翼地"><option value="">請選擇</option><option>這個雕像非常有價值，所以工人們把它小心翼翼地搬走。</option><option>工人搬走雕像。</option></select>)</p>
+    </div>
+  </div>
+
+  <!-- ====================== 第五部分：句子的語氣、語氣助詞改正 ====================== -->
+  <div class="section">
+    <h2>第五部分：句子的語氣、語氣助詞改正</h2>
+    
+    <div class="question">
+      <p>句子辨析：辨別下列各句表達的語氣，填上代表字母。</p>
+      <p>(<select name="q90" data-question="5-1. 維多利亞港的夜景...多麼迷人啊！"><option value="">請選擇</option><option>感歎</option><option>陳述</option><option>疑問</option><option>祈使</option></select>) 維多利亞港的夜景五彩繽紛，多麼迷人啊！</p>
+      <p>(<select name="q91" data-question="5-2. 你昨天囑咐的事，我一定會辦妥的。"><option value="">請選擇</option><option>感歎</option><option>陳述</option><option>疑問</option><option>祈使</option></select>) 你昨天囑咐的事，我一定會辦妥的。</p>
+      <p>(<select name="q92" data-question="5-3. 知道這個祕密的人不只你一個吧？"><option value="">請選擇</option><option>感歎</option><option>陳述</option><option>疑問</option><option>祈使</option></select>) 知道這個祕密的人不只你一個吧？</p>
+      <p>(<select name="q93" data-question="5-4. 這不是一件小事...好好想清楚才下決定吧！"><option value="">請選擇</option><option>感歎</option><option>陳述</option><option>疑問</option><option>祈使</option></select>) 這不是一件小事，請你好好想清楚才下決定吧！</p>
+    </div>
+
+    <div class="question">
+      <p>單項選擇題：辨別語氣句式。</p>
+      <p>哪一句是陳述句？</p>
+      <p><select name="q94" data-question="5-5. 哪一句是陳述句"><option value="">請選擇</option><option>這是媽媽親手製作的水果蛋糕。</option><option>這個水果蛋糕是媽媽親手製作的嗎？</option><option>哇！媽媽親手為我製作了水果蛋糕！</option></select></p>
+      
+      <p>哪一句是疑問句？</p>
+      <p><select name="q95" data-question="5-6. 哪一句是疑問句"><option value="">請選擇</option><option>請告訴我剛才和我們打招呼的人是誰。</option><option>剛才和我們打招呼的人究竟是誰啊？</option><option>我們剛才碰見很久不見的張老師！</option></select></p>
+      
+      <p>哪一句是祈使句？</p>
+      <p><select name="q96" data-question="5-7. 哪一句是祈使句"><option value="">請選擇</option><option>大樓保安系統更新了，請你告訴我大門的密碼。</option><option>大樓保安系統更新了，他告訴了我大門的密碼。</option><option>大樓保安系統更新了，大門的密碼到底是甚麼？</option></select></p>
+      
+      <p>哪一句是感歎句？</p>
+      <p><select name="q97" data-question="5-8. 哪一句是感歎句"><option value="">請選擇</option><option>表姐，你試試參加「工作假期」吧。</option><option>表姐想參加「工作假期」嗎？</option><option>我真想不到表姐竟然會參加「工作假期」呢！</option></select></p>
+    </div>
+
+    <div class="question">
+      <p>助詞改正：辨別句子中加點的語氣助詞是否正確。</p>
+      <p>你願意參加「環保小先鋒」這個活動呢？</p>
+      <p>答案：<select name="q98" data-question="5-9. 你願意參加...呢？"><option value="">請選擇</option><option>你願意參加「環保小先鋒」這個活動嗎？</option><option>√</option></select></p>
+      
+      <p>我多麼希望能夠儘快完成手上的工作，好好輕鬆一下了！</p>
+      <p>答案：<select name="q99" data-question="5-10. 我多麼希望...了！"><option value="">請選擇</option><option>我多麼希望能夠儘快完成手上的工作，好好輕鬆一下啊！</option><option>√</option></select></p>
+      
+      <p>你趕快把這盒冰淇淋放進冰箱了，否則它會變壞的！</p>
+      <p>答案：<select name="q100" data-question="5-11. 你趕快把這盒...了"><option value="">請選擇</option><option>你趕快把這盒冰淇淋放進冰箱吧，否則它會變壞的！</option><option>√</option></select></p>
+      
+      <p>小文剛從外地回來，他會出席下星期舉行的聖誕聯歡會，真是太好嗎！</p>
+      <p>答案：<select name="q101" data-question="5-12. 小文剛從外地...太好嗎！"><option value="">請選擇</option><option>小文剛從外地回來，他會出席下星期舉行的聖誕聯歡會，真是太好了！</option><option>√</option></select></p>
+    </div>
+  </div>
+
+  <!-- ====================== 第六部分：選擇複句 ====================== -->
+  <div class="section">
+    <h2>第六部分：選擇複句</h2>
+    
+    <div class="question">
+      <p>判斷下列各句的意思，在適當的方格內加 √。</p>
+      <p>(<select name="q102" data-question="6-1. 哥哥不是參加跳遠比賽，而是..."><option value="">請選擇</option><option>√</option><option>X</option></select>) 哥哥不是參加跳遠比賽，而是參加游泳比賽。</p>
+      <p>(<select name="q103" data-question="6-2. 哥哥參加跳遠比賽或者..."><option value="">請選擇</option><option>√</option><option>X</option></select>) 哥哥參加跳遠比賽或者游泳比賽。</p>
+      
+      <p>(<select name="q104" data-question="6-3. 你要整理書櫃和收拾餐具"><option value="">請選擇</option><option>√</option><option>X</option></select>) 你要整理書櫃和收拾餐具。</p>
+      <p>(<select name="q105" data-question="6-4. 你要整理書櫃或者..."><option value="">請選擇</option><option>√</option><option>X</option></select>) 你要整理書櫃或者收拾餐具。</p>
+    </div>
+
+    <div class="question">
+      <p>辨別下列選擇複句是否合理。合理的加 √；不合理的加 X。</p>
+      <p>(<select name="q106" data-question="6-5. 弟弟最愛吃零食..."><option value="">請選擇</option><option>√</option><option>X</option></select>) 弟弟最愛吃零食，他不是吃薯片，就是看電影。</p>
+      <p>(<select name="q107" data-question="6-6. 太陽要不從東邊升起"><option value="">請選擇</option><option>√</option><option>X</option></select>) 太陽要不從東邊升起，要不從西邊升起。</p>
+      <p>(<select name="q108" data-question="6-7. 外公想買一件保暖的外衣"><option value="">請選擇</option><option>√</option><option>X</option></select>) 外公想買一件保暖的外衣，不是羽絨服，就是棉襖。</p>
+    </div>
+
+    <div class="question">
+      <p>把下列各組句子聯結成通順的選擇複句。</p>
+      <p>建明有二十個印花。她換購電熱水壺。她換購一套餐具。</p>
+      <p>答案：<select name="q109" data-question="6-8. 建明有二十個印花"><option value="">請選擇</option><option>建明有二十個印花，她不是換購電熱水壺，就是換購一套餐具。</option><option>建明有二十個印花，她換購電熱水壺。</option></select></p>
+      
+      <p>志宏儲了足夠的金錢買玩具。他買模型。他買遊戲機。</p>
+      <p>答案：<select name="q110" data-question="6-9. 志宏儲了足夠的金錢"><option value="">請選擇</option><option>志宏儲了足夠的金錢買玩具，他不是買模型，就是買遊戲機。</option><option>志宏儲了足夠的金錢買玩具，他買模型。</option></select></p>
+    </div>
+
+    <div class="question">
+      <p>根據提供的文字，續寫選擇複句。</p>
+      <p>放假的時候，我不是到朋友家中玩耍，就是(<select name="q111" data-question="6-10. 放假的時候，我不是..."><option value="">請選擇</option><option>在家裏玩手機。</option><option>去旅行。</option></select>)</p>
+      <p>今天晚上和爸爸吃飯，我們不是(<select name="q112" data-question="6-11. 今天晚上和爸爸吃飯"><option value="">請選擇</option><option>在家裏吃飯</option><option>去公園</option></select>)，就是(<select name="q113" data-question="6-12. 就是..."><option value="">請選擇</option><option>出街吃飯。</option><option>在家裏吃飯</option></select>).</p>
+      <p>如果你在學習上有不明白的地方，要不(<select name="q114" data-question="6-13. 如果你在學習上有不明白的地方"><option value="">請選擇</option><option>問問老師</option><option>睡覺</option></select>)，要不(<select name="q115" data-question="6-14. 要不..."><option value="">請選擇</option><option>嘗試自己找答案。</option><option>問問老師</option></select>).</p>
+    </div>
+  </div>
+
+  <button type="submit">全部提交並顯示答案</button>
+
+  <div id="allResults" class="result">
+    <h2>測驗結果總覽</h2>
+    <div id="scoreTotal" class="total-score"></div>
+    <div id="itemsAll"></div>
+    <div id="submitMessage"></div>
+  </div>
+
+</form>
+
+<script>
+function handleQuizSubmit(formId, resultId, itemsId, scoreId, msgId, correctAnswers) {
+  const form = document.getElementById(formId);
+  const resultDiv = document.getElementById(resultId);
+  const itemsDiv = document.getElementById(itemsId);
+  const scoreDiv = document.getElementById(scoreId);
+  const messageDiv = document.getElementById(msgId);
+
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    const controls = form.querySelectorAll('select');
+    let score = 0;
+    itemsDiv.innerHTML = '';
+
+    const answers = [  ];
+    const totalQuestions = correctAnswers.length - 1;
+
+    for (let i = 1; i <= totalQuestions; i++) {
+      const q = controls[i-1];
+      const userAnswer = q ? q.value.trim() : '';
+      const correct = correctAnswers[i];
+      const isCorrect = (userAnswer === correct && userAnswer !== '');
+
+      if (isCorrect) score++;
+
+      let questionText = q && q.dataset.question 
+        ? q.dataset.question 
+        : `第 ${i} 題`;
+
+      const item = document.createElement('div');
+      item.className = 'item';
+      item.innerHTML = `
+        <strong>${questionText}</strong><br><br>
+        你的答案： <span class="${isCorrect ? 'correct' : 'wrong'}">${userAnswer || '(未作答)'}</span><br>
+        <div class="answer-show">正確答案： <span class="correct">${correct}</span></div>
+        <div>得分： ${isCorrect ? '1' : '0'}</div>
+      `;
+      itemsDiv.appendChild(item);
+
+      answers.push({
+        questionNumber: i,
+        question: questionText,
+        yourAnswer: userAnswer || '(未作答)',
+        correctAnswer: correct,
+        result: isCorrect ? '正確' : '錯誤'
+      });
+    }
+
+    scoreDiv.textContent = `總 分： ${score} / ${totalQuestions}`;
+    resultDiv.style.display = 'block';
+    resultDiv.scrollIntoView({ behavior: 'smooth' });
+
+    const payload = {
+      _subject: "20260609-中文_補充結果提交",
+      score: `${score} / ${totalQuestions}`,
+      timestamp: new Date().toISOString(),
+      answers: JSON.stringify(answers, null, 2)
+    };
+
+    try {
+      const response = await fetch('https://formspree.io/f/xvzwnvwp', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      messageDiv.innerHTML = response.ok
+        ? '<span class="success">✅ 測驗結果已成功送出！</span>'
+        : '<span class="error">送出失敗，請稍後再試。</span>';
+    } catch (err) {
+      messageDiv.innerHTML = '<span class="error">網路錯誤，無法送出結果。</span>';
+    }
+  });
+}
+
+// 正確答案（按照 select 出現順序）
+const correctAnswers = [
+  null,
+  // 第一部分
+  "咦","哼","唉","嘩","嗯","哈哈","哎呀",
+  "哼","咦","哈哈","嗯","嗯","唉",
+  "幸好","何必","居然","必須","只好","居然","未免","偏偏","究竟",
+  "唉","究竟","啊","一定","難道","究竟","竟然",
+  // 第二部分
+  "：「爸爸，您可以買一部電子遊戲機給我嗎？」","圖書借閱期已屆滿，要把書歸還。","：「小寶寶，快睡吧……」","：「請問您穿甚麼尺碼的鞋子？」","徵文比賽的得獎名單。","可不可以把書櫃上的中文字典拿給他。",
+  "他","她","他","他們","他們","牠","她","她","牠","她",
+  "永強問琪琪他可不可以借用她的圓珠筆。","惠兒說這幅得獎的水彩畫是她姐姐畫的。","姐姐告訴志輝，他的字典原來放在那個抽屜裏。",
+  // 第三部分
+  "X","√","√","X","√","X",
+  "尚且……何況……","不只……更……","不只……更……","尚且……何況……","尚且……何況……","不只……更……",
+  "這個問題十分複雜，媽媽尚且不知道怎樣解決，何況是明恩呢？","我考試不及格，爸爸非但沒有責罵我，還安慰我不要灰心。",
+  "而且圖畫精美，吸引兒童閱讀。","何況是過馬路的時候呢？","還吸引了世界各地的遊客前來購買。",
+  // 第四部分
+  "的","得","地","的","地","的","得","得","得","得","得","的","的","的","的","地","地","的",
+  "這個茂密的森林是雀鳥棲息的地方。","哥哥在媽媽的督促下，終於把凌亂的房間收拾整齊。","我們簡單地辦妥手續後，便在候機室耐心地等候上機。",
+  "的","地","地","的",
+  "弟弟高興得在公園裏手舞足蹈，差點絆倒了。","芭蕾舞者在比賽中敏捷地跳着舞。","香港的夜景到處都是五光十色的霓虹燈。","這個雕像非常有價值，所以工人們把它小心翼翼地搬走。",
+  // 第五部分
+  "感歎","陳述","疑問","祈使",
+  "這是媽媽親手製作的水果蛋糕。","剛才和我們打招呼的人究竟是誰啊？","大樓保安系統更新了，請你告訴我大門的密碼。","我真想不到表姐竟然會參加「工作假期」呢！",
+  "你願意參加「環保小先鋒」這個活動嗎？","我多麼希望能夠儘快完成手上的工作，好好輕鬆一下啊！","你趕快把這盒冰淇淋放進冰箱吧，否則它會變壞的！","小文剛從外地回來，他會出席下星期舉行的聖誕聯歡會，真是太好了！",
+  // 第六部分
+  "√","X","X","√",
+  "X","X","√",
+  "建明有二十個印花，她不是換購電熱水壺，就是換購一套餐具。","志宏儲了足夠的金錢買玩具，他不是買模型，就是買遊戲機。",
+  "在家裏玩手機。","在家裏吃飯","出街吃飯","問問老師","嘗試自己找答案。"
+];
+
+handleQuizSubmit("allQuizzes", "allResults", "itemsAll", "scoreTotal", "submitMessage", correctAnswers);
+</script>
+
+</body>
+</html>
+```
