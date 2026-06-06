@@ -22,7 +22,18 @@
     h1, h2, h3 {
       text-align: center;
       color: #2c3e50;
-      margin: 50px 0 30px;
+      margin: 40px 0 20px;
+    }
+    h2 {
+      border-bottom: 2px solid #2c3e50;
+      padding-bottom: 10px;
+      margin-top: 60px;
+    }
+    h3 {
+      text-align: left;
+      color: #34495e;
+      margin-top: 30px;
+      font-size: 1.4rem;
     }
     .section {
       margin-bottom: 60px;
@@ -34,21 +45,31 @@
       border-radius: 10px;
       border-left: 5px solid #3498db;
       box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      font-size: 1.4rem;
     }
     .question p {
       margin: 0 0 12px 0;
-      font-size: 1.1rem;
+      font-size: 1.4rem;
+    }
+    .options-list {
+      margin-top: 10px;
+      padding-left: 20px;
+      list-style-type: none;
+    }
+    .options-list li {
+      margin: 5px 0;
     }
     strong {
       color: #e74c3c;
     }
     select {
-      padding: 10px 14px;
-      font-size: 1.05rem;
-      min-width: 180px;
+      padding: 6px 10px;
+      font-size: 1.35rem;
+      min-width: 140px;
       border-radius: 6px;
       border: 1px solid #bdc3c7;
       background: white;
+      margin: 0 5px;
     }
     select:focus {
       outline: none;
@@ -125,266 +146,805 @@
 
 <form id="allQuizzes">
 
-  <!-- ====================== 1. 古文（七） ====================== -->
+  <!-- ====================== 第三課 古今中外機器人 ====================== -->
   <div class="section">
-    <h2>1. 古文（七）《買櫝還珠》</h2>
+    <h2>## 第三課 古今中外機器人</h2>
     
+    <h3># 圈出代表答案的英文字母。</h3>
     <div class="question">
-      <p>楚人有賣其珠於鄭者，為(<select name="q1" data-question="1. 為木蘭之櫃"><option value="">請選擇</option><option>盒子</option><option>製造</option><option>點綴</option><option>紅色的玉石</option></select>) 木蘭之櫃。</p>
+      <p>( <select name="q1" data-question="第三課 - 選擇題 1：山區村落偏僻"><option value="">請選擇</option><option>A</option><option>B</option><option>C</option><option>D</option></select> ) &lt;...&gt; 山區村落位置偏僻，遠離學校，&lt;...&gt; 當地學生仍堅持每天長途跋涉上學。</p>
+      <ul class="options-list">
+        <li>A. 既……又……</li>
+        <li>B. 儘管……然而……</li>
+        <li>C. 因為……所以……</li>
+        <li>D. 不管……還是……</li>
+      </ul>
     </div>
 
     <div class="question">
-      <p>薰以桂椒，綴(<select name="q2" data-question="1. 綴以珠玉"><option value="">請選擇</option><option>盒子</option><option>製造</option><option>點綴</option><option>紅色的玉石</option></select>) 以珠玉。</p>
+      <p>( <select name="q2" data-question="第三課 - 選擇題 2：唉，我今早聽媽媽叮囑"><option value="">請選擇</option><option>A</option><option>B</option><option>C</option><option>D</option></select> ) 唉，&lt;...&gt; 我今早聽媽媽的叮囑帶外套出門，現在 &lt;...&gt; 不會冷得發抖了。</p>
+      <ul class="options-list">
+        <li>A. 就是……也……</li>
+        <li>B. 只要……就……</li>
+        <li>C. 即使……還是……</li>
+        <li>D. 儘管……然而……</li>
+      </ul>
     </div>
 
     <div class="question">
-      <p>飾以玫瑰(<select name="q3" data-question="1. 玫瑰"><option value="">請選擇</option><option>盒子</option><option>製造</option><option>點綴</option><option>紅色的玉石</option></select>) ，輯以羽翠。</p>
+      <p>( <select name="q3" data-question="第三課 - 選擇題 3：子妮在考試中取得第一名"><option value="">請選擇</option><option>A</option><option>B</option><option>C</option><option>D</option></select> ) 子妮在考試中取得第一名，&lt;...&gt; 沒有變得驕傲，&lt;...&gt; 樂意解答同學學習上的問題。</p>
+      <ul class="options-list">
+        <li>A. 就是……也……</li>
+        <li>B. 固然……但……</li>
+        <li>C. 不僅……還……</li>
+        <li>D. 不是……就是……</li>
+      </ul>
+    </div>
+
+    <h3># 下面句子中着色的詞語表示甚麼意思？在括號內填上代表答案的英文字母。</h3>
+    <div class="question">
+      <p>
+        ( <select name="q4" data-question="第三課 - 詞義辨析：等下一班吧"><option value="">請選擇</option><option>A</option><option>B</option></select> ) 巴士開走了，我們在這裏等下一班吧。<br>
+        ( <select name="q5" data-question="第三課 - 詞義辨析：歷史博物館怎麼走"><option value="">請選擇</option><option>A</option><option>B</option></select> ) 你知道到香港歷史博物館要怎麼走嗎？
+      </p>
+      <ul class="options-list">
+        <li>A. 往、去</li>
+        <li>B. 離開</li>
+      </ul>
     </div>
 
     <div class="question">
-      <p>此可謂善賣櫝(<select name="q4" data-question="1. 櫝"><option value="">請選擇</option><option>盒子</option><option>製造</option><option>點綴</option><option>紅色的玉石</option></select>) 矣。</p>
+      <p>
+        ( <select name="q6" data-question="第三課 - 詞義辨析：考試不及格很難受"><option value="">請選擇</option><option>A</option><option>B</option></select> ) 這次英文考試不及格，使我心裏很難受。<br>
+        ( <select name="q7" data-question="第三課 - 詞義辨析：不小心受了涼難受"><option value="">請選擇</option><option>A</option><option>B</option></select> ) 我昨天晚上不小心受了涼，今天頭疼得難受。
+      </p>
+      <ul class="options-list">
+        <li>A. 傷心</li>
+        <li>B. 身體不舒服</li>
+      </ul>
     </div>
 
     <div class="question">
-      <p>根據《買櫝還珠》的內容，以「1→5」的數字排列下列各項。<br>
-      (<select name="q5" data-question="1. 排序1"><option value="">請選擇</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>) 有個鄭國人把盒子買了，卻把盒裡的珠子還給了他。<br>
-      (<select name="q6" data-question="1. 排序2"><option value="">請選擇</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>) 他用名貴的木蘭雕了一隻裝珠的盒子。<br>
-      (<select name="q7" data-question="1. 排序3"><option value="">請選擇</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>) 這可以說，這個珠寶商人很善於賣盒子，而不善於賣珠寶吧。<br>
-      (<select name="q8" data-question="1. 排序4"><option value="">請選擇</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>) 將盒子薰了用桂椒調製的香料，又裝飾上珠玉、玫瑰、翡翠。<br>
-      (<select name="q9" data-question="1. 排序5"><option value="">請選擇</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>) 楚國有個珠寶商人，到鄭國去賣珠寶。</p>
+      <p>
+        ( <select name="q8" data-question="第三課 - 詞義辨析：心寬了一半"><option value="">請選擇</option><option>A</option><option>B</option><option>C</option></select> ) 聽見兒子度過了危險期，他的心寬了一半。<br>
+        ( <select name="q9" data-question="第三課 - 詞義辨析：超級市場走道很寬"><option value="">請選擇</option><option>A</option><option>B</option><option>C</option></select> ) 超級市場的走道很寬，方便顧客推着購物車走動。<br>
+        ( <select name="q10" data-question="第三課 - 詞義辨析：待人要寬一點"><option value="">請選擇</option><option>A</option><option>B</option><option>C</option></select> ) 媽媽時常告誡我，對自己要嚴一點，待人要寬一點。
+      </p>
+      <ul class="options-list">
+        <li>A. 放鬆</li>
+        <li>B. 寬容</li>
+        <li>C. 橫向距離大</li>
+      </ul>
     </div>
 
+    <h3># 仿照例句，選取適當的語句，運用「尚且……何況……？」聯結句子。</h3>
     <div class="question">
-      <p>韓非子透過《買櫝還珠》的故事，諷刺了哪一類人？<br>
-      <select name="q10" data-question="1. 韓非子諷刺"><option value="">請選擇</option><option>A. 本末倒置</option><option>B. 只注重外表</option><option>C. 貪慕虛榮</option></select></p>
+      <p>1. 幼稚園的小朋友懂得向老師打招呼。 / 我們是五年級的學生。<br>
+      答案：<select name="q11" data-question="第三課 - 句式 1：幼稚園小朋友"><option value="">請選擇</option><option>我們是五年級的學生尚且懂得向老師打招呼，何況是幼稚園的小朋友呢？</option><option>幼稚園的小朋友尚且懂得向老師打招呼，何況是五年級的學生呢？</option></select></p>
     </div>
-
     <div class="question">
-      <p>購物時，只因物品外表包裝精美而把它買下來，你認為這種行為恰當嗎？為甚麼？<br>
-      <select name="q11" data-question="1. 購物行為看法"><option value="">請選擇</option><option>我認為不恰當，因為無論包裝這麼美麗（麗），裏面的東西都是沒沒用。</option><option>我認為恰當</option><option>我認為不重要</option></select></p>
+      <p>2. 學習鋼琴多年的我彈不好這首曲子。 / 弟弟是一個初學者。<br>
+      答案：<select name="q12" data-question="第三課 - 句式 2：學習鋼琴多年"><option value="">請選擇</option><option>學習鋼琴多年的我尚且彈不好這首曲子，何況弟弟是一個初學者呢？</option><option>弟弟是一個初學者尚且彈不好這首曲子，何況學習鋼琴多年的我呢？</option></select></p>
+    </div>
+    <div class="question">
+      <p>3. 我們會幫助有困難的陌生人。 / 他是我們的好朋友。<br>
+      答案：<select name="q13" data-question="第三課 - 句式 3：幫助陌生人"><option value="">請選擇</option><option>他是我們的好朋友尚且會幫助有困難的陌生人，何況我們呢？</option><option>我們尚且會幫助有困難的陌生人，何況是我們的好朋友呢？</option></select></p>
+    </div>
+    <div class="question">
+      <p>4. 我跑完四百米賽跑，累得氣喘吁吁。 / 我要完成一千五百米賽跑。<br>
+      答案：<select name="q14" data-question="第三課 - 句式 4：四百米賽跑"><option value="">請選擇</option><option>我尚且跑完四百米賽跑，累得氣喘吁吁，何況要完成一千五百米賽跑呢？</option><option>我要完成一千五百米賽跑尚且累得氣喘吁吁，何況跑完四百米賽跑呢？</option></select></p>
     </div>
   </div>
 
-  <!-- ====================== 2. 古文（八） ====================== -->
+  <!-- ====================== 第五課 堅持與成功 ====================== -->
   <div class="section">
-    <h2>2. 古文（八）《誨學》</h2>
+    <h2>## 第五課 堅持與成功</h2>
     
+    <h3># 圈出下面句子中錯誤的標點符號，在括號內改正。</h3>
     <div class="question">
-      <p>然玉之為物，有不變之常德(<select name="q12" data-question="2. 常德"><option value="">請選擇</option><option>損害</option><option>恒常不變的</option><option>考慮,反省</option><option>品性</option></select>)</p>
+      <p>甘地帶領印度脫離殖民統治，是印度人心目中的《國父》。<br>
+      改正答案：<select name="q15" data-question="第五課 - 標點改正 1：甘地"><option value="">請選擇</option><option>甘地帶領印度脫離殖民統治，是印度人心目中的《國父》。</option><option>甘地帶領印度脫離殖民統治，是印度人心目中的「國父」。</option></select></p>
+    </div>
+    <div class="question">
+      <p>陳先生移居渥太華(加拿大的首都)多年，今年終於回到家鄉，香港。<br>
+      改正答案：<select name="q16" data-question="第五課 - 標點改正 2：陳先生"><option value="">請選擇</option><option>陳先生移居渥太華(加拿大的首都)多年，今年終於回到家鄉──香港。</option><option>陳先生移居渥太華(加拿大的首都)多年，今年終於回到家鄉；香港。</option></select></p>
+    </div>
+    <div class="question">
+      <p>美國前總統奧巴馬曾說過──「不能讓失敗來定義你，你必須把失敗當作導師。」<br>
+      改正答案：<select name="q17" data-question="第五課 - 標點改正 3：奧巴馬"><option value="">請選擇</option><option>美國前總統奧巴馬曾說過:「不能讓失敗來定義你，你必須把失敗當作導師。」</option><option>美國前總統奧巴馬曾說過——「不能讓失敗來定義你，你必須把失敗當作導師。」</option></select></p>
+    </div>
+    <div class="question">
+      <p>弟弟很愛吃水果，芒果、荔枝、木瓜、龍眼，他全部都喜歡。<br>
+      改正答案：<select name="q18" data-question="第五課 - 標點改正 4：水果"><option value="">請選擇</option><option>弟弟很愛吃水果：芒果、荔枝、木瓜、龍眼，他全部都喜歡。</option><option>弟弟很愛吃水果，芒果、荔枝、木瓜、龍眼... 他全部都喜歡。</option></select></p>
     </div>
 
+    <h3># 在橫線上填上代表答案的英文字母，把句子補充完整。</h3>
     <div class="question">
-      <p>雖不琢以為器，而猶不害(<select name="q13" data-question="2. 不害"><option value="">請選擇</option><option>損害</option><option>恒常不變的</option><option>考慮,反省</option><option>品性</option></select>) 為玉也</p>
+      <p>
+        1. ( <select name="q19" data-question="第五課 - 填空 1：齊心合力"><option value="">請選擇</option><option>A</option><option>B</option><option>C</option><option>D</option><option>E</option></select> ) ！只要我們齊心合力，一定能順利度過這次難關。<br>
+        2. 家輝為人謹慎，做事往往( <select name="q20" data-question="第五課 - 填空 2：家輝謹慎"><option value="">請選擇</option><option>A</option><option>B</option><option>C</option><option>D</option><option>E</option></select> ) ！很少因為衝動而犯錯。<br>
+        3. 這個賊人多次偷取街上行人的財物，不過( <select name="q21" data-question="第五課 - 填空 3：賊人被捕"><option value="">請選擇</option><option>A</option><option>B</option><option>C</option><option>D</option><option>E</option></select> ) ！他最終被逮捕入獄。<br>
+        4. 子誠決心發明一個自動桌面吸塵器，並花了數個月不斷改良設計，( <select name="q22" data-question="第五課 - 填空 4：子誠發明"><option value="">請選擇</option><option>A</option><option>B</option><option>C</option><option>D</option><option>E</option></select> ) ！他終於成功了！
+      </p>
+      <ul class="options-list">
+        <li>A. 多行不義必自斃</li>
+        <li>B. 三思而後行</li>
+        <li>C. 有志者，事竟成</li>
+        <li>D. 二人同心，其利斷金</li>
+        <li>E. 己所不欲，勿施於人</li>
+      </ul>
     </div>
 
+    <h3># 排列下面的詞語，組成通順的句子，並加上適當的標點符號。</h3>
     <div class="question">
-      <p>人之性(<select name="q14" data-question="2. 人之性"><option value="">請選擇</option><option>損害</option><option>恒常不變的</option><option>考慮,反省</option><option>品性</option></select>) ，因物則遷</p>
+      <p>還 / 不肯 / 做錯了事 / 非但 / 打算 / 弟弟 / 說謊 / 認錯 / 隱瞞<br>
+      答案：<select name="q23" data-question="第五課 - 重組 1：弟弟做錯事不認錯"><option value="">請選擇</option><option>弟弟做錯了事，非但不肯認錯，還打算說謊隱瞞。</option><option>弟弟非但不肯認錯，還打算做錯了事說謊隱瞞。</option></select></p>
     </div>
-
     <div class="question">
-      <p>可不念(<select name="q15" data-question="2. 可不念"><option value="">請選擇</option><option>損害</option><option>恒常不變的</option><option>考慮,反省</option><option>品性</option></select>) 哉</p>
+      <p>中 / 還 / 世界紀錄冠軍 / 他非但 / 在這次 / 打破了 / 贏建立了 / 游泳比賽<br>
+      答案：<select name="q24" data-question="第五課 - 重組 2：游泳比賽打破紀錄"><option value="">請選擇</option><option>他非但在這次游泳比賽中贏建立了冠軍，還打破了世界紀錄。</option><option>在這次游泳比賽中，他非但贏建立了冠軍，還打破了世界紀錄。</option></select></p>
     </div>
-
     <div class="question">
-      <p>在《誨學》一文中，歐陽修認為玉石不經過雕琢，不能成為精美的(<select name="q16" data-question="2. 精美的"><option value="">請選擇</option><option>改變</option><option>君子</option><option>本質</option><option>物質</option><option>道理</option><option>玉器</option></select>) ，人不通過學習，不能知道做人的(<select name="q17" data-question="2. 做人的"><option value="">請選擇</option><option>改變</option><option>君子</option><option>本質</option><option>物質</option><option>道理</option><option>玉器</option></select>) 。</p>
+      <p>他 / 還 / 在 / 溫習 / 非但 / 努力 / 沒有 / 更加 / 氣餒 / 考試中 / 名落孫山<br>
+      答案：<select name="q25" data-question="第五課 - 重組 3：名落孫山不氣餒"><option value="">請選擇</option><option>他在考試中名落孫山，非但沒有氣餒，還更加努力溫習。</option><option>他非但在考試中名落孫山沒有氣餒，還更加努力溫習。</option></select></p>
     </div>
-
     <div class="question">
-      <p>然而玉石作為一種天然(<select name="q18" data-question="2. 天然"><option value="">請選擇</option><option>改變</option><option>君子</option><option>本質</option><option>物質</option><option>道理</option><option>玉器</option></select>) ，具有恒常不會變化的品質，即使不將它雕琢為玉器，也不會損害它作為玉石的(<select name="q19" data-question="2. 作為玉石的"><option value="">請選擇</option><option>改變</option><option>君子</option><option>本質</option><option>物質</option><option>道理</option><option>玉器</option></select>) 。</p>
-    </div>
-
-    <div class="question">
-      <p>但是，人的品性則會隨着外部環境的變化而(<select name="q20" data-question="2. 而"><option value="">請選擇</option><option>改變</option><option>君子</option><option>本質</option><option>物質</option><option>道理</option><option>玉器</option></select>) ，如果不學習，則不可能成為(<select name="q21" data-question="2. 成為"><option value="">請選擇</option><option>改變</option><option>君子</option><option>本質</option><option>物質</option><option>道理</option><option>玉器</option></select>) 而只能變成小人，這難道不值得我們警惕嗎？</p>
-    </div>
-
-    <div class="question">
-      <p>歐陽修在《誨學》一文中把人的品性與甚麼作對比？<br>
-      <select name="q22" data-question="2. 品性對比"><option value="">請選擇</option><option>A. 玉的本質。</option><option>B. 玉的光芒。</option><option>C. 玉的顏色。</option></select></p>
-    </div>
-
-    <div class="question">
-      <p>這篇文章想闡明甚麼道理？<br>
-      <select name="q23" data-question="2. 文章道理"><option value="">請選擇</option><option>A. 學習要自小培養。</option><option>B. 學習對於人的重要意義。</option><option>C. 不學習會變成壞人。</option></select></p>
-    </div>
-
-    <div class="question">
-      <p>你喜歡在學校學習嗎？為甚麼？<br>
-      <select name="q24" data-question="2. 學習看法"><option value="">請選擇</option><option>學生我不喜歡在學校學習，因為作業（業）壓力很大。</option><option>我喜歡</option><option>我無所謂</option></select></p>
+      <p>還 / 向 / 鬼怪 / 不害怕 / 走進 / 姐姐 / 非但 / 鬼屋 / 大叫大喊 / 嘉年華的<br>
+      答案：<select name="q26" data-question="第五課 - 重組 4：走進鬼屋不害怕"><option value="">請選擇</option><option>姐姐非但走進嘉年華的鬼屋不害怕，還向鬼怪大叫大喊。</option><option>姐姐走進嘉年華的鬼屋，非但不害怕，還向鬼怪大叫大喊。</option></select></p>
     </div>
   </div>
 
-  <!-- ====================== 3. 第十一課 鷸蚌相爭 ====================== -->
+  <!-- ====================== 第七課 香椿魚 ====================== -->
   <div class="section">
-    <h2>3. 第十一課 鷸蚌相爭</h2>
+    <h2>## 第七課 香椿魚</h2>
     
+    <h3># 圈出適當的字，填在括號內。</h3>
     <div class="question">
-      <p>蚌方出曝(<select name="q25" data-question="3. 出曝"><option value="">請選擇</option><option>A. 出現。</option><option>B. 露出。</option><option>C. 凸出。</option><option>D. 進出。</option></select>)</p>
+      <p>
+        星期六，我和爸爸、媽媽登上大帽山看日出。為了趕在太陽出來前到達山頂，我們在天色還是漆黑一片( 1. <select name="q27" data-question="第七課 - 結構助詞：漆黑一片的（定語助詞）"><option value="">請選擇</option><option>的</option><option>地</option><option>得</option></select> ) 時候便吃過早餐，匆匆( 2. <select name="q28" data-question="第七課 - 結構助詞：匆匆地（狀語助詞）"><option value="">請選擇</option><option>的</option><option>地</option><option>得</option></select> ) 出門了。到了山頂，那裏的氣溫冷( 3. <select name="q29" data-question="第七課 - 結構助詞：冷得（補語助詞）"><option value="">請選擇</option><option>的</option><option>地</option><option>得</option></select> ) 我渾身發抖，幸好媽媽為我準備了厚厚( 4. <select name="q30" data-question="第七課 - 結構助詞：厚厚的外套（定語助詞）"><option value="">請選擇</option><option>的</option><option>地</option><option>得</option></select> ) 外套，我穿上後感到溫暖多了。等了一會兒，天空終於出現一絲光芒，我忍不住發出驚歎。那道光芒越來越亮，慢慢( 5. <select name="q31" data-question="第七課 - 結構助詞：慢慢地照亮（狀語助詞）"><option value="">請選擇</option><option>的</option><option>地</option><option>得</option></select> ) 照亮了整個天空，景色美( 6. <select name="q32" data-question="第七課 - 結構助詞：美得令我目不暇給（補語助詞）"><option value="">請選擇</option><option>的</option><option>地</option><option>得</option></select> ) 令我目不暇給。
+      </p>
     </div>
 
+    <h3># 把下面句子中着色字的近義詞填在框內，組成詞語。</h3>
     <div class="question">
-      <p>兩者不肯相舍(<select name="q26" data-question="3. 相舍"><option value="">請選擇</option><option>A. 放心。</option><option>B. 放棄。</option><option>C. 放開。</option><option>D. 放置。</option></select>)</p>
+      <p>1. 一道道流星在廣( <select name="q33" data-question="第七課 - 近義詞 1：廣(闊)"><option value="">請選擇</option><option>持</option><option>念</option><option>細</option><option>闊</option><option>厚</option></select> ) 的天空中劃過，照亮了整個夜空。</p>
+      <p>2. 無論我遇上甚麼困難，家人總會在我的身邊無條件地支( <select name="q34" data-question="第七課 - 近義詞 2：支(持)"><option value="">請選擇</option><option>持</option><option>念</option><option>細</option><option>闊</option><option>厚</option></select> ) 我。</p>
+      <p>3. 每逢節日，媽媽都會特別想( <select name="q35" data-question="第七課 - 近義詞 3：想(念)"><option value="">請選擇</option><option>持</option><option>念</option><option>細</option><option>闊</option><option>厚</option></select> ) 在外國留學的哥哥。</p>
+      <p>4. 我和美琪是感情深( <select name="q36" data-question="第七課 - 近義詞 4：深(厚)"><option value="">請選擇</option><option>持</option><option>念</option><option>細</option><option>闊</option><option>厚</option></select> ) 的好朋友。</p>
+      <p>5. 姐姐熱愛畫畫，每次她都會先仔( <select name="q37" data-question="第七課 - 近義詞 5：仔(細)"><option value="">請選擇</option><option>持</option><option>念</option><option>細</option><option>闊</option><option>厚</option></select> ) 觀賞眼前的景物。</p>
     </div>
 
+    <h3># 選出適當的語句，運用「不只……更……」聯結句子。</h3>
     <div class="question">
-      <p>漁者得(<select name="q27" data-question="3. 得"><option value="">請選擇</option><option>A. 得當。</option><option>B. 得到。</option><option>C. 得悉。</option><option>D. 得意。</option></select>) 而并擒之</p>
-    </div>
-
-    <div class="question">
-      <p>漁者得而并(<select name="q28" data-question="3. 并"><option value="">請選擇</option><option>A. 一起。</option><option>B. 合併。</option><option>C. 並且。</option><option>D. 依傍。</option></select>) 擒之</p>
-    </div>
-
-    <div class="question">
-      <p>公曰：「怪(<select name="q29" data-question="3. 怪"><option value="">請選擇</option><option>奇怪</option><option>寒冷</option><option>貧窮</option><option>學習</option><option>親近</option><option>疏遠</option><option>躲避</option><option>戰亂</option></select>) 哉！雨雪三日而天不寒(<select name="q30" data-question="3. 寒"><option value="">請選擇</option><option>奇怪</option><option>寒冷</option><option>貧窮</option><option>學習</option><option>親近</option><option>疏遠</option><option>躲避</option><option>戰亂</option></select>) 。」</p>
-    </div>
-
-    <div class="question">
-      <p>家貧(<select name="q31" data-question="3. 貧"><option value="">請選擇</option><option>奇怪</option><option>寒冷</option><option>貧窮</option><option>學習</option><option>親近</option><option>疏遠</option><option>躲避</option><option>戰亂</option></select>) ，拾薪為燭，誦習(<select name="q32" data-question="3. 習"><option value="">請選擇</option><option>奇怪</option><option>寒冷</option><option>貧窮</option><option>學習</option><option>親近</option><option>疏遠</option><option>躲避</option><option>戰亂</option></select>) 達旦不寐。</p>
-    </div>
-
-    <div class="question">
-      <p>親(<select name="q33" data-question="3. 親"><option value="">請選擇</option><option>奇怪</option><option>寒冷</option><option>貧窮</option><option>學習</option><option>親近</option><option>疏遠</option><option>躲避</option><option>戰亂</option></select>) 賢臣，遠(<select name="q34" data-question="3. 遠"><option value="">請選擇</option><option>奇怪</option><option>寒冷</option><option>貧窮</option><option>學習</option><option>親近</option><option>疏遠</option><option>躲避</option><option>戰亂</option></select>) 小人，此先漢所以興隆也。</p>
-    </div>
-
-    <div class="question">
-      <p>先世避(<select name="q35" data-question="3. 避"><option value="">請選擇</option><option>奇怪</option><option>寒冷</option><option>貧窮</option><option>學習</option><option>親近</option><option>疏遠</option><option>躲避</option><option>戰亂</option></select>) 秦時亂(<select name="q36" data-question="3. 亂"><option value="">請選擇</option><option>奇怪</option><option>寒冷</option><option>貧窮</option><option>學習</option><option>親近</option><option>疏遠</option><option>躲避</option><option>戰亂</option></select>) 。</p>
-    </div>
-
-    <div class="question">
-      <p>蚌方出曝，而鷸啄其肉。句子中「其」的意思：(<select name="q37" data-question="3. 其1 意思"><option value="">請選擇</option><option>牠的</option><option>牠們的</option></select>)<br>
-      句子中「其」具體指：(<select name="q38" data-question="3. 其1 指"><option value="">請選擇</option><option>蚌的</option><option>鷸的</option></select>)</p>
-    </div>
-
-    <div class="question">
-      <p>蚌合而拑其喙。句子中「其」的意思：(<select name="q39" data-question="3. 其2 意思"><option value="">請選擇</option><option>牠的</option><option>牠們的</option></select>)<br>
-      句子中「其」具體指：(<select name="q40" data-question="3. 其2 指"><option value="">請選擇</option><option>蚌的</option><option>鷸的</option></select>)</p>
-    </div>
-
-    <div class="question">
-      <p>慈烏失其母，啞啞吐哀音。<br>
-      <select name="q41" data-question="3. 慈烏其"><option value="">請選擇</option><option>A. 慈烏的</option><option>B. 母親的</option><option>C. 其中的</option><option>D. 鳴叫聲的</option></select></p>
-    </div>
-
-    <div class="question">
-      <p>工欲善其事，必先利其器。<br>
-      <select name="q42" data-question="3. 工欲善其事"><option value="">請選擇</option><option>A. 其他的</option><option>B. 事情的</option><option>C. 工匠的</option><option>D. 工具的</option></select></p>
-    </div>
-
-    <div class="question">
-      <p>窗外有棗林，雛雀習飛其下。<br>
-      <select name="q43" data-question="3. 雛雀其下"><option value="">請選擇</option><option>A. 窗外的</option><option>B. 棗林的</option><option>C. 棗子的</option><option>D. 雛雀的</option></select></p>
+      <p>1. 消防員經常面對危險的狀況，不只要有強健的體魄，( <select name="q38" data-question="第七課 - 句式配對 1：消防員的條件"><option value="">請選擇</option><option>更有可能釀成交通意外</option><option>更因為她的處事態度認真盡責</option><option>更要有冷靜的頭腦</option><option>更設立獎學金鼓勵當地學童努力學習</option></select> ) 。</p>
+      <p>2. 那位善心人士不只捐錢為內地山區學校購置教材，( <select name="q39" data-question="第七課 - 句式配對 2：善心人士的善舉"><option value="">請選擇</option><option>更有可能釀成交通意外</option><option>更因為她的處事態度認真盡責</option><option>更要有冷靜的頭腦</option><option>更設立獎學金鼓勵當地學童努力學習</option></select> ) 。</p>
+      <p>3. 我十分佩服姐姐，不只因為她的學業成績優異，( <select name="q40" data-question="第七課 - 句式配對 3：佩服姐姐的原因"><option value="">請選擇</option><option>更有可能釀成交通意外</option><option>更因為她的處事態度認真盡責</option><option>更要有冷靜的頭腦</option><option>更設立獎學金鼓勵當地學童努力學習</option></select> ) 。</p>
+      <p>4. 違規停泊的車輛，不只阻礙路面交通，( <select name="q41" data-question="第七課 - 句式配對 4：違規車輛的禍害"><option value="">請選擇</option><option>更有可能釀成交通意外</option><option>更因為她的處事態度認真盡責</option><option>更要有冷靜的頭腦</option><option>更設立獎學金鼓勵當地學童努力學習</option></select> ) 。</p>
     </div>
   </div>
 
-  <!-- ====================== 4. 第十二課 自相矛盾 ====================== -->
+  <!-- ====================== 第九課 親子活動 ====================== -->
   <div class="section">
-    <h2>4. 第十二課 自相矛盾 及 文言文綜合</h2>
+    <h2>## 第九課 親子活動</h2>
     
+    <h3># 下面句子中引號和雙引號的用法正確的，在橫線上打_，錯誤的在句子中圈出，並在橫線上改正。</h3>
     <div class="question">
-      <p>文言文的虛詞「之」可語譯為下面的意思嗎？<br>
-      (<select name="q44" data-question="4. 之 的"><option value="">請選擇</option><option>可以</option><option>不可以</option></select>) 的<br>
-      (<select name="q45" data-question="4. 之 嗎"><option value="">請選擇</option><option>可以</option><option>不可以</option></select>) 嗎<br>
-      (<select name="q46" data-question="4. 之 他"><option value="">請選擇</option><option>可以</option><option>不可以</option></select>) 他、她、牠、它<br>
-      (<select name="q47" data-question="4. 之 某人"><option value="">請選擇</option><option>可以</option><option>不可以</option></select>) 某人、有的人<br>
-      (<select name="q48" data-question="4. 之 他們"><option value="">請選擇</option><option>可以</option><option>不可以</option></select>) 他們、她們、牠們、它們<br>
-      (<select name="q49" data-question="4. 之 呢"><option value="">請選擇</option><option>可以</option><option>不可以</option></select>) 呢</p>
+      <p>科學家牛頓在一六八七年發表『萬有引力定律』。<br>
+      改正答案：<select name="q42" data-question="第九課 - 引號改正 1：牛頓發表定律名稱"><option value="">請選擇</option><option>_</option><option>科學家牛頓在一六八七年發表「萬有引力定律」。</option></select></p>
+    </div>
+    <div class="question">
+      <p>老師問：「你們知道「學海無涯，惟勤是岸。」這句話的意思嗎？」<br>
+      改正答案：<select name="q43" data-question="第九課 - 引號改正 2：老師引用名言與雙重引號"><option value="">請選擇</option><option>_</option><option>老師問：「你們知道『學海無涯，惟勤是岸。』這句話的意思嗎？」</option></select></p>
+    </div>
+    <div class="question">
+      <p>唐代詩人李白的作品對後世產生了極為深遠的影響，被後人譽為「詩仙」。<br>
+      改正答案：<select name="q44" data-question="第九課 - 引號改正 3：李白被譽為特定稱號"><option value="">請選擇</option><option>_</option><option>唐代詩人李白的作品對後世產生了極為深遠的影響，被後人譽為『詩仙』。</option></select></p>
+    </div>
+    <div class="question">
+      <p>爸爸對我說：『所謂『良藥苦口利於病，忠言逆耳利於行。』你要多聽取別人善意的批評。』<br>
+      改正答案：<select name="q45" data-question="第九課 - 引號改正 4：爸爸說的話與內嵌引用"><option value="">請選擇</option><option>_</option><option>爸爸對我說：「所謂『良藥苦口利於病，忠言逆耳利於行。』你要多聽取別人善意的批評。」</option></select></p>
+    </div>
+
+    <h3># 仿照例句，依照指示改寫句子。</h3>
+    <div class="question">
+      <p>飯前吃零食真是一個影響健康的壞習慣啊！（改寫為陳述句）<br>
+      答案：<select name="q46" data-question="第九課 - 句式改寫 1：感歎句改陳述句"><option value="">請選擇</option><option>飯前吃零食真是一個影響健康的壞習慣。</option><option>飯前吃零食難道不是一個影響健康的壞習慣嗎？</option></select></p>
+    </div>
+    <div class="question">
+      <p>你把爸爸的手提電話摔壞了，快向他道歉！（改寫為疑問句）<br>
+      答案：<select name="q47" data-question="第九課 - 句式改寫 2：祈使句改疑問句"><option value="">請選擇</option><option>你把爸爸的手提電話摔壞了，請向他道歉吧！</option><option>你把爸爸的手提電話摔壞了，為甚麼不向他道歉呢？</option></select></p>
+    </div>
+    <div class="question">
+      <p>弟弟花了半天還沒有完成功課，媽媽很生氣。（改寫為感歎句）<br>
+      答案：<select name="q48" data-question="第九課 - 句式改寫 3：陳述句改感歎句"><option value="">請選擇</option><option>弟弟花了半天還沒有完成功課，媽媽多麼生氣啊！</option><option>弟弟花了半天還沒有完成功課，媽媽真的很生氣。</option></select></p>
+    </div>
+    <div class="question">
+      <p>聽說這齣歌舞劇很精彩，你跟我一起去看嗎？（改寫為祈使句）<br>
+      答案：<select name="q49" data-question="第九課 - 句式改寫 4：疑問句改祈使句"><option value="">請選擇</option><option>聽說這齣歌舞劇很精彩，請你跟我一起去吧！</option><option>聽說這齣歌舞劇很精彩，你多麼應該跟我一起去啊！</option></select></p>
+    </div>
+
+    <h3># 依照圖畫內容，運用提供的詞語和「不是……就是……」造句。</h3>
+    <div class="question">
+      <p>合唱團 / 芭蕾舞 / 姐姐<br>
+      答案：<select name="q50" data-question="第九課 - 造句 1：姐姐參加活動的選擇"><option value="">請選擇</option><option>姐姐不是參加合唱團，就是跳芭蕾舞。</option><option>姐姐既參加合唱團，又跳芭蕾舞。</option></select></p>
+    </div>
+    <div class="question">
+      <p>魔術 / 攤子 / 表演 / 氣球<br>
+      答案：<select name="q51" data-question="第九課 - 造句 2：樂園設施的推測"><option value="">請選擇</option><option>這個樂園有魔術表演和售賣氣球的攤子。</option><option>這個樂園不是有魔術表演，就是有售賣氣球的攤子。</option></select></p>
+    </div>
+  </div>
+
+  <!-- ====================== 堂工/輔導 ====================== -->
+  <div class="section">
+    <h2>## 堂工/輔導</h2>
+    
+    <h3># 修辭手法：分辨下列句子的修辭，答案填在橫線上。</h3>
+    <div class="question">
+      <p>
+        1. ( <select name="q52" data-question="修辭手法辨析 1：快走吧！快走吧！（詞語重疊）"><option value="">請選擇</option><option>明喻</option><option>暗喻</option><option>借喻</option><option>設問</option><option>反問</option><option>擬人</option><option>排比</option><option>誇張</option><option>反復</option><option>對偶</option><option>借代</option></select> ) 快走吧！快走吧！他已經快要追上我們了！<br>
+        2. ( <select name="q53" data-question="修辭手法辨析 2：船隻嚇得大叫起來（賦予物體人的情感）"><option value="">請選擇</option><option>明喻</option><option>暗喻</option><option>借喻</option><option>設問</option><option>反問</option><option>擬人</option><option>排比</option><option>誇張</option><option>反復</option><option>對偶</option><option>借代</option></select> ) 濃霧瞬間包圍了整個海港，船隻嚇得嗚嗚地大叫起來。<br>
+        3. ( <select name="q54" data-question="修辭手法辨析 3：針子掉地下的聲音也能聽見（言過其實）"><option value="">請選擇</option><option>明喻</option><option>暗喻</option><option>借喻</option><option>設問</option><option>反問</option><option>擬人</option><option>排比</option><option>誇張</option><option>反復</option><option>對偶</option><option>借代</option></select> ) 這裏非常寂靜，就連針子掉在地下的聲音也能清楚聽見。<br>
+        4. ( <select name="q55" data-question="修辭手法辨析 4：日落是一個美味的鹹蛋黃（使用比喻詞「是」）"><option value="">請選擇</option><option>明喻</option><option>暗喻</option><option>借喻</option><option>設問</option><option>反問</option><option>擬人</option><option>排比</option><option>誇張</option><option>反復</option><option>對偶</option><option>借代</option></select> ) 日落是一個美味的鹹蛋黃，使我很想一口咬下去。<br>
+        5. ( <select name="q56" data-question="修辭手法辨析 5：露出了狐狸尾巴（用喻體直接代替本體）"><option value="">請選擇</option><option>明喻</option><option>暗喻</option><option>借喻</option><option>設問</option><option>反問</option><option>擬人</option><option>排比</option><option>誇張</option><option>反復</option><option>對偶</option><option>借代</option></select> ) 他在這場風波中，終於露出了狐狸尾巴。<br>
+        6. ( <select name="q57" data-question="修辭手法辨析 6：教室安靜得連針掉在地上都聽得到（極度誇大）"><option value="">請選擇</option><option>明喻</option><option>暗喻</option><option>借喻</option><option>設問</option><option>反問</option><option>擬人</option><option>排比</option><option>誇張</option><option>反復</option><option>對偶</option><option>借代</option></select> ) 教室安靜得連針掉在地上都聽得到。<br>
+        7. ( <select name="q58" data-question="修辭手法辨析 7：傾聽是一種……（結構相同、語氣一致的三連句）"><option value="">請選擇</option><option>明喻</option><option>暗喻</option><option>借喻</option><option>設問</option><option>反問</option><option>擬人</option><option>排比</option><option>誇張</option><option>反復</option><option>對偶</option><option>借代</option></select> ) 傾聽是一種享受，傾聽是一種樂趣，傾聽是一種收穫。<br>
+        8. ( <select name="q59" data-question="修辭手法辨析 8：村莊臥在山坡上（將物體擬作人體動作）"><option value="">請選擇</option><option>明喻</option><option>暗喻</option><option>借喻</option><option>設問</option><option>反問</option><option>擬人</option><option>排比</option><option>誇張</option><option>反復</option><option>對偶</option><option>借代</option></select> ) 村莊臥在山坡上，點點的白雪依在村莊的房頂上。<br>
+        9. ( <select name="q60" data-question="修辭手法辨析 9：車子就像閃電一樣（使用比喻詞「就像……一樣」）"><option value="">請選擇</option><option>明喻</option><option>暗喻</option><option>借喻</option><option>設問</option><option>反問</option><option>擬人</option><option>排比</option><option>誇張</option><option>反復</option><option>對偶</option><option>借代</option></select> ) 他的車子就像閃電一樣在路上飛馳。<br>
+        10. ( <select name="q61" data-question="修辭手法辨析 10：天空出現一條彩色的橋樑（將彩虹暗喻為橋）"><option value="">請選擇</option><option>明喻</option><option>暗喻</option><option>借喻</option><option>設問</option><option>反問</option><option>擬人</option><option>排比</option><option>誇張</option><option>反復</option><option>對偶</option><option>借代</option></select> ) 大大雨過後，天空出現一條彩色的橋樑。<br>
+        11. ( <select name="q62" data-question="修辭手法辨析 11：染紅了……，染紅了……，染紅了……（排比結構）"><option value="">請選擇</option><option>明喻</option><option>暗喻</option><option>借喻</option><option>設問</option><option>反問</option><option>擬人</option><option>排比</option><option>誇張</option><option>反復</option><option>對偶</option><option>借代</option></select> ) 太陽從海面上緩緩升起，霞光染紅了樹木，染紅了大海，染紅了天空。<br>
+        12. ( <select name="q63" data-question="修辭手法辨析 12：綠樹在風中點頭，紅櫻在雪中逼真（字數相等、結構相同）"><option value="">請選擇</option><option>明喻</option><option>暗喻</option><option>借喻</option><option>設問</option><option>反問</option><option>擬人</option><option>排比</option><option>誇張</option><option>反復</option><option>對偶</option><option>借代</option></select> ) 綠樹在風中點頭，紅櫻在雪中逼真。<br>
+        13. ( <select name="q64" data-question="修辭手法辨析 13：魚兒像游兵如同一個個小黑點（使用比喻詞「像」）"><option value="">請選擇</option><option>明喻</option><option>暗喻</option><option>借喻</option><option>設問</option><option>反問</option><option>擬人</option><option>排比</option><option>誇張</option><option>反復</option><option>對偶</option><option>借代</option></select> ) 魚兒像游兵如同一個個小黑點，在空中轉呀轉。<br>
+        14. ( <select name="q65" data-question="修辭手法辨析 14：有的人……，有的人……，有的人……（句式排比）"><option value="">請選擇</option><option>明喻</option><option>暗喻</option><option>借喻</option><option>設問</option><option>反問</option><option>擬人</option><option>排比</option><option>誇張</option><option>反復</option><option>對偶</option><option>借代</option></select> ) 巴士裏客滿了人，有的人看書，有的人低頭去猜，有的人在聊天。<br>
+        15. ( <select name="q66" data-question="修辭手法辨析 15：眼睛可以快下一兩年（誇大時間概念）"><option value="">請選擇</option><option>明喻</option><option>暗喻</option><option>借喻</option><option>設問</option><option>反問</option><option>擬人</option><option>排比</option><option>誇張</option><option>反復</option><option>對偶</option><option>借代</option></select> ) 我故意走很快，眼睛可以快下一兩年。<br>
+        16. ( <select name="q67" data-question="修辭手法辨析 16：農夫把衣服一口咬住（擬人表現手法）"><option value="">請選擇</option><option>明喻</option><option>暗喻</option><option>借喻</option><option>設問</option><option>反問</option><option>擬人</option><option>排比</option><option>誇張</option><option>反復</option><option>對偶</option><option>借代</option></select> ) 農夫張開嘴巴，把衣服一口咬住。<br>
+        17. ( <select name="q68" data-question="修辭手法辨析 17：鳥欲高飛先振翅，人求上進先讀書（對稱雙句）"><option value="">請選擇</option><option>明喻</option><option>暗喻</option><option>借喻</option><option>設問</option><option>反問</option><option>擬人</option><option>排比</option><option>誇張</option><option>反復</option><option>對偶</option><option>借代</option></select> ) 鳥欲高飛先振翅，人求上進先讀書。<br>
+        18. ( <select name="q69" data-question="修辭手法辨析 18：船隻嚇得嗚嗚地大叫（擬人修辭重複練習）"><option value="">請選擇</option><option>明喻</option><option>暗喻</option><option>借喻</option><option>設問</option><option>反問</option><option>擬人</option><option>排比</option><option>誇張</option><option>反復</option><option>對偶</option><option>借代</option></select> ) 濃霧瞬間包圍了整個海港，船隻嚇得嗚嗚地大叫起來。<br>
+        19. ( <select name="q70" data-question="修辭手法辨析 19：一根針掉在地下的聲音也能聽見（誇張修辭重複練習）"><option value="">請選擇</option><option>明喻</option><option>暗喻</option><option>借喻</option><option>設問</option><option>反問</option><option>擬人</option><option>排比</option><option>誇張</option><option>反復</option><option>對偶</option><option>借代</option></select> ) 這裏非常寂靜，就連一根針掉在地下的聲音也能清楚聽見。<br>
+        20. ( <select name="q71" data-question="修辭手法辨析 20：向日葵是忠實的小影迷（暗喻修辭練習）"><option value="">請選擇</option><option>明喻</option><option>暗喻</option><option>借喻</option><option>設問</option><option>反問</option><option>擬人</option><option>排比</option><option>誇張</option><option>反復</option><option>對偶</option><option>借代</option></select> ) 花叢中的向日葵是忠實的小影迷，每天都追隨着太陽。
+      </p>
+    </div>
+
+    <h3># 重組句子：重新排列下列詞語，並加上標點符號，組成通順的句子。</h3>
+    <div class="question">
+      <p>必須 / 受騙 / 我們 / 小心 / 謹慎 / 購物時 / 以免 / 在網上<br>
+      答案：<select name="q72" data-question="輔導 - 重組句子 1：網上購物注意事項"><option value="">請選擇</option><option>我們在網上購物時必須小心謹慎，以免受騙。</option><option>我們必須小心謹慎在網上購物時，以免受騙。</option></select></p>
+    </div>
+    <div class="question">
+      <p>出神入化的 / 使我 / 興趣 / 魔術師 / 產生了 / 演出 / 濃厚的 / 對魔術<br>
+      答案：<select name="q73" data-question="輔導 - 重組句子 2：魔術表演引發興趣"><option value="">請選擇</option><option>魔術師出神入化的演出，使我對魔術產生了濃厚的興趣。</option><option>對魔術產生了濃厚的興趣，使我魔術師出神入化的演出。</option></select></p>
+    </div>
+    <div class="question">
+      <p>摘下來 / 果子 / 就要 / 既然已經 / 把它們趕快 / 熟透 / 樹上的<br>
+      答案：<select name="q74" data-question="輔導 - 重組句子 3：因果因循（既然……就要……）"><option value="">請選擇</option><option>既然樹上的果子已經熟透，就要把它們趕快摘下來。</option><option>要把樹上的果子趕快摘下來，既然已經熟透就要。</option></select></p>
+    </div>
+    <div class="question">
+      <p>要經常 / 一個人 / 才能 / 自己的 / 反省 自我 / 缺點 / 找出 / 和毛病<br>
+      答案：<select name="q75" data-question="輔導 - 重組句子 4：條件複句（才能……）"><option value="">請選擇</option><option>一個人要經常自我反省，才能找出自己的缺點和毛病。</option><option>找出自己的缺點和毛病，一個人才能經常自我反省。</option></select></p>
+    </div>
+    <div class="question">
+      <p>不只/會彈鋼琴/奪得冠軍/鋼琴/比賽中/更曾在/妹妹<br>
+      答案：<select name="q76" data-question="輔導 - 重組句子 5：遞進複句（不只……更……）"><option value="">請選擇</option><option>妹妹更曾在鋼琴比賽中奪得冠軍，不只會彈鋼琴。</option><option>妹妹不只會彈鋼琴，更曾在鋼琴比賽中奪得冠軍。</option></select></p>
+    </div>
+    <div class="question">
+      <p>上課/為了/成績/更努力/溫習/認真聽講/他不只/提升/回家後<br>
+      答案：<select name="q77" data-question="輔導 - 重組句子 6：複雜遞進複句與目的狀語"><option value="">請選擇</option><option>他不只上課認真聽講，回家後，為了提升成績，更努力溫習。</option><option>為了提升成績，他不只上課認真聽講更努力溫習回家後。</option></select></p>
+    </div>
+    <div class="question">
+      <p>雖然 / 不同的 / 他們 / 但是 / 保持 / 升上了 / 仍然 / 中學 / 聯絡 / 已經<br>
+      答案：<select name="q78" data-question="輔導 - 重組句子 7：轉折複句（雖然……但是……）"><option value="">請選擇</option><option>雖然他們已經升上了不同的中學，但是仍然保持聯絡。</option><option>但是仍然保持聯絡，雖然他們已經升上了不同的中學。</option></select></p>
+    </div>
+    <div class="question">
+      <p>不僅 / 各種 / 折磨 / 山區居民 / 還要 / 疾病 / 要挨餓 / 貧困的 / 飽受<br>
+      答案：<select name="q79" data-question="輔導 - 重組句子 8：貧困居民的困境（不僅……還要……）"><option value="">請選擇</option><option>貧困的山區居民不僅要挨餓，還要飽受各種疾病的折磨。</option><option>貧困的山區居民還要飽受各種疾病的折磨，不僅要挨餓。</option></select></p>
+    </div>
+    <div class="question">
+      <p>深受/連/老師/這本/學生的/繪本/讚不絕口/也/不僅/喜愛<br>
+      答案：<select name="q80" data-question="輔導 - 重組句子 9：繪本的受歡迎程度（不僅……連……也……）"><option value="">請選擇</option><option>這本繪本不僅深受學生的喜愛，連老師也讚不絕口。</option><option>連老師也讚不絕口，這本繪本不僅深受學生的喜愛。</option></select></p>
+    </div>
+    <div class="question">
+      <p>香甜 更 味道 有好處 蘋果 對我們 的 身體 不只 可口<br>
+      答案：<select name="q81" data-question="輔導 - 重組句子 10：蘋果的益處（不只……更……）"><option value="">請選擇</option><option>蘋果不只味道香甜可口，更對我們的身體有好處。</option><option>對我們的身體有好處，蘋果不只味道香甜可口。</option></select></p>
+    </div>
+    <div class="question">
+      <p>十分 濃濃的 毛衣 包含 祖母 更 愛意 不只 織的 暖和<br>
+      答案：<select name="q82" data-question="輔導 - 重組句子 11：祖母織的毛衣（不只……更……）"><option value="">請選擇</option><option>祖母織的毛衣不只十分暖和，更包含濃濃的愛意。</option><option>更包含濃濃的愛意，祖母織的毛衣不只十分暖和。</option></select></p>
+    </div>
+    <div class="question">
+      <p>垃圾 / 於是 / 逐一 / 丟進 / 奶奶 / 看到 / 海灘上 / 有很多 / 撿起來 / 垃圾箱<br>
+      答案==“<select name="q83" data-question="輔導 - 重組句子 12：奶奶清理海灘（承接複句）"><option value="">請選擇</option><option>奶奶看到海灘上有很多垃圾，於是逐一撿起來丟進垃圾箱。</option><option>於是逐一撿起來丟進垃圾箱，奶奶看到海灘上有很多垃圾。</option></select></p>
+    </div>
+    <div class="question">
+      <p>你 / 才 / 嬰孩 / 除非 / 道理 / 這麼 / 是個 / 顯淺的 / 聽不懂<br>
+      答案：<select name="q84" data-question="輔導 - 重組句子 13：條件限制複句（除非……才……）"><option value="">請選擇</option><option>除非你是個嬰孩，才聽不懂這麼顯淺的道理。</option><option>才聽不懂這麼顯淺的道理，除非你是個嬰孩。</option></select></p>
+    </div>
+
+    <h3># 標點符號：在適當的地方填上標點符號。</h3>
+    <div class="question">
+      <p>老師問我們:「你知道誰是莫扎特嗎他是一位偉大的音樂家,被後世稱為音樂神童。他三歲時已學會彈琴,五歲時嘗試作曲,七歲時已登台演奏他自小隨父親到歐洲各地演奏,充分顯露了他的音樂天分。他一生創作了六百多部作品其中著名的有:朱彼得交響樂魔笛他三十五歲時病逝,真是十分可惜呢」<br>
+      正確標點版：<select name="q85" data-question="輔導 - 標點符號應用 1：介紹音樂家莫扎特"><option value="">請選擇</option><option>老師問我們:「你知道誰是莫扎特嗎?他是一位偉大的音樂家,被後世稱為『音樂神童』。他三歲時已學會彈琴,五歲時嘗試作曲,七歲時已登台演奏...他自小隨父親到歐洲各地演奏,充分顯露了他的音樂天分。他一生創作了六百多部作品, 其中著名的有:❰朱彼得交響樂魔笛❱。他三十五歲時病逝,真是十分可惜呢!」</option></select></p>
+    </div>
+    <div class="question">
+      <p>下個月是班際話劇比賽的日子我們班決定演出經典名著羅密歐與茱麗葉我們一起編寫劇本製作道具縫製戲服排練話劇當我們遇到困難時我們一起解決當我們感到挫敗時我們互相鼓勵我相信只要大家分工合作就一定能成功的<br>
+      正確標點版：<select name="q86" data-question="輔導 - 標點符號應用 2：籌備班際話劇比賽"><option value="">請選擇</option><option>下個月是班際話劇比賽的日子，我們班決定演出經典名著《羅密歐與茱麗葉》。我們一起編寫劇本、製作道具、縫製戲服、排練話劇；當我們遇到困難時，我們一起解決；當我們感到挫敗時，我們互相鼓勵。我相信只要大家分工合作，就一定能成功的！</option></select></p>
+    </div>
+    <div class="question">
+      <p>你們知道澳洲有一種叫樹袋熊的樹熊嗎牠們的英文名字有不喝水的意思樹熊棲息的森林長滿一種樹尤加利樹，而這種樹的葉子就成為樹熊的主要食糧樹熊的行動緩慢，因此容易受到敵人襲擊。牠們有數種天敵野狗狐狸貓頭鷹所以數量一直在減少中。<br>
+      正確標點版：<select name="q87" data-question="輔導 - 標點符號應用 3：介紹澳洲樹熊特徵"><option value="">請選擇</option><option>你們知道澳洲有一種叫「樹袋熊」的樹熊嗎？牠們的英文名字有「不喝水」的意思。樹熊棲息的森林長滿一種樹——尤加利樹，而這種樹的葉子就成為樹熊的主要食糧。樹熊的行動緩慢，因此容易受到敵人襲擊。牠們有數種天敵：野狗、狐狸、貓頭鷹...所以數量一直在減少中。</option></select></p>
+    </div>
+    <div class="question">
+      <p>爸爸帶我參觀博物館時我們被一個以黃綠褐三色為主的陶器所吸引導賞員向我們介紹這是中國著名的唐三彩誕生於唐代也泛稱唐代彩陶是中華文化的瑰寶之一爸爸激動地說這樣的佳作真是人間能得幾回聞呀<br>
+      正確標點版：<select name="q88" data-question="輔導 - 標點符號應用 4：參觀博物館欣賞唐三彩"><option value="">請選擇</option><option>爸爸帶我參觀博物館時，我們被一個以黃、綠、褐三色為主的陶器所吸引。導賞員向我們介紹：「這是中國著名的『唐三彩』，誕生於唐代，也泛稱唐代彩陶，是中華文化的瑰寶之一。」爸爸激動地說：「這樣的佳作真是『人間能得幾回聞』呀！」</option></select></p>
+    </div>
+
+    <h3># 下面句子中加點的詞語表示甚麼意思？把代表答案的英文字母填在 &lt;...&gt; 內。</h3>
+    <div class="question">
+      <p>
+        ( <select name="q89" data-question="輔導 - 一詞多義辨析：角度（物理幾何幾何概念）"><option value="">請選擇</option><option>A</option><option>B</option><option>C</option></select> ) 物理學家做研究的時候，往往需要準確地計算出每項物質的距離和角度。<br>
+        ( <select name="q90" data-question="輔導 - 一詞多義辨析：角度（思維出發點概念）"><option value="">請選擇</option><option>A</option><option>B</option><option>C</option></select> ) 在評價一件事時，我們需要從不同的角度出發，才能得出一個合理的結論。
+      </p>
+      <ul class="options-list">
+        <li>A. 角的大小</li>
+        <li>B. 看事情的出發點</li>
+        <li>C. 兩牆交接處的凹角</li>
+      </ul>
     </div>
 
     <div class="question">
-      <p>漁者得而并擒之。語譯：漁夫捉住了(<select name="q50" data-question="4. 擒之"><option value="">請選擇</option><option>他</option><option>的</option><option>牠們</option></select>) 。</p>
+      <p>
+        ( <select name="q91" data-question="輔導 - 一詞多義辨析：捕捉（抓取瞬間或鏡頭）"><option value="">請選擇</option><option>A</option><option>B</option><option>C</option></select> ) 志明和爸爸拿着相機在沙灘等候了一個下午，只為了捕捉日落的一刻。<br>
+        ( <select name="q92" data-question="輔導 - 一詞多義辨析：捕捉（獵捕動物或緝拿）"><option value="">請選擇</option><option>A</option><option>B</option><option>C</option></select> ) 過量捕捉野生動物會導致瀕臨絕種的危機。
+      </p>
+      <ul class="options-list">
+        <li>A. 緝拿</li>
+        <li>B. 捉拿</li>
+        <li>C. 抓住</li>
+      </ul>
+    </div>
+
+    <h3># 選出適當的答案填在括號內，使句子完整。</h3>
+    <div class="question">
+      <p>
+        1. ( <select name="q93" data-question="輔導 - 關聯詞語填空 1：因果關係（由於……航班延誤）"><option value="">請選擇</option><option>只要……就……</option><option>雖然……但是……</option><option>不僅……還……</option><option>既……又……</option><option>由於……因此……</option><option>無論……都……</option></select> ) <...>天氣惡劣，<...>我和爸爸、媽媽的航班延誤了。<br>
+        2. ( <select name="q94" data-question="輔導 - 關聯詞語填空 2：條件關係（無論……多少項活動）"><option value="">請選擇</option><option>只要……就……</option><option>雖然……但是……</option><option>不僅……還……</option><option>既……又……</option><option>由於……開端……</option><option>無論……都……</option></select> ) <...>哥哥參加了多少項課外活動，<...>能保持優異的成績。<br>
+        3. ( <select name="q95" data-question="輔導 - 關聯詞語填空 3：轉折關係（雖然……競爭激烈）"><option value="">請選擇</option><option>只要……就……</option><option>雖然……但是……</option><option>不僅……還……</option><option>既……又……</option><option>由於……因此……</option><option>無論……都……</option></select> ) <...>他們在賽場上競爭激烈，<...>絲毫不影響彼此的友情。<br>
+        4. ( <select name="q96" data-question="輔導 - 關聯詞語填空 4：並列遞進（既……又……或不僅……還……）"><option value="">請選擇</option><option>只要……就……</option><option>雖然……但是……</option><option>不僅……還……</option><option>既……又……</option><option>由於……因此……</option><option>無論……都……</option></select> ) 警犬 <...>威武<...>聰明，能夠幫助警察抓壞人、搜查毒品等。<br>
+        5. ( <select name="q97" data-question="輔導 - 關聯詞語填空 5：充分條件（只要……不欠交）"><option value="">請選擇</option><option>只要……就……</option><option>雖然……但是……</option><option>不僅……還……</option><option>既……又……</option><option>由於……開端……</option><option>無論……都……</option></select> ) <...>一個星期不欠交功課，<...>能獲得老師獎勵的小紅花。<br>
+        6. ( <select name="q98" data-question="輔導 - 關聯詞語填空 6：並列關係（既……高大，又……香甜）"><option value="">請選擇</option><option>只要……就……</option><option>雖然……但是……</option><option>不僅……還……</option><option>既……又……</option><option>由於……因此……</option><option>無論……都……</option></select> ) 果農細心栽培的果樹<...>長得十分高大，果實<...>十分香甜。
+      </p>
+    </div>
+
+    <h3># 排列下面的詞語，組成通順的句子，並加上適當的標點符號。</h3>
+    <div class="question">
+      <p>是 / 這家 / 人滿為患 / 何況 / 平日 / 食肆 / 呢 / 星期日 / 尚且<br>
+      答案：<select name="q99" data-question="輔導 - 重組句子 14：對比與遞進詰問（尚且……何況……呢？）"><option value="">請選擇</option><option>這家食肆平日尚且人滿為患，何況是星期日呢？</option></select></p>
+    </div>
+    <div class="question">
+      <p>定語 / 尚且 / 這麼 / 是 / 何況 / 成年人 / 小童 / 受不了 / 呢 / 艱苦的<br>
+      答案：<select name="q100" data-question="輔導 - 重組句子 15：對比與承受力詰問（尚且……何況……呢？）"><option value="">請選擇</option><option>這麼艱苦的條件成年人尚且受不了，何況是小童呢？</option></select></p>
+    </div>
+
+    <h3># 句義辨析：將代表答案的英文字母填在括號內。</h3>
+    <div class="question">
+      <p>「就算苦瓜富含營養，弟弟還是討厭吃苦瓜，因為他覺得苦瓜味道苦澀，難以下嚥。」 上面一句主要寫：<br>
+      答案：<select name="q101" data-question="輔導 - 句義辨析：分析弟弟討厭苦瓜的主旨原因"><option value="">請選擇</option><option>A. 苦瓜的味道。</option><option>B. 苦瓜的營養價值。</option><option>C. 弟弟不能吃苦瓜。</option><option>D. 弟弟討厭吃苦瓜的原因。</option></select></p>
+    </div>
+
+    <h3># 詞義辨析：選取最適當的詞語，把代表答案的英文字母填在括號內。</h3>
+    <div class="question">
+      <p>要與別人建立友好的關係，良好的溝通是(____) 的元素。<br>
+      答案：<select name="q102" data-question="輔導 - 詞義辨析 1：形容關係中核心且必須的詞語"><option value="">請選擇</option><option>A. 不可或缺</option><option>B. 默默無聞</option><option>C. 舉足輕重</option><option>D. 責無旁貸</option></select></p>
+    </div>
+    <div class="question">
+      <p>陳老師處理問題一向(____) ，絕不會偏心任何一位學生。<br>
+      答案：<select name="q103" data-question="輔導 - 詞義辨析 2：形容處事公正無私的成語"><option value="">請選擇</option><option>A. 樂於助人</option><option>B. 自私自利</option><option>C. 鐵面無私</option><option>D. 假公濟私</option></select></p>
+    </div>
+    <div class="question">
+      <p>參加「鐵人三項」比賽的選手需要(____) 地進行三項不同的運動。<br>
+      答案：<select name="q104" data-question="輔導 - 詞義辨析 3：區分連續不中斷與間斷之詞義"><option value="">請選擇</option><option>A. 間接</option><option>B. 不斷</option><option>C. 不間斷</option><option>D. 偶爾</option></select></p>
+    </div>
+
+    <h3># 句式造句</h3>
+    <div class="question">
+      <p>運用「非本……還……」造句，不少於十八個字。<br>
+      答案：<select name="q105" data-question="輔導 - 造句練習 3：運用「非但……還……」進層句式自擬造句"><option value="">請選擇</option><option>我的表姐非常厲害，她非但在跑步比賽中獲得第二名，還在跳高比賽中獲得第一名。</option></select></p>
+    </div>
+
+    <h3># 助詞填充：在橫線上填上「的」、「地」或「得」。</h3>
+    <div class="question">
+      <p>
+        每個清晨，這片山林總有一層薄霧，只待山風將它慢慢( 1. <select name="q106" data-question="輔導 - 助詞填空 1：修飾動詞「吹散」（狀語地）"><option value="">請選擇</option><option>的</option><option>地</option><option>得</option></select> ) 吹散，便能看見那隱蔽( 2. <select name="q107" data-question="輔導 - 助詞填空 2：修飾名詞「山村」（定語的）"><option value="">請選擇</option><option>的</option><option>地</option><option>得</option></select> ) 山村。每當新春佳節，自這山村出去( 3. <select name="q108" data-question="輔導 - 助詞填空 3：修飾名詞短語（定語的）"><option value="">請選擇</option><option>的</option><option>地</option><option>得</option></select> ) 子子孫孫陸續返回……聲音響亮( 4. <select name="q109" data-question="輔導 - 助詞填空 4：引出結果程度（補語得）"><option value="">請選擇</option><option>的</option><option>地</option><option>得</option></select> ) 直上雲霄。當春節進入尾聲……山村又恢復了往日( 5. <select name="q110" data-question="輔導 - 助詞填空 5：修飾名詞「寧靜」（定語的）"><option value="">請選擇</option><option>的</option><option>地</option><option>得</option></select> ) 寧靜。
+      </p>
+    </div>
+
+    <h3># 複合近義詞：選擇適當的詞語填在 &lt;...&gt; 內。</h3>
+    <div class="question">
+      <p>1. 志豪在學校十分受歡迎，因為他為人( <select name="q111" data-question="輔導 - 近義詞填空 1：大方、不計較（慷慨）"><option value="">請選擇</option><option>談論</option><option>思念</option><option>慷慨</option><option>囑咐</option><option>整齊</option><option>盼望</option></select> ) ，從不斤斤計較。</p>
+      <p>2. 上課鈴聲響了，教室裏的同學們還在熱烈地( <select name="q112" data-question="輔導 - 近義詞填空 2：就主題發表意見（談論）"><option value="">請選擇</option><option>談論</option><option>思念</option><option>慷慨</option><option>囑咐</option><option>整齊</option><option>盼望</option></select> ) 昨晚的電視節目。</p>
+      <p>3. 哥哥不喜歡亂糟糟的環境，所以他的房間總是十分( <select name="q113" data-question="輔導 - 近義詞填空 3：有條理不凌亂（整齊）"><option value="">請選擇</option><option>談論</option><option>思念</option><option>慷慨</option><option>囑咐</option><option>整齊</option><option>盼望</option></select> ) 。</p>
+      <p>4. 學生們( <select name="q114" data-question="輔導 - 近義詞填空 4：殷切期待（盼望）"><option value="">請選擇</option><option>談論</option><option>思念</option><option>慷慨</option><option>囑咐</option><option>整齊</option><option>盼望</option></select> ) 着暑假的到來，可以和家人去旅行。</p>
+      <p>5. 每當夜深人靜時，我總是忍不住( <select name="q115" data-question="輔導 - 近義詞填空 5：懷念故鄉（思念）"><option value="">請選擇</option><option>談論</option><option>思念</option><option>慷慨</option><option>囑咐</option><option>整齊</option><option>盼望</option></select> ) 遠方的家鄉。</p>
+    </div>
+
+    <h3># 段義辨析</h3>
+    <div class="question">
+      <p>「每當樂樂考試成績不如意時……吃着吃着，樂樂覺得他又有動力準備下次考試了。」 上面一段文字主要寫：<br>
+      答案：<select name="q116" data-question="輔導 - 段義辨析 1：分析巧克力對心靈的鼓舞主旨"><option value="">請選擇</option><option>A. 牛奶巧克力的味道。</option><option>B. 樂樂喜愛吃牛奶巧克力。</option><option>C. 樂樂吃牛奶巧克力的過程。</option><option>D. 牛奶巧克力給予樂樂力量。</option></select></p>
+    </div>
+    <div class="question">
+      <p>「這名老爺爺雖然年紀老邁，行動不便，但仍然堅持四處收集別人丟棄的廢紙和鋁罐，自行賺取生活的費用。」 上面一句主要寫老爺爺：<br>
+      答案：<select name="q117" data-question="輔導 - 段義辨析 2：解讀老爺爺收集廢物的精神核心"><option value="">請選擇</option><option>A. 老當益壯。</option><option>B. 喜歡收集廢物。</option><option>C. 堅持自力更生。</option><option>D. 經常四處遊蕩。</option></select></p>
+    </div>
+    <div class="question">
+      <p>「糖葫蘆，又稱冰糖葫蘆，是一種以山楂製作的傳統小吃，不過隨着人們口味的轉變，現時糖葫蘆的用料已經不再局限於山楂了。」 上面一句主要寫糖葫蘆：<br>
+      答案：<select name="q118" data-question="輔導 - 段義辨析 3：理解傳統小吃用料演變的主旨"><option value="">請選擇</option><option>A. 用料豐富。</option><option>B. 以冰糖製作。</option><option>C. 是一種傳統小吃。</option><option>D. 用料隨着人們的口味產生了轉變。</option></select></p>
+    </div>
+
+    <h3># 運用「不是……就是……」續寫句子。</h3>
+    <div class="question">
+      <p>你放學後會做甚麼？我(____)<br>
+      答案：<select name="q119" data-question="輔導 - 續寫句子 1：使用「不是……就是……」列舉放學活動"><option value="">請選擇</option><option>放學後不是去補習社，就是回家做功課。</option></select></p>
+    </div>
+
+    <h3># 以下句子屬於哪種句子語氣？</h3>
+    <div class="question">
+      <p>
+        1. 今天的天氣寒冷，把窗關上比較好。 ( <select name="q120" data-question="輔導 - 語氣辨析 1：客觀陳述意見（陳述句）"><option value="">請選擇</option><option>A</option><option>B</option><option>C</option><option>D</option></select> )<br>
+        2. 今天的天氣真寒冷啊！如果能把窗關上就好了！ ( <select name="q121" data-question="輔導 - 語氣辨析 2：強烈情感抒發（感歎句）"><option value="">請選擇</option><option>A</option><option>B</option><option>C</option><option>D</option></select> )<br>
+        3. 今天的天氣寒冷，請把窗關上。 ( <select name="q122" data-question="輔導 - 語氣辨析 3：發出指令或請求（祈使句）"><option value="">請選擇</option><option>A</option><option>B</option><option>C</option><option>D</option></select> )<br>
+        4. 今天的天氣寒冷，把窗關上比較吧？ ( <select name="q123" data-question="輔導 - 語氣辨析 4：帶有疑問及商量（疑問句）"><option value="">請選擇</option><option>A</option><option>B</option><option>C</option><option>D</option></select> )
+      </p>
+      <ul class="options-list">
+        <li>A. 疑問句</li>
+        <li>B. 祈使句</li>
+        <li>C. 感歎句</li>
+        <li>D. 陳述句</li>
+      </ul>
+    </div>
+
+    <h3># 下面句子中，方框內的引號或雙引號有甚麼作用？</h3>
+    <div class="question">
+      <p>
+        1. 陳老師說：「李白和杜甫都是唐代著名的詩人。」 ( <select name="q124" data-question="輔導 - 引號作用辨析 1：直接引述話語"><option value="">請選擇</option><option>A</option><option>B</option><option>C</option><option>D</option><option>E</option></select> )<br>
+        2. 爸爸對我說：「正所謂『一寸光陰一寸金』……」 ( <select name="q125" data-question="輔導 - 引號作用辨析 2：引用名言俗語"><option value="">請選擇</option><option>A</option><option>B</option><option>C</option><option>D</option><option>E</option></select> )<br>
+        3. 「八達通」是日常生活中常用的支付方式之一。 ( <select name="q126" data-question="輔導 - 引號作用辨析 3：標示專有名詞"><option value="">請選擇</option><option>A</option><option>B</option><option>C</option><option>D</option><option>E</option></select> )<br>
+        4. 同學們都稱稱讚我是『智多星』呢！ ( <select name="q127" data-question="輔導 - 引號作用辨析 4：強調特殊含義綽號"><option value="">請選擇</option><option>A</option><option>B</option><option>C</option><option>D</option><option>E</option></select> )
+      </p>
+      <ul class="options-list">
+        <li>A. 引述人物的話語</li>
+        <li>B. 引用詩詞、名言</li>
+        <li>C. 強調具特殊含義的詞語</li>
+        <li>D. 突出句子中表達重要信息的詞語</li>
+        <li>E. 表示反語</li>
+      </ul>
+    </div>
+
+    <h3># 多義詞辨析：下面句子中方框（括號）內的詞語表示甚麼意思？在括號內填上代表答案的英文字母。</h3>
+    <div class="question">
+      <p>
+        ( <select name="q128" data-question="輔導 - 多義詞辨析：意思（字面含義）"><option value="">請選擇</option><option>A</option><option>B</option><option>C</option></select> ) 你知道「博文約禮」的【意思】嗎？<br>
+        ( <select name="q129" data-question="輔導 - 多義詞辨析：意思（個人意圖想法）"><option value="">請選擇</option><option>A</option><option>B</option><option>C</option></select> ) 我的【意思】是希望你能夠學懂尊重別人。<br>
+        ( <select name="q130" data-question="輔導 - 多義詞辨析：意思（趣味或價值）"><option value="">請選擇</option><option>A</option><option>B</option><option>C</option></select> ) 這部電影很沉悶，一點【意思】也沒有。
+      </p>
+      <ul class="options-list">
+        <li>A. 情趣；趣味</li>
+        <li>B. 語言文字的意義</li>
+        <li>C. 心意；想法</li>
+      </ul>
     </div>
 
     <div class="question">
-      <p>不可陷之楯與無不陷之矛。語譯：不能被任何東西刺穿(<select name="q51" data-question="4. 陷之楯"><option value="">請選擇</option><option>他</option><option>的</option><option>牠們</option></select>) 盾 和沒有東西刺不穿(<select name="q52" data-question="4. 之矛"><option value="">請選擇</option><option>他</option><option>的</option><option>牠們</option></select>) 矛 。</p>
+      <p>
+        ( <select name="q131" data-question="輔導 - 多義詞辨析：老（年齡衰老）"><option value="">請選擇</option><option>A</option><option>B</option><option>C</option></select> ) 祖母【老】了，走路越來越慢。<br>
+        ( <select name="q132" data-question="輔導 - 多義詞辨析：老（原來的、常規的）"><option value="">請選擇</option><option>A</option><option>B</option><option>C</option></select> ) 明天我們在【老】地方見。<br>
+        ( <select name="q133" data-question="輔導 - 多義詞辨析：老（頻率副詞，總是）"><option value="">請選擇</option><option>A</option><option>B</option><option>C</option></select> ) 你【老是】欺騙我，我不會再相信你了。
+      </p>
+      <ul class="options-list">
+        <li>A. 原來的</li>
+        <li>B. 總是；常常</li>
+        <li>C. 年紀大</li>
+      </ul>
     </div>
 
     <div class="question">
-      <p>愛其子，擇師而教之。語譯：疼愛自己的兒子，挑選好的老師去教導(<select name="q53" data-question="4. 教之"><option value="">請選擇</option><option>他</option><option>的</option><option>牠們</option></select>) 。</p>
+      <p>
+        ( <select name="q134" data-question="輔導 - 多義詞辨析：花（視覺模糊不清）"><option value="">請選擇</option><option>A</option><option>B</option><option>C</option></select> ) 爺爺年紀大了，眼睛也【花】了。<br>
+        ( <select name="q135" data-question="輔導 - 多義詞辨析：花（花費、消耗金錢）"><option value="">請選擇</option><option>A</option><option>B</option><option>C</option></select> ) 爸爸【花】了數千元購買一台電視機回來。
+      </p>
+      <ul class="options-list">
+        <li>A. 虛假的</li>
+        <li>B. 耗費</li>
+        <li>C. 模糊不清</li>
+      </ul>
     </div>
 
     <div class="question">
-      <p>物莫能陷也。<br>
-      <select name="q54" data-question="4. 物莫能陷"><option value="">請選擇</option><option>A. 沒有東西能穿透它。</option><option>B. 任何東西都能穿透它。</option><option>C. 沒有東西不能穿透它。</option><option>D. 只有一樣東西能穿透它。</option></select></p>
+      <p>
+        ( <select name="q136" data-question="輔導 - 多義詞辨析：會（預測將來可能性）"><option value="">請選擇</option><option>A</option><option>B</option><option>C</option></select> ) 你【會】參加足球訓練班嗎？<br>
+        ( <select name="q137" data-question="輔導 - 多義詞辨析：會（掌握某項技能）"><option value="">請選擇</option><option>A</option><option>B</option><option>C</option></select> ) 你【會】踢足球嗎？
+      </p>
+      <ul class="options-list">
+        <li>A. 能夠</li>
+        <li>B. 可能</li>
+        <li>C. 見面、相見</li>
+      </ul>
+    </div>
+
+    <h3># 句式訓練：「非但……還……」 比較下面句子的意思，哪一個句子的意思更進一層？在正確答案的括號內加√。</h3>
+    <div class="question">
+      <p>
+        ( <select name="q138" data-question="輔導 - 遞進層次辨析 1-1：基礎能力（下廚）"><option value="">請選擇</option><option>√</option><option>X</option></select> ) 姐姐懂得下廚。<br>
+        ( <select name="q139" data-question="輔導 - 遞進層次辨析 1-2：更高成就（贏得冠軍）"><option value="">請選擇</option><option>√</option><option>X</option></select> ) 姐姐曾贏得多項廚藝比賽的冠軍。
+      </p>
+    </div>
+    <div class="question">
+      <p>
+        ( <select name="q140" data-question="輔導 - 遞進層次辨析 2-1：更深切的層面（身心健康）"><option value="">請選擇</option><option>√</option><option>X</option></select> ) 爸爸十分注重我們的身心健康。<br>
+        ( <select name="q141" data-question="輔導 - 遞進層次辨析 2-2：常規的關注（學業成績）"><option value="">請選擇</option><option>√</option><option>X</option></select> ) 爸爸關心我們的學業成績。
+      </p>
+    </div>
+    <div class="question">
+      <p>
+        ( <select name="q142" data-question="輔導 - 遞進層次辨析 3-1：尋求外部專業指導"><option value="">請選擇</option><option>√</option><option>X</option></select> ) 為了獲得廚藝比賽冠軍，子誠請了資深廚師給予意見和指導。<br>
+        ( <select name="q143" data-question="輔導 - 遞進層次辨析 3-2：自身基礎的努力（每天練習）"><option value="">請選擇</option><option>√</option><option>X</option></select> ) 為了獲得廚藝比賽冠軍，子誠每天勤力練習。
+      </p>
+    </div>
+
+    <h3># 句式訓練：試運用「非但……還……」聯結句子，把正確答案寫在橫線上。</h3>
+    <div class="question">
+      <p>朱老師會教導我們做人的道理。 / 朱老師教會我們課本上的知識。<br>
+      答案：<select name="q144" data-question="輔導 - 複句聯結 1：教導知識與做人道理的遞進"><option value="">請選擇</option><option>朱老師非但會教導我們做人的道理，還教會我們課本上的知識。</option></select></p>
+    </div>
+    <div class="question">
+      <p>妹妹十分喜歡動物，她用心飼養寵物。 / 妹妹十分喜歡動物，她立志將來要當獸醫。<br>
+      答案：<select name="q145" data-question="輔導 - 複句聯結 2：喜歡動物與立志當獸醫的遞進"><option value="">請選擇</option><option>妹妹十分喜歡動物，她非但用心飼養寵物，還立志將來要當獸醫。</option></select></p>
+    </div>
+    <div class="question">
+      <p>哥哥很有善心，他捐款支持本地慈善機構的工作。 / 哥哥很有善心，他會定期到落後地區做義工。<br>
+      答案：<select name="q146" data-question="輔導 - 複句聯結 3：捐款與親自做義工的遞進"><option value="">請選擇</option><option>哥哥很有善心，他非但捐款支持本地慈善機構的工作，還會定期到落後地區做義工。</option></select></p>
+    </div>
+
+    <h3># 關聯詞填空</h3>
+    <div class="question">
+      <p>
+        1. 爸爸 ( <select name="q147" data-question="輔導 - 關聯詞選填 1：因果複句前件（因為……）"><option value="">請選擇</option><option>所以</option><option>倘若</option><option>都</option><option>藉以</option><option>因為</option><option>不管</option><option>就</option><option>因此</option></select> ) 想改善我們一家人的生活環境， ( <select name="q148" data-question="輔導 - 關聯詞選填 2：因果複句後件（所以……）"><option value="">請選擇</option><option>所以</option><option>倘若</option><option>都</option><option>藉以</option><option>因為</option><option>不管</option><option>就</option><option>因此</option></select> ) 他努力工作。<br>
+        2. ( <select name="q149" data-question="輔導 - 關聯詞選填 3：條件排除前件（不管多頑皮）"><option value="">請選擇</option><option>所以</option><option>倘若</option><option>都</option><option>藉以</option><option>因為</option><option>不管</option><option>就</option><option>因此</option></select> ) 我多頑皮，媽媽 ( <select name="q150" data-question="輔導 - 關聯詞選填 4：條件排除後件（都會愛我）"><option value="">請選擇</option><option>所以</option><option>倘若</option><option>都</option><option>藉以</option><option>因為</option><option>Toggle</option><option>就</option><option>因此</option></select> ) 會愛我。<br>
+        3. 喝酒對身體無益， ( <select name="q151" data-question="輔導 - 關聯詞選填 5：推導因果結論（因此我支持）"><option value="">請選擇</option><option>所以</option><option>倘若</option><option>都</option><option>藉以</option><option>因為</option><option>不管</option><option>就</option><option>因此</option></select> ) 我支持伯伯戒酒。<br>
+        4. 這間電訊公司花費大量金錢在電視賣廣告， ( <select name="q152" data-question="輔導 - 關聯詞選填 6：目的關係（藉以提高營業額）"><option value="">請選擇</option><option>所以</option><option>倘若</option><option>都</option><option>藉以</option><option>因為</option><option>不管</option><option>就</option><option>因此</option></select> ) 提高公司的營業額。<br>
+        5. ( <select name="q153" data-question="輔導 - 關聯詞選填 7：假設條件前件（倘若無意購買）"><option value="">請選擇</option><option>所以</option><option>倘若</option><option>都</option><option>藉以</option><option>因為</option><option>不管</option><option>就</option><option>開端</option></select> ) 你無意購買這部電腦， ( <select name="q154" data-question="輔導 - 關聯詞選填 8：假設條件後件（就不要浪費）"><option value="">請選擇</option><option>所以</option><option>倘若</option><option>都</option><option>藉以</option><option>因為</option><option>不管</option><option>就</option><option>因此</option></select> ) 不要浪費售貨員的時間。
+      </p>
+    </div>
+
+    <h3># 詞義辨析</h3>
+    <div class="question">
+      <p>警方近日已經加強宣傳，打擊罪案，但騙徒十分(____) ，欺騙市民的伎倆層出不窮……<br>
+      答案：<select name="q155" data-question="輔導 - 詞義辨析 4：形容騙徒多詐詭譎的貶義詞"><option value="">請選擇</option><option>A. 兇惡</option><option>B. 鬼祟</option><option>C. 狡猾</option><option>D. 陰險</option></select></p>
+    </div>
+    <div class="question">
+      <p>他知道自己真正的身世後，便決定回到自己的家鄉(____) 失散的親人。<br>
+      答案：<select name="q156" data-question="輔導 - 詞義辨析 5：尋找特定失散對象的動詞辨析"><option value="">請選擇</option><option>A. 訪尋</option><option>B. 訪問</option><option>C. 探訪</option><option>D. 探究</option></select></p>
+    </div>
+    <div class="question">
+      <p>人生難免遭遇挫折，與其(____) ，不如振作精神，重新再努力。<br>
+      答案：<select name="q157" data-question="輔導 - 詞義辨析 6：形容因受挫而意志消沉的成語辨析"><option value="">請選擇</option><option>A. 悲從中來</option><option>B. 黯然失色</option><option>C. 死氣沈沈</option><option>D. 垂頭喪氣</option></select></p>
+    </div>
+    <div class="question">
+      <p>《西遊記》的故事家喻戶曉，連小朋友都(____) 。<br>
+      答案：<select name="q158" data-question="輔導 - 詞義辨析 7：聽過無數次而非常熟悉的成語"><option value="">請選擇</option><option>A. 耳熟能詳</option><option>B. 朗朗上口</option><option>C. 瞭如指掌</option><option>D. 倒背如流</option></select></p>
+    </div>
+
+    <h3># 「的」、「地」、「得」助詞填充</h3>
+    <div class="question">
+      <p>
+        1. 小朋友們在操場上開心 ( <select name="q159" data-question="獨立助詞填充 1：開心（修飾動詞玩，地）"><option value="">請選擇</option><option>的</option><option>地</option><option>得</option></select> ) 玩遊戲。<br>
+        2. 弟弟開心 ( <select name="q160" data-question="獨立助詞填充 2：開心（修飾狀態程度，得）"><option value="">請選擇</option><option>的</option><option>地</option><option>得</option></select> ) 像小兔子般蹦蹦跳跳。<br>
+        3. 妹妹最喜歡這個有錄音功能 ( <select name="q161" data-question="獨立助詞填充 3：功能（修飾小狗玩偶，的）"><option value="">請選擇</option><option>的</option><option>地</option><option>得</option></select> ) 小狗玩偶。<br>
+        4. 看完書後，我會仔細 ( <select name="q162" data-question="獨立助詞填充 4：仔細（修飾動詞擺放，地）"><option value="">請選擇</option><option>的</option><option>地</option><option>得</option></select> ) 把桌面上 ( <select name="q163" data-question="獨立助詞填充 5：桌面（修飾名詞書，的）"><option value="">請選擇</option><option>的</option><option>地</option><option>得</option></select> ) 書擺放整齊。<br>
+        5. 這次比賽高手雲集，第一次參賽 ( <select name="q164" data-question="獨立助詞填充 6：參賽（修飾名詞弟弟，的）"><option value="">請選擇</option><option>的</option><option>地</option><option>得</option></select> ) 弟弟緊張 ( <select name="q165" data-question="獨立助詞填充 7：緊張（修飾後面手足無措的程度，得）"><option value="">請選擇</option><option>的</option><option>地</option><option>得</option></select> ) 手足無措。<br>
+        6. 媽媽欣喜 ( <select name="q166" data-question="獨立助詞填充 8：欣喜（修飾動詞接過，地）"><option value="">請選擇</option><option>的</option><option>地</option><option>得</option></select> ) 接過姊姊精心準備 ( <select name="q167" data-question="獨立助詞填充 9：準備（修飾名詞禮物，的）"><option value="">請選擇</option><option>的</option><option>地</option><option>得</option></select> ) 母親節禮物。<br>
+        7. 志華忘記把要交 ( <select name="q168" data-question="獨立助詞填充 10：要交（修飾名詞功課，的）"><option value="">請選擇</option><option>的</option><option>地</option><option>得</option></select> ) 功課放進書包，所以剛走到巴士站又急匆匆 ( <select name="q169" data-question="獨立助詞填充 11：急匆匆（修飾動詞跑，地）"><option value="">請選擇</option><option>的</option><option>地</option><option>得</option></select> ) 跑回家。<br>
+        8. 黑夜如期而至，可這座城市並沒有因此變 ( <select name="q170" data-question="獨立助詞填充 12：變（引出狀態形容詞漆黑，得）"><option value="">請選擇</option><option>的</option><option>地</option><option>得</option></select> ) 漆黑，霓虹燈輕輕 ( <select name="q171" data-question="獨立助詞填充 13：輕輕（修飾動詞裹上，地）"><option value="">請選擇</option><option>的</option><option>地</option><option>得</option></select> ) 為它裹上一層如夢如幻 ( <select name="q172" data-question="獨立助詞填充 14：如夢如幻（修飾名詞微光，的）"><option value="">請選擇</option><option>的</option><option>地</option><option>得</option></select> ) 微光。
+      </p>
+    </div>
+
+    <h3># 句式訓練：「不只……更……」 仿照例子，辨析句子的層次關係，然後運用「不只……更……」聯結句子。</h3>
+    <div class="question">
+      <p>
+        層次辨析：( <select name="q173" data-question="層次關係 1-1：媽媽懂得烘焙（基本面狀況）"><option value="">請選擇</option><option>A. 提出一個狀況</option><option>B. 層次更高的狀況</option></select> ) 媽媽懂得烘焙餅乾。<br>
+        層次辨析：( <select name="q174" data-question="層次關係 1-2：媽媽能製成可愛形狀（進階面狀況）"><option value="">請選擇</option><option>A. 提出一個狀況</option><option>B. 層次更高的狀況</option></select> ) 媽媽能把餅乾製作成各種可愛的形狀。<br>
+        聯結句子答案：<select name="q175" data-question="不只更聯結 1：媽媽烘焙特長聯結句"><option value="">請選擇</option><option>媽媽不只懂得烘焙餅乾，更能把餅乾製作成各種可愛的形狀。</option></select>
+      </p>
+    </div>
+    <div class="question">
+      <p>
+        層次辨析：( <select name="q176" data-question="層次關係 2-1：工作坊能認識朋友（人際面）"><option value="">請選擇</option><option>A. 提出一個狀況</option><option>B. 層次更高的狀況</option></select> ) 參加工作坊能認識志同道合的朋友。<br>
+        層次辨析：( <select name="q177" data-question="層次關係 2-2：工作坊能學習技能（實質收穫面）"><option value="">請選擇</option><option>A. 提出一個狀況</option><option>B. 層次更高的狀況</option></select> ) 參加工作坊能學習一項新技能。<br>
+        聯結句子答案：<select name="q178" data-question="不只更聯結 2：參加工作坊好處聯結句"><option value="">請選擇</option><option>參加工作坊不只能認識志同道合的朋友，更能學習一項新技能。</option></select>
+      </p>
+    </div>
+
+    <h3># 運用「不只……更……」，續寫下面的句子。</h3>
+    <div class="question">
+      <p>閱讀不只是消磨時間的好方法，(____)<br>
+      答案：<select name="q179" data-question="不只更續寫 1：擴展閱讀帶來的實質精神裨益"><option value="">請選擇</option><option>更可以幫我們學習新詞語。</option></select></p>
+    </div>
+    <div class="question">
+      <p>主動做家務不只可以讓房間變得整潔，(____)<br>
+      答案：<select name="q180" data-question="不只更續寫 2：擴展做家務對家庭和諧的心理增益"><option value="">請選擇</option><option>更可以減輕家人的負擔。</option></select></p>
+    </div>
+
+    <h3># 意義相近的字組成的詞語: 把與下面文字意思相近的字填在橫線上，組成詞語。</h3>
+    <div class="question">
+      <p>
+        奔( 1. <select name="q181" data-question="近義字組詞 1：同義複詞（奔與跑）"><option value="">請選擇</option><option>護</option><option>爬</option><option>跑</option><option>躍</option><option>路</option><option>泊</option><option>樂</option><option>暗</option><option>破</option></select> )
+        跳( 2. <select name="q182" data-question="近義字組詞 2：同義複詞（跳與躍）"><option value="">請選擇</option><option>護</option><option>爬</option><option>跑</option><option>躍</option><option>路</option><option>泊</option><option>樂</option><option>暗</option><option>破</option></select> )
+        歡( 3. <select name="q183" data-question="近義字組詞 3 push：同義複詞（歡與樂）"><option value="">請選擇</option><option>護</option><option>爬</option><option>跑</option><option>躍</option><option>路</option><option>泊</option><option>樂</option><option>暗</option><option>破</option></select> )
+        陰( 4. <select name="q184" data-question="近義字組詞 4：同義複詞（陰與暗）"><option value="">請選擇</option><option>護</option><option>爬</option><option>跑</option><option>躍</option><option>路</option><option>泊</option><option>樂</option><option>暗</option><option>破</option></select> )
+        打( 5. <select name="q185" data-question="近義字組詞 5：同義複詞（打與破）"><option value="">請選擇</option><option>護</option><option>爬</option><option>跑</option><option>躍</option><option>路</option><option>泊</option><option>樂</option><option>暗</option><option>破</option></select> )
+        道( 6. <select name="q186" data-question="近義字組詞 6：同義複詞（道與路）"><option value="">請選擇</option><option>護</option><option>爬</option><option>跑</option><option>躍</option><option>路</option><option>泊</option><option>樂</option><option>暗</option><option>破</option></select> )
+        湖( 7. <select name="q187" data-question="近義字組詞 7：近義複合（湖與泊）"><option value="">請選擇</option><option>護</option><option>爬</option><option>跑</option><option>躍</option><option>路</option><option>泊</option><option>樂</option><option>暗</option><option>破</option></select> )
+        保( 8. <select name="q188" data-question="近義字組詞 8：同義複詞（保與護）"><option value="">請選擇</option><option>護</option><option>爬</option><option>跑</option><option>躍</option><option>路</option><option>泊</option><option>樂</option><option>暗</option><option>破</option></select> )
+        攀( 9. <select name="q189" data-question="近義字組詞 9：同義複詞（攀與爬）"><option value="">請選擇</option><option>護</option><option>爬</option><option>跑</option><option>躍</option><option>路</option><option>泊</option><option>樂</option><option>暗</option><option>破</option></select> )
+      </p>
     </div>
 
     <div class="question">
-      <p>其人弗能應也。<br>
-      <select name="q55" data-question="4. 其人弗能應"><option value="">請選擇</option><option>A. 那個賣矛和盾的人能夠回答。</option><option>B. 那個賣矛和盾的人不能回答。</option><option>C. 那個賣矛和盾的人回答了正確的答案。</option><option>D. 那個賣矛和盾的人回答了錯誤的答案。</option></select></p>
+      <p>
+        編( 1. <select name="q190" data-question="字詞組裝 1：動作手藝（編與織）"><option value="">請選擇</option><option>徊</option><option>擠</option><option>折</option><option>濕</option><option>悔</option><option>織</option><option>小</option><option>擋</option><option>暖</option><option>應</option><option>瞞</option></select> )
+        渺( 2. <select name="q191" data-question="字詞組裝 2：微小概念（渺與小）"><option value="">請選擇</option><option>徊</option><option>擠</option><option>折</option><option>濕</option><option>悔</option><option>織</option><option>小</option><option>擋</option><option>暖</option><option>應</option><option>瞞</option></select> )
+        阻( 3. <select name="q192" data-question="字詞組裝 3：防禦與防礙（阻與擋）"><option value="">請選擇</option><option>徊</option><option>擠</option><option>折</option><option>濕</option><option>悔</option><option>織</option><option>小</option><option>擋</option><option>暖</option><option>應</option><option>瞞</option></select> )
+        溫( 4. <select name="q193" data-question="字詞組裝 4：溫度體感（溫與暖）"><option value="">請選擇</option><option>徊</option><option>擠</option><option>折</option><option>濕</option><option>悔</option><option>織</option><option>小</option><option>擋</option><option>暖</option><option>應</option><option>瞞</option></select> )
+        答( 5. <select name="q194" data-question="字詞組裝 5：允諾承擔（答與應）"><option value="">請選擇</option><option>徊</option><option>擠</option><option>折</option><option>濕</option><option>悔</option><option>織</option><option>小</option><option>擋</option><option>暖</option><option>應</option><option>瞞</option></select> )
+        隱( 6. <select name="q195" data-question="字詞組裝 6：隱蔽與遮掩（隱與瞞）"><option value="">請選擇</option><option>徊</option><option>擠</option><option>折</option><option>濕</option><option>悔</option><option>織</option><option>小</option><option>擋</option><option>暖</option><option>應</option><option>瞞</option></select> )
+        徘( 7. <select name="q196" data-question="字詞組裝 7：猶豫走動（徘與徊）"><option value="">請選擇</option><option>徊</option><option>擠</option><option>折</option><option>濕</option><option>悔</option><option>織</option><option>小</option><option>擋</option><option>暖</option><option>應</option><option>瞞</option></select> )
+        擁( 8. <select name="q197" data-question="字詞組裝 8：空間狹窄（擁與擠）"><option value="">請選擇</option><option>徊</option><option>擠</option><option>折</option><option>濕</option><option>悔</option><option>織</option><option>小</option><option>擋</option><option>暖</option><option>應</option><option>瞞</option></select> )
+        曲( 9. <select name="q198" data-question="字詞組裝 9：不平直、受阻（曲與折）"><option value="">請選擇</option><option>徊</option><option>擠</option><option>折</option><option>濕</option><option>悔</option><option>織</option><option>小</option><option>擋</option><option>暖</option><option>應</option><option>瞞</option></select> )
+        潮( 10. <select name="q199" data-question="字詞組裝 10：水分充足、空氣特點（潮與濕）"><option value="">請選擇</option><option>徊</option><option>擠</option><option>折</option><option>濕</option><option>悔</option><option>織</option><option>小</option><option>擋</option><option>暖</option><option>應</option><option>瞞</option></select> )
+        懊( 11. <select name="q200" data-question="字詞組裝 11：心理後悔狀態（懊與悔）"><option value="">請選擇</option><option>徊</option><option>擠</option><option>折</option><option>濕</option><option>悔</option><option>織</option><option>小</option><option>擋</option><option>暖</option><option>應</option><option>瞞</option></select> )
+      </p>
     </div>
 
     <div class="question">
-      <p>上好義，則民莫(<select name="q56" data-question="4. 民莫"><option value="">請選擇</option><option>A. 莫非</option><option>B. 沒有</option><option>C. 不是</option><option>D. 忘記</option></select>) 敢不服。</p>
+      <p>1. 這個可愛的玩偶是祖母 ( <select name="q201" data-question="字詞語境運用 1：編織（毛線衣物類動作）"><option value="">請選擇</option><option>編織</option><option>渺小</option><option>阻擋</option><option>溫暖</option><option>答應</option><option>隱瞞</option><option>徘徊</option><option>擁擠</option><option>曲折</option><option>潮濕</option><option>懊悔</option></select> ) 的。</p>
+      <p>2. 哥哥忘記帶鑰匙，只好在家附近 ( <select name="q202" data-question="字詞語境運用 2：徘徊（來回走動等待）"><option value="">請選擇</option><option>編織</option><option>渺小</option><option>阻擋</option><option>溫暖</option><option>答應</option><option>隱瞞</option><option>徘徊</option><option>擁擠</option><option>曲折</option><option>潮濕</option><option>懊悔</option></select> ) ，等媽媽回來。</p>
+      <p>3. 弟弟十分 ( <select name="q203" data-question="字詞語境運用 3：懊悔（對自身行為感到遺憾後悔）"><option value="">請選擇</option><option>編織</option><option>渺小</option><option>阻擋</option><option>溫暖</option><option>答應</option><option>隱瞞</option><option>徘徊</option><option>擁擠</option><option>曲折</option><option>潮濕</option><option>懊悔</option></select> ) ，反思自己不應該和妹妹爭奪零食。</p>
+      <p>4. 和浩瀚的宇宙相比，地球上的事物顯得十分 ( <select name="q204" data-question="字詞語境運用 4：渺小（對比浩瀚宇宙）"><option value="">請選擇</option><option>編織</option><option>渺小</option><option>阻擋</option><option>溫暖</option><option>答應</option><option>隱瞞</option><option>徘徊</option><option>擁擠</option><option>曲折</option><option>潮濕</option><option>懊悔</option></select> ) 。</p>
+      <p>5. 他閱讀得十分仔細，想尋找作者 ( <select name="q205" data-question="字詞語境運用 5：隱瞞（在字裏行間藏匿意圖）"><option value="">請選擇</option><option>編織</option><option>渺小</option><option>阻擋</option><option>溫暖</option><option>答應</option><option>隱瞞</option><option>徘徊</option><option>擁擠</option><option>曲折</option><option>潮濕</option><option>懊悔</option></select> ) 在文字中的線索。</p>
+      <p>6. 每到放學和下班的高峯期，地鐵車廂都會變得十分 ( <select name="q206" data-question="字詞語境運用 6：擁擠（形容高峯期大眾交通）"><option value="">請選擇</option><option>編織</option><option>渺小</option><option>阻擋</option><option>溫暖</option><option>答應</option><option>隱瞞</option><option>徘徊</option><option>擁擠</option><option>曲折</option><option>潮濕</option><option>懊悔</option></select> ) 。</p>
+      <p>7. 當有人想衝進正在關門的地鐵車廂時，職員便會上前 ( <select name="q207" data-question="字詞語境運用 7：阻擋（職員干預危險行為）"><option value="">請選擇</option><option>編織</option><option>渺小</option><option>阻擋</option><option>溫暖</option><option>答應</option><option>隱瞞</option><option>徘徊</option><option>擁擠</option><option>曲折</option><option>潮濕</option><option>懊悔</option></select> ) 。</p>
+      <p>8. 沿著這條 ( <select name="q208" data-question="字詞語境運用 8：曲折（形容不平直、彎曲的山徑小路）"><option value="">請選擇</option><option>編織</option><option>渺小</option><option>阻擋</option><option>溫暖</option><option>答應</option><option>隱瞞</option><option>徘徊</option><option>擁擠</option><option>曲折</option><option>潮濕</option><option>懊悔</option></select> ) 的小徑一直走，就能找到那座神祕的寺廟。</p>
     </div>
 
+    <h3># 句式訓練：「不是……就是……」 圈出代表答案的英文字母。</h3>
     <div class="question">
-      <p>黔無(<select name="q57" data-question="4. 黔無"><option value="">請選擇</option><option>A. 無論</option><option>B. 禁止</option><option>C. 不能</option><option>D. 沒有</option></select>) 驢，有好事者船載以入。</p>
+      <p>「學生放學後做甚麼？他們不是上興趣班，就是上補習班。」 上面一句主要寫：<br>
+      答案：<select name="q209" data-question="選擇複句辨析：理解「不是……就是……」二選一活動主旨"><option value="">請選擇</option><option>A. 學生放學後一般會上補習班或興趣班。</option><option>B. 學生放學後只會上補習班，而不會上興趣班。</option></select></p>
     </div>
 
+    <h3># 仿照例句，運用「不是……就是……」聯結兩個可能的情況，續寫句子。</h3>
     <div class="question">
-      <p>俛而讀，仰而思，思而弗(<select name="q58" data-question="4. 弗"><option value="">請選擇</option><option>A. 不</option><option>B. 彷彿</option><option>C. 不是</option><option>D. 不過</option></select>) 得。</p>
+      <p>情況一：爸爸在家裏休息。 / 情況二：爸爸在公司工作。<br>
+      爸爸在哪裏？ (____)<br>
+      答案：<select name="q210" data-question="選擇複句聯結 1：推測爸爸的具體所在處"><option value="">請選擇</option><option>他不是在家裏休息，就在公司工作。</option></select></p>
+    </div>
+    <div class="question">
+      <p>情況一：弟弟常常在搗蛋。 / 情況二：弟弟常常在想鬼主意。<br>
+      弟弟真淘氣， (____)<br>
+      答案：<select name="q211" data-question="選擇複句聯結 2：形容淘氣弟弟的日常行為"><option value="">請選擇</option><option>他不是常常在搗蛋，就是常常在想鬼主意。</option></select></p>
     </div>
 
+    <h3># 續寫句子：運用「不是……就是……」句式續寫句子。</h3>
     <div class="question">
-      <p>1. 漁者得而並擒之。語譯：漁夫捉住了(<select name="q59" data-question="4. 擒之 文言"><option value="">請選擇</option><option>A. 牠的</option><option>B. 牠們</option></select>) 。</p>
+      <p>哥哥(____) ，沒有一刻停下來！<br>
+      答案：<select name="q212" data-question="選擇複句續寫 1：描述哥哥閒不下來的兩種狀態"><option value="">請選擇</option><option>不是做功課，就是打機</option></select></p>
+    </div>
+    <div class="question">
+      <p>小玲真是粗心大意，(____)<br>
+      答案：<select name="q213" data-question="選擇複句續寫 2：列舉小玲粗心大意丟三落四的表現"><option value="">請選擇</option><option>常常不是丟了文具，就是忘了帶課本。</option></select></p>
     </div>
 
+    <h3>## 語文基礎知識：引號和雙引號</h3>
     <div class="question">
-      <p>2. 防民之口，甚於防川。語譯：防堵百姓(<select name="q60" data-question="4. 民之口"><option value="">請選擇</option><option>A. 他的</option><option>B. 他們的</option></select>) 口。</p>
+      <p>陳老師說：『李白和杜甫都是唐代著名的詩人。』<br>
+      答案：<select name="q214" data-question="引號用法修正 1：直接話語的一般引號選擇"><option value="">請選擇</option><option>√</option><option>「李白和杜甫都是唐代著名的詩人。」</option></select></p>
+    </div>
+    <div class="question">
+      <p>爸爸語重心長地對我說：『正所謂『一寸光陰一寸金』，好好計畫時間，不要虛度寶貴的時光。』<br>
+      答案：<select name="q215" data-question="引號用法修正 2：對話中包含名言的單雙引號層次"><option value="">請選擇</option><option>√</option><option>爸爸語重心長地對我說：「正所謂『一寸光陰一寸金』，好好計畫時間，不要虛度寶貴的時光。」</option></select></p>
+    </div>
+    <div class="question">
+      <p>「八達通」是日常生活中常用的支付方式之一。<br>
+      答案：<select name="q216" data-question="引號用法修正 3：特定產品專有名詞的標準引號"><option value="">請選擇</option><option>√</option><option>『八達通』是日常生活中常用的支付方式之一。</option></select></p>
+    </div>
+    <div class="question">
+      <p>弟弟開心地說：「我想的辦法成功幫助同學解決問題，他們都稱讚我是「智多星」呢!」<br>
+      答案：<select name="q217" data-question="引號用法修正 4：直接對話中嵌套綽號特殊含義引號"><option value="">請選擇</option><option>√</option><option>弟弟開心地說：「我想的辦法成功幫助同學解決問題，他們都稱讚我是『智多星』呢!」</option></select></p>
     </div>
 
+    <h3># 句子語氣: 以下人物說的話屬於哪種句子語氣？</h3>
     <div class="question">
-      <p>3. 以示玉人...故敢獻之。語譯：我才敢把(<select name="q61" data-question="4. 獻之"><option value="">請選擇</option><option>A. 它們</option><option>B. 它</option></select>) 貢獻給您。</p>
+      <p>
+        1. 同學，你沒事吧？ ( <select name="q218" data-question="句子語氣判斷 1：含有問號與關切（疑問句）"><option value="">請選擇</option><option>A</option><option>B</option><option>C</option><option>D</option></select> )<br>
+        2. 你的傷勢看起來真嚴重。 ( <select name="q219" data-question="句子語氣判斷 2：客觀描述觀察所得（陳述句）"><option value="">請選擇</option><option>A</option><option>B</option><option>C</option><option>D</option></select> )<br>
+        3. 快進來，我幫你處理傷口。 ( <select name="q220" data-question="句子語氣判斷 3：發出命令或緊急請求（祈使句）"><option value="">請選擇</option><option>A</option><option>B</option><option>C</option><option>D</option></select> )<br>
+        4. 你真是個熱心助人的好孩子啊！ ( <select name="q221" data-question="句子語氣判斷 4：帶有嘆詞強烈讚賞（感歎句）"><option value="">請選擇</option><option>A</option><option>B</option><option>C</option><option>D</option></select> )
+      </p>
+      <ul class="options-list">
+        <li>A. 陳述句</li>
+        <li>B. 祈使句</li>
+        <li>C. 疑問句</li>
+        <li>D. 感歎句</li>
+      </ul>
     </div>
 
+    <h3># 句子語氣: 依照指示，改寫下面的句子。 原句：今天的天氣寒冷，把窗關上比較好。</h3>
     <div class="question">
-      <p>4. 曾子之妻之市，其子隨之而泣。語譯：曾子(<select name="q62" data-question="4. 曾子之妻"><option value="">請選擇</option><option>A. 她</option><option>B. 他的</option></select>) 妻子...跟隨着(<select name="q63" data-question="4. 隨之"><option value="">請選擇</option><option>A. 她</option><option>B. 他的</option></select>) 哭泣。</p>
+      <p>改寫為疑問句：<br>
+      答案：<select name="q222" data-question="語氣變換練習 1：改寫為帶詢問語氣的疑問句"><option value="">請選擇</option><option>今天的天氣寒冷，你可不可以把窗關上比較好啊？</option></select></p>
+    </div>
+    <div class="question">
+      <p>改寫為祈使句：<br>
+      答案：<select name="q223" data-question="語氣變換練習 2：改寫為帶有請求「請」的祈使句"><option value="">請選擇</option><option>今天的天氣寒冷，請把窗關上。</option></select></p>
+    </div>
+    <div class="question">
+      <p>改寫為感歎句：<br>
+      答案：<select name="q224" data-question="語氣變換練習 3：改寫為抒發感嘆強烈情感的感歎句"><option value="">請選擇</option><option>今天的天氣真寒冷，快把窗關上吧！</option></select></p>
     </div>
 
+    <h3># 詞義辨析：下列各題的括號內，應該分別填入哪一個最適當的詞語？</h3>
     <div class="question">
-      <p>蚌方(<select name="q64" data-question="4. 方"><option value="">請選擇</option><option>正在</option><option>方向</option><option>方法</option></select>) 出曝。</p>
+      <p>暑假時，外婆一再(____) 我們一家在鄉間多住幾天再走。<br>
+      答案：<select name="q225" data-question="輔導 - 詞義辨析 8：表達希望客人留下來的特定動詞（挽留）"><option value="">請選擇</option><option>A. 挽回</option><option>B. 逗留</option><option>C. 挽留</option><option>D. 收留</option></select></p>
     </div>
 
+    <h3># 句義辨析：選出下面各題最適當的答案。</h3>
     <div class="question">
-      <p>今日不雨(<select name="q65" data-question="4. 不雨1"><option value="">請選擇</option><option>雨水</option><option>下雨</option><option>風雨</option></select>) ，明日不雨(<select name="q66" data-question="4. 不雨2"><option value="">請選擇</option><option>雨水</option><option>下雨</option><option>風雨</option></select>) 。</p>
+      <p>「真可憐！他雖然跌傷了腿，在醫院住了一個月，但是連一個親人也沒有來看望過他。」 上面一句主要寫：<br>
+      答案：<select name="q226" data-question="輔導 - 句義辨析 2：解讀傷者無親人探望的孤苦核心主旨"><option value="">請選擇</option><option>A. 他的腿傷很嚴重。</option><option>B. 他受傷已經一個月了。</option><option>C. 親人不肯來探望他。</option><option>D. 他孤苦伶仃，受了傷也沒人關心。</option></select></p>
     </div>
 
+    <h3># 段義理解：細閱下面的一段文字，然後把代表答案的英文字母填在 ( ) 內。</h3>
     <div class="question">
-      <p>寧信(<select name="q67" data-question="4. 信1"><option value="">請選擇</option><option>伸展</option><option>書信</option><option>相信</option></select>) 度，無自(<select name="q68" data-question="4. 信2"><option value="">請選擇</option><option>伸展</option><option>書信</option><option>相信</option></select>) 也。</p>
+      <p>上網是流行的娛樂活動。如果孩子不懂得分辨網站的內容和素質，恐怕會受到不良網站的荼毒。如果禁止孩子上網，又是不切實際的，便會減少了孩子瀏覽良好網站的機會。所以，父母除了在電腦上安裝過濾軟件，還要教導孩子正確上網。 上面一段文字主要說明：<br>
+      答案：<select name="q227" data-question="輔導 - 段義理解 1：分析父母引導孩子上網的教育責任主旨"><option value="">請選擇</option><option>A. 上網是孩子喜歡的活動。</option><option>B. 孩子會瀏覽不良的網站。</option><option>C. 禁止孩子上網是無效的方法。</option><option>D. 父母要擔當教育孩子上網的責任。</option></select></p>
     </div>
 
+    <h3># 關聯詞：選出適當的關聯詞，把代表正確答案的英文字母填在 &lt;...&gt; 內。</h3>
     <div class="question">
-      <p>至之市而忘(<select name="q69" data-question="4. 忘"><option value="">請選擇</option><option>忘記</option><option>捨棄</option><option>遺失</option></select>) 操之。</p>
+      <p>
+        1. ( <select name="q228" data-question="輔導 - 綜合關聯詞配對 1：假設關係前件（如果）"><option value="">請選擇</option><option>A</option><option>B</option><option>C</option><option>D</option><option>E</option></select> ) 地球上的糧食能夠平均分配，貧窮的人 ( <select name="q229" data-question="輔導 - 綜合關聯詞配對 2：假設關係後件（就）"><option value="">請選擇</option><option>A</option><option>B</option><option>C</option><option>D</option><option>E</option></select> ) 不用挨餓了。<br>
+        2. ( <select name="q230" data-question="輔導 - 綜合關聯詞配對 3：轉折讓步關係前件（不管/即使）"><option value="">請選擇</option><option>A</option><option>B</option><option>C</option><option>D</option><option>E</option></select> ) 天氣惡劣，猶如 ( <select name="q231" data-question="輔導 - 綜合關聯詞配對 4：轉折讓步關係後件（都/也）"><option value="">請選擇</option><option>A</option><option>B</option><option>C</option><option>D</option><option>E</option></select> ) 堅持每天到公園跑步。<br>
+        3. ( <select name="q232" data-question="輔導 - 綜合關聯詞配對 5：極端假設讓步前件（即使）"><option value="">請選擇</option><option>A</option><option>B</option><option>C</option><option>D</option><option>E</option></select> ) 獅子跑得再快， ( <select name="q233" data-question="輔導 - 綜合關聯詞配對 6：極端假設讓步後件（也）"><option value="">請選擇</option><option>A</option><option>B</option><option>C</option><option>D</option><option>E</option></select> ) 躲不過獵人的追捕。<br>
+        4. ( <select name="q234" data-question="輔導 - 綜合關聯詞配對 7：排除限制前提（除非完成功課）"><option value="">請選擇</option><option>A</option><option>B</option><option>C</option><option>D</option><option>E</option></select> ) 你能說功課， ( <select name="q235" data-question="輔導 - 綜合關聯詞配對 8：排除限制後果（否則不可以）"><option value="">請選擇</option><option>A</option><option>B</option><option>C</option><option>D</option><option>E</option></select> ) 不可以玩電動遊戲。
+      </p>
+      <ul class="options-list">
+        <li>A. 即使……也……</li>
+        <li>B. 不是……就是……</li>
+        <li>C. 除非……否則……</li>
+        <li>D. 不管……都……</li>
+        <li>E. 如果……就……</li>
+      </ul>
     </div>
 
+    <h3># 句式變換：依照（     ）內的指示改寫句子。</h3>
     <div class="question">
-      <p>學而時習(<select name="q70" data-question="4. 習之"><option value="">請選擇</option><option>習慣</option><option>溫習</option><option>常常</option></select>) 之，不亦說乎？</p>
+      <p>張老師是我校的小女童軍領袖。（改為疑問句）<br>
+      答案：<select name="q236" data-question="基本句型變換 1：陳述句轉換為是非疑問句"><option value="">請選擇</option><option>張老師是內校的小女童軍領袖嗎？</option></select></p>
+    </div>
+    <div class="question">
+      <p>請問你可到超級市場買菜嗎？（改為祈使句）<br>
+      答案：<select name="q237" data-question="基本句型變換 2：疑問請託句轉換為直接指令祈使句"><option value="">請選擇</option><option>請你到超級市場買菜。</option></select></p>
     </div>
 
+    <h3># 利用「非但……還……」的句式寫一意思完整而通順的複句，字數不少於 20（連標點符號）。</h3>
     <div class="question">
-      <p>有朋自遠方來，不亦樂(<select name="q71" data-question="4. 樂"><option value="">請選擇</option><option>愉悦</option><option>喜愛</option><option>音樂</option></select>) 乎！</p>
+      <p>答案：<select name="q238" data-question="非但還獨立造句：自主運用遞進關聯詞獨立寫作複句"><option value="">請選擇</option><option>小明非但沒有準時完成功課，還對前來提醒他的班長大發脾氣。</option></select></p>
     </div>
 
+    <h3># 段義理解：細閱下面各題的一段文字，然後依照指示，把代表答案的英文字母填在（     ）內。</h3>
     <div class="question">
-      <p>鍥而不舍(<select name="q72" data-question="4. 舍"><option value="">請選擇</option><option>房屋</option><option>除去</option><option>放棄</option></select>) ，金石可鏤。</p>
-    </div>
-
-    <div class="question">
-      <p>鄭人有且置履者...其足...其坐。句子中「其」的意思：(<select name="q73" data-question="4. 其履 意思"><option value="">請選擇</option><option>他的</option><option>它的</option></select>)<br>
-      句子中「其」分別具體指：(<select name="q74" data-question="4. 其履 指"><option value="">請選擇</option><option>鞋子</option><option>鄭人的</option></select>)</p>
-    </div>
-
-    <div class="question">
-      <p>宋人有耕者...釋其耒...句子中「其」的意思：(<select name="q75" data-question="4. 其耒 意思"><option value="">請選擇</option><option>他的</option><option>它的</option></select>)<br>
-      句子中「其」具體指：(<select name="q76" data-question="4. 其耒 指"><option value="">請選擇</option><option>農夫的</option><option>兔子的</option></select>)</p>
-    </div>
-
-    <div class="question">
-      <p>文言文的虛詞「之」可語譯為下面的意思嗎？<br>
-      (<select name="q77" data-question="4. 之 嗎2"><option value="">請選擇</option><option>可以</option><option>不可以</option></select>) 嗎<br>
-      (<select name="q78" data-question="4. 之 吧"><option value="">請選擇</option><option>可以</option><option>不可以</option></select>) 吧<br>
-      (<select name="q79" data-question="4. 之 的2"><option value="">請選擇</option><option>可以</option><option>不可以</option></select>) 的<br>
-      (<select name="q80" data-question="4. 之 他2"><option value="">請選擇</option><option>可以</option><option>不可以</option></select>) 他<br>
-      (<select name="q81" data-question="4. 之 她們"><option value="">請選擇</option><option>可以</option><option>不可以</option></select>) 她們<br>
-      (<select name="q82" data-question="4. 之 它們"><option value="">請選擇</option><option>可以</option><option>不可以</option></select>) 它們</p>
+      <p>日記，是珍藏着我的回憶的守護者，也是傾聽我心中喜怒哀樂的朋友，更是教我明白光陰可貴的智者。如果沒有了日記，我又怎能真切地記錄和回味生活中的各種感受呢！<br>
+      上面一段文字主要說明：<br>
+      答案：<select name="q239" data-question="輔導 - 段義理解 2：解讀日記對個人情感與時光價值的多重意義"><option value="">請選擇</option><option>A. 日記使我感悟良多。</option><option>B. 日記對我很有意義。</option><option>C. 日記在生活中不可缺少。</option><option>D. 日記是表達情緒的工具。</option></select></p>
     </div>
   </div>
 
@@ -474,53 +1034,151 @@ function handleQuizSubmit(formId, resultId, itemsId, scoreId, msgId, correctAnsw
   });
 }
 
-// 正確答案（按照 select 出現順序）
+// 精確對應 HTML 中 239 個 select 的正確答案
 const correctAnswers = [
   null,
-  // 1. 古文（七）
-  "製造", "點綴", "紅色的玉石", "盒子",
-  "5", "2", "3", "4", "1",
-  "B. 只注重外表",
-  "我認為不恰當，因為無論包裝這麼美麗（麗），裏面的東西都是沒沒用。",
-  // 2. 古文（八）
-  "恒常不變的", "損害", "品性", "考慮,反省",
-  "玉器", "道理",
-  "物質", "本質",
-  "改變", "君子",
-  "A. 玉的本質。",
-  "B. 學習對於人的重要意義。",
-  "學生我不喜歡在學校學習，因為作業（業）壓力很大。",
-  // 3. 第十一課 鷸蚌相爭
-  "B. 露出。", "C. 放開。", "B. 得到。", "A. 一起。",
-  "奇怪", "寒冷", "貧窮", "學習", "親近", "疏遠", "躲避", "戰亂",
-  "牠的", "蚌的",
-  "牠的", "鷸的",
-  "B. 母親的", "D. 工具的", "B. 棗林的",
-  // 4. 第十二課 自相矛盾 及 文言文綜合
-  "可以", "不可以", "可以", "不可以", "不可以", "不可以",
-  "他",
-  "的", "的",
-  "他",
-  "C. 沒有東西不能穿透它。",
-  "B. 那個賣矛和盾的人不能回答。",
-  "B. 沒有", "D. 沒有", "A. 不",
-  "B. 牠們",
-  "B. 他們的",
-  "B. 它",
-  "A. 她", "A. 她",
-  "正在",
-  "下雨", "下雨",
-  "相信", "相信",
-  "忘記",
-  "溫習",
-  "愉悦",
-  "放棄",
-  "他的", "鞋子",
-  "他的", "農夫的",
-  "不可以", "不可以", "可以", "可以", "不可以", "不可以"
+  // 第三課
+  "B", "B", "C", "B", "A", "A", "B", "A", "C", "B",
+  "幼稚園的小朋友尚且懂得向老師打招呼，何況是五年級的學生呢？",
+  "學習鋼琴多年的我尚且彈不好這首曲子，何況弟弟是一個初學者呢？",
+  "我們尚且會幫助有困難的陌生人，何況是我們的好朋友呢？",
+  "我尚且跑完四百米賽跑，累得氣喘吁吁，何況要完成一千五百米賽跑呢？",
+  // 第五課
+  "甘地帶領印度脫離殖民統治，是印度人心目中的「國父」。",
+  "陳先生移居渥太華(加拿大的首都)多年，今年終於回到家鄉──香港。",
+  "美國前總統奧巴馬曾說過:「不能讓失敗來定義你，你必須把失敗當作導師。」",
+  "弟弟很愛吃水果，芒果、荔枝、木瓜、龍眼... 他全部都喜歡。",
+  "D", "B", "A", "C",
+  "弟弟做錯了事，非但不肯認錯，還打算說謊隱瞞。",
+  "在這次游泳比賽中，他非但贏建立了冠軍，還打破了世界紀錄。",
+  "他在考試中名落孫山，非但沒有氣餒，還更加努力溫習。",
+  "姐姐走進嘉年華的鬼屋，非但不害怕，還向鬼怪大叫大喊。",
+  // 第七課
+  "的", "地", "得", "的", "地", "得",
+  "闊", "持", "念", "厚", "細",
+  "更要有冷靜的頭腦", "更設立獎學金鼓勵當地學童努力學習", "更因為她的處事態度認真盡責", "更有可能釀成交通意外",
+  // 第九課
+  "科學家牛頓在一六八七年發表「萬有引力定律」。",
+  "老師問：「你們知道『學海無涯，惟勤是岸。』這句話的意思嗎？」",
+  "_",
+  "爸爸對我說：「所謂『良藥苦口利於病，忠言逆耳利於行。』你要多聽取別人善意的批評。」",
+  "飯前吃零食真是一個影響健康的壞習慣。",
+  "你把爸爸的手提電話摔壞了，為甚麼不向他道歉呢？",
+  "弟弟花了半天還沒有完成功課，媽媽多麼生氣啊！",
+  "聽說這齣歌舞劇很精彩，請你跟我一起去吧！",
+  "姐姐不是參加合唱團，就是跳芭蕾舞。",
+  "這個樂園不是有魔術表演，就是有售賣氣球的攤子。",
+  // 堂工/輔導 - 修辭
+  "反復", "擬人", "誇張", "暗喻", "借喻", "誇張", "排比", "擬人", "明喻", "借喻", "排比", "對偶", "明喻", "排比", "誇張", "擬人", "對偶", "擬人", "誇張", "擬人",
+  // 重組
+  "我們在網上購物時必須小心謹慎，以免受騙。",
+  "魔術師出神入化的演出，使我對魔術產生了濃厚的興趣。",
+  "既然樹上的果子已經熟透，就要把它們趕快摘下來。",
+  "一個人要經常自我反省，才能找出自己的缺點和毛病。",
+  "妹妹不只會彈鋼琴，更曾在鋼琴比賽中奪得冠軍。",
+  "他不只上課認真聽講，回家後，為了提升成績，更努力溫習。",
+  "雖然他們已經升上了不同的中學，但是仍然保持聯絡。",
+  "貧困的山區居民不僅要挨餓，還要飽受各種疾病的折磨。",
+  "這本繪本不僅深受學生的喜愛，連老師也讚不絕口。",
+  "蘋果不只味道香甜可口，更對我們的身體有好處。",
+  "祖母織的毛衣不只十分暖和，更包含濃濃的愛意。",
+  "奶奶看到海灘上有很多垃圾，於是逐一撿起來丟進垃圾箱。",
+  "除非你是個嬰孩，才聽不懂這麼顯淺的道理。",
+  // 標點版
+  "老師問我們:「你知道誰是莫扎特嗎?他是一位偉大的音樂家,被後世稱為『音樂神童』。他三歲時已學會彈琴,五歲時嘗試作曲,七歲時已登台演奏...他自小隨父親到歐洲各地演奏,充分顯露了他的音樂天分。他一生創作了六百多部作品, 其中著名的有:❰朱彼得交響樂魔笛❱。他三十五歲時病逝,真是十分可惜呢!」",
+  "下個月是班際話劇比賽的日子，我們班決定演出經典名著《羅密歐與茱麗葉》。我們一起編寫劇本、製作道具、縫製戲服、排練話劇；當我們遇到困難時，我們一起解決；當我們感到挫敗時，我們互相鼓勵。我相信只要大家分工合作，就一定能成功的！",
+  "你們知道澳洲有一種叫「樹袋熊」的樹熊嗎？牠們的英文名字有「不喝水」的意思。樹熊棲息的森林長滿一種樹——尤加利樹，而這種樹的葉子就成為樹熊的主要食糧。樹熊的行動緩慢，因此容易受到敵人襲擊。牠們有數種天敵：野狗、狐狸、貓頭鷹...所以數量一直在減少中。",
+  "爸爸帶我參觀博物館時，我們被一個以黃、綠、褐三色為主的陶器所吸引。導賞員向我們介紹：「這是中國著名的『唐三彩』，誕生於唐代，也泛稱唐代彩陶，是中華文化的瑰寶之一。」爸爸激動地說：「這樣的佳作真是『人間能得幾回聞』呀！」",
+  // 多義詞
+  "A", "B", "C", "B",
+  "由於……因此……",
+  "無論……都……",
+  "雖然……但是……",
+  "既……又……",
+  "只要……就……",
+  "不僅……還……",
+  "這家食肆平日尚且人滿為患，何況是星期日呢？",
+  "這麼艱苦的條件成年人尚且受不了，何況是小童呢？",
+  "弟弟討厭吃苦瓜的原因。",
+  "A. 不可或缺",
+  "C. 鐵面無私  ",
+  "C. 不間斷  ",
+  "我的表姐非常厲害，她非但在跑步比賽中獲得第二名，還在跳高比賽中獲得第一名。",
+  "地",
+  "的",
+  "的",
+  "得",
+  "的",
+  "慷慨",
+  "談論",
+  "整齊",
+  "盼望",
+  "思念",
+  "D. 牛奶巧克力給予樂樂力量。",
+  "C. 堅持自力更生。",
+  "D. 用料隨着人們的口味產生了轉變。",
+  "放學後不是去補習社，就是回家做功課。",
+  "D",
+  "C",
+  "B",
+  "A",
+  "A",
+  "B",
+  "C",
+  "D",
+  "B",
+  "C",
+  "A",
+  "C",
+  "A",
+  "B",
+  "C",
+  "C",
+  "B",
+  "A",
+  // 句式
+  "X", "√", "√", "X", "X", "√",
+  "朱老師非但會教導我們做人的道理，還教會我們課本上的知識。",
+  "妹妹十分喜歡動物，她非但用心飼養寵物，還立志將來要當獸醫。",
+  "哥哥很有善心，他非但捐款支持本地慈善機構的工作，還會定期到落後地區做義工。",
+  // 關聯詞選填
+  "因為", "所以", "不管", "都", "因此", "藉以", "倘若", "就",
+  // 詞義辨析 / 助詞
+  "C", "A", "D", "A",
+  "地", "得", "的", "地", "的", "的", "得", "地", "的", "的", "地", "得", "地", "的",
+  // 關係聯結
+  "A", "B", "媽媽不只懂得烘焙餅乾，更能把餅乾製作成各種可愛的形狀。",
+  "A", "B", "參加工作坊不只能認識志同道合的朋友，更能學習一項新技能。",
+  "更可以幫我們學習新詞語。", "更可以減輕家人的負擔。",
+  // 字組詞 / 字組裝
+  "跑", "躍", "樂", "暗", "破", "路", "泊", "護", "爬",
+  "織", "小", "擋", "暖", "應", "瞞", "徊", "擠", "折", "濕", "悔",
+  // 字詞運用
+  "編織", "徘徊", "懊悔", "渺小", "隱瞞", "擁擠", "阻擋", "曲折",
+  // 不是就是
+  "A", "他不是在家裏休息，就在公司工作。", "他不是常常在搗蛋，就是常常在想鬼主意。",
+  "不是做功課，就是打機", "常常不是丟了文具，就是忘了帶課本。",
+  // 引號用法 / 語氣 / 改寫 / 辨析 / 理解
+  "「李白和杜甫都是唐代著名的詩人。」",
+  "爸爸語重心長地對我說：「正所謂『一寸光陰一寸金』，好好計畫時間，不要虛度寶貴的時光。」",
+  "『八達通』是日常生活中常用的支付方式之一。",
+  "弟弟開心地說：「我想的辦法成功幫助同學解決問題，他們都稱讚我是『智多星』呢!」",
+  "C", "A", "B", "D",
+  "今天的天氣寒冷，你可不可以把窗關上比較好啊？",
+  "今天的天氣寒冷，請把窗關上。",
+  "今天的天氣真寒冷，快把窗關上吧！",
+  "C. 挽留", "D. 他孤苦伶仃，受了傷也沒人關心。", "D. 父母要擔當教育孩子上網的責任。",
+  // 綜合關聯詞
+  "E", "E", "D", "D", "A", "A", "C", "C",
+  // 句式變換 / 獨立造句 / 段義理解
+  "張老師是內校的小女童軍領袖嗎？",
+  "請你到超級市場買菜。",
+  "小明非但沒有準時完成功課，還對前來提醒他的班長大發脾氣。",
+  "B. 日記對我很有意義。"
 ];
 
-handleQuizSubmit("allQuizzes", "allResults", "itemsAll", "scoreTotal", "submitMessage", correctAnswers);
+// 初始化執行
+handleQuizSubmit('allQuizzes', 'allResults', 'itemsAll', 'scoreTotal', 'submitMessage', correctAnswers);
 </script>
 
 </body>
