@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self';
+    connect-src *;
+    script-src 'self' 'unsafe-inline';
+    style-src 'self' 'unsafe-inline';
+  ">
+  <title>20261006-常識科時事討論</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, "Microsoft JhengHei", sans-serif;
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+      line-height: 1.6;
+      color: #333;
+    }
+    h1, h2, h3 {
+      text-align: center;
+      color: #2c3e50;
+      margin: 40px 0 20px;
+    }
+    h2 {
+      border-bottom: 3px solid #34495e;
+      padding-bottom: 10px;
+      color: #2c3e50;
+    }
+    h3 {
+      text-align: left;
+      color: #16a085;
+      margin-top: 30px;
+      border-left: 4px solid #16a085;
+      padding-left: 10px;
+    }
+    .section {
+      margin-bottom: 60px;
+    }
+    .question {
+      margin: 25px 0;
+      padding: 20px;
+      background: #f9fbfc;
+      border-radius: 10px;
+      border-left: 5px solid #3498db;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      font-size: 1.4rem;
+    }
+    .question p {
+      margin: 0 0 12px 0;
+      font-size: 1.4rem;
+    }
+    .news-box {
+      background: #f4f6f7;
+      border: 1px solid #d5dbdb;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      font-size: 1.1rem;
+      line-height: 1.7;
+    }
+    strong {
+      color: #e74c3c;
+    }
+    select {
+      padding: 6px 10px;
+      font-size: 1.25rem;
+      min-width: 180px;
+      border-radius: 6px;
+      border: 1px solid #bdc3c7;
+      background: white;
+      margin: 2px 5px;
+      max-width: 100%;
+    }
+    select:focus {
+      outline: none;
+      border-color: #3498db;
+      box-shadow: 0 0 0 3px rgba(52,152,219,0.2);
+    }
+    button {
+      display: block;
+      margin: 60px auto;
+      padding: 18px 80px;
+      font-size: 1.35rem;
+      font-weight: bold;
+      background: #27ae60;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    button:hover {
+      background: #219653;
+    }
+    .result {
+      display: none;
+      margin: 40px 0;
+      padding: 30px;
+      background: #f4f6f9;
+      border-radius: 12px;
+      border: 1px solid #dfe6ed;
+    }
+    .total-score {
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-align: center;
+      margin: 30px 0 20px;
+      padding: 20px;
+      background: #d4edda;
+      border-radius: 10px;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+    }
+    .item {
+      margin: 18px 0;
+      padding: 16px;
+      background: white;
+      border-radius: 8px;
+      border: 1px solid #eee;
+    }
+    .correct { color: #27ae60; font-weight: bold; }
+    .wrong   { color: #c0392b; font-weight: bold; }
+    .answer-show {
+      margin-top: 8px;
+      font-size: 0.98rem;
+      color: #555;
+    }
+    #submitMessage {
+      text-align: center;
+      margin-top: 25px;
+      font-size: 1.15rem;
+    }
+    .success { color: #27ae60; }
+    .error   { color: #c0392b; }
+    .subtitle {
+      text-align: center;
+      color: #555;
+      margin-bottom: 30px;
+    }
+  </style>
+</head>
+<body>
+
+<h1>2026-2027年度 常識科時事討論</h1>
+<p class="subtitle">請完成所有題目後按下方按鈕一次提交</p>
+
+<form id="allQuizzes">
+
+  <!-- ====================== #1. 新春300萬港人外遊 ====================== -->
+  <div class="section">
+    <h2>#1. 新春300萬港人外遊市道更愁</h2>
+    <div class="news-box">
+      <strong>節錄自東方日報2026年2月23日</strong><br><br>
+      農曆新年假期剛結束，政府入境事務處的數據顯示，今年農曆新年假期首8日（2月14日至21日），有超過857萬人次進出香港。其中，港人出境人次錄得顯著增長，較去年同期的246萬，大幅增加近22%。與此同時，同期訪港旅客入境人次約157萬，雖然內地旅客和海外旅客的人數都比去年有所上升，但旅客的人數仍然比外遊的港人數少近一半。<br><br>
+      有經濟學者指出，愈來愈多港人選擇在長假期外遊，而留港消費的意欲下降。學者認為，政府和商戶不能只關注吸引旅客，也要想想如何吸引港人留港消費，否則可能會影響整體消費市道。
+    </div>
+
+    <div class="question">
+      <p><strong>1. 以下哪個政府部門負責改善本港的旅遊設施？</strong></p>
+      <select name="q1" data-question="新春外遊 - 負責改善旅遊設施的部門">
+        <option value="">請選擇</option>
+        <option>A. 旅遊業監管局</option>
+        <option>B. 文化體育及旅遊局</option>
+        <option>C. 入境事務處</option>
+      </select>
+    </div>
+
+    <div class="question">
+      <p><strong>2. 你認為愈來愈多港人選擇在農曆新年期間外遊，對香港的商戶（如酒樓、商店）會有甚麼影響？試舉出一項，並加以解釋。</strong></p>
+      <select name="q2" data-question="新春外遊 - 對商戶的影響">
+        <option value="">請選擇</option>
+        <option>商戶生意額下降。農曆新年是傳統消費旺季，如果大量港人外遊，留在香港消費的人數就會減少。</option>
+        <option>商戶生意額上升。因為外遊港人會帶回外國商品銷售。</option>
+        <option>商戶沒有影響。因為旅客人數上升可完全補足。</option>
+      </select>
+    </div>
+
+    <div class="question">
+      <p><strong>3. 你認為政府可採取哪些方法鼓勵市民在長假期「留港消費」？試舉出兩個方法，並加以解釋。</strong></p>
+      <select name="q3" data-question="新春外遊 - 鼓勵留港消費方法">
+        <option value="">請選擇</option>
+        <option>與商場和餐廳合作，推出「留港消費優惠券」。加強宣傳香港的本地景點和美食。</option>
+        <option>限制港人出境，強制留港消費。</option>
+        <option>只增加訪港旅客人數，不需特別措施。</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- ====================== #2. 食環署引入無人機 ====================== -->
+  <div class="section">
+    <h2>#2. 食環署引入無人機提升工作效率</h2>
+    <div class="news-box">
+      <strong>節錄自《明報》5月10日</strong><br><br>
+      食物環境衛生署近年積極引入創新科技，其中無人機的應用成為提升執法和巡查效率的重要工具。署方透露，去年成功偵破一宗非法屠宰山羊案件，關鍵正是運用無人機協助搜證，最終將涉案人士拘捕。<br><br>
+      食環署利用無人機進行高空拍攝，再迅速鎖定可疑位置。署方在掌握足夠證據後，隨即採取突擊行動拘捕涉案人士。署方指出，過往主要依賴人手巡查去收集情報，往往只能在外圍觀察。引入無人機後，調查人員可從高空掌握整體環境，包括出入口位置、人員分佈、可疑的停泊車輛和逃走路線等，有助提升行動安全和搜證質素。<br><br>
+      此外，無人機將按預設路線巡航，並透過人工智能分析影像，協助部門及時調派人員處理。配合項目推展，無人機機庫預計將安裝於食環署管理的公廁頂部，作為無人機起降和充電的基地，團隊即將開展飛行測試。機電署高級工程師邱芝瑩表示，部門正向民航處申請相關無人機操作許可。飛行測試將分兩個階段進行，首先以目視和延伸視線操作進行測試，待系統運作穩定後，再推展至超視距操作，實現全自動空中巡視。
+    </div>
+
+    <div class="question">
+      <p><strong>1. 以下哪個不是食環署負責的工作？把正確答案圈出來。</strong></p>
+      <select name="q4" data-question="食環署無人機 - 不是食環署負責的工作">
+        <option value="">請選擇</option>
+        <option>A. 小販管理</option>
+        <option>B. 興建公共房屋</option>
+        <option>C. 防治蟲鼠工作</option>
+      </select>
+    </div>
+
+    <div class="question">
+      <p><strong>2. 你贊成政府引入無人機代替人手巡查嗎？為甚麼？試寫出一個原因，並加以解釋。</strong></p>
+      <select name="q5" data-question="食環署無人機 - 是否贊成引入無人機">
+        <option value="">請選擇</option>
+        <option>我贊成，因為人手巡查往往需要調查人員深入複雜或偏遠的地區，有可能面臨各種潛在威脅。</option>
+        <option>我不贊成，因為無人機成本太高，完全不能代替人手。</option>
+        <option>我不贊成，因為無人機無法拍攝任何證據。</option>
+      </select>
+    </div>
+
+    <div class="question">
+      <p><strong>3. 你認為政府還可以在哪些日常工作中引入無人機技術？試寫出其中兩項並加以說明。</strong></p>
+      <select name="q6" data-question="食環署無人機 - 其他可引入無人機的工作">
+        <option value="">請選擇</option>
+        <option>政府可以利用配備感測器的無人機巡查大渠道及斜坡。政府可以將無人機轉化為移動感測站，在渠道、峽谷收集空氣污染物數據，協助規劃過人之通風設計。</option>
+        <option>政府只應用於食環署，其他部門不需要引入。</option>
+        <option>政府可用無人機代替所有警察巡邏工作。</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- ====================== #3. 鹹田灣遊人過多 ====================== -->
+  <div class="section">
+    <h2>#3. 農曆新年鹹田灣遊人過多自然環境受破壞</h2>
+    <div class="news-box">
+      <strong>節錄自《東方日報》2月19日</strong><br><br>
+      農曆新年期間，西貢鹹田灣再現垃圾遍地情況。有環保團體前日(18/2)晚上進行實地視察，發現鹹田灣和西灣分別有約450和135個帳篷，但兩地本來只是可以容納50多個營位的大型營地，反映遊人過多。<br><br>
+      大量人流亦造成垃圾過多的問題，昨日(19/2)清晨營地的垃圾桶已滿溢，地上滿佈垃圾。由於政府未制定全面的生態旅遊政策，因此沒法預防郊外環境被破壞，只能作出事後清理。環保團體促請政府成立跨部門小組，檢討管理的問題，避免自然環境持續受損，甚至出現不可逆轉的破壞。
+    </div>
+
+    <div class="question">
+      <p><strong>1. 以下哪個政府部門負責郊野公園及營地的護理工作？把正確答案圈出來。</strong></p>
+      <select name="q7" data-question="鹹田灣 - 負責郊野公園及營地的部門">
+        <option value="">請選擇</option>
+        <option>A. 環境保護署</option>
+        <option>B. 漁農自然護理署</option>
+        <option>C. 地政總署</option>
+      </select>
+    </div>
+
+    <div class="question">
+      <p><strong>2. 你認為政府可以怎樣做以預防郊外環境被破壞的情況？試舉出其中兩個方法，並加以說明。</strong></p>
+      <select name="q8" data-question="鹹田灣 - 預防郊外環境被破壞的方法">
+        <option value="">請選擇</option>
+        <option>放置多些垃圾箱／請政府成立跨部門小組</option>
+        <option>完全禁止所有人進入郊外露營</option>
+        <option>只靠事後清理垃圾即可</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- ====================== #4. 調查揭近四成兒童患有近視 ====================== -->
+  <div class="section">
+    <h2>#4. 調查揭近四成兒童患有近視</h2>
+    <div class="news-box">
+      <strong>節錄自《東方日報》9月9日</strong><br><br>
+      有機構與本地大學醫學院聯合發表關於近視控制的臨床研究結果，指出如果不妥善處理兒童近視問題，將嚴重影響日後的視力健康。<br><br>
+      醫學院於2025年為501名5歲至12歲的兒童進行視力檢查，結果顯示高達39.7%兒童患有近視。研究團隊強調，即使兒童沒有主動表達視力異常，亦應定期接受專業眼科檢查。此外，團隊透過「青光眼社區篩查計劃」分析超過4200名50歲或以上成人的眼科數據，發現44.5%參加者患有近視，其中6.7%屬於深近視。<br><br>
+      該醫學院的眼科學系主任表示，戴眼鏡雖然可以矯正視力模糊的問題，卻無法逆轉眼球過長或消除深近視帶來的永久失明風險，呼籲家長儘早介入治療，以保護兒童的終生視力。<br><br>
+      進行研究的兩個團體向家長提出兩大護眼建議。首先，如果發現子女患有近視，應向專業人士尋求具醫學實證的控制方案，或儘快諮詢合資格的眼科專家，避免依賴普通眼鏡。<br><br>
+      為應對近視問題，兩個團體將推出視力檢查計劃，其中本地大學醫學院會為1000名兒童進行免費眼睛檢查，以及1000名50歲或以上患有近視的成人進行全面眼科篩查。
+    </div>
+
+    <div class="question">
+      <p><strong>1. 眼睛的哪個部分負責接收光線並形成影像？請圈出正確的答案。</strong></p>
+      <select name="q9" data-question="近視 - 眼睛哪個部分負責接收光線並形成影像">
+        <option value="">請選擇</option>
+        <option>A. 瞳孔</option>
+        <option>B. 水晶體</option>
+        <option>C. 視網膜</option>
+      </select>
+    </div>
+
+    <div class="question">
+      <p><strong>2. 你贊成強制為全港小學生進行定期的眼睛檢查嗎？為什麼？試加以解釋。</strong></p>
+      <select name="q10" data-question="近視 - 是否贊成強制定期眼睛檢查">
+        <option value="">請選擇</option>
+        <option>我贊成，因為能為學童及早發現視力問題，減低因為眼球過長或深近視帶來的永久失明風險。</option>
+        <option>我不贊成，因為近視檢查沒有用處。</option>
+        <option>我不贊成，因為強制檢查會增加家長負擔。</option>
+      </select>
+    </div>
+
+    <div class="question">
+      <p><strong>3. 除了減少觀看電子屏幕的時間外，試舉出其中兩個小學生在日常生活中可以保護雙眼的生活習慣，並加以解釋。</strong></p>
+      <select name="q11" data-question="近視 - 保護雙眼的生活習慣">
+        <option value="">請選擇</option>
+        <option>i. 定時讓眼睛休息，讓眼部肌肉得到放鬆。ii. 保持正確的讀寫姿勢與距離，以減少眼部肌肉過度收縮，從而減緩近視加深。</option>
+        <option>i. 整天觀看電子屏幕。ii. 在黑暗中閱讀。</option>
+        <option>i. 從不讓眼睛休息。ii. 近距離閱讀。</option>
+      </select>
+    </div>
+  </div>
+
+  <button type="submit">全部提交並顯示答案</button>
+
+  <div id="allResults" class="result">
+    <h2>測驗結果總覽</h2>
+    <div id="scoreTotal" class="total-score"></div>
+    <div id="itemsAll"></div>
+    <div id="submitMessage"></div>
+  </div>
+
+</form>
+
+<script>
+function handleQuizSubmit(formId, resultId, itemsId, scoreId, msgId, correctAnswers) {
+  const form = document.getElementById(formId);
+  const resultDiv = document.getElementById(resultId);
+  const itemsDiv = document.getElementById(itemsId);
+  const scoreDiv = document.getElementById(scoreId);
+  const messageDiv = document.getElementById(msgId);
+
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    const controls = form.querySelectorAll('select');
+    let score = 0;
+    itemsDiv.innerHTML = '';
+
+    const answers = [];
+    const totalQuestions = correctAnswers.length - 1;
+
+    for (let i = 1; i <= totalQuestions; i++) {
+      const q = controls[i-1];
+      const userAnswer = q ? q.value.trim() : '';
+      const correct = correctAnswers[i];
+      const isCorrect = (userAnswer === correct && userAnswer !== '');
+
+      if (isCorrect) score++;
+
+      let questionText = q && q.dataset.question 
+        ? q.dataset.question 
+        : `第 ${i} 題 (無標籤題目)`;
+
+      const item = document.createElement('div');
+      item.className = 'item';
+      item.innerHTML = `
+        <strong>${questionText}</strong><br><br>
+        你的答案： <span class="${isCorrect ? 'correct' : 'wrong'}">${userAnswer || '(未作答)'}</span><br>
+        <div class="answer-show">正確答案： <span class="correct">${correct}</span></div>
+        <div>得分： ${isCorrect ? '1' : '0'}</div>
+      `;
+      itemsDiv.appendChild(item);
+
+      answers.push({
+        questionNumber: i,
+        question: questionText,
+        yourAnswer: userAnswer || '(未作答)',
+        correctAnswer: correct,
+        result: isCorrect ? '正確' : '錯誤'
+      });
+    }
+
+    scoreDiv.textContent = `總 分： ${score} / ${totalQuestions}`;
+    resultDiv.style.display = 'block';
+    resultDiv.scrollIntoView({ behavior: 'smooth' });
+
+    const payload = {
+      _subject: "20261006-常識科時事討論提交結果",
+      score: `${score} / ${totalQuestions}`,
+      timestamp: new Date().toISOString(),
+      answers: JSON.stringify(answers, null, 2)
+    };
+
+    try {
+      const response = await fetch('https://formspree.io/f/xvzwnvwp', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      messageDiv.innerHTML = response.ok
+        ? '<span class="success">✅ 測驗結果已成功送出！</span>'
+        : '<span class="error">送出失敗，請稍後再試。</span>';
+    } catch (err) {
+      messageDiv.innerHTML = '<span class="error">網路錯誤，無法送出結果。</span>';
+    }
+  });
+}
+
+// 正確答案陣列（已核對）
+const correctAnswers = [
+  null,
+  // #1 新春外遊
+  "B. 文化體育及旅遊局",
+  "商戶生意額下降。農曆新年是傳統消費旺季，如果大量港人外遊，留在香港消費的人數就會減少。",
+  "與商場和餐廳合作，推出「留港消費優惠券」。加強宣傳香港的本地景點和美食。",
+  // #2 食環署無人機
+  "B. 興建公共房屋",
+  "我贊成，因為人手巡查往往需要調查人員深入複雜或偏遠的地區，有可能面臨各種潛在威脅。",
+  "政府可以利用配備感測器的無人機巡查大渠道及斜坡。政府可以將無人機轉化為移動感測站，在渠道、峽谷收集空氣污染物數據，協助規劃過人之通風設計。",
+  // #3 鹹田灣
+  "B. 漁農自然護理署",
+  "放置多些垃圾箱／請政府成立跨部門小組",
+  // #4 近視
+  "C. 視網膜",
+  "我贊成，因為能為學童及早發現視力問題，減低因為眼球過長或深近視帶來的永久失明風險。",
+  "i. 定時讓眼睛休息，讓眼部肌肉得到放鬆。ii. 保持正確的讀寫姿勢與距離，以減少眼部肌肉過度收縮，從而減緩近視加深。"
+];
+
+handleQuizSubmit("allQuizzes", "allResults", "itemsAll", "scoreTotal", "submitMessage", correctAnswers);
+</script>
+
+</body>
+</html>
