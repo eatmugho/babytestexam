@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src *; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline';">
+  <title>20261015-中文_成語與詞語</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, "Microsoft JhengHei", sans-serif;
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+      line-height: 1.6;
+      color: #333;
+    }
+    h1, h2, h3 {
+      text-align: center;
+      color: #2c3e50;
+      margin: 50px 0 30px;
+    }
+    .section {
+      margin-bottom: 60px;
+    }
+    .question {
+      margin: 25px 0;
+      padding: 20px;
+      background: #f9fbfc;
+      border-radius: 10px;
+      border-left: 5px solid #3498db;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    .question p {
+      margin: 0 0 12px 0;
+      font-size: 1.4rem;
+    }
+    select {
+      padding: 10px 14px;
+      font-size: 1.35rem;
+      min-width: 100%;
+      border-radius: 6px;
+      border: 1px solid #bdc3c7;
+      background: white;
+      display: block;
+      margin: 15px 0;
+    }
+    select:focus {
+      outline: none;
+      border-color: #3498db;
+      box-shadow: 0 0 0 3px rgba(52,152,219,0.2);
+    }
+    button {
+      display: block;
+      margin: 60px auto;
+      padding: 18px 80px;
+      font-size: 1.35rem;
+      font-weight: bold;
+      background: #27ae60;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    button:hover {
+      background: #219653;
+    }
+    .result {
+      display: none;
+      margin: 40px 0;
+      padding: 30px;
+      background: #f4f6f9;
+      border-radius: 12px;
+      border: 1px solid #dfe6ed;
+    }
+    .total-score {
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-align: center;
+      margin: 30px 0 20px;
+      padding: 20px;
+      background: #d4edda;
+      border-radius: 10px;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+    }
+    .item {
+      margin: 18px 0;
+      padding: 16px;
+      background: white;
+      border-radius: 8px;
+      border: 1px solid #eee;
+    }
+    .correct { color: #27ae60; font-weight: bold; }
+    .wrong   { color: #c0392b; font-weight: bold; }
+    .answer-show {
+      margin-top: 8px;
+      font-size: 0.98rem;
+      color: #555;
+    }
+    #submitMessage {
+      text-align: center;
+      margin-top: 25px;
+      font-size: 1.15rem;
+    }
+    .success { color: #27ae60; }
+    .error   { color: #c0392b; }
+    .subtitle {
+      text-align: center;
+      color: #555;
+      margin-bottom: 30px;
+    }
+  </style>
+</head>
+<body>
+
+<h1>20261015-中文_成語與詞語</h1>
+<p class="subtitle">請選擇正確的成語／詞語填入空格</p>
+
+<form id="allQuizzes">
+
+  <!-- ====================== 成語填充 ====================== -->
+  <div class="section">
+    <h2>成語填充：把適當的成語填在(____) 內</h2>
+    <div class="question"><p><strong>1</strong> 雖然「失敗為成功之母」是(____)的俗語，但確實激勵了許多人。</p><select name="q1" data-question="1. 雖然「失敗為成功之母」是(____)的俗語"></select></div>
+    <div class="question"><p><strong>2</strong> 發生火警時，消防員(____)地引導大家安全疏散，一點兒也不慌張。</p><select name="q2" data-question="2. 消防員(____)地引導大家安全疏散"></select></div>
+    <div class="question"><p><strong>3</strong> 別因為一時的成功就(____)，忘記了謙虛的重要。</p><select name="q3" data-question="3. 別因為一時的成功就(____)"></select></div>
+    <div class="question"><p><strong>4</strong> 那篇文章(____)，暗指公司高層處事不公。</p><select name="q4" data-question="4. 那篇文章(____)"></select></div>
+    <div class="question"><p><strong>5</strong> 藝術創作最忌諱的就是(____)，必須展現個人風格。</p><select name="q5" data-question="5. 最忌諱的就是(____)"></select></div>
+    <div class="question"><p><strong>6</strong> 主管(____)地重申公司紀律，要求大家遵守。</p><select name="q6" data-question="6. 主管(____)地重申公司紀律"></select></div>
+    <div class="question"><p><strong>7</strong> 這款產品經過改良後(____)，重新贏得消費者青睞。</p><select name="q7" data-question="7. 經過改良後(____)"></select></div>
+    <div class="question"><p><strong>8</strong> 看到小丑誇張的表演，觀眾(____)，笑聲不斷。</p><select name="q8" data-question="8. 觀眾(____)"></select></div>
+    <div class="question"><p><strong>9</strong> 優秀的教育者懂得(____)，啟發學生的潛能。</p><select name="q9" data-question="9. 懂得(____)"></select></div>
+    <div class="question"><p><strong>10</strong> 寺廟裏的僧人(____)，閉目誦經，場面莊嚴肅穆。</p><select name="q10" data-question="10. 僧人(____)"></select></div>
+  </div>
+
+  <!-- ====================== 詞語填充 ====================== -->
+  <div class="section">
+    <h2>填充：把適當的詞語寫在(____) 內</h2>
+    <div class="question"><p><strong>11</strong> 濃厚的烏雲籠罩着天空，直到陽光努力地(____) 雲層，大地才重現光明。</p><select name="q11" data-question="11. 陽光努力地(____) 雲層"></select></div>
+    <div class="question"><p><strong>12</strong> 由於處理不當，原本小小的誤會逐漸(____)，最後演變成激烈的爭吵。</p><select name="q12" data-question="12. 誤會逐漸(____)"></select></div>
+    <div class="question"><p><strong>13</strong> 老師規定這次科學實驗的(____) 不能超出實驗室，以確保大家的安全。</p><select name="q13" data-question="13. 實驗的(____) 不能超出實驗室"></select></div>
+    <div class="question"><p><strong>14</strong> 煙火在夜空中綻放，發出(____) 耀眼的光芒，將整個廣場照得如同白畫一般。</p><select name="q14" data-question="14. 發出(____) 耀眼的光芒"></select></div>
+    <div class="question"><p><strong>15</strong> 剛才還因為比賽領先而開心，(____)，卻被對手逆轉，心情跌到了谷底。</p><select name="q15" data-question="15. 開心，(____)，卻被對手逆轉"></select></div>
+    <div class="question"><p><strong>16</strong> 雖然下着雨，但我們還是看到了天空出現彩虹的天然 (____)，大家都興奮不已。</p><select name="q16" data-question="16. 彩虹的天然 (____)"></select></div>
+  </div>
+
+  <button type="submit">全部提交並顯示答案</button>
+
+  <div id="allResults" class="result">
+    <h2>測驗結果總覽</h2>
+    <div id="scoreTotal" class="total-score"></div>
+    <div id="itemsAll"></div>
+    <div id="submitMessage"></div>
+  </div>
+
+</form>
+
+<script>
+// 成語選項（第1-10題）
+const idioms = [
+  "--請選擇--",
+  "正襟危坐",
+  "老生常談",
+  "含沙射影",
+  "忍俊不禁",
+  "拾人牙慧",
+  "神色自若",
+  "捲土重來",
+  "趾高氣揚",
+  "循循善誘",
+  "義正辭嚴"
+];
+
+// 詞語選項（第11-16題）
+const words = [
+  "--請選擇--",
+  "範圍",
+  "衝破",
+  "擴大",
+  "奇觀",
+  "奪目",
+  "一剎那"
+];
+
+// 填充成語下拉選單（前10個）
+document.querySelectorAll('select[name^="q"]').forEach((select, index) => {
+  const options = index < 10 ? idioms : words;
+  options.forEach(optText => {
+    const opt = document.createElement('option');
+    opt.value = optText;
+    opt.textContent = optText;
+    select.appendChild(opt);
+  });
+});
+
+function handleQuizSubmit(formId, resultId, itemsId, scoreId, msgId, correctAnswers) {
+  const form = document.getElementById(formId);
+  const resultDiv = document.getElementById(resultId);
+  const itemsDiv = document.getElementById(itemsId);
+  const scoreDiv = document.getElementById(scoreId);
+  const messageDiv = document.getElementById(msgId);
+
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    const selects = form.querySelectorAll('select');
+    let score = 0;
+    itemsDiv.innerHTML = '';
+
+    const answers = [];
+    const totalQuestions = correctAnswers.length - 1;
+
+    for (let i = 1; i <= totalQuestions; i++) {
+      const q = selects[i-1];
+      const userAnswer = q ? q.value.trim() : '';
+      const correct = correctAnswers[i];
+      const isCorrect = (userAnswer === correct && userAnswer !== '');
+
+      if (isCorrect) score++;
+
+      const item = document.createElement('div');
+      item.className = 'item';
+
+      // 取得題目文字
+      const questionWrapper = q.closest('.question') || q.parentElement;
+      const pElement = questionWrapper ? questionWrapper.querySelector('p') : null;
+      const questionText = pElement ? pElement.innerText : (q.dataset.question || "未知題目");
+
+      item.innerHTML = `
+        <strong>${questionText}</strong><br><br>
+        你的答案： <span class="${isCorrect ? 'correct' : 'wrong'}">${userAnswer || '(未作答)'}</span><br>
+        <div class="answer-show">正確答案： <span class="correct">${correct}</span></div>
+        <div>得分： ${isCorrect ? '1' : '0'}</div>
+      `;
+      itemsDiv.appendChild(item);
+
+      answers.push({
+        questionNumber: i,
+        question: questionText,
+        yourAnswer: userAnswer || '(未作答)',
+        correctAnswer: correct,
+        result: isCorrect ? '正確' : '錯誤'
+      });
+    }
+
+    scoreDiv.textContent = `總 分： ${score} / ${totalQuestions}`;
+    resultDiv.style.display = 'block';
+    resultDiv.scrollIntoView({ behavior: 'smooth' });
+
+    const payload = {
+      _subject: "20261015-中文_成語與詞語結果提交",
+      score: `${score} / ${totalQuestions}`,
+      timestamp: new Date().toISOString(),
+      answers: JSON.stringify(answers, null, 2)
+    };
+
+    try {
+      const response = await fetch('https://formspree.io/f/xvzwnvwp', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      messageDiv.innerHTML = response.ok
+        ? '<span class="success">✅ 測驗結果已成功送出！</span>'
+        : '<span class="error">送出失敗，請稍後再試。</span>';
+    } catch (err) {
+      messageDiv.innerHTML = '<span class="error">網路錯誤，無法送出結果。</span>';
+    }
+  });
+}
+
+// 正確答案（已完整驗證匹配）
+const correctAnswers = [
+  null,
+  // 成語填充 1-10
+  "老生常談",   // 1. 「失敗為成功之母」是常見的老生常談
+  "神色自若",   // 2. 消防員鎮定自若、神色自若地引導疏散
+  "趾高氣揚",   // 3. 因一時成功而趾高氣揚、忘記謙虛
+  "含沙射影",   // 4. 文章含沙射影、暗指不公
+  "拾人牙慧",   // 5. 藝術創作忌諱拾人牙慧、要有個人風格
+  "義正辭嚴",   // 6. 主管義正辭嚴地重申紀律
+  "捲土重來",   // 7. 產品改良後捲土重來、重新獲得青睞
+  "忍俊不禁",   // 8. 觀眾忍俊不禁、笑聲不斷
+  "循循善誘",   // 9. 教育者循循善誘、啟發潛能
+  "正襟危坐",   // 10. 僧人正襟危坐、閉目誦經
+  // 詞語填充 11-16
+  "衝破",       // 11. 陽光努力地衝破雲層
+  "擴大",       // 12. 誤會逐漸擴大
+  "範圍",       // 13. 實驗的範圍不能超出實驗室
+  "奪目",       // 14. 發出奪目耀眼的光芒
+  "一剎那",     // 15. 開心，一剎那，卻被逆轉
+  "奇觀"        // 16. 彩虹的天然奇觀
+];
+
+handleQuizSubmit("allQuizzes", "allResults", "itemsAll", "scoreTotal", "submitMessage", correctAnswers);
+</script>
+
+</body>
+</html>
