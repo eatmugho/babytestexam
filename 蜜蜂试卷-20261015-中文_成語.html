@@ -77,6 +77,18 @@
       border-color: #3498db;
       box-shadow: 0 0 0 3px rgba(52,152,219,0.2);
     }
+    .feedback {
+      font-weight: bold;
+      margin-right: 6px;
+      font-size: 1.2rem;
+      vertical-align: middle;
+    }
+    .feedback-correct {
+      color: #27ae60;
+    }
+    .feedback-wrong {
+      color: #c0392b;
+    }
     button {
       display: block;
       margin: 60px auto;
@@ -329,6 +341,19 @@ function handleQuizSubmit(formId, resultId, itemsId, scoreId, msgId, correctAnsw
       const isCorrect = (userAnswer === correct && userAnswer !== '');
 
       if (isCorrect) score++;
+
+      // 在每個下拉選單前方顯示正確/錯誤標記
+      if (q) {
+        // 移除舊的標記（若重複提交）
+        const prevFeedback = q.previousElementSibling;
+        if (prevFeedback && prevFeedback.classList && prevFeedback.classList.contains('feedback')) {
+          prevFeedback.remove();
+        }
+        const feedback = document.createElement('span');
+        feedback.className = 'feedback ' + (isCorrect ? 'feedback-correct' : 'feedback-wrong');
+        feedback.textContent = isCorrect ? '✓ 正確' : '✗ 錯誤';
+        q.parentNode.insertBefore(feedback, q);
+      }
 
       let questionText = q && q.dataset.question 
         ? q.dataset.question 
