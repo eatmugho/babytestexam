@@ -1,0 +1,2042 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self';
+    connect-src *;
+    script-src 'self' 'unsafe-inline';
+    style-src 'self' 'unsafe-inline';
+  ">
+  <title>20261015-中文_其他</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, "Microsoft JhengHei", sans-serif;
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+      line-height: 1.6;
+      color: #333;
+    }
+    h1, h2, h3 {
+      text-align: center;
+      color: #2c3e50;
+      margin: 40px 0 20px;
+    }
+    h2 {
+      border-bottom: 2px solid #2c3e50;
+      padding-bottom: 10px;
+      margin-top: 60px;
+    }
+    h3 {
+      text-align: left;
+      color: #34495e;
+      margin-top: 30px;
+      font-size: 1.4rem;
+    }
+    .section {
+      margin-bottom: 60px;
+    }
+    .question {
+      margin: 25px 0;
+      padding: 20px;
+      background: #f9fbfc;
+      border-radius: 10px;
+      border-left: 5px solid #3498db;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      font-size: 1.4rem;
+    }
+    .question p {
+      margin: 0 0 12px 0;
+      font-size: 1.4rem;
+    }
+    .options-list {
+      margin-top: 10px;
+      padding-left: 20px;
+      list-style-type: none;
+    }
+    .options-list li {
+      margin: 5px 0;
+    }
+    strong {
+      color: #e74c3c;
+    }
+    select {
+      padding: 6px 10px;
+      font-size: 1.35rem;
+      min-width: 180px;
+      border-radius: 6px;
+      border: 1px solid #bdc3c7;
+      background: white;
+      margin: 0 5px;
+    }
+    select:focus {
+      outline: none;
+      border-color: #3498db;
+      box-shadow: 0 0 0 3px rgba(52,152,219,0.2);
+    }
+    .feedback {
+      font-weight: bold;
+      margin-right: 6px;
+      font-size: 1.2rem;
+      vertical-align: middle;
+    }
+    .feedback-correct {
+      color: #27ae60;
+    }
+    .feedback-wrong {
+      color: #c0392b;
+    }
+    button {
+      display: block;
+      margin: 60px auto;
+      padding: 18px 80px;
+      font-size: 1.35rem;
+      font-weight: bold;
+      background: #27ae60;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    button:hover {
+      background: #219653;
+    }
+    .result {
+      display: none;
+      margin: 40px 0;
+      padding: 30px;
+      background: #f4f6f9;
+      border-radius: 12px;
+      border: 1px solid #dfe6ed;
+    }
+    .total-score {
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-align: center;
+      margin: 30px 0 20px;
+      padding: 20px;
+      background: #d4edda;
+      border-radius: 10px;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+    }
+    .item {
+      margin: 18px 0;
+      padding: 16px;
+      background: white;
+      border-radius: 8px;
+      border: 1px solid #eee;
+    }
+    .correct { color: #27ae60; font-weight: bold; }
+    .wrong   { color: #c0392b; font-weight: bold; }
+    .answer-show {
+      margin-top: 8px;
+      font-size: 0.98rem;
+      color: #555;
+    }
+    #submitMessage {
+      text-align: center;
+      margin-top: 25px;
+      font-size: 1.15rem;
+    }
+    .success { color: #27ae60; }
+    .error   { color: #c0392b; }
+    .subtitle {
+      text-align: center;
+      color: #555;
+      margin-bottom: 30px;
+    }
+  </style>
+</head>
+<body>
+
+<h1>中文作業／補導／堂工綜合測驗</h1>
+<p class="subtitle">請完成所有題目後按下方按鈕一次提交</p>
+
+<form id="allQuizzes">
+
+  <!-- ====================== 作業 二、圈出正確的答案 ====================== -->
+  <div class="section">
+    <h2>## 作業　二、圈出正確的答案</h2>
+
+    <div class="question">
+      <p>1. 他性格固執，他決定了要這樣做就一定不會改變主意，你再說(
+        <select name="q1" data-question="作業二-1 再說話">
+          <option value="">   </option>
+          <option>出去</option>
+          <option>下去</option>
+        </select>
+      )也是枉費唇舌。</p>
+    </div>
+
+    <div class="question">
+      <p>2. 做咖哩的時候，可以把一點椰奶加(
+        <select name="q2" data-question="作業二-2 加椰奶">
+          <option value="">   </option>
+          <option>進去</option>
+          <option>起來</option>
+        </select>
+      )，使咖哩的味道更香濃。</p>
+    </div>
+
+    <div class="question">
+      <p>3. 我一躺到沙發上，小貓妙妙就跟着跳(
+        <select name="q3" data-question="作業二-3 跳上沙發">
+          <option value="">   </option>
+          <option>過去</option>
+          <option>上來</option>
+        </select>
+      )，躺在我的大腿上。</p>
+    </div>
+
+    <div class="question">
+      <p>4. 這本書是我在書店買(
+        <select name="q4a" data-question="作業二-4a 買回來">
+          <option value="">   </option>
+          <option>回來</option>
+          <option>進來</option>
+          <option>出來</option>
+          <option>起來</option>
+        </select>
+      )的，翻開細看，才發現書中的字太小了，讀(
+        <select name="q4b" data-question="作業二-4b 讀起來">
+          <option value="">   </option>
+          <option>回來</option>
+          <option>進來</option>
+          <option>出來</option>
+          <option>起來</option>
+        </select>
+      )十分辛苦。</p>
+    </div>
+  </div>
+
+  <!-- ====================== 作業 三、運用括號內的詞語擴寫句子 ====================== -->
+  <div class="section">
+    <h2>## 作業　三、運用括號內的詞語擴寫句子</h2>
+
+    <div class="question">
+      <p>1. 你們是要好的朋友，為甚麼互不理睬呢？（非常　突然）</p>
+      <p>正確擴寫：
+        <select name="q5" data-question="作業三-1 擴寫句子">
+          <option value="">   </option>
+          <option>你們是非常要好的朋友，為甚麼突然互不理睬呢？</option>
+          <option>你們是突然要好的朋友，為甚麼非常互不理睬呢？</option>
+          <option>你們非常突然是要好的朋友，為甚麼互不理睬呢？</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>2. 歌唱比賽的參賽名額滿了有三十個人參加。（總共　已經）</p>
+      <p>正確擴寫：
+        <select name="q6" data-question="作業三-2 擴寫句子">
+          <option value="">   </option>
+          <option>歌唱比賽的參賽名額已經滿了，總共有三十個人參加。</option>
+          <option>歌唱比賽的參賽名額總共滿了，已經有三十個人參加。</option>
+          <option>歌唱比賽的參賽名額已經總共滿了有三十個人參加。</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>3. 看電影時，我讓爸爸猜猜誰是真兇，腦筋靈活的爸爸猜對了。（果然　究竟）</p>
+      <p>正確擴寫：
+        <select name="q7" data-question="作業三-3 擴寫句子">
+          <option value="">   </option>
+          <option>看電影時，我讓爸爸猜猜究竟誰是真兇，腦筋靈活的爸爸果然猜對了。</option>
+          <option>看電影時，我讓爸爸猜猜果然誰是真兇，腦筋靈活的爸爸究竟猜對了。</option>
+          <option>看電影時，我讓爸爸究竟猜猜誰是真兇，腦筋靈活的爸爸果然猜對了。</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>4. 媽媽太疲勞了，坐在沙發上，五分鐘就發出了鼾聲。（僅僅　實在）</p>
+      <p>正確擴寫：
+        <select name="q8" data-question="作業三-4 擴寫句子">
+          <option value="">   </option>
+          <option>媽媽實在太疲勞了，坐在沙發上僅僅五分鐘就發出了鼾聲。</option>
+          <option>媽媽僅僅太疲勞了，坐在沙發上實在五分鐘就發出了鼾聲。</option>
+          <option>媽媽實在太疲勞了，坐在沙發上五分鐘僅僅就發出了鼾聲。</option>
+        </select>
+      </p>
+    </div>
+  </div>
+
+  <!-- ====================== 作業 四、聯結句子 ====================== -->
+  <div class="section">
+    <h2>## 作業　四、在括號內填上代表答案的英文字母，聯結句子</h2>
+    <p>選項：</p>
+    <ul class="options-list">
+      <li>A. 老師還是耐心地教導他。</li>
+      <li>B. 他還是決定領養這隻可憐的小狗。</li>
+      <li>C. 還是需要後天努力才能取得成功。</li>
+      <li>D. 還是會有不懂的問題需要向別人請教。</li>
+      <li>E. 我還是要努力試試看。</li>
+      <li>F. 比賽時還是不能掉以輕心。</li>
+    </ul>
+
+    <div class="question">
+      <p>1. 就算小明在班上的表現十分頑劣
+        <select name="q9" data-question="作業四-1 聯結">
+          <option value="">   </option>
+          <option>A</option><option>B</option><option>C</option><option>D</option><option>E</option><option>F</option>
+        </select>
+      </p>
+    </div>
+    <div class="question">
+      <p>2. 就算你天資聰穎，
+        <select name="q10" data-question="作業四-2 聯結">
+          <option value="">   </option>
+          <option>A</option><option>B</option><option>C</option><option>D</option><option>E</option><option>F</option>
+        </select>
+      </p>
+    </div>
+    <div class="question">
+      <p>3. 就算這次比賽勝出的機會十分渺茫，
+        <select name="q11" data-question="作業四-3 聯結">
+          <option value="">   </option>
+          <option>A</option><option>B</option><option>C</option><option>D</option><option>E</option><option>F</option>
+        </select>
+      </p>
+    </div>
+    <div class="question">
+      <p>4. 就算你的球技比他高明，
+        <select name="q12" data-question="作業四-4 聯結">
+          <option value="">   </option>
+          <option>A</option><option>B</option><option>C</option><option>D</option><option>E</option><option>F</option>
+        </select>
+      </p>
+    </div>
+    <div class="question">
+      <p>5. 甚至是學識淵博的教授，
+        <select name="q13" data-question="作業四-5 聯結">
+          <option value="">   </option>
+          <option>A</option><option>B</option><option>C</option><option>D</option><option>E</option><option>F</option>
+        </select>
+      </p>
+    </div>
+  </div>
+
+  <!-- ====================== 作業 二、反義詞 ====================== -->
+  <div class="section">
+    <h2>## 作業　二、在橫線上填上加點詞語的反義詞</h2>
+
+    <div class="question">
+      <p>1. 今天一整個下午，嘉明都在努力練習投籃，卻屢屢(
+        <select name="q14" data-question="作業反義-1">
+          <option value="">   </option>
+          <option>準確</option>
+          <option>成功</option>
+          <option>失敗</option>
+          <option>努力</option>
+        </select>
+      )失敗，只有三次成功投進籃框。</p>
+    </div>
+    <div class="question">
+      <p>2. 我曾經(
+        <select name="q15" data-question="作業反義-2">
+          <option value="">   </option>
+          <option>信任</option>
+          <option>懷疑</option>
+          <option>相信</option>
+          <option>不信</option>
+        </select>
+      )懷疑韻婷有沒有能力擔任班長，但經過了一個學期，我明白到她的辦事能力完全值得信任。</p>
+    </div>
+    <div class="question">
+      <p>3. 製作麵包必須(
+        <select name="q16" data-question="作業反義-3">
+          <option value="">   </option>
+          <option>嚴格</option>
+          <option>粗略</option>
+          <option>寬鬆</option>
+          <option>隨便</option>
+        </select>
+      )嚴格地量度材料分量，若只是粗略估計分量，導致材料比例不均，便會影響麵包的味道。</p>
+    </div>
+    <div class="question">
+      <p>4. 這個小村莊過去沒沒無聞，後來由於成為一部電影的拍攝地點而變得(
+        <select name="q17" data-question="作業反義-4">
+          <option value="">   </option>
+          <option>舉世聞名</option>
+          <option>默默無聞</option>
+          <option>鮮為人知</option>
+          <option>無人知曉</option>
+        </select>
+      )，成了旅遊景點。</p>
+    </div>
+  </div>
+
+  <!-- ====================== 作業 三、選出適當的句式造句 ====================== -->
+  <div class="section">
+    <h2>## 作業　三、選出適當的句式，運用提供的詞語造句</h2>
+    <p>（不是……就是…… / 或……或…… / 是……還是…… / 也許……也許……）</p>
+
+    <div class="question">
+      <p>1. 禮物，送</p>
+      <p>
+        <select name="q18" data-question="作業句式-1">
+          <option value="">   </option>
+          <option>我想送禮物給媽媽，不知道是送鮮花，或是送水果。</option>
+          <option>我想送禮物給媽媽，不是送鮮花，就是送水果。</option>
+          <option>我想送禮物給媽媽，也許送鮮花，也許送水果。</option>
+          <option>我想送禮物給媽媽，是送鮮花還是送水果。</option>
+        </select>
+      </p>
+    </div>
+    <div class="question">
+      <p>2. 侍應，忙碌</p>
+      <p>
+        <select name="q19" data-question="作業句式-2">
+          <option value="">   </option>
+          <option>侍應正在忙碌工作，不是在招待客人，就是在清潔餐桌。</option>
+          <option>侍應正在忙碌工作，或在招待客人，或在清潔餐桌。</option>
+          <option>侍應正在忙碌工作，是在招待客人還是在清潔餐桌。</option>
+          <option>侍應正在忙碌工作，也許在招待客人，也許在清潔餐桌。</option>
+        </select>
+      </p>
+    </div>
+    <div class="question">
+      <p>3. 複習，測驗</p>
+      <p>
+        <select name="q20" data-question="作業句式-3">
+          <option value="">   </option>
+          <option>明天有中文輔導班，也許是複習，也許是模擬測驗。</option>
+          <option>明天有中文輔導班，不是複習，就是模擬測驗。</option>
+          <option>明天有中文輔導班，或是複習，或是模擬測驗。</option>
+          <option>明天有中文輔導班，是複習還是模擬測驗。</option>
+        </select>
+      </p>
+    </div>
+  </div>
+
+  <!-- ====================== 作業 二、名詞類型 ====================== -->
+  <div class="section">
+    <h2>## 作業　二、辨析下面加點名詞的類型</h2>
+    <p>（A. 普通名詞(具體事物)　B. 普通名詞(抽象事物)　C. 專有名詞）</p>
+
+    <div class="question">
+      <p>1. 書店的櫥窗展示了這個月出版的新書。
+        <select name="q21" data-question="作業名詞-1">
+          <option value="">   </option>
+          <option>A</option><option>B</option><option>C</option>
+        </select>
+      </p>
+    </div>
+    <div class="question">
+      <p>2. 哥哥到日本旅行時，參觀了著名的東大寺。
+        <select name="q22" data-question="作業名詞-2">
+          <option value="">   </option>
+          <option>A</option><option>B</option><option>C</option>
+        </select>
+      </p>
+    </div>
+    <div class="question">
+      <p>3. 只要你懷着堅定的信念，就一定能成功。
+        <select name="q23" data-question="作業名詞-3">
+          <option value="">   </option>
+          <option>A</option><option>B</option><option>C</option>
+        </select>
+      </p>
+    </div>
+    <div class="question">
+      <p>4. 這個動物園飼養了幾頭稀有的老虎。
+        <select name="q24" data-question="作業名詞-4">
+          <option value="">   </option>
+          <option>A</option><option>B</option><option>C</option>
+        </select>
+      </p>
+    </div>
+    <div class="question">
+      <p>5. 自古以來，人們都想知道月球上是否有生命。
+        <select name="q25" data-question="作業名詞-5">
+          <option value="">   </option>
+          <option>A</option><option>B</option><option>C</option>
+        </select>
+      </p>
+    </div>
+    <div class="question">
+      <p>6. 小凱很擅長模仿知名歌手的風格唱歌。
+        <select name="q26" data-question="作業名詞-6">
+          <option value="">   </option>
+          <option>A</option><option>B</option><option>C</option>
+        </select>
+      </p>
+    </div>
+  </div>
+
+  <!-- ====================== 作業 三、標點符號 ====================== -->
+  <div class="section">
+    <h2>## 作業　三、下面哪一個句子的標點符號使用正確？</h2>
+
+    <div class="question">
+      <p>1. 哪一個句子的標點符號使用正確？</p>
+      <select name="q27" data-question="作業標點-1">
+        <option value="">   </option>
+        <option>A. 大‧衛碧咸是舉世知名的足球明星。</option>
+        <option>B. 大衛碧咸‧是舉世知名的足球明星。</option>
+        <option>C. 大衛碧·咸是舉世知名的足球明星。</option>
+        <option>D. 大衛‧碧咸是舉世知名的足球明星。</option>
+      </select>
+    </div>
+    <div class="question">
+      <p>2. 哪一個句子的標點符號使用正確？</p>
+      <select name="q28" data-question="作業標點-2">
+        <option value="">   </option>
+        <option>A. 《孟子告子上》記載了孟子對人性本善的看法。</option>
+        <option>B. 《孟子‧告子上》記載了孟子對人性本善的看法。</option>
+        <option>C. 《孟子告子‧上》記載了孟子對人性本善的看法。</option>
+        <option>D. 《孟‧子告子上》記載了孟子對人性本善的看法。</option>
+      </select>
+    </div>
+    <div class="question">
+      <p>3. 哪一個句子的標點符號使用正確？</p>
+      <select name="q29" data-question="作業標點-3">
+        <option value="">   </option>
+        <option>A. 今天出版的《星‧報副刊版》刊登了我們學校的專訪。</option>
+        <option>B. 今天出版的《星報副刊‧版》刊登了我們學校的專訪。</option>
+        <option>C. 今天出版的《星報‧副刊版》刊登了我們學校的專訪。</option>
+        <option>D. 今天出版的《星報副‧刊版》刊登了我們學校的專訪。</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- ====================== 作業 四、雖然……不過…… ====================== -->
+  <div class="section">
+    <h2>## 作業　四、運用「雖然……不過……」，完成下面的句子</h2>
+
+    <div class="question">
+      <p>1. 不少植物雖然會在冬天枯萎，(
+        <select name="q30" data-question="作業雖然-1">
+          <option value="">   </option>
+          <option>不過它們在春天會再次茂盛</option>
+          <option>不過它們永遠不會再長</option>
+          <option>不過它們會一直枯萎</option>
+        </select>
+      )。</p>
+    </div>
+    <div class="question">
+      <p>2. 雖然智能電話為我們帶來不少便利，(
+        <select name="q31" data-question="作業雖然-2">
+          <option value="">   </option>
+          <option>不過我們不可以沉迷</option>
+          <option>不過我們必須整天使用</option>
+          <option>不過我們應該完全不用</option>
+        </select>
+      )。</p>
+    </div>
+    <div class="question">
+      <p>3. (
+        <select name="q32" data-question="作業雖然-3">
+          <option value="">   </option>
+          <option>雖然科學家努力探索宇宙的奧秘</option>
+          <option>雖然科學家已經完全了解宇宙</option>
+          <option>雖然科學家不再研究宇宙</option>
+        </select>
+      )，不過人類對宇宙依然所知甚少。</p>
+    </div>
+    <div class="question">
+      <p>4. (
+        <select name="q33" data-question="作業雖然-4">
+          <option value="">   </option>
+          <option>雖然小明在默書取得一百分</option>
+          <option>雖然小明在默書取得零分</option>
+          <option>雖然小明從不默書</option>
+        </select>
+      )，不過他不會變得驕傲自滿。</p>
+    </div>
+  </div>
+
+  <!-- ====================== 作業 二、改寫為反問句 ====================== -->
+  <div class="section">
+    <h2>## 作業　二、依照例句，改寫句子（改為反問句）</h2>
+
+    <div class="question">
+      <p>1. 你們不能欺負同學。</p>
+      <p>
+        <select name="q34" data-question="作業反問-1">
+          <option value="">   </option>
+          <option>你們怎能欺負同學呢？</option>
+          <option>你們怎麼欺負同學呢？</option>
+          <option>你們可以欺負同學嗎？</option>
+        </select>
+      </p>
+    </div>
+    <div class="question">
+      <p>2. 在獲得哥哥的同意前，我不會擅自取用他的東西。</p>
+      <p>
+        <select name="q35" data-question="作業反問-2">
+          <option value="">   </option>
+          <option>在獲得哥哥的同意前，我怎能擅自取用他的東西呢？</option>
+          <option>在獲得哥哥的同意前，我怎麼擅自取用他的東西呢？</option>
+          <option>在獲得哥哥的同意前，我可以擅自取用他的東西嗎？</option>
+        </select>
+      </p>
+    </div>
+    <div class="question">
+      <p>3. 海上正捲起巨浪，我們不能到海邊嬉水。</p>
+      <p>
+        <select name="q36" data-question="作業反問-3">
+          <option value="">   </option>
+          <option>海上正捲起巨浪，我們怎能到海邊嬉水呢？</option>
+          <option>海上正捲起巨浪，我們怎麼到海邊嬉水呢？</option>
+          <option>海上正捲起巨浪，我們可以到海邊嬉水嗎？</option>
+        </select>
+      </p>
+    </div>
+  </div>
+
+  <!-- ====================== 作業 三、填英文字母 ====================== -->
+  <div class="section">
+    <h2>## 作業　三、在括號內填上代表答案的英文字母</h2>
+
+    <div class="question">
+      <p>1. 天拿水(
+        <select name="q37" data-question="作業填空-1">
+          <option value="">   </option>
+          <option>A. 不但氣味刺鼻</option>
+          <option>B. 雖然能去除油漬</option>
+          <option>C. 不僅用於稀釋油漆</option>
+          <option>D. 除了是常見的化學品</option>
+        </select>
+      )，還對人體有害。</p>
+    </div>
+    <div class="question">
+      <p>2. 登上晴空塔，不僅能欣賞東京的風景，(
+        <select name="q38" data-question="作業填空-2">
+          <option value="">   </option>
+          <option>A. 還能觀賞風景</option>
+          <option>B. 還要支付入場費</option>
+          <option>C. 甚至能遠眺富士山</option>
+          <option>D. 又能在餐廳品嚐美食</option>
+        </select>
+      )。</p>
+    </div>
+    <div class="question">
+      <p>3. 嘉文犯了錯，(
+        <select name="q39" data-question="作業填空-3">
+          <option value="">   </option>
+          <option>A. 不但亂摔東西</option>
+          <option>B. 除了受到責備</option>
+          <option>C. 不但不向媽媽道歉</option>
+          <option>D. 不僅盡力彌補過錯</option>
+        </select>
+      )，反而亂發脾氣。</p>
+    </div>
+    <div class="question">
+      <p>4. 秦始皇除了統一六國，(
+        <select name="q40" data-question="作業填空-4">
+          <option value="">   </option>
+          <option>A. 還自稱為「皇帝」</option>
+          <option>B. 反而不受人民信服</option>
+          <option>C. 但他實施嚴刑峻法</option>
+          <option>D. 還擴張了中國版圖</option>
+        </select>
+      )。</p>
+    </div>
+  </div>
+
+  <!-- ====================== 作業 四、續寫句子 ====================== -->
+  <div class="section">
+    <h2>## 作業　四、依照圖畫內容，續寫句子</h2>
+
+    <div class="question">
+      <p>1. 長臂猿能夠爬上樹木的高枝，而且(
+        <select name="q41" data-question="作業續寫-1">
+          <option value="">   </option>
+          <option>自由地盪來盪過去。</option>
+          <option>靜靜地坐在那裏。</option>
+          <option>慢慢地走到地上。</option>
+        </select>
+      )</p>
+    </div>
+    <div class="question">
+      <p>2. 哥哥打鼓的音量打擾到家人，甚至(
+        <select name="q42" data-question="作業續寫-2">
+          <option value="">   </option>
+          <option>影響到隔壁鄰居的休息。</option>
+          <option>讓家人更開心。</option>
+          <option>完全沒有人注意到。</option>
+        </select>
+      )</p>
+    </div>
+  </div>
+
+  <!-- ====================== 補導 副詞作用 ====================== -->
+  <div class="section">
+    <h2>## 補導　副詞：判斷下面方框內的副詞在句子中的作用</h2>
+    <p>（A. 表示程度　B. 表示時間　C. 限制範圍　D. 表示句子語氣　E. 表示肯定或否定）</p>
+
+    <div class="question">
+      <p>1. 弟弟*十分*害怕蟑螂，每次看到蟑螂都會哭起來。 1.(
+        <select name="q43" data-question="補導副詞作用-1">
+          <option value="">   </option>
+          <option>A</option><option>B</option><option>C</option><option>D</option><option>E</option>
+        </select>
+      )</p>
+    </div>
+    <div class="question">
+      <p>2. 我們上完洗手間後，*一定*要洗手。 2.(
+        <select name="q44" data-question="補導副詞作用-2">
+          <option value="">   </option>
+          <option>A</option><option>B</option><option>C</option><option>D</option><option>E</option>
+        </select>
+      )</p>
+    </div>
+    <div class="question">
+      <p>3. 沒想到他*居然*會蓄意陷害別人！ 3.(
+        <select name="q45" data-question="補導副詞作用-3">
+          <option value="">   </option>
+          <option>A</option><option>B</option><option>C</option><option>D</option><option>E</option>
+        </select>
+      )</p>
+    </div>
+    <div class="question">
+      <p>4. 這裏的玩具*全*是弟弟的。 4.(
+        <select name="q46" data-question="補導副詞作用-4">
+          <option value="">   </option>
+          <option>A</option><option>B</option><option>C</option><option>D</option><option>E</option>
+        </select>
+      )</p>
+    </div>
+    <div class="question">
+      <p>5. 你不要走開，我*馬上*過來接你。 5.(
+        <select name="q47" data-question="補導副詞作用-5">
+          <option value="">   </option>
+          <option>A</option><option>B</option><option>C</option><option>D</option><option>E</option>
+        </select>
+      )</p>
+    </div>
+  </div>
+
+  <!-- ====================== 補導 圈出適當的副詞 ====================== -->
+  <div class="section">
+    <h2>## 補導　圈出適當的副詞</h2>
+
+    <div class="question">
+      <p>1. 學校合唱團(
+        <select name="q48" data-question="補導圈副詞-1">
+          <option value="">   </option>
+          <option>非常</option>
+          <option>總共</option>
+        </select>
+      )有四十個成員。</p>
+    </div>
+    <div class="question">
+      <p>2. 宏志(
+        <select name="q49" data-question="補導圈副詞-2">
+          <option value="">   </option>
+          <option>必定</option>
+          <option>格外</option>
+        </select>
+      )會實踐他許下的諾言。</p>
+    </div>
+    <div class="question">
+      <p>3. 我沒猜錯，子玲(
+        <select name="q50" data-question="補導圈副詞-3">
+          <option value="">   </option>
+          <option>居然</option>
+          <option>果然</option>
+        </select>
+      )喜歡吃葡萄。</p>
+    </div>
+    <div class="question">
+      <p>4. 我(
+        <select name="q51" data-question="補導圈副詞-4">
+          <option value="">   </option>
+          <option>剛才</option>
+          <option>究竟</option>
+        </select>
+      )聽不清楚老師的解說。</p>
+    </div>
+    <div class="question">
+      <p>5. 小志把頭髮剪短後，整個人顯得(
+        <select name="q52" data-question="補導圈副詞-5">
+          <option value="">   </option>
+          <option>格外</option>
+          <option>僅僅</option>
+        </select>
+      )精神。</p>
+    </div>
+  </div>
+
+  <!-- ====================== 補導 聯結句子（就算……還是……） ====================== -->
+  <div class="section">
+    <h2>## 補導　在橫線上填上適當的答案，聯結句子</h2>
+    <p>選項：要照價賠償／每星期都陪我踢足球／班級中最矮小的男學生／喜歡打籃球／買不到演唱會的門票／把奶奶烤的蛋糕吃完了</p>
+
+    <div class="question">
+      <p>1. 就算雅兒早早去排隊，她還是(
+        <select name="q53" data-question="補導聯結-1">
+          <option value="">   </option>
+          <option>要照價賠償</option>
+          <option>每星期都陪我踢足球</option>
+          <option>班級中最矮小的男學生</option>
+          <option>喜歡打籃球</option>
+          <option>買不到演唱會的門票</option>
+          <option>把奶奶烤的蛋糕吃完了</option>
+        </select>
+      )。</p>
+    </div>
+    <div class="question">
+      <p>2. 就算表弟今年長高了，他還是(
+        <select name="q54" data-question="補導聯結-2">
+          <option value="">   </option>
+          <option>要照價賠償</option>
+          <option>每星期都陪我踢足球</option>
+          <option>班級中最矮小的男學生</option>
+          <option>喜歡打籃球</option>
+          <option>買不到演唱會的門票</option>
+          <option>把奶奶烤的蛋糕吃完了</option>
+        </select>
+      )。</p>
+    </div>
+    <div class="question">
+      <p>3. 就算父親的工作再忙碌，他還是(
+        <select name="q55" data-question="補導聯結-3">
+          <option value="">   </option>
+          <option>要照價賠償</option>
+          <option>每星期都陪我踢足球</option>
+          <option>班級中最矮小的男學生</option>
+          <option>喜歡打籃球</option>
+          <option>買不到演唱會的門票</option>
+          <option>把奶奶烤的蛋糕吃完了</option>
+        </select>
+      )。</p>
+    </div>
+    <div class="question">
+      <p>4. 就算哥哥不喜歡吃甜點，他還是(
+        <select name="q56" data-question="補導聯結-4">
+          <option value="">   </option>
+          <option>要照價賠償</option>
+          <option>每星期都陪我踢足球</option>
+          <option>班級中最矮小的男學生</option>
+          <option>喜歡打籃球</option>
+          <option>買不到演唱會的門票</option>
+          <option>把奶奶烤的蛋糕吃完了</option>
+        </select>
+      )。</p>
+    </div>
+    <div class="question">
+      <p>5. 就算你不是有意撞破花瓶，還是(
+        <select name="q57" data-question="補導聯結-5">
+          <option value="">   </option>
+          <option>要照價賠償</option>
+          <option>每星期都陪我踢足球</option>
+          <option>班級中最矮小的男學生</option>
+          <option>喜歡打籃球</option>
+          <option>買不到演唱會的門票</option>
+          <option>把奶奶烤的蛋糕吃完了</option>
+        </select>
+      )。</p>
+    </div>
+  </div>
+
+  <!-- ====================== 補導 續寫「就算……還是……」 ====================== -->
+  <div class="section">
+    <h2>## 補導　根據「就算………………還是………………」句式續寫句子</h2>
+    <div class="question">
+      <p>就算我們膚色不一樣，(
+        <select name="q58" data-question="補導續寫就算">
+          <option value="">   </option>
+          <option>我們還是可以一起玩耍</option>
+          <option>我們就不能做朋友</option>
+          <option>我們必須分開住</option>
+        </select>
+      )。</p>
+    </div>
+  </div>
+
+  <!-- ====================== 補導 填適當的動詞 ====================== -->
+  <div class="section">
+    <h2>## 補導　一、在橫線上填上適當的動詞</h2>
+
+    <div class="question">
+      <p>1. 如果你不堅持(
+        <select name="q59" data-question="補導動詞-1">
+          <option value="">   </option>
+          <option>下去</option>
+          <option>起來</option>
+          <option>過來</option>
+          <option>出去</option>
+        </select>
+      )，又怎能成功呢？</p>
+    </div>
+    <div class="question">
+      <p>2. 小明檢(
+        <select name="q60" data-question="補導動詞-2">
+          <option value="">   </option>
+          <option>起</option>
+          <option>入</option>
+          <option>來</option>
+          <option>去</option>
+        </select>
+      )地上的鉛筆，把它放在鄰座銘強的桌上。</p>
+    </div>
+    <div class="question">
+      <p>3. 舅父對我說：「站(
+        <select name="q61" data-question="補導動詞-3">
+          <option value="">   </option>
+          <option>起來</option>
+          <option>下去</option>
+          <option>過來</option>
+          <option>出去</option>
+        </select>
+      )，讓我看看你有沒有長高了！」</p>
+    </div>
+    <div class="question">
+      <p>4. 表哥特地打電話(
+        <select name="q62" data-question="補導動詞-4">
+          <option value="">   </option>
+          <option>來</option>
+          <option>去</option>
+          <option>起</option>
+          <option>著</option>
+        </select>
+      )，告訴我們他的兒子剛剛出生了。</p>
+    </div>
+    <div class="question">
+      <p>5. 哥哥順利考(
+        <select name="q63" data-question="補導動詞-5">
+          <option value="">   </option>
+          <option>上</option>
+          <option>起</option>
+          <option>來</option>
+          <option>去</option>
+        </select>
+      )心儀的大學，我們一家人都為他感到高興。</p>
+    </div>
+    <div class="question">
+      <p>6. 妹妹的生日到了，她看見爸爸拿着一份大大的禮物，立刻衝(
+        <select name="q64" data-question="補導動詞-6">
+          <option value="">   </option>
+          <option>上去</option>
+          <option>起來</option>
+          <option>過來</option>
+          <option>出去</option>
+        </select>
+      )抱着爸爸。</p>
+    </div>
+  </div>
+
+  <!-- ====================== 補導 改正錯用的動詞 ====================== -->
+  <div class="section">
+    <h2>## 補導　仿照例子，圈出句子中錯用的動詞，並改正</h2>
+
+    <div class="question">
+      <p>1. 我和家人爬*出*山頂，欣賞山下怡人的景色。</p>
+      <p>改正後：
+        <select name="q65" data-question="補導改正動詞-1">
+          <option value="">   </option>
+          <option>爬上</option>
+          <option>爬下</option>
+          <option>爬過</option>
+          <option>爬進</option>
+        </select>
+      </p>
+    </div>
+    <div class="question">
+      <p>2. 如果你繼續拖延*起來*，你的傷勢只會越來越嚴重。</p>
+      <p>改正後：
+        <select name="q66" data-question="補導改正動詞-2">
+          <option value="">   </option>
+          <option>拖延下去</option>
+          <option>拖延起來</option>
+          <option>拖延過來</option>
+          <option>拖延出去</option>
+        </select>
+      </p>
+    </div>
+  </div>
+
+  <!-- ====================== 補導 省略號用法 ====================== -->
+  <div class="section">
+    <h2>## 補導　省略號的用法</h2>
+    <p>（A. 表示反語　B. 引述人物的話語　C. 標示有特殊含義的詞語　D. 引用詩詞、名言、諺語等　E. 突出句子中表達重要信息的詞語）</p>
+
+    <div class="question">
+      <p>1. 這位歌手出道二十多年，新專輯依然十分暢銷，是樂壇的「長青樹」。 1.(
+        <select name="q67" data-question="補導省略號-1">
+          <option value="">   </option>
+          <option>A</option><option>B</option><option>C</option><option>D</option><option>E</option>
+        </select>
+      )</p>
+    </div>
+    <div class="question">
+      <p>2. 你平時只懂得欺負弱小，面對有權勢的人便一聲不吭，你可真是「英勇」啊！ 2.(
+        <select name="q68" data-question="補導省略號-2">
+          <option value="">   </option>
+          <option>A</option><option>B</option><option>C</option><option>D</option><option>E</option>
+        </select>
+      )</p>
+    </div>
+    <div class="question">
+      <p>3. 所謂「只要有恆心，鐵柱磨成針」，能否達成目標，取決於你有沒有堅持實行計劃的決心。 3.(
+        <select name="q69" data-question="補導省略號-3">
+          <option value="">   </option>
+          <option>A</option><option>B</option><option>C</option><option>D</option><option>E</option>
+        </select>
+      )</p>
+    </div>
+    <div class="question">
+      <p>4. 老師的「老」字原本是對公卿大夫(古代大臣的爵位)的尊稱，後來與「師」字合併成為學生對傳授知識者的尊稱。 4.(
+        <select name="q70" data-question="補導省略號-4">
+          <option value="">   </option>
+          <option>A</option><option>B</option><option>C</option><option>D</option><option>E</option>
+        </select>
+      )</p>
+    </div>
+    <div class="question">
+      <p>5. 孟浩然《春曉》的第一句是「春眠不覺曉」。 5.(
+        <select name="q71" data-question="補導省略號-5">
+          <option value="">   </option>
+          <option>A</option><option>B</option><option>C</option><option>D</option><option>E</option>
+        </select>
+      )</p>
+    </div>
+  </div>
+
+  <!-- ====================== 補導 加上標點符號 ====================== -->
+  <div class="section">
+    <h2>## 補導　在下面句子適當的地方加上標點符號</h2>
+
+    <div class="question">
+      <p>1. 爸爸常常教導我少壯不努力老大徒傷悲的道理</p>
+      <p>
+        <select name="q72" data-question="補導標點-1">
+          <option value="">   </option>
+          <option>爸爸常常教導我「少壯不努力，老大徒傷悲」的道理。</option>
+          <option>爸爸常常教導我少壯不努力，老大徒傷悲的道理。</option>
+          <option>爸爸常常教導我「少壯不努力老大徒傷悲」的道理。</option>
+        </select>
+      </p>
+    </div>
+    <div class="question">
+      <p>2. 老師說現在請大家分為四人一組進行分組討論</p>
+      <p>
+        <select name="q73" data-question="補導標點-2">
+          <option value="">   </option>
+          <option>老師說：「現在，請大家分為四人一組進行分組討論」。</option>
+          <option>老師說現在，請大家分為四人一組進行分組討論。</option>
+          <option>老師說：「現在請大家分為四人一組進行分組討論」。</option>
+        </select>
+      </p>
+    </div>
+  </div>
+
+  <!-- ====================== 補導 複習反義詞 ====================== -->
+  <div class="section">
+    <h2>## 補導　複習反義詞：把適當的反義詞填在(____)內</h2>
+
+    <div class="question">
+      <p>1. 爸爸工作*忙碌*，常常沒有(
+        <select name="q74" data-question="補導反義-1">
+          <option value="">   </option>
+          <option>空閒</option>
+          <option>忙碌</option>
+          <option>休息</option>
+          <option>時間</option>
+        </select>
+      )的時間。</p>
+    </div>
+    <div class="question">
+      <p>2. 老師經常告誡我們做事要*認真*，不能(
+        <select name="q75" data-question="補導反義-2">
+          <option value="">   </option>
+          <option>馬虎</option>
+          <option>認真</option>
+          <option>仔細</option>
+          <option>專心</option>
+        </select>
+      )。</p>
+    </div>
+    <div class="question">
+      <p>3. 這條街道本來很*冷清*的，近來卻逐漸(
+        <select name="q76" data-question="補導反義-3">
+          <option value="">   </option>
+          <option>熱鬧</option>
+          <option>冷清</option>
+          <option>安靜</option>
+          <option>擁擠</option>
+        </select>
+      )起來。</p>
+    </div>
+    <div class="question">
+      <p>4. 爸爸*反對*我到英國留學，不過媽媽卻非常(
+        <select name="q77" data-question="補導反義-4">
+          <option value="">   </option>
+          <option>贊成</option>
+          <option>反對</option>
+          <option>支持</option>
+          <option>同意</option>
+        </select>
+      )。</p>
+    </div>
+    <div class="question">
+      <p>5. 我不喜歡*炎熱*的夏天，反而比較喜歡(
+        <select name="q78" data-question="補導反義-5">
+          <option value="">   </option>
+          <option>寒冷</option>
+          <option>炎熱</option>
+          <option>溫暖</option>
+          <option>涼快</option>
+        </select>
+      )的冬天。</p>
+    </div>
+    <div class="question">
+      <p>6. 他對待任何人和事的態度都非常*冷漠*，欠缺(
+        <select name="q79" data-question="補導反義-6">
+          <option value="">   </option>
+          <option>熱情</option>
+          <option>冷漠</option>
+          <option>關心</option>
+          <option>溫暖</option>
+        </select>
+      )，令人難以親近。</p>
+    </div>
+    <div class="question">
+      <p>7. 他們的表演真是太*精彩*了，一點也不(
+        <select name="q80" data-question="補導反義-7">
+          <option value="">   </option>
+          <option>乏味</option>
+          <option>精彩</option>
+          <option>無聊</option>
+          <option>普通</option>
+        </select>
+      )，難怪台下的觀眾都拍案叫絕。</p>
+    </div>
+    <div class="question">
+      <p>8. 如果遇上搶劫等突發事件，千萬不要*驚慌*，要保持(
+        <select name="q81" data-question="補導反義-8">
+          <option value="">   </option>
+          <option>冷靜</option>
+          <option>驚慌</option>
+          <option>镇定</option>
+          <option>平靜</option>
+        </select>
+      )，然後再想辦法求救。</p>
+    </div>
+  </div>
+
+  <!-- ====================== 補導 間隔號 ====================== -->
+  <div class="section">
+    <h2>## 補導　下面句子中的間隔號表示甚麼？</h2>
+    <p>（A. 表示人名內各部分的分界　B. 表示書名和篇名之間的分界）</p>
+
+    <div class="question">
+      <p>1. 查理·卓別林是著名的喜劇演員。(
+        <select name="q82" data-question="補導間隔號-1">
+          <option value="">   </option>
+          <option>A</option><option>B</option>
+        </select>
+      )</p>
+    </div>
+    <div class="question">
+      <p>2. 韓非在《韓非子·五蠹》中，批評了五種對國家有害的人。(
+        <select name="q83" data-question="補導間隔號-2">
+          <option value="">   </option>
+          <option>A</option><option>B</option>
+        </select>
+      )</p>
+    </div>
+    <div class="question">
+      <p>3. 「以卵擊石」出自《荀子·議兵》一書，比喻以弱攻強或不自量力，結果必然招致失敗。(
+        <select name="q84" data-question="補導間隔號-3">
+          <option value="">   </option>
+          <option>A</option><option>B</option>
+        </select>
+      )</p>
+    </div>
+  </div>
+
+  <!-- ====================== 補導 加上間隔號 ====================== -->
+  <div class="section">
+    <h2>## 補導　在下面句子適當的括號內加上間隔號；不適當的打 ×</h2>
+
+    <div class="question">
+      <p>1. 英國哲學家弗蘭西斯(
+        <select name="q85" data-question="補導加間隔-1">
+          <option value="">   </option>
+          <option>·</option>
+          <option>×</option>
+        </select>
+      )培根曾說過：「知識就是力量。」</p>
+    </div>
+    <div class="question">
+      <p>2. 「周處(
+        <select name="q86a" data-question="補導加間隔-2a">
+          <option value="">   </option>
+          <option>·</option>
+          <option>×</option>
+        </select>
+      )除三害」的故事出自《晉書(
+        <select name="q86b" data-question="補導加間隔-2b">
+          <option value="">   </option>
+          <option>·</option>
+          <option>×</option>
+        </select>
+      )周處傳》。</p>
+    </div>
+    <div class="question">
+      <p>3. 司馬(
+        <select name="q87a" data-question="補導加間隔-3a">
+          <option value="">   </option>
+          <option>·</option>
+          <option>×</option>
+        </select>
+      )遷在《史記(
+        <select name="q87b" data-question="補導加間隔-3b">
+          <option value="">   </option>
+          <option>·</option>
+          <option>×</option>
+        </select>
+      )本紀》中，記載了多位統治者的事跡。</p>
+    </div>
+    <div class="question">
+      <p>4. 「杯水(
+        <select name="q88a" data-question="補導加間隔-4a">
+          <option value="">   </option>
+          <option>·</option>
+          <option>×</option>
+        </select>
+      )車薪」出自《孟子(
+        <select name="q88b" data-question="補導加間隔-4b">
+          <option value="">   </option>
+          <option>·</option>
+          <option>×</option>
+        </select>
+      )告子上》，比喻力量微小，對於事情沒法補救或毫無幫助。</p>
+    </div>
+    <div class="question">
+      <p>5. 著名導演史提芬(
+        <select name="q89a" data-question="補導加間隔-5a">
+          <option value="">   </option>
+          <option>·</option>
+          <option>×</option>
+        </select>
+      )史匹堡拍攝過許多經典電影，他最為人所熟悉的作品有《大白鯊》、《侏羅紀(
+        <select name="q89b" data-question="補導加間隔-5b">
+          <option value="">   </option>
+          <option>·</option>
+          <option>×</option>
+        </select>
+      )公園》等。</p>
+    </div>
+  </div>
+
+  <!-- ====================== 補導 反義詞圈出 ====================== -->
+  <div class="section">
+    <h2>## 補導　反義詞：下面每個句子都有一組反義詞，請把它們圈出來</h2>
+
+    <div class="question">
+      <p>1. 花園裡，一邊是即將凋謝的玫瑰，一邊是剛剛盛開的百合，形成了生命週期中靜默的對話。</p>
+      <p>
+        <select name="q90" data-question="補導反義圈-1">
+          <option value="">   </option>
+          <option>凋謝／盛開</option>
+          <option>即將／剛剛</option>
+          <option>玫瑰／百合</option>
+        </select>
+      </p>
+    </div>
+    <div class="question">
+      <p>2. 她捨棄了過往華麗的禮服，換上一身樸素的衣裝，內心反而感到前所未有的平靜與自在。</p>
+      <p>
+        <select name="q91" data-question="補導反義圈-2">
+          <option value="">   </option>
+          <option>華麗／樸素</option>
+          <option>捨棄／換上</option>
+          <option>平靜／自在</option>
+        </select>
+      </p>
+    </div>
+    <div class="question">
+      <p>3. 即便生長在物質豐裕的家庭，他始終無法忘懷社會角落裡那些貧困人們的艱難處境。</p>
+      <p>
+        <select name="q92" data-question="補導反義圈-3">
+          <option value="">   </option>
+          <option>豐裕／貧困</option>
+          <option>生長／忘懷</option>
+          <option>家庭／社會</option>
+        </select>
+      </p>
+    </div>
+    <div class="question">
+      <p>4. 真正的領導者不會在問題發生時推卸責任，而是會主動承擔後果並尋求解決方案。</p>
+      <p>
+        <select name="q93" data-question="補導反義圈-4">
+          <option value="">   </option>
+          <option>推卸／承擔</option>
+          <option>真正／主動</option>
+          <option>問題／後果</option>
+        </select>
+      </p>
+    </div>
+    <div class="question">
+      <p>5. 他對市場趨勢有著敏銳的洞察力，但在察言觀色方面卻顯得有些遲鈍。</p>
+      <p>
+        <select name="q94" data-question="補導反義圈-5">
+          <option value="">   </option>
+          <option>敏銳／遲鈍</option>
+          <option>市場／方面</option>
+          <option>洞察力／察言觀色</option>
+        </select>
+      </p>
+    </div>
+    <div class="question">
+      <p>6. 在他看來，自己只是個普通人，過著簡單的生活，但在孩子心中，他卻是無人能及的特殊存在。</p>
+      <p>
+        <select name="q95" data-question="補導反義圈-6">
+          <option value="">   </option>
+          <option>普通／特殊</option>
+          <option>簡單／無人能及</option>
+          <option>自己／孩子</option>
+        </select>
+      </p>
+    </div>
+  </div>
+
+  <!-- ====================== 補導 副詞用錯改正 ====================== -->
+  <div class="section">
+    <h2>## 補導　副詞：下面每個句子中都有一個副詞用錯了，請改正</h2>
+
+    <div class="question">
+      <p>1. 會議*永遠*開始了，請大家盡快入座。</p>
+      <p>改正：
+        <select name="q96" data-question="補導副詞改-1">
+          <option value="">   </option>
+          <option>已經</option>
+          <option>永遠</option>
+          <option>剛剛</option>
+          <option>馬上</option>
+        </select>
+      </p>
+    </div>
+    <div class="question">
+      <p>2. 她對這次的考試結果*一向*滿意，臉上洋溢著笑容。</p>
+      <p>改正：
+        <select name="q97" data-question="補導副詞改-2">
+          <option value="">   </option>
+          <option>十分</option>
+          <option>一向</option>
+          <option>從來</option>
+          <option>總是</option>
+        </select>
+      </p>
+    </div>
+    <div class="question">
+      <p>3. 他*時常*從圖書館回來，手裏還拿著幾本借來的書。</p>
+      <p>改正：
+        <select name="q98" data-question="補導副詞改-3">
+          <option value="">   </option>
+          <option>剛才</option>
+          <option>時常</option>
+          <option>常常</option>
+          <option>經常</option>
+        </select>
+      </p>
+    </div>
+    <div class="question">
+      <p>4. 他*從來*在三天內完成了這份複雜的報告，讓大家都很驚訝。</p>
+      <p>改正：
+        <select name="q99" data-question="補導副詞改-4">
+          <option value="">   </option>
+          <option>竟然</option>
+          <option>從來</option>
+          <option>從來沒有</option>
+          <option>居然</option>
+        </select>
+      </p>
+    </div>
+    <div class="question">
+      <p>5. 為了通過考試，你*時常*每天認真複習。</p>
+      <p>改正：
+        <select name="q100" data-question="補導副詞改-5">
+          <option value="">   </option>
+          <option>必須</option>
+          <option>時常</option>
+          <option>應該</option>
+          <option>需要</option>
+        </select>
+      </p>
+    </div>
+    <div class="question">
+      <p>6. 他說今天會下雨，午後*僅僅*下起了大雨。</p>
+      <p>改正：
+        <select name="q101" data-question="補導副詞改-6">
+          <option value="">   </option>
+          <option>果然</option>
+          <option>僅僅</option>
+          <option>居然</option>
+          <option>竟然</option>
+        </select>
+      </p>
+    </div>
+  </div>
+
+  <!-- ====================== 補導 完成反問句 ====================== -->
+  <div class="section">
+    <h2>## 補導　在橫線填上適當的答案，完成反問句（難道／怎能／還要）</h2>
+
+    <div class="question">
+      <p>1. 志明那麼信任你，你(
+        <select name="q102" data-question="補導反問完成-1">
+          <option value="">   </option>
+          <option>難道</option>
+          <option>怎能</option>
+          <option>還要</option>
+        </select>
+      )將他的祕密說出去？</p>
+    </div>
+    <div class="question">
+      <p>2. 一向健談的紫玲今天居然一言不發，(
+        <select name="q103" data-question="補導反問完成-2">
+          <option value="">   </option>
+          <option>難道</option>
+          <option>怎能</option>
+          <option>還要</option>
+        </select>
+      )她心情不好嗎？</p>
+    </div>
+    <div class="question">
+      <p>3. 弟弟已經有很多這個系列的模型了，你(
+        <select name="q104" data-question="補導反問完成-3">
+          <option value="">   </option>
+          <option>難道</option>
+          <option>怎能</option>
+          <option>還要</option>
+        </select>
+      )買同一個系列的模型給他嗎？</p>
+    </div>
+    <div class="question">
+      <p>4. 當朋友遇到困難時，我(
+        <select name="q105" data-question="補導反問完成-4">
+          <option value="">   </option>
+          <option>難道</option>
+          <option>怎能</option>
+          <option>還要</option>
+        </select>
+      )袖手旁觀，不伸出援手？</p>
+    </div>
+  </div>
+
+  <!-- ====================== 補導 辨析句型 ====================== -->
+  <div class="section">
+    <h2>## 補導　辨析下面的句子是反問句、疑問句，還是設問句</h2>
+
+    <div class="question">
+      <p>1. 快要輪到你們表演了，準備好了嗎？(
+        <select name="q106" data-question="補導句型-1">
+          <option value="">   </option>
+          <option>疑問句</option>
+          <option>反問句</option>
+          <option>設問句</option>
+        </select>
+      )</p>
+    </div>
+    <div class="question">
+      <p>2. 敏儀的感冒還未痊癒，怎可以回校上課？(
+        <select name="q107" data-question="補導句型-2">
+          <option value="">   </option>
+          <option>反問句</option>
+          <option>疑問句</option>
+          <option>設問句</option>
+        </select>
+      )</p>
+    </div>
+    <div class="question">
+      <p>3. 這些蛋糕是為誰準備的？它們是為客人準備的。(
+        <select name="q108" data-question="補導句型-3">
+          <option value="">   </option>
+          <option>設問句</option>
+          <option>反問句</option>
+          <option>疑問句</option>
+        </select>
+      )</p>
+    </div>
+    <div class="question">
+      <p>4. 這部電腦的熒幕已經破裂了，你還不拿去維修嗎？(
+        <select name="q109" data-question="補導句型-4">
+          <option value="">   </option>
+          <option>反問句</option>
+          <option>疑問句</option>
+          <option>設問句</option>
+        </select>
+      )</p>
+    </div>
+    <div class="question">
+      <p>5. 今天的氣溫只有攝氏十四度，難道你不覺得冷嗎？(
+        <select name="q110" data-question="補導句型-5">
+          <option value="">   </option>
+          <option>反問句</option>
+          <option>疑問句</option>
+          <option>設問句</option>
+        </select>
+      )</p>
+    </div>
+  </div>
+
+  <!-- ====================== 補導 運用反問手法續寫 ====================== -->
+  <div class="section">
+    <h2>## 補導　運用反問手法續寫句子</h2>
+
+    <div class="question">
+      <p>1. 小蘭為了成為醫生而發奮學習，(
+        <select name="q111" data-question="補導反問續寫-1">
+          <option value="">   </option>
+          <option>你每天都玩手機，怎能成為醫生呢？</option>
+          <option>你每天都玩手機，多怎能可以做醫生呢？</option>
+          <option>你每天都玩手機，可以成為醫生嗎？</option>
+        </select>
+      )</p>
+    </div>
+    <div class="question">
+      <p>2. 爸爸和媽媽上班已經很辛苦了，(
+        <select name="q112" data-question="補導反問續寫-2">
+          <option value="">   </option>
+          <option>你怎能再在床上吃零食呢？</option>
+          <option>你怎能存在冰上吃零食啊？</option>
+          <option>你怎麼可以再添麻煩呢？</option>
+        </select>
+      )</p>
+    </div>
+  </div>
+
+  <!-- ====================== 堂工 重組句子 ====================== -->
+  <div class="section">
+    <h2>## 堂工　重組句子</h2>
+    <div class="question">
+      <p>詞語：突然 / 天氣 / 雖然 / 轉壞 / 但是仍然 / 堅持 / 完成了 / 他們 / 戶外訓練</p>
+      <p>
+        <select name="q113" data-question="堂工重組-1">
+          <option value="">   </option>
+          <option>雖然天氣突然轉壞，但是他們仍然堅持完成了戶外訓練。</option>
+          <option>雖然他們堅持戶外訓練，但是天氣突然轉壞。</option>
+          <option>雖然天氣轉壞，但是他們突然堅持完成了戶外訓練。</option>
+        </select>
+      </p>
+    </div>
+  </div>
+
+  <!-- ====================== 堂工 標點符號 ====================== -->
+  <div class="section">
+    <h2>## 堂工　標點符號</h2>
+    <div class="question">
+      <p>為此內容加上十一個標點符號：</p>
+      <p>太陽驕傲地說我的威力真大啊自然界裏沒有哪一種力量能夠和我相比我的本領有很多使水份蒸發使植物枯死使池水乾枯哼認為這不算了不起那你又有甚麼本領呢</p>
+      <p>
+        <select name="q114" data-question="堂工標點">
+          <option value="">   </option>
+          <option>太陽驕傲地說：「我的威力真大啊！自然界裏沒有哪一種力量能夠和我相比。我的本領有很多：使水份蒸發，使植物枯死，使池水乾枯。哼！認為這不算了不起，那你又有甚麼本領呢？」</option>
+          <option>太陽驕傲地說我的威力真大啊！自然界裏沒有哪一種力量能夠和我相比。我的本領有很多使水份蒸發使植物枯死使池水乾枯。哼認為這不算了不起那你又有甚麼本領呢？</option>
+        </select>
+      </p>
+    </div>
+  </div>
+
+  <!-- ====================== 堂工 改寫句子 ====================== -->
+  <div class="section">
+    <h2>## 堂工　改寫句子（備選反義詞：悉心、瘦弱、樂觀、充滿生機、笨拙、好事、稠密、綻放）</h2>
+
+    <div class="question">
+      <p>1. 子健的性格悲觀，他總相信明天會有壞事降臨。</p>
+      <p>
+        <select name="q115" data-question="堂工改寫-1">
+          <option value="">   </option>
+          <option>子健的性格樂觀，他總相信明天會有好事降臨。</option>
+          <option>子健的性格樂觀，他總相信明天會有壞事降臨。</option>
+          <option>子健的性格悲觀，他總相信明天會有好事降臨。</option>
+        </select>
+      </p>
+    </div>
+    <div class="question">
+      <p>2. 由於媽媽的疏忽照顧，庭院裏的花都枯萎了，顯得死氣沉沉。</p>
+      <p>
+        <select name="q116" data-question="堂工改寫-2">
+          <option value="">   </option>
+          <option>由於媽媽的悉心照顧，庭院裏的花都綻放了，顯得充滿生機。</option>
+          <option>由於媽媽的悉心照顧，庭院裏的花都笨拙，顯得充滿生機。</option>
+          <option>由於媽媽的疏忽照顧，庭院裏的花都綻放了，顯得充滿生機。</option>
+        </select>
+      </p>
+    </div>
+  </div>
+
+  <!-- ====================== 堂工 圈出正確的副詞 ====================== -->
+  <div class="section">
+    <h2>## 堂工　圈出正確的副詞</h2>
+
+    <div class="question">
+      <p>1. 家豪（
+        <select name="q117" data-question="堂工副詞-1">
+          <option value="">   </option>
+          <option>偶爾</option>
+          <option>忽然</option>
+          <option>已經</option>
+        </select>
+      ）拍了一下我的肩膀，把我嚇了一大跳。</p>
+    </div>
+    <div class="question">
+      <p>2. 今年的演講比賽戰況激烈，（
+        <select name="q118" data-question="堂工副詞-2">
+          <option value="">   </option>
+          <option>總共</option>
+          <option>僅僅</option>
+          <option>幾乎</option>
+        </select>
+      ）有十二位同學晉級決賽。</p>
+    </div>
+    <div class="question">
+      <p>3. 我答應了詩雅會保守秘密，就會（
+        <select name="q119" data-question="堂工副詞-3">
+          <option value="">   </option>
+          <option>必定</option>
+          <option>未必</option>
+          <option>可能</option>
+        </select>
+      ）會對其他人守口如瓶。</p>
+    </div>
+  </div>
+
+  <!-- ====================== 堂工 選出正確的趨向動詞 ====================== -->
+  <div class="section">
+    <h2>## 堂工　選出正確的趨向動詞</h2>
+    <p>（備選詞：起、過去、回來、進去、出去、下去）</p>
+
+    <div class="question">
+      <p>1. 從家裏乘巴士(
+        <select name="q120" data-question="堂工趨向-1">
+          <option value="">   </option>
+          <option>去</option>
+          <option>起</option>
+          <option>過去</option>
+          <option>回來</option>
+          <option>進去</option>
+          <option>出去</option>
+          <option>下去</option>
+        </select>
+      )祖母家大約需要一個小時。</p>
+    </div>
+    <div class="question">
+      <p>2. 遊客(
+        <select name="q121" data-question="堂工趨向-2">
+          <option value="">   </option>
+          <option>進去</option>
+          <option>起</option>
+          <option>過去</option>
+          <option>回來</option>
+          <option>出去</option>
+          <option>下去</option>
+        </select>
+      )主題樂園前，大門外的職員會一一檢查他們的門票。</p>
+    </div>
+    <div class="question">
+      <p>3. 爸爸剛從北京出差(
+        <select name="q122" data-question="堂工趨向-3">
+          <option value="">   </option>
+          <option>回來</option>
+          <option>起</option>
+          <option>過去</option>
+          <option>進去</option>
+          <option>出去</option>
+          <option>下去</option>
+        </select>
+      )，他感歎北方的氣候比南方寒冷許多。</p>
+    </div>
+  </div>
+
+  <!-- ====================== 堂工 運用選擇複句 ====================== -->
+  <div class="section">
+    <h2>## 堂工　運用選擇複句</h2>
+    <p>要求：運用「除了……就是……」寫一句選擇複句（字數不少於25字，不包括標點）。</p>
+    <div class="question">
+      <p>
+        <select name="q123" data-question="堂工選擇複句">
+          <option value="">   </option>
+          <option>除了英文和數學科目，我最喜愛的科目就是音樂和體育。</option>
+          <option>除了英文，我最喜愛的科目就是數學。</option>
+          <option>除了音樂，我最喜愛的就是體育。</option>
+        </select>
+      </p>
+    </div>
+  </div>
+
+  <!-- ====================== 堂工 名詞分類 ====================== -->
+  <div class="section">
+    <h2>## 堂工　名詞分類</h2>
+    <p>（A. 普通名詞(具體事物)　B. 普通名詞(抽象事物)　C. 專有名詞）</p>
+
+    <div class="question">
+      <p>1. 哥哥心情欠佳，自早上起便一直皺着眉頭。
+        <select name="q124" data-question="堂工名詞-1">
+          <option value="">   </option>
+          <option>A</option><option>B</option><option>C</option>
+        </select>
+      </p>
+    </div>
+    <div class="question">
+      <p>2. 小智從書包中拿出一袋糖果，分送給班上的同學。
+        <select name="q125" data-question="堂工名詞-2">
+          <option value="">   </option>
+          <option>A</option><option>B</option><option>C</option>
+        </select>
+      </p>
+    </div>
+    <div class="question">
+      <p>3. 撒哈拉沙漠的環境險惡，只有少數生物能在那裏生存。
+        <select name="q126" data-question="堂工名詞-3">
+          <option value="">   </option>
+          <option>A</option><option>B</option><option>C</option>
+        </select>
+      </p>
+    </div>
+    <div class="question">
+      <p>4. 誰想到現在繁榮的香港，在一個世紀前只是一條小漁村呢？
+        <select name="q127" data-question="堂工名詞-4">
+          <option value="">   </option>
+          <option>A</option><option>B</option><option>C</option>
+        </select>
+      </p>
+    </div>
+  </div>
+
+  <!-- ====================== 堂工 排列句子 ====================== -->
+  <div class="section">
+    <h2>## 堂工　排列句子</h2>
+
+    <div class="question">
+      <p>1. 語詞：的 / 我很 / 已經 / 看過 / 內容 / 從未 / 故事 / 不過 / 雖然 / 瞭解 / 小王子</p>
+      <p>
+        <select name="q128" data-question="堂工排列-1">
+          <option value="">   </option>
+          <option>雖然我已經看過《小王子》的故事，不過我從未瞭解故事的內容。</option>
+          <option>雖然我已經看過小王子故事，不過我從未為瞭解故事的內容。</option>
+          <option>雖然我從未看過《小王子》的故事，不過我已經瞭解故事的內容。</option>
+        </select>
+      </p>
+    </div>
+    <div class="question">
+      <p>2. 語詞：我的 / 他的祖父 / 從未 / 不過 / 許多 / 故事 / 見過 / 雖然 / 聽過 / 已逝世</p>
+      <p>
+        <select name="q129" data-question="堂工排列-2">
+          <option value="">   </option>
+          <option>雖然我的祖父已逝世，不過我聽過他的許多故事。</option>
+          <option>雖然我的祖父不過從不過已逝世，不過他的故事聽過。</option>
+          <option>雖然我從未見過祖父，不過我聽過他的許多故事。</option>
+        </select>
+      </p>
+    </div>
+  </div>
+
+  <!-- ====================== 堂工 標點符號運用 ====================== -->
+  <div class="section">
+    <h2>## 堂工　標點符號運用</h2>
+
+    <div class="question">
+      <p>1. 君子之交淡如水小人之交甘若醴這句話的出處是莊子</p>
+      <p>
+        <select name="q130" data-question="堂工標點運用-1">
+          <option value="">   </option>
+          <option>「君子之交淡如水，小人之交甘若醴」，這句話的出處是《莊子》。</option>
+          <option>君子之交淡如水，小人之交甘若醴，這句話的出處是莊子。</option>
+          <option>「君子之交淡如水小人之交甘若醴」這句話的出處是《莊子》。</option>
+        </select>
+      </p>
+    </div>
+    <div class="question">
+      <p>2. 馬克吐溫是美國的暢銷書作家，他被稱為現代文學之父</p>
+      <p>
+        <select name="q131" data-question="堂工標點運用-2">
+          <option value="">   </option>
+          <option>馬克吐溫是美國的暢銷書作家，他被稱為「現代文學之父」。</option>
+          <option>馬克吐溫是美國的暢銷書作家，他被稱為現代文學之父。</option>
+          <option>「馬克吐溫」是美國的暢銷書作家，他被稱為現代文學之父。</option>
+        </select>
+      </p>
+    </div>
+  </div>
+
+  <button type="submit">全部提交並顯示答案</button>
+
+  <div id="allResults" class="result">
+    <h2>測驗結果總覽</h2>
+    <div id="scoreTotal" class="total-score"></div>
+    <div id="itemsAll"></div>
+    <div id="submitMessage"></div>
+  </div>
+
+</form>
+
+<script>
+function handleQuizSubmit(formId, resultId, itemsId, scoreId, msgId, correctAnswers) {
+  const form = document.getElementById(formId);
+  const resultDiv = document.getElementById(resultId);
+  const itemsDiv = document.getElementById(itemsId);
+  const scoreDiv = document.getElementById(scoreId);
+  const messageDiv = document.getElementById(msgId);
+
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    const controls = form.querySelectorAll('select');
+    let score = 0;
+    itemsDiv.innerHTML = '';
+
+    const answers = [];
+    const totalQuestions = correctAnswers.length - 1;
+
+    for (let i = 1; i <= totalQuestions; i++) {
+      const q = controls[i-1];
+      const userAnswer = q ? q.value.trim() : '';
+      const correct = correctAnswers[i];
+      const isCorrect = (userAnswer === correct && userAnswer !== '');
+
+      if (isCorrect) score++;
+
+      if (q) {
+        const prevFeedback = q.previousElementSibling;
+        if (prevFeedback && prevFeedback.classList && prevFeedback.classList.contains('feedback')) {
+          prevFeedback.remove();
+        }
+        const feedback = document.createElement('span');
+        feedback.className = 'feedback ' + (isCorrect ? 'feedback-correct' : 'feedback-wrong');
+        feedback.textContent = isCorrect ? '✓ 正確' : '✗ 錯誤';
+        q.parentNode.insertBefore(feedback, q);
+      }
+
+      let questionText = q && q.dataset.question 
+        ? q.dataset.question 
+        : `第 ${i} 題`;
+
+      const item = document.createElement('div');
+      item.className = 'item';
+      item.innerHTML = `
+        <strong>${questionText}</strong><br><br>
+        你的答案： <span class="${isCorrect ? 'correct' : 'wrong'}">${userAnswer || '(未作答)'}</span><br>
+        <div class="answer-show">正確答案： <span class="correct">${correct}</span></div>
+        <div>得分： ${isCorrect ? '1' : '0'}</div>
+      `;
+      itemsDiv.appendChild(item);
+
+      answers.push({
+        questionNumber: i,
+        question: questionText,
+        yourAnswer: userAnswer || '(未作答)',
+        correctAnswer: correct,
+        result: isCorrect ? '正確' : '錯誤'
+      });
+    }
+
+    scoreDiv.textContent = `總 分： ${score} / ${totalQuestions}`;
+    resultDiv.style.display = 'block';
+    resultDiv.scrollIntoView({ behavior: 'smooth' });
+
+    const payload = {
+      _subject: "中文作業補導堂工結果提交",
+      score: `${score} / ${totalQuestions}`,
+      timestamp: new Date().toISOString(),
+      answers: JSON.stringify(answers, null, 2)
+    };
+
+    try {
+      const response = await fetch('https://formspree.io/f/xvzwnvwp', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      messageDiv.innerHTML = response.ok
+        ? '<span class="success">✅ 測驗結果已成功送出！</span>'
+        : '<span class="error">送出失敗，請稍後再試。</span>';
+    } catch (err) {
+      messageDiv.innerHTML = '<span class="error">網路錯誤，無法送出結果。</span>';
+    }
+  });
+}
+
+// 精確對應所有 select 的正確答案（順序與頁面 select 完全一致）
+const correctAnswers = [
+  null,
+  // 作業二 圈出正確答案 1-4 (q1-q4b)
+  "下去",
+  "進去",
+  "上來",
+  "回來",
+  "起來",
+  // 作業三 擴寫句子 1-4
+  "你們是非常要好的朋友，為甚麼突然互不理睬呢？",
+  "歌唱比賽的參賽名額已經滿了，總共有三十個人參加。",
+  "看電影時，我讓爸爸猜猜究竟誰是真兇，腦筋靈活的爸爸果然猜對了。",
+  "媽媽實在太疲勞了，坐在沙發上僅僅五分鐘就發出了鼾聲。",
+  // 作業四 聯結句子 1-5
+  "A",
+  "C",
+  "E",
+  "F",
+  "D",
+  // 作業 反義詞 1-4
+  "準確",
+  "信任",
+  "嚴格",
+  "舉世聞名",
+  // 作業 句式造句 1-3
+  "我想送禮物給媽媽，不知道是送鮮花，或是送水果。",
+  "侍應正在忙碌工作，不是在招待客人，就是在清潔餐桌。",
+  "明天有中文輔導班，也許是複習，也許是模擬測驗。",
+  // 作業 名詞類型 1-6
+  "A",
+  "C",
+  "B",
+  "A",
+  "C",
+  "A",
+  // 作業 標點符號 1-3
+  "D. 大衛‧碧咸是舉世知名的足球明星。",
+  "B. 《孟子‧告子上》記載了孟子對人性本善的看法。",
+  "C. 今天出版的《星報‧副刊版》刊登了我們學校的專訪。",
+  // 作業 雖然……不過…… 1-4
+  "不過它們在春天會再次茂盛",
+  "不過我們不可以沉迷",
+  "雖然科學家努力探索宇宙的奧秘",
+  "雖然小明在默書取得一百分",
+  // 作業 改寫反問句 1-3
+  "你們怎能欺負同學呢？",
+  "在獲得哥哥的同意前，我怎能擅自取用他的東西呢？",
+  "海上正捲起巨浪，我們怎能到海邊嬉水呢？",
+  // 作業 填英文字母 1-4
+  "A. 不但氣味刺鼻",
+  "C. 甚至能遠眺富士山",
+  "C. 不但不向媽媽道歉",
+  "A. 還自稱為「皇帝」",
+  // 作業 續寫句子 1-2
+  "自由地盪來盪過去。",
+  "影響到隔壁鄰居的休息。",
+  // 補導 副詞作用 1-5
+  "A",
+  "E",
+  "D",
+  "C",
+  "B",
+  // 補導 圈出適當的副詞 1-5
+  "總共",
+  "必定",
+  "果然",
+  "剛才",
+  "格外",
+  // 補導 聯結句子 1-5
+  "買不到演唱會的門票",
+  "班級中最矮小的男學生",
+  "每星期都陪我踢足球",
+  "把奶奶烤的蛋糕吃完了",
+  "要照價賠償",
+  // 補導 續寫就算
+  "我們還是可以一起玩耍",
+  // 補導 填動詞 1-6
+  "下去",
+  "起",
+  "起來",
+  "來",
+  "上",
+  "上去",
+  // 補導 改正動詞 1-2
+  "爬上",
+  "拖延下去",
+  // 補導 省略號用法 1-5
+  "C",
+  "A",
+  "D",
+  "C",
+  "D",
+  // 補導 加上標點 1-2
+  "爸爸常常教導我「少壯不努力，老大徒傷悲」的道理。",
+  "老師說：「現在，請大家分為四人一組進行分組討論」。",
+  // 補導 複習反義詞 1-8
+  "空閒",
+  "馬虎",
+  "熱鬧",
+  "贊成",
+  "寒冷",
+  "熱情",
+  "乏味",
+  "冷靜",
+  // 補導 間隔號意思 1-3
+  "A",
+  "B",
+  "B",
+  // 補導 加上間隔號
+  "·",
+  "·",
+  "·",
+  "·",
+  "·",
+  "·",
+  "·",
+  "·",
+  "·",
+  // 補導 反義詞圈出 1-6
+  "凋謝／盛開",
+  "華麗／樸素",
+  "豐裕／貧困",
+  "推卸／承擔",
+  "敏銳／遲鈍",
+  "普通／特殊",
+  // 補導 副詞改正 1-6
+  "已經",
+  "十分",
+  "剛才",
+  "竟然",
+  "必須",
+  "果然",
+  // 補導 完成反問句 1-4
+  "難道",
+  "難道",
+  "還要",
+  "怎能",
+  // 補導 辨析句型 1-5
+  "疑問句",
+  "反問句",
+  "設問句",
+  "反問句",
+  "反問句",
+  // 補導 反問續寫 1-2
+  "你每天都玩手機，怎能成為醫生呢？",
+  "你怎能再在床上吃零食呢？",
+  // 堂工 重組句子
+  "雖然天氣突然轉壞，但是他們仍然堅持完成了戶外訓練。",
+  // 堂工 標點符號
+  "太陽驕傲地說：「我的威力真大啊！自然界裏沒有哪一種力量能夠和我相比。我的本領有很多：使水份蒸發，使植物枯死，使池水乾枯。哼！認為這不算了不起，那你又有甚麼本領呢？」",
+  // 堂工 改寫句子 1-2
+  "子健的性格樂觀，他總相信明天會有好事降臨。",
+  "由於媽媽的悉心照顧，庭院裏的花都綻放了，顯得充滿生機。",
+  // 堂工 圈出正確的副詞 1-3
+  "忽然",
+  "總共",
+  "必定",
+  // 堂工 趨向動詞 1-3
+  "去",
+  "進去",
+  "回來",
+  // 堂工 選擇複句
+  "除了英文和數學科目，我最喜愛的科目就是音樂和體育。",
+  // 堂工 名詞分類 1-4
+  "B",
+  "A",
+  "C",
+  "C",
+  // 堂工 排列句子 1-2
+  "雖然我已經看過《小王子》的故事，不過我從未瞭解故事的內容。",
+  "雖然我的祖父已逝世，不過我聽過他的許多故事。",
+  // 堂工 標點符號運用 1-2
+  "「君子之交淡如水，小人之交甘若醴」，這句話的出處是《莊子》。",
+  "馬克吐溫是美國的暢銷書作家，他被稱為「現代文學之父」。"
+];
+
+// 初始化執行
+handleQuizSubmit('allQuizzes', 'allResults', 'itemsAll', 'scoreTotal', 'submitMessage', correctAnswers);
+</script>
+
+</body>
+</html>
