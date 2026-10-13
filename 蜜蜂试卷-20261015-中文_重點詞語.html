@@ -1,0 +1,578 @@
+```html
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self';
+    connect-src *;
+    script-src 'self' 'unsafe-inline';
+    style-src 'self' 'unsafe-inline';
+  ">
+  <title>20261015-中文_詞語填充</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, "Microsoft JhengHei", sans-serif;
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+      line-height: 1.6;
+      color: #333;
+    }
+    h1, h2, h3 {
+      text-align: center;
+      color: #2c3e50;
+      margin: 40px 0 20px;
+    }
+    h2 {
+      border-bottom: 2px solid #2c3e50;
+      padding-bottom: 10px;
+      margin-top: 60px;
+    }
+    h3 {
+      text-align: left;
+      color: #34495e;
+      margin-top: 30px;
+      font-size: 1.4rem;
+    }
+    .section {
+      margin-bottom: 60px;
+    }
+    .question {
+      margin: 25px 0;
+      padding: 20px;
+      background: #f9fbfc;
+      border-radius: 10px;
+      border-left: 5px solid #3498db;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      font-size: 1.4rem;
+    }
+    .question p {
+      margin: 0 0 12px 0;
+      font-size: 1.4rem;
+    }
+    strong {
+      color: #e74c3c;
+    }
+    select {
+      padding: 6px 10px;
+      font-size: 1.35rem;
+      min-width: 160px;
+      border-radius: 6px;
+      border: 1px solid #bdc3c7;
+      background: white;
+      margin: 0 5px;
+    }
+    select:focus {
+      outline: none;
+      border-color: #3498db;
+      box-shadow: 0 0 0 3px rgba(52,152,219,0.2);
+    }
+    button {
+      display: block;
+      margin: 60px auto;
+      padding: 18px 80px;
+      font-size: 1.35rem;
+      font-weight: bold;
+      background: #27ae60;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    button:hover {
+      background: #219653;
+    }
+    .result {
+      display: none;
+      margin: 40px 0;
+      padding: 30px;
+      background: #f4f6f9;
+      border-radius: 12px;
+      border: 1px solid #dfe6ed;
+    }
+    .total-score {
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-align: center;
+      margin: 30px 0 20px;
+      padding: 20px;
+      background: #d4edda;
+      border-radius: 10px;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+    }
+    .item {
+      margin: 18px 0;
+      padding: 16px;
+      background: white;
+      border-radius: 8px;
+      border: 1px solid #eee;
+    }
+    .correct { color: #27ae60; font-weight: bold; }
+    .wrong   { color: #c0392b; font-weight: bold; }
+    .answer-show {
+      margin-top: 8px;
+      font-size: 0.98rem;
+      color: #555;
+    }
+    #submitMessage {
+      text-align: center;
+      margin-top: 25px;
+      font-size: 1.15rem;
+    }
+    .success { color: #27ae60; }
+    .error   { color: #c0392b; }
+    .subtitle {
+      text-align: center;
+      color: #555;
+      margin-bottom: 30px;
+    }
+  </style>
+</head>
+<body>
+
+<h1>20261015-中文_詞語填充</h1>
+<p class="subtitle">請完成所有題目後按下方按鈕一次提交</p>
+
+<form id="allQuizzes">
+
+  <!-- ====================== 一、從課文中找出適當的詞語 ====================== -->
+  <div class="section">
+    <h2>## 一、從課文中找出適當的詞語，填在橫線上</h2>
+
+    <div class="question">
+      <p>馬拉松賽跑源於古希臘，是一項歷史 ( <select name="q1" data-question="課文詞語1：歷史悠久"><option value="">   </option><option>悠久</option><option>險峻</option><option>宣稱</option><option>誤解</option><option>堅定不移</option><option>結結巴巴</option><option>縱橫交錯</option></select> ) 的長跑運動。</p>
+    </div>
+
+    <div class="question">
+      <p>馬拉松全長四十多公里，要完成比賽，除了要有充沛的體力，還要有 ( <select name="q2" data-question="課文詞語2：堅定不移的決心"><option value="">   </option><option>悠久</option><option>險峻</option><option>宣稱</option><option>誤解</option><option>堅定不移</option><option>結結巴巴</option><option>縱橫交錯</option></select> ) 的決心。</p>
+    </div>
+
+    <div class="question">
+      <p>俊傑緊張的時候，說話就會很不流利， ( <select name="q3" data-question="課文詞語3：結結巴巴"><option value="">   </option><option>悠久</option><option>險峻</option><option>宣稱</option><option>誤解</option><option>堅定不移</option><option>結結巴巴</option><option>縱橫交錯</option></select> ) 的 ，經過一段時間的訓練之後，情況已有很大的改善。</p>
+    </div>
+
+    <div class="question">
+      <p>地球上遍佈 1. ( <select name="q4" data-question="課文詞語4：險峻的山脈"><option value="">   </option><option>悠久</option><option>險峻</option><option>宣稱</option><option>誤解</option><option>堅定不移</option><option>結結巴巴</option><option>縱橫交錯</option></select> ) 的山脈、遼闊的平原、 2. ( <select name="q5" data-question="課文詞語5：縱橫交錯的河流"><option value="">   </option><option>悠久</option><option>險峻</option><option>宣稱</option><option>誤解</option><option>堅定不移</option><option>結結巴巴</option><option>縱橫交錯</option></select> ) 的河流等，為人類提供了生存所需的資源。</p>
+    </div>
+
+    <div class="question">
+      <p>很多人抱有 4. ( <select name="q6" data-question="課文詞語6：誤解"><option value="">   </option><option>悠久</option><option>險峻</option><option>宣稱</option><option>誤解</option><option>堅定不移</option><option>結結巴巴</option><option>縱橫交錯</option></select> ) ，以為地球資源取之不盡，其實一切資源都會有枯竭的一天。</p>
+    </div>
+  </div>
+
+  <!-- ====================== 填充：第一組 ====================== -->
+  <div class="section">
+    <h2>## 填充：把適當的詞語寫在(____) 內</h2>
+
+    <div class="question">
+      <p>1. 這座教堂已建成近三百多年，真的歷史( <select name="q7" data-question="填充A1：悠久"><option value="">   </option><option>悠久</option><option>錄取</option><option>堅定不移</option><option>綠草如茵</option><option>熱血沸騰</option></select> )。</p>
+    </div>
+
+    <div class="question">
+      <p>3. 聽到班上即將舉辦班際籃球賽的消息，所有同學都( <select name="q8" data-question="填充A3：熱血沸騰"><option value="">   </option><option>悠久</option><option>錄取</option><option>堅定不移</option><option>綠草如茵</option><option>熱血沸騰</option></select> )，迫不及待地想上場為班級爭光。</p>
+    </div>
+
+    <div class="question">
+      <p>4. 姊姊被心儀的中學( <select name="q9" data-question="填充A4：錄取"><option value="">   </option><option>悠久</option><option>錄取</option><option>堅定不移</option><option>綠草如茵</option><option>熱血沸騰</option></select> ) 了，全家都為她感到高興。</p>
+    </div>
+
+    <div class="question">
+      <p>9. 郊野公園裡( <select name="q10" data-question="填充A9：綠草如茵"><option value="">   </option><option>悠久</option><option>錄取</option><option>堅定不移</option><option>綠草如茵</option><option>熱血沸騰</option></select> )，空氣清新，是市民郊遊和遠足的好地方。</p>
+    </div>
+
+    <div class="question">
+      <p>10. 既然你已下定決心成為職業運動員，那就( <select name="q11" data-question="填充A10：堅定不移"><option value="">   </option><option>悠久</option><option>錄取</option><option>堅定不移</option><option>綠草如茵</option><option>熱血沸騰</option></select> ) 地向目標進發，不要理會他人的冷嘲熱諷。</p>
+    </div>
+  </div>
+
+  <!-- ====================== 填充：第二組 ====================== -->
+  <div class="section">
+    <h2>## 填充：把適當的詞語寫在(____) 內</h2>
+
+    <div class="question">
+      <p>1. 子珊口齒十分( <select name="q12" data-question="填充B1：伶俐"><option value="">   </option><option>伶俐</option><option>結結巴巴</option><option>歎為觀止</option><option>嚴格</option><option>審核</option></select> )，在辯論比賽中所向披靡。</p>
+    </div>
+
+    <div class="question">
+      <p>3. 面試時，哥哥十分緊張，說話都( <select name="q13" data-question="填充B3：結結巴巴"><option value="">   </option><option>伶俐</option><option>結結巴巴</option><option>歎為觀止</option><option>嚴格</option><option>審核</option></select> ) 的，很不流暢。</p>
+    </div>
+
+    <div class="question">
+      <p>4. 家輝的魔術表演出神入化，毫無破綻，看得觀眾( <select name="q14" data-question="填充B4：歎為觀止"><option value="">   </option><option>伶俐</option><option>結結巴巴</option><option>歎為觀止</option><option>嚴格</option><option>審核</option></select> )。</p>
+    </div>
+
+    <div class="question">
+      <p>8. 公司的每一筆帳目都必須經過會計部門的嚴格( <select name="q15" data-question="填充B8：審核"><option value="">   </option><option>伶俐</option><option>結結巴巴</option><option>歎為觀止</option><option>嚴格</option><option>審核</option></select> )，才可作出批核。</p>
+    </div>
+
+    <div class="question">
+      <p>10. 黃老師處事( <select name="q16" data-question="填充B10：嚴格"><option value="">   </option><option>伶俐</option><option>結結巴巴</option><option>歎為觀止</option><option>嚴格</option><option>審核</option></select> )，每當發現同學做作業時馬虎了事，都會強烈批評。</p>
+    </div>
+  </div>
+
+  <!-- ====================== 填充：第三組 ====================== -->
+  <div class="section">
+    <h2>## 填充：把適當的詞語寫在（）內</h2>
+
+    <div class="question">
+      <p>1. 希宇因為聽信謠言而對英珊產生了( <select name="q17" data-question="填充C1：誤解"><option value="">   </option><option>誤解</option><option>證實</option><option>險峻</option><option>縱橫交錯</option><option>子虛烏有</option></select> )。</p>
+    </div>
+
+    <div class="question">
+      <p>2. 醫學研究( <select name="q18" data-question="填充C2：證實"><option value="">   </option><option>誤解</option><option>證實</option><option>險峻</option><option>縱橫交錯</option><option>子虛烏有</option></select> ) 多吃蔬果能維持腸道健康。</p>
+    </div>
+
+    <div class="question">
+      <p>4. 這座城市四通八達,處處都是( <select name="q19" data-question="填充C4：縱橫交錯"><option value="">   </option><option>誤解</option><option>證實</option><option>險峻</option><option>縱橫交錯</option><option>子虛烏有</option></select> )的公路。</p>
+    </div>
+
+    <div class="question">
+      <p>6. 這份「機密」報告的內容完全是( <select name="q20" data-question="填充C6：子虛烏有"><option value="">   </option><option>誤解</option><option>證實</option><option>險峻</option><option>縱橫交錯</option><option>子虛烏有</option></select> )，是為了轉移大眾視線而編造的。</p>
+    </div>
+
+    <div class="question">
+      <p>8. 他憑藉著堅定的決心和出色的技能,克服了( <select name="q21" data-question="填充C8：險峻"><option value="">   </option><option>誤解</option><option>證實</option><option>險峻</option><option>縱橫交錯</option><option>子虛烏有</option></select> ) 的山勢,成功登上了頂峯。</p>
+    </div>
+  </div>
+
+  <!-- ====================== 填充：第四組 ====================== -->
+  <div class="section">
+    <h2>## 填充：把適當的詞語寫在(____) 內</h2>
+
+    <div class="question">
+      <p>1. 濃厚的烏雲籠罩着天空，直到陽光努力地( <select name="q22" data-question="填充D1：衝破"><option value="">   </option><option>衝破</option><option>擴大</option><option>奇觀</option><option>奪目</option><option>一剎那</option></select> ) 雲層，大地才重現光明。</p>
+    </div>
+
+    <div class="question">
+      <p>2. 由於處理不當，原本小小的誤會逐漸( <select name="q23" data-question="填充D2：擴大"><option value="">   </option><option>衝破</option><option>擴大</option><option>奇觀</option><option>奪目</option><option>一剎那</option></select> )，最後演變成激烈的爭吵。</p>
+    </div>
+
+    <div class="question">
+      <p>4. 煙火在夜空中綻放，發出( <select name="q24" data-question="填充D4：奪目"><option value="">   </option><option>衝破</option><option>擴大</option><option>奇觀</option><option>奪目</option><option>一剎那</option></select> ) 耀眼的光芒，將整個廣場照得如同白畫一般。</p>
+    </div>
+
+    <div class="question">
+      <p>5. 剛才還因為比賽領先而開心，( <select name="q25" data-question="填充D5：一剎那"><option value="">   </option><option>衝破</option><option>擴大</option><option>奇觀</option><option>奪目</option><option>一剎那</option></select> )，卻被對手逆轉，心情跌到了谷底。</p>
+    </div>
+
+    <div class="question">
+      <p>6. 雖然下着雨，但我們還是看到了天空出現彩虹的天然 ( <select name="q26" data-question="填充D6：奇觀"><option value="">   </option><option>衝破</option><option>擴大</option><option>奇觀</option><option>奪目</option><option>一剎那</option></select> )，大家都興奮不已。</p>
+    </div>
+  </div>
+
+  <!-- ====================== 課文一及課文二詞語填充 ====================== -->
+  <div class="section">
+    <h2>## 課文一及課文二詞語填充</h2>
+
+    <div class="question">
+      <p>1. 看見滿山遍野盛開著的油桐花，真是美不勝收，讓人( <select name="q27" data-question="課文一二1：歎為觀止"><option value="">   </option><option>綠草如茵</option><option>熱血沸騰</option><option>錄取</option><option>堅定不移</option><option>悠久</option><option>審核</option><option>伶俐</option><option>嚴格</option><option>結結巴巴</option><option>歎為觀止</option></select> )。</p>
+    </div>
+
+    <div class="question">
+      <p>2. 這座城堡興建於16世紀，至今依然屹立不倒，見證着當地( <select name="q28" data-question="課文一二2：悠久"><option value="">   </option><option>綠草如茵</option><option>熱血沸騰</option><option>錄取</option><option>堅定不移</option><option>悠久</option><option>審核</option><option>伶俐</option><option>嚴格</option><option>結結巴巴</option><option>歎為觀止</option></select> )的歷史和文化。</p>
+    </div>
+
+    <div class="question">
+      <p>3. 經過主辦單位多番的( <select name="q29" data-question="課文一二3：審核"><option value="">   </option><option>綠草如茵</option><option>熱血沸騰</option><option>錄取</option><option>堅定不移</option><option>悠久</option><option>審核</option><option>伶俐</option><option>嚴格</option><option>結結巴巴</option><option>歎為觀止</option></select> )後，他終於在眾多佼佼者中脫穎而出。</p>
+    </div>
+
+    <div class="question">
+      <p>4. 他參加了那家公司新進人員的面試，幸運地，他終於被( <select name="q30" data-question="課文一二4：錄取"><option value="">   </option><option>綠草如茵</option><option>熱血沸騰</option><option>錄取</option><option>堅定不移</option><option>悠久</option><option>審核</option><option>伶俐</option><option>嚴格</option><option>結結巴巴</option><option>歎為觀止</option></select> )了。</p>
+    </div>
+
+    <div class="question">
+      <p>5. 陳老師是我們的中文老師，她對我們的要求份外( <select name="q31" data-question="課文一二5：嚴格"><option value="">   </option><option>綠草如茵</option><option>熱血沸騰</option><option>錄取</option><option>堅定不移</option><option>悠久</option><option>審核</option><option>伶俐</option><option>嚴格</option><option>結結巴巴</option><option>歎為觀止</option></select> )。</p>
+    </div>
+
+    <div class="question">
+      <p>6. 當班主任向大家宣布這個( <select name="q32" data-question="課文一二6：熱血沸騰"><option value="">   </option><option>綠草如茵</option><option>熱血沸騰</option><option>錄取</option><option>堅定不移</option><option>悠久</option><option>審核</option><option>伶俐</option><option>嚴格</option><option>結結巴巴</option><option>歎為觀止</option></select> )的喜訊後，同學們馬上變得精神百倍。</p>
+    </div>
+
+    <div class="question">
+      <p>7. 儘管面對重重困難，但他的決心從未( <select name="q33" data-question="課文一二7：堅定不移"><option value="">   </option><option>綠草如茵</option><option>熱血沸騰</option><option>錄取</option><option>堅定不移</option><option>悠久</option><option>審核</option><option>伶俐</option><option>嚴格</option><option>結結巴巴</option><option>歎為觀止</option></select> )過。</p>
+    </div>
+
+    <div class="question">
+      <p>8. 小明已超過標準體重了，醫生建議他除了運動外，還得( <select name="q34" data-question="課文一二8：控制（對應綠草如茵池）"><option value="">   </option><option>綠草如茵</option><option>熱血沸騰</option><option>錄取</option><option>堅定不移</option><option>悠久</option><option>審核</option><option>伶俐</option><option>嚴格</option><option>結結巴巴</option><option>歎為觀止</option></select> )飲食。</p>
+    </div>
+
+    <div class="question">
+      <p>9. 妹妹不僅聰明( <select name="q35" data-question="課文一二9：伶俐"><option value="">   </option><option>綠草如茵</option><option>熱血沸騰</option><option>錄取</option><option>堅定不移</option><option>悠久</option><option>審核</option><option>伶俐</option><option>嚴格</option><option>結結巴巴</option><option>歎為觀止</option></select> )，而且活潑可愛，難怪外祖母這麼疼愛她。</p>
+    </div>
+
+    <div class="question">
+      <p>10. 一聽到衝鋒號響起，士兵們立刻( <select name="q36" data-question="課文一二10：熱血沸騰"><option value="">   </option><option>綠草如茵</option><option>熱血沸騰</option><option>錄取</option><option>堅定不移</option><option>悠久</option><option>審核</option><option>伶俐</option><option>嚴格</option><option>結結巴巴</option><option>歎為觀止</option></select> )，毫不猶豫地衝向戰場。</p>
+    </div>
+  </div>
+
+  <!-- ====================== (一) 詞語填充（課文三） ====================== -->
+  <div class="section">
+    <h2>## (一) 詞語填充（課文三）</h2>
+
+    <div class="question">
+      <p>1. 思思因( <select name="q37" data-question="課文三1：誤解"><option value="">   </option><option>誤解</option><option>證實</option><option>縱橫交錯</option><option>險峻</option><option>子虛烏有</option></select> )了樂文的行為而生氣，不過他們現在已經和好了。</p>
+    </div>
+
+    <div class="question">
+      <p>3. 經過調查後，警方找到了多項證據，( <select name="q38" data-question="課文三3：證實"><option value="">   </option><option>誤解</option><option>證實</option><option>縱橫交錯</option><option>險峻</option><option>子虛烏有</option></select> )了這是一次有預謀的犯罪。</p>
+    </div>
+
+    <div class="question">
+      <p>4. 汽車行駛在高速公路上，放眼望去，這座國際化大都市的道路( <select name="q39" data-question="課文三4：縱橫交錯"><option value="">   </option><option>誤解</option><option>證實</option><option>縱橫交錯</option><option>險峻</option><option>子虛烏有</option></select> )，車水馬龍。</p>
+    </div>
+
+    <div class="question">
+      <p>6. 面對眼前( <select name="q40" data-question="課文三6：險峻"><option value="">   </option><option>誤解</option><option>證實</option><option>縱橫交錯</option><option>險峻</option><option>子虛烏有</option></select> )的挑戰，他不但沒有退縮，反而更激發了想要克服困難的決心。</p>
+    </div>
+
+    <div class="question">
+      <p>7. 網路流傳的許多訊息常常是( <select name="q41" data-question="課文三7：子虛烏有"><option value="">   </option><option>誤解</option><option>證實</option><option>縱橫交錯</option><option>險峻</option><option>子虛烏有</option></select> )的謠言，所以我們必須小心查證，不要輕易相信。</p>
+    </div>
+  </div>
+
+  <!-- ====================== 填充(第一、二、三及五課) ====================== -->
+  <div class="section">
+    <h2>## 填充(第一、二、三及五課)：把適當的詞語寫在(____) 內</h2>
+
+    <div class="question">
+      <p>1. 球賽進入白熱化階段，觀眾們看到球隊得分，都( <select name="q42" data-question="綜合1：熱血沸騰"><option value="">   </option><option>悠久</option><option>險峻</option><option>奪目</option><option>綠草如茵</option><option>縱橫交錯</option><option>歎為觀止</option><option>子虛烏有</option><option>伶俐</option><option>嚴格</option><option>堅定不移</option><option>熱血沸騰</option><option>結結巴巴</option><option>錄取</option><option>審核</option><option>證實</option><option>衝破</option><option>擴大</option><option>誤解</option><option>奇觀</option><option>一剎那</option></select> ) 地歡呼起來。</p>
+    </div>
+
+    <div class="question">
+      <p>2. 這次總結性評估的( <select name="q43" data-question="綜合2：範圍（對應審核池）"><option value="">   </option><option>悠久</option><option>險峻</option><option>奪目</option><option>綠草如茵</option><option>縱橫交錯</option><option>歎為觀止</option><option>子虛烏有</option><option>伶俐</option><option>嚴格</option><option>堅定不移</option><option>熱血沸騰</option><option>結結巴巴</option><option>錄取</option><option>審核</option><option>證實</option><option>衝破</option><option>擴大</option><option>誤解</option><option>奇觀</option><option>一剎那</option></select> ) 比較廣泛，大家要做好充分準備啊！</p>
+    </div>
+
+    <div class="question">
+      <p>3. 這次演出集合了中港台傑出的藝人同台亮相，精彩程度真是令人( <select name="q44" data-question="綜合3：歎為觀止"><option value="">   </option><option>悠久</option><option>險峻</option><option>奪目</option><option>綠草如茵</option><option>縱橫交錯</option><option>歎為觀止</option><option>子虛烏有</option><option>伶俐</option><option>嚴格</option><option>堅定不移</option><option>熱血沸騰</option><option>結結巴巴</option><option>錄取</option><option>審核</option><option>證實</option><option>衝破</option><option>擴大</option><option>誤解</option><option>奇觀</option><option>一剎那</option></select> )。</p>
+    </div>
+
+    <div class="question">
+      <p>4. 他是一位口齒( <select name="q45" data-question="綜合4：伶俐"><option value="">   </option><option>悠久</option><option>險峻</option><option>奪目</option><option>綠草如茵</option><option>縱橫交錯</option><option>歎為觀止</option><option>子虛烏有</option><option>伶俐</option><option>嚴格</option><option>堅定不移</option><option>熱血沸騰</option><option>結結巴巴</option><option>錄取</option><option>審核</option><option>證實</option><option>衝破</option><option>擴大</option><option>誤解</option><option>奇觀</option><option>一剎那</option></select> ) 的辯論家，總能以精闢的言詞說服他人。</p>
+    </div>
+
+    <div class="question">
+      <p>5. 這位老師對學生的要求非常( <select name="q46" data-question="綜合5：嚴格"><option value="">   </option><option>悠久</option><option>險峻</option><option>奪目</option><option>綠草如茵</option><option>縱橫交錯</option><option>歎為觀止</option><option>子虛烏有</option><option>伶俐</option><option>嚴格</option><option>堅定不移</option><option>熱血沸騰</option><option>結結巴巴</option><option>錄取</option><option>審核</option><option>證實</option><option>衝破</option><option>擴大</option><option>誤解</option><option>奇觀</option><option>一剎那</option></select> )，不容許她們在課堂上遲到早退。</p>
+    </div>
+
+    <div class="question">
+      <p>6. 這次的事件讓我感到非常委屈，因我被大家( <select name="q47" data-question="綜合6：誤解"><option value="">   </option><option>悠久</option><option>險峻</option><option>奪目</option><option>綠草如茵</option><option>縱橫交錯</option><option>歎為觀止</option><option>子虛烏有</option><option>伶俐</option><option>嚴格</option><option>堅定不移</option><option>熱血沸騰</option><option>結結巴巴</option><option>錄取</option><option>審核</option><option>證實</option><option>衝破</option><option>擴大</option><option>誤解</option><option>奇觀</option><option>一剎那</option></select> ) 了。</p>
+    </div>
+
+    <div class="question">
+      <p>7. 這則消息已經被( <select name="q48" data-question="綜合7：證實"><option value="">   </option><option>悠久</option><option>險峻</option><option>奪目</option><option>綠草如茵</option><option>縱橫交錯</option><option>歎為觀止</option><option>子虛烏有</option><option>伶俐</option><option>嚴格</option><option>堅定不移</option><option>熱血沸騰</option><option>結結巴巴</option><option>錄取</option><option>審核</option><option>證實</option><option>衝破</option><option>擴大</option><option>誤解</option><option>奇觀</option><option>一剎那</option></select> ) 是虛構的，你不應該繼續傳下去了。</p>
+    </div>
+
+    <div class="question">
+      <p>8. 這家科技公司進行了嚴謹的甄選流程，最後只有幾位優秀的工程師被( <select name="q49" data-question="綜合8：錄取"><option value="">   </option><option>悠久</option><option>險峻</option><option>奪目</option><option>綠草如茵</option><option>縱橫交錯</option><option>歎為觀止</option><option>子虛烏有</option><option>伶俐</option><option>嚴格</option><option>堅定不移</option><option>熱血沸騰</option><option>結結巴巴</option><option>錄取</option><option>審核</option><option>證實</option><option>衝破</option><option>擴大</option><option>誤解</option><option>奇觀</option><option>一剎那</option></select> )。</p>
+    </div>
+
+    <div class="question">
+      <p>9. 經過主辦單位的嚴格( <select name="q50" data-question="綜合9：審核"><option value="">   </option><option>悠久</option><option>險峻</option><option>奪目</option><option>綠草如茵</option><option>縱橫交錯</option><option>歎為觀止</option><option>子虛烏有</option><option>伶俐</option><option>嚴格</option><option>堅定不移</option><option>熱血沸騰</option><option>結結巴巴</option><option>錄取</option><option>審核</option><option>證實</option><option>衝破</option><option>擴大</option><option>誤解</option><option>奇觀</option><option>一剎那</option></select> )，他終於在眾多佼佼者中脫穎而出。</p>
+    </div>
+
+    <div class="question">
+      <p>10. 孩子們在( <select name="q51" data-question="綜合10：綠草如茵"><option value="">   </option><option>悠久</option><option>險峻</option><option>奪目</option><option>綠草如茵</option><option>縱橫交錯</option><option>歎為觀止</option><option>子虛烏有</option><option>伶俐</option><option>嚴格</option><option>堅定不移</option><option>熱血沸騰</option><option>結結巴巴</option><option>錄取</option><option>審核</option><option>證實</option><option>衝破</option><option>擴大</option><option>誤解</option><option>奇觀</option><option>一剎那</option></select> ) 的草地上，盡情地奔跑嬉戲，歡笑聲不斷。</p>
+    </div>
+
+    <div class="question">
+      <p>11. 他心中有個不祥的( <select name="q52" data-question="綜合11：預感（對應誤解池）"><option value="">   </option><option>悠久</option><option>險峻</option><option>奪目</option><option>綠草如茵</option><option>縱橫交錯</option><option>歎為觀止</option><option>子虛烏有</option><option>伶俐</option><option>嚴格</option><option>堅定不移</option><option>熱血沸騰</option><option>結結巴巴</option><option>錄取</option><option>審核</option><option>證實</option><option>衝破</option><option>擴大</option><option>誤解</option><option>奇觀</option><option>一剎那</option></select> )，總覺得會有不好的事情發生。</p>
+    </div>
+
+    <div class="question">
+      <p>12. 身為一位( <select name="q53" data-question="綜合12：敏銳（對應伶俐池）"><option value="">   </option><option>悠久</option><option>險峻</option><option>奪目</option><option>綠草如茵</option><option>縱橫交錯</option><option>歎為觀止</option><option>子虛烏有</option><option>伶俐</option><option>嚴格</option><option>堅定不移</option><option>熱血沸騰</option><option>結結巴巴</option><option>錄取</option><option>審核</option><option>證實</option><option>衝破</option><option>擴大</option><option>誤解</option><option>奇觀</option><option>一剎那</option></select> ) 設計師，她總能精準掌握市場的最新趨勢。</p>
+    </div>
+
+    <div class="question">
+      <p>13. 觀察星座的人可由北極星所在的位置，來( <select name="q54" data-question="綜合13：辨認（對應證實池）"><option value="">   </option><option>悠久</option><option>險峻</option><option>奪目</option><option>綠草如茵</option><option>縱橫交錯</option><option>歎為觀止</option><option>子虛烏有</option><option>伶俐</option><option>嚴格</option><option>堅定不移</option><option>熱血沸騰</option><option>結結巴巴</option><option>錄取</option><option>審核</option><option>證實</option><option>衝破</option><option>擴大</option><option>誤解</option><option>奇觀</option><option>一剎那</option></select> ) 南北的方向。</p>
+    </div>
+
+    <div class="question">
+      <p>14. 他對這門手藝的熱愛，源自於家族數代的( <select name="q55" data-question="綜合14：悠久"><option value="">   </option><option>悠久</option><option>險峻</option><option>奪目</option><option>綠草如茵</option><option>縱橫交錯</option><option>歎為觀止</option><option>子虛烏有</option><option>伶俐</option><option>嚴格</option><option>堅定不移</option><option>熱血沸騰</option><option>結結巴巴</option><option>錄取</option><option>審核</option><option>證實</option><option>衝破</option><option>擴大</option><option>誤解</option><option>奇觀</option><option>一剎那</option></select> ) 傳承。</p>
+    </div>
+
+    <div class="question">
+      <p>15. 毛里求斯是非洲的火山島國，四周被珊瑚礁( <select name="q56" data-question="綜合15：環繞（對應縱橫交錯池）"><option value="">   </option><option>悠久</option><option>險峻</option><option>奪目</option><option>綠草如茵</option><option>縱橫交錯</option><option>歎為觀止</option><option>子虛烏有</option><option>伶俐</option><option>嚴格</option><option>堅定不移</option><option>熱血沸騰</option><option>結結巴巴</option><option>錄取</option><option>審核</option><option>證實</option><option>衝破</option><option>擴大</option><option>誤解</option><option>奇觀</option><option>一剎那</option></select> )，擁有清澈的海水。</p>
+    </div>
+
+    <div class="question">
+      <p>16. 通過( <select name="q57" data-question="綜合16：縱橫交錯"><option value="">   </option><option>悠久</option><option>險峻</option><option>奪目</option><option>綠草如茵</option><option>縱橫交錯</option><option>歎為觀止</option><option>子虛烏有</option><option>伶俐</option><option>嚴格</option><option>堅定不移</option><option>熱血沸騰</option><option>結結巴巴</option><option>錄取</option><option>審核</option><option>證實</option><option>衝破</option><option>擴大</option><option>誤解</option><option>奇觀</option><option>一剎那</option></select> ) 的自來水管，食水被源源不斷地送到花草樹木的根部。</p>
+    </div>
+
+    <div class="question">
+      <p>17. 姑姐在酒宴上配戴了一套紅寶石配飾，耀眼( <select name="q58" data-question="綜合17：奪目"><option value="">   </option><option>悠久</option><option>險峻</option><option>奪目</option><option>綠草如茵</option><option>縱橫交錯</option><option>歎為觀止</option><option>子虛烏有</option><option>伶俐</option><option>嚴格</option><option>堅定不移</option><option>熱血沸騰</option><option>結結巴巴</option><option>錄取</option><option>審核</option><option>證實</option><option>衝破</option><option>擴大</option><option>誤解</option><option>奇觀</option><option>一剎那</option></select> )，使她成為眾人注目的焦點。</p>
+    </div>
+
+    <div class="question">
+      <p>18. 那位教授在演講中( <select name="q59" data-question="綜合18：宣稱（對應誤解池）"><option value="">   </option><option>悠久</option><option>險峻</option><option>奪目</option><option>綠草如茵</option><option>縱橫交錯</option><option>歎為觀止</option><option>子虛烏有</option><option>伶俐</option><option>嚴格</option><option>堅定不移</option><option>熱血沸騰</option><option>結結巴巴</option><option>錄取</option><option>審核</option><option>證實</option><option>衝破</option><option>擴大</option><option>誤解</option><option>奇觀</option><option>一剎那</option></select> )，女性應該擁有平等的權利和機會，不應被社會束缚和限制。</p>
+    </div>
+  </div>
+
+  <button type="submit">全部提交並顯示答案</button>
+
+  <div id="allResults" class="result">
+    <h2>測驗結果總覽</h2>
+    <div id="scoreTotal" class="total-score"></div>
+    <div id="itemsAll"></div>
+    <div id="submitMessage"></div>
+  </div>
+
+</form>
+
+<script>
+function handleQuizSubmit(formId, resultId, itemsId, scoreId, msgId, correctAnswers) {
+  const form = document.getElementById(formId);
+  const resultDiv = document.getElementById(resultId);
+  const itemsDiv = document.getElementById(itemsId);
+  const scoreDiv = document.getElementById(scoreId);
+  const messageDiv = document.getElementById(msgId);
+
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    const controls = form.querySelectorAll('select');
+    let score = 0;
+    itemsDiv.innerHTML = '';
+
+    const answers = [];
+    const totalQuestions = correctAnswers.length - 1;
+
+    for (let i = 1; i <= totalQuestions; i++) {
+      const q = controls[i-1];
+      const userAnswer = q ? q.value.trim() : '';
+      const correct = correctAnswers[i];
+      const isCorrect = (userAnswer === correct && userAnswer !== '');
+
+      if (isCorrect) score++;
+
+      let questionText = q && q.dataset.question 
+        ? q.dataset.question 
+        : `第 ${i} 題`;
+
+      const item = document.createElement('div');
+      item.className = 'item';
+      item.innerHTML = `
+        <strong>${questionText}</strong><br><br>
+        你的答案： <span class="${isCorrect ? 'correct' : 'wrong'}">${userAnswer || '(未作答)'}</span><br>
+        <div class="answer-show">正確答案： <span class="correct">${correct}</span></div>
+        <div>得分： ${isCorrect ? '1' : '0'}</div>
+      `;
+      itemsDiv.appendChild(item);
+
+      answers.push({
+        questionNumber: i,
+        question: questionText,
+        yourAnswer: userAnswer || '(未作答)',
+        correctAnswer: correct,
+        result: isCorrect ? '正確' : '錯誤'
+      });
+    }
+
+    scoreDiv.textContent = `總 分： ${score} / ${totalQuestions}`;
+    resultDiv.style.display = 'block';
+    resultDiv.scrollIntoView({ behavior: 'smooth' });
+
+    const payload = {
+      _subject: "20261015-中文_詞語填充結果提交",
+      score: `${score} / ${totalQuestions}`,
+      timestamp: new Date().toISOString(),
+      answers: JSON.stringify(answers, null, 2)
+    };
+
+    try {
+      const response = await fetch('https://formspree.io/f/xvzwnvwp', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      messageDiv.innerHTML = response.ok
+        ? '<span class="success">✅ 測驗結果已成功送出！</span>'
+        : '<span class="error">送出失敗，請稍後再試。</span>';
+    } catch (err) {
+      messageDiv.innerHTML = '<span class="error">網路錯誤，無法送出結果。</span>';
+    }
+  });
+}
+
+// 精確對應所有 select 的正確答案（共59題）
+const correctAnswers = [
+  null,
+  // 一、從課文中找出適當的詞語 1-6
+  "悠久",
+  "堅定不移",
+  "結結巴巴",
+  "險峻",
+  "縱橫交錯",
+  "誤解",
+  // 填充第一組 7-11
+  "悠久",
+  "熱血沸騰",
+  "錄取",
+  "綠草如茵",
+  "堅定不移",
+  // 填充第二組 12-16
+  "伶俐",
+  "結結巴巴",
+  "歎為觀止",
+  "審核",
+  "嚴格",
+  // 填充第三組 17-21
+  "誤解",
+  "證實",
+  "縱橫交錯",
+  "子虛烏有",
+  "險峻",
+  // 填充第四組 22-26
+  "衝破",
+  "擴大",
+  "奪目",
+  "一剎那",
+  "奇觀",
+  // 課文一及課文二 27-36
+  "歎為觀止",
+  "悠久",
+  "審核",
+  "錄取",
+  "嚴格",
+  "熱血沸騰",
+  "堅定不移",
+  "嚴格",
+  "伶俐",
+  "熱血沸騰",
+  // 課文三 37-41
+  "誤解",
+  "證實",
+  "縱橫交錯",
+  "險峻",
+  "子虛烏有",
+  // 綜合 42-59
+  "熱血沸騰",
+  "範圍",
+  "歎為觀止",
+  "伶俐",
+  "嚴格",
+  "誤解",
+  "證實",
+  "錄取",
+  "審核",
+  "綠草如茵",
+  "預感",
+  "敏銳",
+  "辨認",
+  "悠久",
+  "環繞",
+  "縱橫交錯",
+  "奪目",
+  "宣稱"
+];
+
+// 初始化執行
+handleQuizSubmit('allQuizzes', 'allResults', 'itemsAll', 'scoreTotal', 'submitMessage', correctAnswers);
+</script>
+
+</body>
+</html>
+```
