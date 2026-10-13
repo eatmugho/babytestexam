@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self';
+    connect-src *;
+    script-src 'self' 'unsafe-inline';
+    style-src 'self' 'unsafe-inline';
+  ">
+  <title>20261015-中國語文古文</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, "Microsoft JhengHei", sans-serif;
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+      line-height: 1.6;
+      color: #333;
+    }
+    h1, h2, h3 {
+      text-align: center;
+      color: #2c3e50;
+      margin: 40px 0 20px;
+    }
+    h2 {
+      border-bottom: 2px solid #2c3e50;
+      padding-bottom: 10px;
+      margin-top: 60px;
+    }
+    h3 {
+      text-align: left;
+      color: #34495e;
+      margin-top: 30px;
+      font-size: 1.4rem;
+    }
+    .section {
+      margin-bottom: 60px;
+    }
+    .question {
+      margin: 25px 0;
+      padding: 20px;
+      background: #f9fbfc;
+      border-radius: 10px;
+      border-left: 5px solid #3498db;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      font-size: 1.4rem;
+    }
+    .question p {
+      margin: 0 0 12px 0;
+      font-size: 1.4rem;
+    }
+    .options-list {
+      margin-top: 10px;
+      padding-left: 20px;
+      list-style-type: none;
+    }
+    .options-list li {
+      margin: 5px 0;
+    }
+    strong {
+      color: #e74c3c;
+    }
+    select {
+      padding: 6px 10px;
+      font-size: 1.35rem;
+      min-width: 140px;
+      border-radius: 6px;
+      border: 1px solid #bdc3c7;
+      background: white;
+      margin: 0 5px;
+    }
+    select:focus {
+      outline: none;
+      border-color: #3498db;
+      box-shadow: 0 0 0 3px rgba(52,152,219,0.2);
+    }
+    button {
+      display: block;
+      margin: 60px auto;
+      padding: 18px 80px;
+      font-size: 1.35rem;
+      font-weight: bold;
+      background: #27ae60;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    button:hover {
+      background: #219653;
+    }
+    .result {
+      display: none;
+      margin: 40px 0;
+      padding: 30px;
+      background: #f4f6f9;
+      border-radius: 12px;
+      border: 1px solid #dfe6ed;
+    }
+    .total-score {
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-align: center;
+      margin: 30px 0 20px;
+      padding: 20px;
+      background: #d4edda;
+      border-radius: 10px;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+    }
+    .item {
+      margin: 18px 0;
+      padding: 16px;
+      background: white;
+      border-radius: 8px;
+      border: 1px solid #eee;
+    }
+    .correct { color: #27ae60; font-weight: bold; }
+    .wrong   { color: #c0392b; font-weight: bold; }
+    .answer-show {
+      margin-top: 8px;
+      font-size: 0.98rem;
+      color: #555;
+    }
+    #submitMessage {
+      text-align: center;
+      margin-top: 25px;
+      font-size: 1.15rem;
+    }
+    .success { color: #27ae60; }
+    .error   { color: #c0392b; }
+    .subtitle {
+      text-align: center;
+      color: #555;
+      margin-bottom: 30px;
+    }
+  </style>
+</head>
+<body>
+
+<h1>中國語文古文</h1>
+<p class="subtitle">請完成所有題目後按下方按鈕一次提交</p>
+
+<form id="allQuizzes">
+
+  <!-- ====================== 中國語文古文(一) ====================== -->
+  <div class="section">
+    <h2>## 中國語文古文(一)</h2>
+    
+    <h3># (一) 語譯</h3>
+    <div class="question">
+      <p>1. 宋人或得玉，獻諸子罕。<br>
+      「諸」的意思是：<select name="q1" data-question="古文(一) 語譯 1：諸"><option value="">   </option><option>獻之於</option><option>獻給你</option><option>送給他</option><option>交給別人</option></select></p>
+    </div>
+    <div class="question">
+      <p>2. 以示玉人。<br>
+      「玉人」的意思是：<select name="q2" data-question="古文(一) 語譯 2：玉人"><option value="">   </option><option>雕琢玉器的工人</option><option>賣玉的商人</option><option>收藏玉的人</option><option>賞玉的官員</option></select></p>
+    </div>
+    <div class="question">
+      <p>3. 爾以玉為寶。<br>
+      「爾」的意思是：<select name="q3" data-question="古文(一) 語譯 3：爾"><option value="">   </option><option>你</option><option>我</option><option>他</option><option>你們</option></select></p>
+    </div>
+    <div class="question">
+      <p>4. 皆喪寶也。<br>
+      「喪」的意思是：<select name="q4" data-question="古文(一) 語譯 4：喪"><option value="">   </option><option>失去</option><option>得到</option><option>珍惜</option><option>收藏</option></select></p>
+    </div>
+
+    <h3># (二) 填充（《不貪為寶》）</h3>
+    <div class="question">
+      <p>
+        宋國有一個人把一塊寶玉獻給子罕，子罕不肯( <select name="q5" data-question="古文(一) 填充 1：不肯"><option value="">   </option><option>接受</option><option>拒絕</option><option>欣賞</option><option>收藏</option></select> )。 <br>
+        獻玉人說：「我把它給玉工鑒定，玉工認為它是寶物，所以我才( <select name="q6" data-question="古文(一) 填充 2：才"><option value="">   </option><option>敢</option><option>想</option><option>願</option><option>能</option></select> )獻給您。」<br>
+        子罕說：「我認為不貪戀( <select name="q7" data-question="古文(一) 填充 3：不貪戀"><option value="">   </option><option>財寶</option><option>名利</option><option>權力</option><option>地位</option></select> )的品德是最寶貴的，而你把那塊玉當做寶物，如果我把玉收下，雙方都喪失了自己( <select name="q8" data-question="古文(一) 填充 4：喪失"><option value="">   </option><option>珍惜</option><option>擁有</option><option>喜歡</option><option>看重</option></select> )的東西，不如各自( <select name="q9" data-question="古文(一) 填充 5：各自"><option value="">   </option><option>擁有</option><option>珍惜</option><option>保留</option><option>保存</option></select> )自己的寶物吧。」
+      </p>
+    </div>
+
+    <h3># (三) 選擇題</h3>
+    <div class="question">
+      <p>1. 從獻玉人為證明他所獻的確是寶物而找玉工鑑定一事，可見子罕是甚麼地位的人？<br>
+      ( <select name="q10" data-question="古文(一) 選擇 1：子罕地位"><option value="">   </option><option>A</option><option>B</option><option>C</option></select> )</p>
+      <ul class="options-list">
+        <li>A. 上位</li>
+        <li>B. 下級</li>
+        <li>C. 和獻玉人地位平等</li>
+      </ul>
+    </div>
+    <div class="question">
+      <p>2. 在《不貪為寶》中，從子罕不接受寶玉的事，可見子罕對財物有甚麼看法？<br>
+      ( <select name="q11" data-question="古文(一) 選擇 2：對財物看法"><option value="">   </option><option>A</option><option>B</option><option>C</option></select> )</p>
+      <ul class="options-list">
+        <li>A. 忽視</li>
+        <li>B. 重視</li>
+        <li>C. 輕視</li>
+      </ul>
+    </div>
+
+    <h3># (四) 問答題</h3>
+    <div class="question">
+      <p>1. 你覺得財寶重要還是品德重要？為甚麼？<br>
+      答案：<select name="q12" data-question="古文(一) 問答 1：財寶與品德"><option value="">   </option><option>我覺得品德比財寶重要。因為良好的品德可以後得到他人的尊重，是金錢買不到的。</option><option>我覺得財寶比品德重要。因為有錢才能過好日子。</option></select></p>
+    </div>
+  </div>
+
+  <!-- ====================== 中國語文古文（二） ====================== -->
+  <div class="section">
+    <h2>## 中國語文古文（二）</h2>
+    
+    <h3># (一) 語譯</h3>
+    <div class="question">
+      <p>1. *夫子*式而聽之。<br>
+      「夫子」的意思是：<select name="q13" data-question="古文(二) 語譯 1：夫子"><option value="">   </option><option>老師</option><option>父親</option><option>君子</option><option>聖人</option></select></p>
+    </div>
+    <div class="question">
+      <p>2. 壹似*重*有憂者。<br>
+      「重」的意思是：<select name="q14" data-question="古文(二) 語譯 2：重"><option value="">   </option><option>積累</option><option>沉重</option><option>重要</option><option>再次</option></select></p>
+    </div>
+    <div class="question">
+      <p>3. *昔者*吾舅死於虎。<br>
+      「昔者」的意思是：<select name="q15" data-question="古文(二) 語譯 3：昔者"><option value="">   </option><option>從前</option><option>昨天</option><option>後來</option><option>現在</option></select></p>
+    </div>
+    <div class="question">
+      <p>4. 曰：「無*苛政*。」<br>
+      「苛政」的意思是：<select name="q16" data-question="古文(二) 語譯 4：苛政"><option value="">   </option><option>苛刻殘酷的政治</option><option>嚴格的法律</option><option>繁重的稅收</option><option>腐敗的官員</option></select></p>
+    </div>
+    <div class="question">
+      <p>5. *小子*識之，苛政猛於虎也。<br>
+      「小子」的意思是：<select name="q17" data-question="古文(二) 語譯 5：小子"><option value="">   </option><option>後輩</option><option>小孩</option><option>學生</option><option>年輕人</option></select></p>
+    </div>
+
+    <h3># (二) 填充（《苛政猛於虎》）</h3>
+    <div class="question">
+      <p>
+        有一天，孔子經過泰山旁邊，看見一位婦人在( <select name="q18" data-question="古文(二) 填充 1：在"><option value="">   </option><option>墓前</option><option>路邊</option><option>山上</option><option>家中</option></select> )哭得很傷心。<br>
+        孔子俯身仔細傾聽，並讓子路上前問那婦女。子路問：「你哭成這個樣子，就像有許多( <select name="q19" data-question="古文(二) 填充 2：許多"><option value="">   </option><option>悲痛</option><option>困難</option><option>麻煩</option><option>事情</option></select> )。」<br>
+        婦人果然說：「是的。從前我的( <select name="q20" data-question="古文(二) 填充 3：從前我的"><option value="">   </option><option>家翁</option><option>父親</option><option>兒子</option><option>丈夫</option></select> )被老虎咬死了，我的丈夫也被老虎咬死，現在我的兒子又被老虎咬死了。」<br>
+        孔子問：「那你為甚麼不離開這個地方呢？」婦人說：「這裡沒有( <select name="q21" data-question="古文(二) 填充 4：沒有"><option value="">   </option><option>苛刻殘酷</option><option>嚴格</option><option>繁重</option><option>腐敗</option></select> )的政令。」<br>
+        孔子對子路說：「你要好好記住，殘暴的政治比老虎還要( <select name="q22" data-question="古文(二) 填充 5：還要"><option value="">   </option><option>厲害</option><option>可怕</option><option>殘忍</option><option>危險</option></select> )啊！」
+      </p>
+    </div>
+
+    <h3># (三) 選擇題</h3>
+    <div class="question">
+      <p>1. 《苛政猛於虎》出自《禮記》，它是儒家學者於哪一方面資料的闡釋？<br>
+      ( <select name="q23" data-question="古文(二) 選擇 1：出自哪方面"><option value="">   </option><option>A</option><option>B</option><option>C</option></select> )</p>
+      <ul class="options-list">
+        <li>A. 政治</li>
+        <li>B. 禮制</li>
+        <li>C. 宗教</li>
+      </ul>
+    </div>
+    <div class="question">
+      <p>2. 《苛政猛於虎》以甚麼手法來說明苛政荼毒人民的道理？<br>
+      ( <select name="q24" data-question="古文(二) 選擇 2：手法"><option value="">   </option><option>A</option><option>B</option><option>C</option></select> )</p>
+      <ul class="options-list">
+        <li>A. 擬人</li>
+        <li>B. 對比</li>
+        <li>C. 比喻</li>
+      </ul>
+    </div>
+
+    <h3># (四) 問答題</h3>
+    <div class="question">
+      <p>1. 你認為怎樣才算是一個好政府？你最希望政府能為你提供甚麼服務？為甚麼？<br>
+      答案：<select name="q25" data-question="古文(二) 問答 1：好政府"><option value="">   </option><option>好政府以民為本。我最希望政府提供完善醫療服務，因為能切實保障市民健康，減輕生活壓力，讓大家安居樂業。</option><option>好政府應該多收稅。我最希望政府多建豪宅，因為能提升生活質素。</option></select></p>
+    </div>
+  </div>
+
+  <button type="submit">全部提交並顯示答案</button>
+
+  <div id="allResults" class="result">
+    <h2>測驗結果總覽</h2>
+    <div id="scoreTotal" class="total-score"></div>
+    <div id="itemsAll"></div>
+    <div id="submitMessage"></div>
+  </div>
+
+</form>
+
+<script>
+function handleQuizSubmit(formId, resultId, itemsId, scoreId, msgId, correctAnswers) {
+  const form = document.getElementById(formId);
+  const resultDiv = document.getElementById(resultId);
+  const itemsDiv = document.getElementById(itemsId);
+  const scoreDiv = document.getElementById(scoreId);
+  const messageDiv = document.getElementById(msgId);
+
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    const controls = form.querySelectorAll('select');
+    let score = 0;
+    itemsDiv.innerHTML = '';
+
+    const answers = [];
+    const totalQuestions = correctAnswers.length - 1;
+
+    for (let i = 1; i <= totalQuestions; i++) {
+      const q = controls[i-1];
+      const userAnswer = q ? q.value.trim() : '';
+      const correct = correctAnswers[i];
+      const isCorrect = (userAnswer === correct && userAnswer !== '');
+
+      if (isCorrect) score++;
+
+      let questionText = q && q.dataset.question 
+        ? q.dataset.question 
+        : `第 ${i} 題`;
+
+      const item = document.createElement('div');
+      item.className = 'item';
+      item.innerHTML = `
+        <strong>${questionText}</strong><br><br>
+        你的答案： <span class="${isCorrect ? 'correct' : 'wrong'}">${userAnswer || '(未作答)'}</span><br>
+        <div class="answer-show">正確答案： <span class="correct">${correct}</span></div>
+        <div>得分： ${isCorrect ? '1' : '0'}</div>
+      `;
+      itemsDiv.appendChild(item);
+
+      answers.push({
+        questionNumber: i,
+        question: questionText,
+        yourAnswer: userAnswer || '(未作答)',
+        correctAnswer: correct,
+        result: isCorrect ? '正確' : '錯誤'
+      });
+    }
+
+    scoreDiv.textContent = `總 分： ${score} / ${totalQuestions}`;
+    resultDiv.style.display = 'block';
+    resultDiv.scrollIntoView({ behavior: 'smooth' });
+
+    const payload = {
+      _subject: "20261015-中國語文古文結果提交",
+      score: `${score} / ${totalQuestions}`,
+      timestamp: new Date().toISOString(),
+      answers: JSON.stringify(answers, null, 2)
+    };
+
+    try {
+      const response = await fetch('https://formspree.io/f/xvzwnvwp', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      messageDiv.innerHTML = response.ok
+        ? '<span class="success">✅ 測驗結果已成功送出！</span>'
+        : '<span class="error">送出失敗，請稍後再試。</span>';
+    } catch (err) {
+      messageDiv.innerHTML = '<span class="error">網路錯誤，無法送出結果。</span>';
+    }
+  });
+}
+
+// 精確對應 HTML 中 25 個 select 的正確答案
+const correctAnswers = [
+  null,
+  // 古文(一) 語譯
+  "獻之於",
+  "雕琢玉器的工人",
+  "你",
+  "失去",
+  // 古文(一) 填充
+  "接受",
+  "敢",
+  "財寶",
+  "珍惜",
+  "擁有",
+  // 古文(一) 選擇
+  "A",
+  "C",
+  // 古文(一) 問答
+  "我覺得品德比財寶重要。因為良好的品德可以後得到他人的尊重，是金錢買不到的。",
+  // 古文(二) 語譯
+  "老師",
+  "積累",
+  "從前",
+  "苛刻殘酷的政治",
+  "後輩",
+  // 古文(二) 填充
+  "墓前",
+  "悲痛",
+  "家翁",
+  "苛刻殘酷",
+  "厲害",
+  // 古文(二) 選擇
+  "B",
+  "C",
+  // 古文(二) 問答
+  "好政府以民為本。我最希望政府提供完善醫療服務，因為能切實保障市民健康，減輕生活壓力，讓大家安居樂業。"
+];
+
+// 初始化執行
+handleQuizSubmit('allQuizzes', 'allResults', 'itemsAll', 'scoreTotal', 'submitMessage', correctAnswers);
+</script>
+
+</body>
+</html>
