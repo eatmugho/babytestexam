@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self';
+    connect-src *;
+    script-src 'self' 'unsafe-inline';
+    style-src 'self' 'unsafe-inline';
+  ">
+  <title>田徑規則測驗（田賽・徑賽・擲壘球・耐力跑）</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, "Microsoft JhengHei", sans-serif;
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+      line-height: 1.6;
+      color: #333;
+    }
+    h1, h2, h3 {
+      text-align: center;
+      color: #2c3e50;
+      margin: 40px 0 20px;
+    }
+    h2 {
+      border-bottom: 2px solid #2c3e50;
+      padding-bottom: 10px;
+      margin-top: 60px;
+    }
+    h3 {
+      text-align: left;
+      color: #34495e;
+      margin-top: 30px;
+      font-size: 1.4rem;
+    }
+    .section {
+      margin-bottom: 60px;
+    }
+    .question {
+      margin: 25px 0;
+      padding: 20px;
+      background: #f9fbfc;
+      border-radius: 10px;
+      border-left: 5px solid #3498db;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      font-size: 1.4rem;
+    }
+    .question p {
+      margin: 0 0 12px 0;
+      font-size: 1.4rem;
+    }
+    .options-list {
+      margin-top: 10px;
+      padding-left: 20px;
+      list-style-type: none;
+    }
+    .options-list li {
+      margin: 5px 0;
+    }
+    strong {
+      color: #e74c3c;
+    }
+    select {
+      padding: 6px 10px;
+      font-size: 1.35rem;
+      min-width: 180px;
+      border-radius: 6px;
+      border: 1px solid #bdc3c7;
+      background: white;
+      margin: 0 5px;
+    }
+    select:focus {
+      outline: none;
+      border-color: #3498db;
+      box-shadow: 0 0 0 3px rgba(52,152,219,0.2);
+    }
+    .feedback {
+      font-weight: bold;
+      margin-right: 6px;
+      font-size: 1.2rem;
+      vertical-align: middle;
+    }
+    .feedback-correct {
+      color: #27ae60;
+    }
+    .feedback-wrong {
+      color: #c0392b;
+    }
+    button {
+      display: block;
+      margin: 60px auto;
+      padding: 18px 80px;
+      font-size: 1.35rem;
+      font-weight: bold;
+      background: #27ae60;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    button:hover {
+      background: #219653;
+    }
+    .result {
+      display: none;
+      margin: 40px 0;
+      padding: 30px;
+      background: #f4f6f9;
+      border-radius: 12px;
+      border: 1px solid #dfe6ed;
+    }
+    .total-score {
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-align: center;
+      margin: 30px 0 20px;
+      padding: 20px;
+      background: #d4edda;
+      border-radius: 10px;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+    }
+    .item {
+      margin: 18px 0;
+      padding: 16px;
+      background: white;
+      border-radius: 8px;
+      border: 1px solid #eee;
+    }
+    .correct { color: #27ae60; font-weight: bold; }
+    .wrong   { color: #c0392b; font-weight: bold; }
+    .answer-show {
+      margin-top: 8px;
+      font-size: 0.98rem;
+      color: #555;
+    }
+    #submitMessage {
+      text-align: center;
+      margin-top: 25px;
+      font-size: 1.15rem;
+    }
+    .success { color: #27ae60; }
+    .error   { color: #c0392b; }
+    .subtitle {
+      text-align: center;
+      color: #555;
+      margin-bottom: 30px;
+    }
+  </style>
+</head>
+<body>
+
+<h1>田徑規則測驗</h1>
+<p class="subtitle">請完成所有題目後按下方按鈕一次提交</p>
+
+<form id="allQuizzes">
+
+  <!-- ====================== 田賽 ====================== -->
+  <div class="section">
+    <h2>## 田賽</h2>
+
+    <div class="question">
+      <p>1. 在跳高比賽中，選手可以使用哪種方式起跳？
+        <select name="q1" data-question="田賽 1：跳高起跳方式">
+          <option value="">   </option>
+          <option>單腳</option>
+          <option>雙腳</option>
+          <option>只限右腳</option>
+          <option>任意方式</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>2. 標槍比賽中，選手投擲時的動作要求是什麼？
+        <select name="q2" data-question="田賽 2：標槍投擲動作">
+          <option value="">   </option>
+          <option>任意方式投擲</option>
+          <option>必須從肩膀上方投擲</option>
+          <option>可以旋轉投擲</option>
+          <option>可以從胸前投擲</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>3. 跳高比賽中，選手如果三次未能通過同一高度會發生什麼？
+        <select name="q3" data-question="田賽 3：跳高三次失敗">
+          <option value="">   </option>
+          <option>高度降低</option>
+          <option>獲得一次額外嘗試</option>
+          <option>被淘汰</option>
+          <option>繼續比賽</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>4. 鉛球比賽中，選手在投擲時腳步的要求是什麼？
+        <select name="q4" data-question="田賽 4：鉛球腳步要求">
+          <option value="">   </option>
+          <option>腳必須保持在圈內</option>
+          <option>腳可以離開圈內</option>
+          <option>腳只需觸地即可</option>
+          <option>腳可以在圈外滑動</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>5. 鉛球比賽中，選手必須從(___)離開投擲區？
+        <select name="q5" data-question="田賽 5：鉛球離開投擲區">
+          <option value="">   </option>
+          <option>前半圓</option>
+          <option>後半圓</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>6. 跳遠比賽中，如果選手在起跳時踩線會發生什麼？
+        <select name="q6" data-question="田賽 6：跳遠踩線">
+          <option value="">   </option>
+          <option>可以重新起跳</option>
+          <option>成績扣分</option>
+          <option>成績無效</option>
+          <option>提前結束比賽</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>7. 以下關於跳遠比賽，哪一不會判該次試跳為失敗？
+        <select name="q7" data-question="田賽 7：跳遠不會判失敗">
+          <option value="">   </option>
+          <option>在未做起跳前，運動員以身體任何部位觸及起跳線以後之地面。</option>
+          <option>運動員在起跳板左右兩端之外起跳</option>
+          <option>運動員完成試跳後，向前走出落地區</option>
+          <option>運動員完成試跳後，向後走出落地區</option>
+          <option>運動員在助跑或跳躍中，採用任何的空翻姿勢</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>8. 以下關於鐵餅比賽，哪一個是錯的？
+        <select name="q8" data-question="田賽 8：鐵餅錯誤描述">
+          <option value="">   </option>
+          <option>鐵餅的落點必須在扇形著地區內 (觸邊線作投擲失敗)。</option>
+          <option>運動員在投擲後，必須從後半圓離開投擲區。</option>
+          <option>在投擲過程中，若身體任何部份觸及投擲圈任何地方，會被扣分。</option>
+          <option>成績的量度：把尺在鐵餅落地最近投擲區的那一點開始，拉往投擲區中心。</option>
+        </select>
+      </p>
+    </div>
+  </div>
+
+  <!-- ====================== 徑賽 ====================== -->
+  <div class="section">
+    <h2>## 徑賽</h2>
+
+    <div class="question">
+      <p>1. 在400米賽跑中，選手必須在運動場跑幾圈才能完成比賽？
+        <select name="q9" data-question="徑賽 1：400米圈數">
+          <option value="">   </option>
+          <option>4圈</option>
+          <option>3圈</option>
+          <option>1圈</option>
+          <option>2圈</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>2. 在接力賽中，選手在接棒區外接棒會怎樣？
+        <select name="q10" data-question="徑賽 2：接棒區外接棒">
+          <option value="">   </option>
+          <option>被警告</option>
+          <option>重新再比賽</option>
+          <option>被扣分</option>
+          <option>被取消資格</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>3. 在跨欄比賽中，選手如果不是故意推倒欄架會怎樣？
+        <select name="q11" data-question="徑賽 3：跨欄非故意推倒">
+          <option value="">   </option>
+          <option>成績有效，但會被扣分</option>
+          <option>直接被取消資格</option>
+          <option>成績有效，不會被扣分</option>
+          <option>被警告一次</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>4. 在200米徑賽比賽中，選手如果越線跑到其他賽道會怎樣？
+        <select name="q12" data-question="徑賽 4：200米越線">
+          <option value="">   </option>
+          <option>直接被取消資格</option>
+          <option>可以繼續比賽</option>
+          <option>被扣分</option>
+          <option>被警告一次</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>5. 在徑賽比賽中，選手如果試圖干擾其他選手會怎樣？
+        <select name="q13" data-question="徑賽 5：干擾其他選手">
+          <option value="">   </option>
+          <option>重新開始比賽</option>
+          <option>被警告一次</option>
+          <option>直接被取消資格</option>
+          <option>成績扣分</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>6. 判定運動員抵達終點的名次時，會以身體哪個部份為準？
+        <select name="q14" data-question="徑賽 6：終點名次判定部位">
+          <option value="">   </option>
+          <option>頭</option>
+          <option>頸</option>
+          <option>臂</option>
+          <option>手</option>
+          <option>腿</option>
+          <option>軀幹</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>7. 接力棒的傳遞，必須在(___)米長的接棒區內完成。
+        <select name="q15" data-question="徑賽 7：接棒區長度">
+          <option value="">   </option>
+          <option>10</option>
+          <option>20</option>
+          <option>30</option>
+          <option>40</option>
+        </select>
+      </p>
+    </div>
+  </div>
+
+  <!-- ====================== 擲壘球(小學陸運會) ====================== -->
+  <div class="section">
+    <h2>## 擲壘球（小學陸運會）</h2>
+
+    <div class="question">
+      <p>1. 在擲壘球比賽中，選手投擲時的基本動作要求是什麼？
+        <select name="q16" data-question="擲壘球 1：投擲動作要求">
+          <option value="">   </option>
+          <option>可以任意旋轉投擲</option>
+          <option>必須單手自肩上投擲</option>
+          <option>必須雙手拋擲</option>
+          <option>可以從胸前推擲</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>2. 在擲壘球比賽中，投擲時選手踩到或越過助跑線/起擲線會怎樣？
+        <select name="q17" data-question="擲壘球 2：踩線處理">
+          <option value="">   </option>
+          <option>可以重新投擲一次</option>
+          <option>成績有效但扣分</option>
+          <option>判為該次試跳/試擲失敗（無效）</option>
+          <option>被警告一次後繼續</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>3. 擲壘球比賽中，壘球的落點必須在何處才算有效？
+        <select name="q18" data-question="擲壘球 3：落點有效範圍">
+          <option value="">   </option>
+          <option>落區內（扇形/指定著地區內，且不可踩線或落於邊線外）</option>
+          <option>跑道上任何位置</option>
+          <option>裁判身邊的任意空地</option>
+          <option>場地內任何位置</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>4. 擲壘球比賽中，成績的量度是從哪裡開始計算？
+        <select name="q19" data-question="擲壘球 4：成績量度起點">
+          <option value="">   </option>
+          <option>從壘球第一落點最近起擲線內沿的一點，量至起擲線/弧線內沿</option>
+          <option>從壘球停下的最後位置開始量度</option>
+          <option>從選手站立的位置開始量度</option>
+          <option>從扇形區的最遠邊線開始量度</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>5. 在擲壘球比賽中，選手完成投擲後應如何離開投擲區？
+        <select name="q20" data-question="擲壘球 5：離開投擲區方式">
+          <option value="">   </option>
+          <option>隨意向前方跑出</option>
+          <option>在裁判發令前快速離開</option>
+          <option>在球落地並經裁判白旗示意有效後，從投擲線/助跑道後方離開</option>
+          <option>直接走到落點拿回壘球</option>
+        </select>
+      </p>
+    </div>
+  </div>
+
+  <!-- ====================== 耐力跑 ====================== -->
+  <div class="section">
+    <h2>## 耐力跑</h2>
+
+    <div class="question">
+      <p>1. 在耐力跑（如小學800米/1500米或長跑）比賽中，起跑通常採用哪一種起跑姿勢？
+        <select name="q21" data-question="耐力跑 1：起跑姿勢">
+          <option value="">   </option>
+          <option>蹲踞式起跑（使用起跑架）</option>
+          <option>站立式起跑</option>
+          <option>坐姿起起跑</option>
+          <option>單手扶地起跑</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>2. 在耐力跑比賽中，選手在起跑後何時可以切入內道（搶道）？
+        <select name="q22" data-question="耐力跑 2：搶道時機">
+          <option value="">   </option>
+          <option>起跑後立刻切入</option>
+          <option>通過搶道線（或搶道標誌）後</option>
+          <option>跑滿一圈之後</option>
+          <option>全程不可切入，必須一直在原賽道跑</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>3. 在耐力跑比賽中，如果選手故意走出跑道內側邊線並藉此獲得利益，會怎樣？
+        <select name="q23" data-question="耐力跑 3：故意走出內側邊線">
+          <option value="">   </option>
+          <option>成績照算</option>
+          <option>被判取消資格</option>
+          <option>扣減10秒成績</option>
+          <option>獲得重新起跑機會</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>4. 耐力跑比賽中，關於選手在比賽過程中的補給或接受協助，以下哪項描述正確？
+        <select name="q24" data-question="耐力跑 4：補給與協助">
+          <option value="">   </option>
+          <option>可以隨時接受非比賽人員陪跑帶路</option>
+          <option>必須在指定的飲水/補給站接受官方規範的補給，不可接受非法的陪跑或非法協助</option>
+          <option>可以隨意接過觀眾遞交的物品</option>
+          <option>只要不影響他人，可以隨意走捷徑</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>5. 在耐力跑比賽中，當領跑選手準備超越慢一圈的選手（被超圈者）時，被超圈的選手應該如何處理？
+        <select name="q25" data-question="耐力跑 5：被超圈處理">
+          <option value="">   </option>
+          <option>故意阻擋對方 passing</option>
+          <option>保持正常跑速與路線，不得故意阻擋或干擾後方超越者</option>
+          <option>立即停下等對方通過</option>
+          <option>立刻跑出跑道外休息</option>
+        </select>
+      </p>
+    </div>
+  </div>
+
+  <button type="submit">全部提交並顯示答案</button>
+
+  <div id="allResults" class="result">
+    <h2>測驗結果總覽</h2>
+    <div id="scoreTotal" class="total-score"></div>
+    <div id="itemsAll"></div>
+    <div id="submitMessage"></div>
+  </div>
+
+</form>
+
+<script>
+function handleQuizSubmit(formId, resultId, itemsId, scoreId, msgId, correctAnswers) {
+  const form = document.getElementById(formId);
+  const resultDiv = document.getElementById(resultId);
+  const itemsDiv = document.getElementById(itemsId);
+  const scoreDiv = document.getElementById(scoreId);
+  const messageDiv = document.getElementById(msgId);
+
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    const controls = form.querySelectorAll('select');
+    let score = 0;
+    itemsDiv.innerHTML = '';
+
+    const answers = [];
+    const totalQuestions = correctAnswers.length - 1;
+
+    for (let i = 1; i <= totalQuestions; i++) {
+      const q = controls[i-1];
+      const userAnswer = q ? q.value.trim() : '';
+      const correct = correctAnswers[i];
+      const isCorrect = (userAnswer === correct && userAnswer !== '');
+
+      if (isCorrect) score++;
+
+      // 在每個下拉選單前方顯示正確/錯誤標記
+      if (q) {
+        // 移除舊的標記（若重複提交）
+        const prevFeedback = q.previousElementSibling;
+        if (prevFeedback && prevFeedback.classList && prevFeedback.classList.contains('feedback')) {
+          prevFeedback.remove();
+        }
+        const feedback = document.createElement('span');
+        feedback.className = 'feedback ' + (isCorrect ? 'feedback-correct' : 'feedback-wrong');
+        feedback.textContent = isCorrect ? '✓ 正確' : '✗ 錯誤';
+        q.parentNode.insertBefore(feedback, q);
+      }
+
+      let questionText = q && q.dataset.question 
+        ? q.dataset.question 
+        : `第 ${i} 題`;
+
+      const item = document.createElement('div');
+      item.className = 'item';
+      item.innerHTML = `
+        <strong>${questionText}</strong><br><br>
+        你的答案： <span class="${isCorrect ? 'correct' : 'wrong'}">${userAnswer || '(未作答)'}</span><br>
+        <div class="answer-show">正確答案： <span class="correct">${correct}</span></div>
+        <div>得分： ${isCorrect ? '1' : '0'}</div>
+      `;
+      itemsDiv.appendChild(item);
+
+      answers.push({
+        questionNumber: i,
+        question: questionText,
+        yourAnswer: userAnswer || '(未作答)',
+        correctAnswer: correct,
+        result: isCorrect ? '正確' : '錯誤'
+      });
+    }
+
+    scoreDiv.textContent = `總 分： ${score} / ${totalQuestions}`;
+    resultDiv.style.display = 'block';
+    resultDiv.scrollIntoView({ behavior: 'smooth' });
+
+    const payload = {
+      _subject: "田徑規則測驗結果提交",
+      score: `${score} / ${totalQuestions}`,
+      timestamp: new Date().toISOString(),
+      answers: JSON.stringify(answers, null, 2)
+    };
+
+    try {
+      const response = await fetch('https://formspree.io/f/xvzwnvwp', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      messageDiv.innerHTML = response.ok
+        ? '<span class="success">✅ 測驗結果已成功送出！</span>'
+        : '<span class="error">送出失敗，請稍後再試。</span>';
+    } catch (err) {
+      messageDiv.innerHTML = '<span class="error">網路錯誤，無法送出結果。</span>';
+    }
+  });
+}
+
+// 精確對應 HTML 中所有 select 的正確答案（已按標準田徑規則核實）
+const correctAnswers = [
+  null,
+  // 田賽 1-8
+  "單腳",                                                          // q1  必須單腳起跳
+  "必須從肩膀上方投擲",                                            // q2  標槍必須從肩上擲出
+  "被淘汰",                                                        // q3  同一高度連續三次失敗即淘汰
+  "腳必須保持在圈內",                                              // q4  投擲過程中腳不可觸及圈外
+  "後半圓",                                                        // q5  必須從後半圓離開
+  "成績無效",                                                      // q6  踩線（觸及起跳線垂直面）判失敗
+  "運動員完成試跳後，向前走出落地區",                              // q7  正確離開方式是向前走出（其餘皆為失敗原因）
+  "在投擲過程中，若身體任何部份觸及投擲圈任何地方，會被扣分。",  // q8  錯誤：觸及圈上緣或圈外會判失敗（不是「扣分」）
+
+  // 徑賽 9-15
+  "1圈",                                                           // q9  標準400米跑道正好1圈
+  "被取消資格",                                                    // q10 接棒區外接棒取消資格
+  "成績有效，不會被扣分",                                          // q11 非故意碰倒欄架成績有效
+  "直接被取消資格",                                                // q12 越線跑到其他賽道取消資格
+  "直接被取消資格",                                                // q13 故意干擾其他選手取消資格
+  "軀幹",                                                          // q14 以軀幹（不含頭、頸、四肢）抵達為準
+  "30",                                                            // q15 現行4×100米接棒區為30米（2018後）
+
+  // 擲壘球 16-20
+  "必須單手自肩上投擲",                                            // q16 小學陸運會標準要求
+  "判為該次試跳/試擲失敗（無效）",                                // q17 踩線或越線即該次失敗
+  "落區內（扇形/指定著地區內，且不可踩線或落於邊線外）",          // q18 必須落在指定扇形區內
+  "從壘球第一落點最近起擲線內沿的一點，量至起擲線/弧線內沿",      // q19 標準量度方法
+  "在球落地並經裁判白旗示意有效後，從投擲線/助跑道後方離開",      // q20 正確離開方式
+
+  // 耐力跑 21-25
+  "站立式起跑",                                                    // q21 中長跑採用站立式起跑
+  "通過搶道線（或搶道標誌）後",                                    // q22 通過搶道線後才可切入
+  "被判取消資格",                                                  // q23 故意走出內側並獲利取消資格
+  "必須在指定的飲水/補給站接受官方規範的補給，不可接受非法的陪跑或非法協助", // q24
+  "保持正常跑速與路線，不得故意阻擋或干擾後方超越者"               // q25
+];
+
+// 初始化執行
+handleQuizSubmit('allQuizzes', 'allResults', 'itemsAll', 'scoreTotal', 'submitMessage', correctAnswers);
+</script>
+
+</body>
+</html>
