@@ -1,0 +1,1848 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self';
+    connect-src *;
+    script-src 'self' 'unsafe-inline';
+    style-src 'self' 'unsafe-inline';
+  ">
+  <title>中文拼音與聲母韻母測驗（中華文人周・澳門足跡・其他）</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, "Microsoft JhengHei", sans-serif;
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+      line-height: 1.6;
+      color: #333;
+    }
+    h1, h2, h3 {
+      text-align: center;
+      color: #2c3e50;
+      margin: 40px 0 20px;
+    }
+    h2 {
+      border-bottom: 2px solid #2c3e50;
+      padding-bottom: 10px;
+      margin-top: 60px;
+    }
+    h3 {
+      text-align: left;
+      color: #34495e;
+      margin-top: 30px;
+      font-size: 1.4rem;
+    }
+    .section {
+      margin-bottom: 60px;
+    }
+    .question {
+      margin: 25px 0;
+      padding: 20px;
+      background: #f9fbfc;
+      border-radius: 10px;
+      border-left: 5px solid #3498db;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      font-size: 1.4rem;
+    }
+    .question p {
+      margin: 0 0 12px 0;
+      font-size: 1.4rem;
+    }
+    .options-list {
+      margin-top: 10px;
+      padding-left: 20px;
+      list-style-type: none;
+    }
+    .options-list li {
+      margin: 5px 0;
+    }
+    strong {
+      color: #e74c3c;
+    }
+    select {
+      padding: 6px 10px;
+      font-size: 1.35rem;
+      min-width: 120px;
+      border-radius: 6px;
+      border: 1px solid #bdc3c7;
+      background: white;
+      margin: 0 5px;
+    }
+    select:focus {
+      outline: none;
+      border-color: #3498db;
+      box-shadow: 0 0 0 3px rgba(52,152,219,0.2);
+    }
+    .feedback {
+      font-weight: bold;
+      margin-right: 6px;
+      font-size: 1.2rem;
+      vertical-align: middle;
+    }
+    .feedback-correct {
+      color: #27ae60;
+    }
+    .feedback-wrong {
+      color: #c0392b;
+    }
+    button {
+      display: block;
+      margin: 60px auto;
+      padding: 18px 80px;
+      font-size: 1.35rem;
+      font-weight: bold;
+      background: #27ae60;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    button:hover {
+      background: #219653;
+    }
+    .result {
+      display: none;
+      margin: 40px 0;
+      padding: 30px;
+      background: #f4f6f9;
+      border-radius: 12px;
+      border: 1px solid #dfe6ed;
+    }
+    .total-score {
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-align: center;
+      margin: 30px 0 20px;
+      padding: 20px;
+      background: #d4edda;
+      border-radius: 10px;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+    }
+    .item {
+      margin: 18px 0;
+      padding: 16px;
+      background: white;
+      border-radius: 8px;
+      border: 1px solid #eee;
+    }
+    .correct { color: #27ae60; font-weight: bold; }
+    .wrong   { color: #c0392b; font-weight: bold; }
+    .answer-show {
+      margin-top: 8px;
+      font-size: 0.98rem;
+      color: #555;
+    }
+    #submitMessage {
+      text-align: center;
+      margin-top: 25px;
+      font-size: 1.15rem;
+    }
+    .success { color: #27ae60; }
+    .error   { color: #c0392b; }
+    .subtitle {
+      text-align: center;
+      color: #555;
+      margin-bottom: 30px;
+    }
+  </style>
+</head>
+<body>
+
+<h1>中文拼音與聲母韻母測驗</h1>
+<p class="subtitle">請完成所有題目後按下方按鈕一次提交</p>
+
+<form id="allQuizzes">
+
+  <!-- ====================== 中華文人周 ====================== -->
+  <div class="section">
+    <h2>## 中華文人周</h2>
+
+    <h3>填寫聲母</h3>
+
+    <div class="question">
+      <p>1. （___）內
+        <select name="q1" data-question="中華文人周 1：內">
+          <option value="">   </option>
+          <option>l</option>
+          <option>n</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>2. （___）念
+        <select name="q2" data-question="中華文人周 2：念">
+          <option value="">   </option>
+          <option>l</option>
+          <option>n</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>3. （___）呂
+        <select name="q3" data-question="中華文人周 3：呂">
+          <option value="">   </option>
+          <option>l</option>
+          <option>n</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>4. （___）來
+        <select name="q4" data-question="中華文人周 4：來">
+          <option value="">   </option>
+          <option>l</option>
+          <option>n</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>5. （___）耐
+        <select name="q5" data-question="中華文人周 5：耐">
+          <option value="">   </option>
+          <option>l</option>
+          <option>n</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>6. （___）女
+        <select name="q6" data-question="中華文人周 6：女">
+          <option value="">   </option>
+          <option>l</option>
+          <option>n</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>7. （___）累
+        <select name="q7" data-question="中華文人周 7：累">
+          <option value="">   </option>
+          <option>l</option>
+          <option>n</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>8. （___）練
+        <select name="q8" data-question="中華文人周 8：練">
+          <option value="">   </option>
+          <option>l</option>
+          <option>n</option>
+        </select>
+      </p>
+    </div>
+
+    <h3>填上漢語拼音 [ling]</h3>
+
+    <div class="question">
+      <p>9. 令（___）
+        <select name="q9" data-question="中華文人周 9：令">
+          <option value="">   </option>
+          <option>līng</option>
+          <option>líng</option>
+          <option>lǐng</option>
+          <option>lìng</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>10. 鈴（___）
+        <select name="q10" data-question="中華文人周 10：鈴">
+          <option value="">   </option>
+          <option>līng</option>
+          <option>líng</option>
+          <option>lǐng</option>
+          <option>lìng</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>11. 零（___）
+        <select name="q11" data-question="中華文人周 11：零">
+          <option value="">   </option>
+          <option>līng</option>
+          <option>líng</option>
+          <option>lǐng</option>
+          <option>lìng</option>
+        </select>
+      </p>
+    </div>
+
+    <h3>填上漢語拼音 [ning]</h3>
+
+    <div class="question">
+      <p>12. 寧（___）
+        <select name="q12" data-question="中華文人周 12：寧">
+          <option value="">   </option>
+          <option>nīng</option>
+          <option>níng</option>
+          <option>nǐng</option>
+          <option>nìng</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>13. 檸（___）
+        <select name="q13" data-question="中華文人周 13：檸">
+          <option value="">   </option>
+          <option>nīng</option>
+          <option>níng</option>
+          <option>nǐng</option>
+          <option>nìng</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>14. 嚀（___）
+        <select name="q14" data-question="中華文人周 14：嚀">
+          <option value="">   </option>
+          <option>nīng</option>
+          <option>níng</option>
+          <option>nǐng</option>
+          <option>nìng</option>
+        </select>
+      </p>
+    </div>
+
+    <h3>填上漢語拼音 [lu]</h3>
+
+    <div class="question">
+      <p>15. 盧（___）
+        <select name="q15" data-question="中華文人周 15：盧">
+          <option value="">   </option>
+          <option>lū</option>
+          <option>lú</option>
+          <option>lǔ</option>
+          <option>lù</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>16. 爐（___）
+        <select name="q16" data-question="中華文人周 16：爐">
+          <option value="">   </option>
+          <option>lū</option>
+          <option>lú</option>
+          <option>lǔ</option>
+          <option>lù</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>17. 蘆（___）
+        <select name="q17" data-question="中華文人周 17：蘆">
+          <option value="">   </option>
+          <option>lū</option>
+          <option>lú</option>
+          <option>lǔ</option>
+          <option>lù</option>
+        </select>
+      </p>
+    </div>
+
+    <h3>填上漢語拼音 [nu]</h3>
+
+    <div class="question">
+      <p>18. 奴（___）
+        <select name="q18" data-question="中華文人周 18：奴">
+          <option value="">   </option>
+          <option>nū</option>
+          <option>nú</option>
+          <option>nǔ</option>
+          <option>nù</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>19. 努（___）
+        <select name="q19" data-question="中華文人周 19：努">
+          <option value="">   </option>
+          <option>nū</option>
+          <option>nú</option>
+          <option>nǔ</option>
+          <option>nù</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>20. 怒（___）
+        <select name="q20" data-question="中華文人周 20：怒">
+          <option value="">   </option>
+          <option>nū</option>
+          <option>nú</option>
+          <option>nǔ</option>
+          <option>nù</option>
+        </select>
+      </p>
+    </div>
+
+    <h3>填上漢語拼音 [liu]</h3>
+
+    <div class="question">
+      <p>21. 留（___）
+        <select name="q21" data-question="中華文人周 21：留">
+          <option value="">   </option>
+          <option>liū</option>
+          <option>liú</option>
+          <option>liǔ</option>
+          <option>liù</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>22. 溜（___）
+        <select name="q22" data-question="中華文人周 22：溜">
+          <option value="">   </option>
+          <option>liū</option>
+          <option>liú</option>
+          <option>liǔ</option>
+          <option>liù</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>23. 榴（___）
+        <select name="q23" data-question="中華文人周 23：榴">
+          <option value="">   </option>
+          <option>liū</option>
+          <option>liú</option>
+          <option>liǔ</option>
+          <option>liù</option>
+        </select>
+      </p>
+    </div>
+
+    <h3>填上漢語拼音 [niu]</h3>
+
+    <div class="question">
+      <p>24. 扭（___）
+        <select name="q24" data-question="中華文人周 24：扭">
+          <option value="">   </option>
+          <option>niū</option>
+          <option>niú</option>
+          <option>niǔ</option>
+          <option>niù</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>25. 鈕（___）
+        <select name="q25" data-question="中華文人周 25：鈕">
+          <option value="">   </option>
+          <option>niū</option>
+          <option>niú</option>
+          <option>niǔ</option>
+          <option>niù</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>26. 紐（___）
+        <select name="q26" data-question="中華文人周 26：紐">
+          <option value="">   </option>
+          <option>niū</option>
+          <option>niú</option>
+          <option>niǔ</option>
+          <option>niù</option>
+        </select>
+      </p>
+    </div>
+
+    <h3>填上漢語拼音 [lan]</h3>
+
+    <div class="question">
+      <p>27. 闌（___）
+        <select name="q27" data-question="中華文人周 27：闌">
+          <option value="">   </option>
+          <option>lān</option>
+          <option>lán</option>
+          <option>lǎn</option>
+          <option>làn</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>28. 攔（___）
+        <select name="q28" data-question="中華文人周 28：攔">
+          <option value="">   </option>
+          <option>lān</option>
+          <option>lán</option>
+          <option>lǎn</option>
+          <option>làn</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>29. 蘭（___）
+        <select name="q29" data-question="中華文人周 29：蘭">
+          <option value="">   </option>
+          <option>lān</option>
+          <option>lán</option>
+          <option>lǎn</option>
+          <option>làn</option>
+        </select>
+      </p>
+    </div>
+
+    <h3>填上漢語拼音 [nan]</h3>
+
+    <div class="question">
+      <p>30. 南（___）
+        <select name="q30" data-question="中華文人周 30：南">
+          <option value="">   </option>
+          <option>nān</option>
+          <option>nán</option>
+          <option>nǎn</option>
+          <option>nàn</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>31. 喃（___）
+        <select name="q31" data-question="中華文人周 31：喃">
+          <option value="">   </option>
+          <option>nān</option>
+          <option>nán</option>
+          <option>nǎn</option>
+          <option>nàn</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>32. 楠（___）
+        <select name="q32" data-question="中華文人周 32：楠">
+          <option value="">   </option>
+          <option>nān</option>
+          <option>nán</option>
+          <option>nǎn</option>
+          <option>nàn</option>
+        </select>
+      </p>
+    </div>
+
+    <h3>把聲母不同的字圈起來（選出與多數不同聲母的字，或按實際填聲母）</h3>
+
+    <div class="question">
+      <p>33. 浪（聲母）
+        <select name="q33" data-question="中華文人周 33：浪">
+          <option value="">   </option>
+          <option>l</option>
+          <option>n</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>34. 娘（聲母）
+        <select name="q34" data-question="中華文人周 34：娘">
+          <option value="">   </option>
+          <option>l</option>
+          <option>n</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>35. 利（聲母）
+        <select name="q35" data-question="中華文人周 35：利">
+          <option value="">   </option>
+          <option>l</option>
+          <option>n</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>36. 內（聲母）
+        <select name="q36" data-question="中華文人周 36：內">
+          <option value="">   </option>
+          <option>l</option>
+          <option>n</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>37. 樂（聲母）
+        <select name="q37" data-question="中華文人周 37：樂">
+          <option value="">   </option>
+          <option>l</option>
+          <option>n</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>38. 嫩（聲母）
+        <select name="q38" data-question="中華文人周 38：嫩">
+          <option value="">   </option>
+          <option>l</option>
+          <option>n</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>39. 輪（聲母）
+        <select name="q39" data-question="中華文人周 39：輪">
+          <option value="">   </option>
+          <option>l</option>
+          <option>n</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>40. 旅（聲母）
+        <select name="q40" data-question="中華文人周 40：旅">
+          <option value="">   </option>
+          <option>l</option>
+          <option>n</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>41. 龍（聲母）
+        <select name="q41" data-question="中華文人周 41：龍">
+          <option value="">   </option>
+          <option>l</option>
+          <option>n</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>42. 農（聲母）
+        <select name="q42" data-question="中華文人周 42：農">
+          <option value="">   </option>
+          <option>l</option>
+          <option>n</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>43. 囊（聲母）
+        <select name="q43" data-question="中華文人周 43：囊">
+          <option value="">   </option>
+          <option>l</option>
+          <option>n</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>44. 男（聲母）
+        <select name="q44" data-question="中華文人周 44：男">
+          <option value="">   </option>
+          <option>l</option>
+          <option>n</option>
+        </select>
+      </p>
+    </div>
+
+    <h3>把正確的聲母填在（___）裏</h3>
+
+    <div class="question">
+      <p>45. 兩年：（___）iăng （___）ián
+        <select name="q45" data-question="中華文人周 45：兩">
+          <option value="">   </option>
+          <option>l</option>
+          <option>n</option>
+        </select>
+        <select name="q46" data-question="中華文人周 46：年">
+          <option value="">   </option>
+          <option>l</option>
+          <option>n</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>47. 爛泥：（___）àn （___）í
+        <select name="q47" data-question="中華文人周 47：爛">
+          <option value="">   </option>
+          <option>l</option>
+          <option>n</option>
+        </select>
+        <select name="q48" data-question="中華文人周 48：泥">
+          <option value="">   </option>
+          <option>l</option>
+          <option>n</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>49. 能量：（___）éng （___）iàng
+        <select name="q49" data-question="中華文人周 49：能">
+          <option value="">   </option>
+          <option>l</option>
+          <option>n</option>
+        </select>
+        <select name="q50" data-question="中華文人周 50：量">
+          <option value="">   </option>
+          <option>l</option>
+          <option>n</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>51. 冷暖：（___）ĕng （___）uăn
+        <select name="q51" data-question="中華文人周 51：冷">
+          <option value="">   </option>
+          <option>l</option>
+          <option>n</option>
+        </select>
+        <select name="q52" data-question="中華文人周 52：暖">
+          <option value="">   </option>
+          <option>l</option>
+          <option>n</option>
+        </select>
+      </p>
+    </div>
+
+    <h3>把着色字正確的拼音填在（___）裏</h3>
+
+    <div class="question">
+      <p>53. 紀錄片（___）中
+        <select name="q53" data-question="中華文人周 53：錄">
+          <option value="">   </option>
+          <option>lán</option>
+          <option>lù</option>
+          <option>lǐng</option>
+          <option>nán</option>
+          <option>nù</option>
+          <option>níng</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>54. 藍（___）天
+        <select name="q54" data-question="中華文人周 54：藍">
+          <option value="">   </option>
+          <option>lán</option>
+          <option>lù</option>
+          <option>lǐng</option>
+          <option>nán</option>
+          <option>nù</option>
+          <option>níng</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>55. 南（___）遷
+        <select name="q55" data-question="中華文人周 55：南">
+          <option value="">   </option>
+          <option>lán</option>
+          <option>lù</option>
+          <option>lǐng</option>
+          <option>nán</option>
+          <option>nù</option>
+          <option>níng</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>56. 怒（___）放
+        <select name="q56" data-question="中華文人周 56：怒">
+          <option value="">   </option>
+          <option>lán</option>
+          <option>lù</option>
+          <option>lǐng</option>
+          <option>nán</option>
+          <option>nù</option>
+          <option>níng</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>57. 嶺（___）中
+        <select name="q57" data-question="中華文人周 57：嶺">
+          <option value="">   </option>
+          <option>lán</option>
+          <option>lù</option>
+          <option>lǐng</option>
+          <option>nán</option>
+          <option>nù</option>
+          <option>níng</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>58. 寧（___）靜
+        <select name="q58" data-question="中華文人周 58：寧">
+          <option value="">   </option>
+          <option>lán</option>
+          <option>lù</option>
+          <option>lǐng</option>
+          <option>nán</option>
+          <option>nù</option>
+          <option>níng</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>59. 凝（___）目
+        <select name="q59" data-question="中華文人周 59：凝">
+          <option value="">   </option>
+          <option>lán</option>
+          <option>lù</option>
+          <option>lǐng</option>
+          <option>nán</option>
+          <option>nù</option>
+          <option>níng</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>60. 領（___）巾
+        <select name="q60" data-question="中華文人周 60：領">
+          <option value="">   </option>
+          <option>lán</option>
+          <option>lù</option>
+          <option>lǐng</option>
+          <option>nán</option>
+          <option>nù</option>
+          <option>níng</option>
+        </select>
+      </p>
+    </div>
+  </div>
+
+  <!-- ====================== 澳門足跡 ====================== -->
+  <div class="section">
+    <h2>## 澳門足跡</h2>
+
+    <h3>分辨韻母 ang、iang 和 ong、iong</h3>
+
+    <div class="question">
+      <p>61. 丈（___）人
+        <select name="q61" data-question="澳門足跡 61：丈">
+          <option value="">   </option>
+          <option>zhàng</option>
+          <option>jiàng</option>
+          <option>shāng</option>
+          <option>xiāng</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>62. 匠（___）人
+        <select name="q62" data-question="澳門足跡 62：匠">
+          <option value="">   </option>
+          <option>zhàng</option>
+          <option>jiàng</option>
+          <option>shāng</option>
+          <option>xiāng</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>63. 商（___）業
+        <select name="q63" data-question="澳門足跡 63：商">
+          <option value="">   </option>
+          <option>zhàng</option>
+          <option>jiàng</option>
+          <option>shāng</option>
+          <option>xiāng</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>64. 香（___）葉
+        <select name="q64" data-question="澳門足跡 64：香">
+          <option value="">   </option>
+          <option>zhàng</option>
+          <option>jiàng</option>
+          <option>shāng</option>
+          <option>xiāng</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>65. 種（___）種
+        <select name="q65" data-question="澳門足跡 65：種">
+          <option value="">   </option>
+          <option>zhǒng</option>
+          <option>jiǒng</option>
+          <option>dǒng</option>
+          <option>yǒng</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>66. 炯（___）炯
+        <select name="q66" data-question="澳門足跡 66：炯">
+          <option value="">   </option>
+          <option>zhǒng</option>
+          <option>jiǒng</option>
+          <option>dǒng</option>
+          <option>yǒng</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>67. 懂（___）事
+        <select name="q67" data-question="澳門足跡 67：懂">
+          <option value="">   </option>
+          <option>zhǒng</option>
+          <option>jiǒng</option>
+          <option>dǒng</option>
+          <option>yǒng</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>68. 勇（___）士
+        <select name="q68" data-question="澳門足跡 68：勇">
+          <option value="">   </option>
+          <option>zhǒng</option>
+          <option>jiǒng</option>
+          <option>dǒng</option>
+          <option>yǒng</option>
+        </select>
+      </p>
+    </div>
+
+    <h3>根據偏旁，記認韻母為 ang、iang 和 ong、iong 的字</h3>
+
+    <div class="question">
+      <p>69. 張（___）
+        <select name="q69" data-question="澳門足跡 69：張">
+          <option value="">   </option>
+          <option>zhāng</option>
+          <option>zhǎng</option>
+          <option>zhàng</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>70. 脹（___）
+        <select name="q70" data-question="澳門足跡 70：脹">
+          <option value="">   </option>
+          <option>zhāng</option>
+          <option>zhǎng</option>
+          <option>zhàng</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>71. 帳（___）
+        <select name="q71" data-question="澳門足跡 71：帳">
+          <option value="">   </option>
+          <option>zhāng</option>
+          <option>zhǎng</option>
+          <option>zhàng</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>72. 昌（___）
+        <select name="q72" data-question="澳門足跡 72：昌">
+          <option value="">   </option>
+          <option>chāng</option>
+          <option>chǎng</option>
+          <option>chàng</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>73. 倡（___）
+        <select name="q73" data-question="澳門足跡 73：倡">
+          <option value="">   </option>
+          <option>chāng</option>
+          <option>chǎng</option>
+          <option>chàng</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>74. 唱（___）
+        <select name="q74" data-question="澳門足跡 74：唱">
+          <option value="">   </option>
+          <option>chāng</option>
+          <option>chǎng</option>
+          <option>chàng</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>75. 將（___）
+        <select name="q75" data-question="澳門足跡 75：將">
+          <option value="">   </option>
+          <option>jiāng</option>
+          <option>jiǎng</option>
+          <option>jiàng</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>76. 獎（___）
+        <select name="q76" data-question="澳門足跡 76：獎">
+          <option value="">   </option>
+          <option>jiāng</option>
+          <option>jiǎng</option>
+          <option>jiàng</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>77. 醬（___）
+        <select name="q77" data-question="澳門足跡 77：醬">
+          <option value="">   </option>
+          <option>jiāng</option>
+          <option>jiǎng</option>
+          <option>jiàng</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>78. 槍（___）
+        <select name="q78" data-question="澳門足跡 78：槍">
+          <option value="">   </option>
+          <option>qiāng</option>
+          <option>qiǎng</option>
+          <option>qiàng</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>79. 搶（___）
+        <select name="q79" data-question="澳門足跡 79：搶">
+          <option value="">   </option>
+          <option>qiāng</option>
+          <option>qiǎng</option>
+          <option>qiàng</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>80. 嗆（___）
+        <select name="q80" data-question="澳門足跡 80：嗆">
+          <option value="">   </option>
+          <option>qiāng</option>
+          <option>qiǎng</option>
+          <option>qiàng</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>81. 容（___）
+        <select name="q81" data-question="澳門足跡 81：容">
+          <option value="">   </option>
+          <option>róng</option>
+          <option>rǒng</option>
+          <option>ròng</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>82. 溶（___）
+        <select name="q82" data-question="澳門足跡 82：溶">
+          <option value="">   </option>
+          <option>róng</option>
+          <option>rǒng</option>
+          <option>ròng</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>83. 榕（___）
+        <select name="q83" data-question="澳門足跡 83：榕">
+          <option value="">   </option>
+          <option>róng</option>
+          <option>rǒng</option>
+          <option>ròng</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>84. 勇（___）
+        <select name="q84" data-question="澳門足跡 84：勇">
+          <option value="">   </option>
+          <option>yǒng</option>
+          <option>yóng</option>
+          <option>yòng</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>85. 湧（___）
+        <select name="q85" data-question="澳門足跡 85：湧">
+          <option value="">   </option>
+          <option>yǒng</option>
+          <option>yóng</option>
+          <option>yòng</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>86. 踴（___）
+        <select name="q86" data-question="澳門足跡 86：踴">
+          <option value="">   </option>
+          <option>yǒng</option>
+          <option>yóng</option>
+          <option>yòng</option>
+        </select>
+      </p>
+    </div>
+
+    <h3>拼讀拼音（選正確拼音）</h3>
+
+    <div class="question">
+      <p>87. 掌權（___）
+        <select name="q87" data-question="澳門足跡 87：掌權">
+          <option value="">   </option>
+          <option>zhǎng quán</option>
+          <option>jiǎng quàn</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>88. 獎券（___）
+        <select name="q88" data-question="澳門足跡 88：獎券">
+          <option value="">   </option>
+          <option>zhǎng quán</option>
+          <option>jiǎng quàn</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>89. 重心（___）
+        <select name="q89" data-question="澳門足跡 89：重心">
+          <option value="">   </option>
+          <option>zhòng xīn</option>
+          <option>yòng xīn</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>90. 用心（___）
+        <select name="q90" data-question="澳門足跡 90：用心">
+          <option value="">   </option>
+          <option>zhòng xīn</option>
+          <option>yòng xīn</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>91. 匆忙（___）
+        <select name="q91" data-question="澳門足跡 91：匆忙">
+          <option value="">   </option>
+          <option>cōng máng</option>
+          <option>qióng máng</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>92. 窮忙（___）
+        <select name="q92" data-question="澳門足跡 92：窮忙">
+          <option value="">   </option>
+          <option>cōng máng</option>
+          <option>qióng máng</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>93. 長假（___）
+        <select name="q93" data-question="澳門足跡 93：長假">
+          <option value="">   </option>
+          <option>cháng jià</option>
+          <option>qiáng jiā</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>94. 強加（___）
+        <select name="q94" data-question="澳門足跡 94：強加">
+          <option value="">   </option>
+          <option>cháng jià</option>
+          <option>qiáng jiā</option>
+        </select>
+      </p>
+    </div>
+
+    <h3>把正確的拼音填在（___）裏</h3>
+
+    <div class="question">
+      <p>95. 他們幾兄弟（___）都愛吃肉鬆（___）。
+        <select name="q95" data-question="澳門足跡 95：兄弟">
+          <option value="">   </option>
+          <option>xiōng dì</option>
+          <option>ròu sōng</option>
+          <option>chǎng jǐng</option>
+          <option>qiǎng jìng</option>
+        </select>
+        <select name="q96" data-question="澳門足跡 96：肉鬆">
+          <option value="">   </option>
+          <option>xiōng dì</option>
+          <option>ròu sōng</option>
+          <option>chǎng jǐng</option>
+          <option>qiǎng jìng</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>97. 我拍下了場景（___）中最搶鏡（___）的人。
+        <select name="q97" data-question="澳門足跡 97：場景">
+          <option value="">   </option>
+          <option>xiōng dì</option>
+          <option>ròu sōng</option>
+          <option>chǎng jǐng</option>
+          <option>qiǎng jìng</option>
+        </select>
+        <select name="q98" data-question="澳門足跡 98：搶鏡">
+          <option value="">   </option>
+          <option>xiōng dì</option>
+          <option>ròu sōng</option>
+          <option>chǎng jǐng</option>
+          <option>qiǎng jìng</option>
+        </select>
+      </p>
+    </div>
+  </div>
+
+  <!-- ====================== 其他 ====================== -->
+  <div class="section">
+    <h2>## 其他</h2>
+
+    <h3>填寫聲母</h3>
+
+    <div class="question">
+      <p>99. 主（___）力
+        <select name="q99" data-question="其他 99：主">
+          <option value="">   </option>
+          <option>z</option>
+          <option>zh</option>
+          <option>c</option>
+          <option>ch</option>
+          <option>s</option>
+          <option>sh</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>100. 阻（___）力
+        <select name="q100" data-question="其他 100：阻">
+          <option value="">   </option>
+          <option>z</option>
+          <option>zh</option>
+          <option>c</option>
+          <option>ch</option>
+          <option>s</option>
+          <option>sh</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>101. 暫（___）時
+        <select name="q101" data-question="其他 101：暫">
+          <option value="">   </option>
+          <option>z</option>
+          <option>zh</option>
+          <option>c</option>
+          <option>ch</option>
+          <option>s</option>
+          <option>sh</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>102. 戰（___）士
+        <select name="q102" data-question="其他 102：戰">
+          <option value="">   </option>
+          <option>z</option>
+          <option>zh</option>
+          <option>c</option>
+          <option>ch</option>
+          <option>s</option>
+          <option>sh</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>103. 插（___）手
+        <select name="q103" data-question="其他 103：插">
+          <option value="">   </option>
+          <option>z</option>
+          <option>zh</option>
+          <option>c</option>
+          <option>ch</option>
+          <option>s</option>
+          <option>sh</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>104. 擦（___）手
+        <select name="q104" data-question="其他 104：擦">
+          <option value="">   </option>
+          <option>z</option>
+          <option>zh</option>
+          <option>c</option>
+          <option>ch</option>
+          <option>s</option>
+          <option>sh</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>105. 菜（___）油
+        <select name="q105" data-question="其他 105：菜">
+          <option value="">   </option>
+          <option>z</option>
+          <option>zh</option>
+          <option>c</option>
+          <option>ch</option>
+          <option>s</option>
+          <option>sh</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>106. 柴（___）油
+        <select name="q106" data-question="其他 106：柴">
+          <option value="">   </option>
+          <option>z</option>
+          <option>zh</option>
+          <option>c</option>
+          <option>ch</option>
+          <option>s</option>
+          <option>sh</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>107. 樹（___）立
+        <select name="q107" data-question="其他 107：樹">
+          <option value="">   </option>
+          <option>z</option>
+          <option>zh</option>
+          <option>c</option>
+          <option>ch</option>
+          <option>s</option>
+          <option>sh</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>108. 塑（___）立
+        <select name="q108" data-question="其他 108：塑">
+          <option value="">   </option>
+          <option>z</option>
+          <option>zh</option>
+          <option>c</option>
+          <option>ch</option>
+          <option>s</option>
+          <option>sh</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>109. 搜（___）集
+        <select name="q109" data-question="其他 109：搜">
+          <option value="">   </option>
+          <option>z</option>
+          <option>zh</option>
+          <option>c</option>
+          <option>ch</option>
+          <option>s</option>
+          <option>sh</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>110. 收（___）集
+        <select name="q110" data-question="其他 110：收">
+          <option value="">   </option>
+          <option>z</option>
+          <option>zh</option>
+          <option>c</option>
+          <option>ch</option>
+          <option>s</option>
+          <option>sh</option>
+        </select>
+      </p>
+    </div>
+
+    <h3>分辨聲母是 j、q、x 的字</h3>
+
+    <div class="question">
+      <p>111. 集（___）
+        <select name="q111" data-question="其他 111：集">
+          <option value="">   </option>
+          <option>j</option>
+          <option>q</option>
+          <option>x</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>112. 習（___）
+        <select name="q112" data-question="其他 112：習">
+          <option value="">   </option>
+          <option>j</option>
+          <option>q</option>
+          <option>x</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>113. 牽（___）
+        <select name="q113" data-question="其他 113：牽">
+          <option value="">   </option>
+          <option>j</option>
+          <option>q</option>
+          <option>x</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>114. 掀（___）
+        <select name="q114" data-question="其他 114：掀">
+          <option value="">   </option>
+          <option>j</option>
+          <option>q</option>
+          <option>x</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>115. 夕（___）
+        <select name="q115" data-question="其他 115：夕">
+          <option value="">   </option>
+          <option>j</option>
+          <option>q</option>
+          <option>x</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>116. 藉（___）
+        <select name="q116" data-question="其他 116：藉">
+          <option value="">   </option>
+          <option>j</option>
+          <option>q</option>
+          <option>x</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>117. 決（___）
+        <select name="q117" data-question="其他 117：決">
+          <option value="">   </option>
+          <option>j</option>
+          <option>q</option>
+          <option>x</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>118. 缺（___）
+        <select name="q118" data-question="其他 118：缺">
+          <option value="">   </option>
+          <option>j</option>
+          <option>q</option>
+          <option>x</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>119. 器（___）
+        <select name="q119" data-question="其他 119：器">
+          <option value="">   </option>
+          <option>j</option>
+          <option>q</option>
+          <option>x</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>120. 戲（___）
+        <select name="q120" data-question="其他 120：戲">
+          <option value="">   </option>
+          <option>j</option>
+          <option>q</option>
+          <option>x</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>121. 拘（___）
+        <select name="q121" data-question="其他 121：拘">
+          <option value="">   </option>
+          <option>j</option>
+          <option>q</option>
+          <option>x</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>122. 驅（___）
+        <select name="q122" data-question="其他 122：驅">
+          <option value="">   </option>
+          <option>j</option>
+          <option>q</option>
+          <option>x</option>
+        </select>
+      </p>
+    </div>
+  </div>
+
+  <button type="submit">全部提交並顯示答案</button>
+
+  <div id="allResults" class="result">
+    <h2>測驗結果總覽</h2>
+    <div id="scoreTotal" class="total-score"></div>
+    <div id="itemsAll"></div>
+    <div id="submitMessage"></div>
+  </div>
+
+</form>
+
+<script>
+function handleQuizSubmit(formId, resultId, itemsId, scoreId, msgId, correctAnswers) {
+  const form = document.getElementById(formId);
+  const resultDiv = document.getElementById(resultId);
+  const itemsDiv = document.getElementById(itemsId);
+  const scoreDiv = document.getElementById(scoreId);
+  const messageDiv = document.getElementById(msgId);
+
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    const controls = form.querySelectorAll('select');
+    let score = 0;
+    itemsDiv.innerHTML = '';
+
+    const answers = [];
+    const totalQuestions = correctAnswers.length - 1;
+
+    for (let i = 1; i <= totalQuestions; i++) {
+      const q = controls[i-1];
+      const userAnswer = q ? q.value.trim() : '';
+      const correct = correctAnswers[i];
+      const isCorrect = (userAnswer === correct && userAnswer !== '');
+
+      if (isCorrect) score++;
+
+      if (q) {
+        const prevFeedback = q.previousElementSibling;
+        if (prevFeedback && prevFeedback.classList && prevFeedback.classList.contains('feedback')) {
+          prevFeedback.remove();
+        }
+        const feedback = document.createElement('span');
+        feedback.className = 'feedback ' + (isCorrect ? 'feedback-correct' : 'feedback-wrong');
+        feedback.textContent = isCorrect ? '✓ 正確' : '✗ 錯誤';
+        q.parentNode.insertBefore(feedback, q);
+      }
+
+      let questionText = q && q.dataset.question 
+        ? q.dataset.question 
+        : `第 ${i} 題`;
+
+      const item = document.createElement('div');
+      item.className = 'item';
+      item.innerHTML = `
+        <strong>${questionText}</strong><br><br>
+        你的答案： <span class="${isCorrect ? 'correct' : 'wrong'}">${userAnswer || '(未作答)'}</span><br>
+        <div class="answer-show">正確答案： <span class="correct">${correct}</span></div>
+        <div>得分： ${isCorrect ? '1' : '0'}</div>
+      `;
+      itemsDiv.appendChild(item);
+
+      answers.push({
+        questionNumber: i,
+        question: questionText,
+        yourAnswer: userAnswer || '(未作答)',
+        correctAnswer: correct,
+        result: isCorrect ? '正確' : '錯誤'
+      });
+    }
+
+    scoreDiv.textContent = `總 分： ${score} / ${totalQuestions}`;
+    resultDiv.style.display = 'block';
+    resultDiv.scrollIntoView({ behavior: 'smooth' });
+
+    const payload = {
+      _subject: "中文拼音測驗結果提交",
+      score: `${score} / ${totalQuestions}`,
+      timestamp: new Date().toISOString(),
+      answers: JSON.stringify(answers, null, 2)
+    };
+
+    try {
+      const response = await fetch('https://formspree.io/f/xvzwnvwp', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      messageDiv.innerHTML = response.ok
+        ? '<span class="success">✅ 測驗結果已成功送出！</span>'
+        : '<span class="error">送出失敗，請稍後再試。</span>';
+    } catch (err) {
+      messageDiv.innerHTML = '<span class="error">網路錯誤，無法送出結果。</span>';
+    }
+  });
+}
+
+// 精確對應所有 select 的正確答案（已按標準普通話拼音核實）
+const correctAnswers = [
+  null,
+  // 中華文人周 1-8 聲母
+  "n",      // 1 內
+  "n",      // 2 念
+  "l",      // 3 呂
+  "l",      // 4 來
+  "n",      // 5 耐
+  "n",      // 6 女
+  "l",      // 7 累
+  "l",      // 8 練
+
+  // [ling] 9-11
+  "lìng",   // 9 令
+  "líng",   // 10 鈴
+  "líng",   // 11 零
+
+  // [ning] 12-14
+  "níng",   // 12 寧
+  "níng",   // 13 檸
+  "níng",   // 14 嚀
+
+  // [lu] 15-17
+  "lú",     // 15 盧
+  "lú",     // 16 爐
+  "lú",     // 17 蘆
+
+  // [nu] 18-20
+  "nú",     // 18 奴
+  "nǔ",     // 19 努
+  "nù",     // 20 怒
+
+  // [liu] 21-23
+  "liú",    // 21 留
+  "liū",    // 22 溜
+  "liú",    // 23 榴
+
+  // [niu] 24-26
+  "niǔ",    // 24 扭
+  "niǔ",    // 25 鈕
+  "niǔ",    // 26 紐
+
+  // [lan] 27-29
+  "lán",    // 27 闌
+  "lán",    // 28 攔
+  "lán",    // 29 蘭
+
+  // [nan] 30-32
+  "nán",    // 30 南
+  "nán",    // 31 喃
+  "nán",    // 32 楠
+
+  // 圈起來組 33-44 聲母
+  "l",      // 33 浪
+  "n",      // 34 娘
+  "l",      // 35 利
+  "n",      // 36 內
+  "l",      // 37 樂
+  "n",      // 38 嫩
+  "l",      // 39 輪
+  "l",      // 40 旅
+  "l",      // 41 龍
+  "n",      // 42 農
+  "n",      // 43 囊
+  "n",      // 44 男
+
+  // 正確聲母填空 45-52
+  "l",      // 45 兩
+  "n",      // 46 年
+  "l",      // 47 爛
+  "n",      // 48 泥
+  "n",      // 49 能
+  "l",      // 50 量
+  "l",      // 51 冷
+  "n",      // 52 暖
+
+  // 着色字拼音 53-60
+  "lù",     // 53 錄
+  "lán",    // 54 藍
+  "nán",    // 55 南
+  "nù",     // 56 怒
+  "lǐng",   // 57 嶺
+  "níng",   // 58 寧
+  "níng",   // 59 凝
+  "lǐng",   // 60 領
+
+  // 澳門足跡 61-68
+  "zhàng",  // 61 丈
+  "jiàng",  // 62 匠
+  "shāng",  // 63 商
+  "xiāng",  // 64 香
+  "zhǒng",  // 65 種
+  "jiǒng",  // 66 炯
+  "dǒng",   // 67 懂
+  "yǒng",   // 68 勇
+
+  // 偏旁 69-86
+  "zhāng",  // 69 張
+  "zhàng",  // 70 脹
+  "zhàng",  // 71 帳
+  "chāng",  // 72 昌
+  "chàng",  // 73 倡
+  "chàng",  // 74 唱
+  "jiāng",  // 75 將
+  "jiǎng",  // 76 獎
+  "jiàng",  // 77 醬
+  "qiāng",  // 78 槍
+  "qiǎng",  // 79 搶
+  "qiàng",  // 80 嗆
+  "róng",   // 81 容
+  "róng",   // 82 溶
+  "róng",   // 83 榕
+  "yǒng",   // 84 勇
+  "yǒng",   // 85 湧
+  "yǒng",   // 86 踴
+
+  // 拼讀 87-94
+  "zhǎng quán", // 87 掌權
+  "jiǎng quàn", // 88 獎券
+  "zhòng xīn",  // 89 重心
+  "yòng xīn",   // 90 用心
+  "cōng máng",  // 91 匆忙
+  "qióng máng", // 92 窮忙
+  "cháng jià",  // 93 長假
+  "qiáng jiā",  // 94 強加
+
+  // 句子填空 95-98
+  "xiōng dì",   // 95 兄弟
+  "ròu sōng",   // 96 肉鬆
+  "chǎng jǐng", // 97 場景
+  "qiǎng jìng", // 98 搶鏡
+
+  // 其他聲母 99-110
+  "zh",     // 99 主
+  "z",      // 100 阻
+  "z",      // 101 暫
+  "zh",     // 102 戰
+  "ch",     // 103 插
+  "c",      // 104 擦
+  "c",      // 105 菜
+  "ch",     // 106 柴
+  "sh",     // 107 樹
+  "s",      // 108 塑
+  "s",      // 109 搜
+  "sh",     // 110 收
+
+  // j q x 111-122
+  "j",      // 111 集
+  "x",      // 112 習
+  "q",      // 113 牽
+  "x",      // 114 掀
+  "x",      // 115 夕
+  "j",      // 116 藉
+  "j",      // 117 決
+  "q",      // 118 缺
+  "q",      // 119 器
+  "x",      // 120 戲
+  "j",      // 121 拘
+  "q"       // 122 驅
+];
+
+// 初始化執行
+handleQuizSubmit('allQuizzes', 'allResults', 'itemsAll', 'scoreTotal', 'submitMessage', correctAnswers);
+</script>
+
+</body>
+</html>
