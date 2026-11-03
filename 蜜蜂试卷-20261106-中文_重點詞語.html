@@ -9,7 +9,7 @@
     script-src 'self' 'unsafe-inline';
     style-src 'self' 'unsafe-inline';
   ">
-  <title>20261106-中文_重點詞語測驗</title>
+  <title>20261106-中文_重點詞語</title>
   <style>
     body {
       font-family: system-ui, -apple-system, "Microsoft JhengHei", sans-serif;
@@ -148,7 +148,7 @@
 </head>
 <body>
 
-<h1>20261106-中文_重點詞語測驗</h1>
+<h1>20261106-中文_重點詞語</h1>
 <p class="subtitle">請完成所有題目後按下方按鈕一次提交</p>
 
 <form id="allQuizzes">
@@ -846,7 +846,6 @@ function handleQuizSubmit(formId, resultId, itemsId, scoreId, msgId, correctAnsw
 
       if (isCorrect) score++;
 
-      // 在每個下拉選單前方顯示正確/錯誤標記
       if (q) {
         const prevFeedback = q.previousElementSibling;
         if (prevFeedback && prevFeedback.classList && prevFeedback.classList.contains('feedback')) {
@@ -907,7 +906,6 @@ function handleQuizSubmit(formId, resultId, itemsId, scoreId, msgId, correctAnsw
   });
 }
 
-// 根據題目順序精確設定 75 個下拉選單的正確答案
 const correctAnswers = [
   null,
   // 一、從課文中找出適當的詞語 (q1-q6)
@@ -983,7 +981,7 @@ const correctAnswers = [
   "悠久",
   "擁擠",
   "綠草如茵",
-  "縱橫交錯",
+  "井然有序",
   "迥然不同",
   "歎為觀止",
   "熱血沸騰",
@@ -999,7 +997,6 @@ const correctAnswers = [
   "結結巴巴"
 ];
 
-// 初始化執行
 handleQuizSubmit('allQuizzes', 'allResults', 'itemsAll', 'scoreTotal', 'submitMessage', correctAnswers);
 </script>
 
