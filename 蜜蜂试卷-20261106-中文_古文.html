@@ -9,15 +9,16 @@
     script-src 'self' 'unsafe-inline';
     style-src 'self' 'unsafe-inline';
   ">
-  <title>20261106-中國語文古文</title>
+  <title>20261106-中文_古文</title>
   <style>
     body {
       font-family: system-ui, -apple-system, "Microsoft JhengHei", sans-serif;
       max-width: 900px;
       margin: 40px auto;
       padding: 0 20px;
-      line-height: 1.6;
+      line-height: 1.8;
       color: #333;
+      background-color: #fcfcfc;
     }
     h1, h2, h3 {
       text-align: center;
@@ -28,6 +29,7 @@
       border-bottom: 2px solid #2c3e50;
       padding-bottom: 10px;
       margin-top: 60px;
+      font-size: 1.8rem;
     }
     h3 {
       text-align: left;
@@ -41,35 +43,30 @@
     .question {
       margin: 25px 0;
       padding: 20px;
-      background: #f9fbfc;
+      background: #ffffff;
       border-radius: 10px;
       border-left: 5px solid #3498db;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-      font-size: 1.4rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      font-size: 1.25rem;
     }
     .question p {
       margin: 0 0 12px 0;
-      font-size: 1.4rem;
     }
-    .options-list {
-      margin-top: 10px;
-      padding-left: 20px;
-      list-style-type: none;
-    }
-    .options-list li {
-      margin: 5px 0;
+    .fill-text {
+      line-height: 2.2;
     }
     strong {
       color: #e74c3c;
     }
     select {
-      padding: 6px 10px;
-      font-size: 1.35rem;
-      min-width: 140px;
+      padding: 6px 12px;
+      font-size: 1.15rem;
+      min-width: 130px;
       border-radius: 6px;
-      border: 1px solid #bdc3c7;
+      border: 1.5px solid #bdc3c7;
       background: white;
-      margin: 0 5px;
+      margin: 0 4px;
+      cursor: pointer;
     }
     select:focus {
       outline: none;
@@ -79,7 +76,7 @@
     .feedback {
       font-weight: bold;
       margin-right: 6px;
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       vertical-align: middle;
     }
     .feedback-correct {
@@ -149,93 +146,449 @@
       color: #555;
       margin-bottom: 30px;
     }
+    .note {
+      font-size: 1.05rem;
+      color: #666;
+      background: #edf2f7;
+      padding: 10px 15px;
+      border-radius: 6px;
+      margin-top: 15px;
+    }
   </style>
 </head>
 <body>
 
-<h1>中國語文古文工作紙</h1>
+<h1>20261106-中文_古文</h1>
 <p class="subtitle">請完成所有題目後按下方按鈕一次提交</p>
 
 <form id="allQuizzes">
 
-  <!-- ====================== 中國語文古文(一) ====================== -->
+  <!-- ====================== 中國語文古文(一)（《不貪為寶》） ====================== -->
   <div class="section">
-    <h2>## 中國語文古文(一)</h2>
+    <h2>中國語文古文(一)（《不貪為寶》）</h2>
     
-    <h3># (一) 語譯</h3>
+    <h3>(一) 語譯</h3>
     <div class="question">
       <p>1. 宋人或得玉，*獻諸*子罕。<br>
-      「獻諸」的意思是：<select name="q1" data-question="古文(一) 語譯 1：獻諸"><option value="">   </option><option>獻之於</option><option>獻給你</option><option>送給他</option><option>交給別人</option></select></p>
+      「獻諸」的意思是：
+      <select name="q1" data-question="古文(一) 語譯 1：獻諸">
+        <option value="">請選擇</option>
+        <option>你</option>
+        <option>失去</option>
+        <option>獻之於</option>
+        <option>雕琢玉器的工人</option>
+      </select></p>
     </div>
     <div class="question">
       <p>2. 以示*玉人*。<br>
-      「玉人」的意思是：<select name="q2" data-question="古文(一) 語譯 2：玉人"><option value="">   </option><option>雕琢玉器的工人</option><option>賣玉的商人</option><option>收藏玉的人</option><option>賞玉的官員</option></select></p>
+      「玉人」的意思是：
+      <select name="q2" data-question="古文(一) 語譯 2：玉人">
+        <option value="">請選擇</option>
+        <option>你</option>
+        <option>失去</option>
+        <option>獻之於</option>
+        <option>雕琢玉器的工人</option>
+      </select></p>
     </div>
     <div class="question">
       <p>3. *爾*以玉為寶。<br>
-      「爾」的意思是：<select name="q3" data-question="古文(一) 語譯 3：爾"><option value="">   </option><option>你</option><option>我</option><option>他</option><option>你們</option></select></p>
+      「爾」的意思是：
+      <select name="q3" data-question="古文(一) 語譯 3：爾">
+        <option value="">請選擇</option>
+        <option>你</option>
+        <option>失去</option>
+        <option>獻之於</option>
+        <option>雕琢玉器的工人</option>
+      </select></p>
     </div>
     <div class="question">
       <p>4. 皆*喪*寶也。<br>
-      「喪」的意思是：<select name="q4" data-question="古文(一) 語譯 4：喪"><option value="">   </option><option>失去</option><option>得到</option><option>珍惜</option><option>收藏</option></select></p>
+      「喪」的意思是：
+      <select name="q4" data-question="古文(一) 語譯 4：喪">
+        <option value="">請選擇</option>
+        <option>你</option>
+        <option>失去</option>
+        <option>獻之於</option>
+        <option>雕琢玉器的工人</option>
+      </select></p>
+    </div>
+
+    <h3>(二) 填充</h3>
+    <div class="question fill-text">
+      宋國有一個人把一塊寶玉獻給子罕，子罕不肯
+      <select name="q5" data-question="古文(一) 填充 1">
+        <option value="">請選擇</option>
+        <option>接受</option>
+        <option>敢</option>
+        <option>財寶</option>
+        <option>珍惜</option>
+        <option>擁有</option>
+      </select>。 <br>
+
+      獻玉人說：「我把它給玉工鑒定，玉工認為它是寶物，所以我才
+      <select name="q6" data-question="古文(一) 填充 2">
+        <option value="">請選擇</option>
+        <option>接受</option>
+        <option>敢</option>
+        <option>財寶</option>
+        <option>珍惜</option>
+        <option>擁有</option>
+      </select>獻給您。」<br>
+
+      子罕說：「我認為不貪戀
+      <select name="q7" data-question="古文(一) 填充 3">
+        <option value="">請選擇</option>
+        <option>接受</option>
+        <option>敢</option>
+        <option>財寶</option>
+        <option>珍惜</option>
+        <option>擁有</option>
+      </select>的品德是最寶貴的，而你把那塊玉當做寶物，如果我把玉收下，雙方都喪失了自己
+      <select name="q8" data-question="古文(一) 填充 4">
+        <option value="">請選擇</option>
+        <option>接受</option>
+        <option>敢</option>
+        <option>財寶</option>
+        <option>珍惜</option>
+        <option>擁有</option>
+      </select>的東西，不如各自
+      <select name="q9" data-question="古文(一) 填充 5">
+        <option value="">請選擇</option>
+        <option>接受</option>
+        <option>敢</option>
+        <option>財寶</option>
+        <option>珍惜</option>
+        <option>擁有</option>
+      </select>自己的寶物吧。」
+      <div class="note">
+        備註: 在《不食為寶》一文中，宋國有一個人把一塊寶玉獻給子罕，子罕不肯
+        <select name="q10" data-question="古文(一) 填充 備註">
+          <option value="">請選擇</option>
+          <option>接受</option>
+          <option>敢</option>
+          <option>財寶</option>
+          <option>珍惜</option>
+          <option>擁有</option>
+        </select>。
+      </div>
     </div>
   </div>
 
-  <!-- ====================== 中國語文古文（二） ====================== -->
+  <!-- ====================== 中國語文古文（二）（《苛政猛於虎》） ====================== -->
   <div class="section">
-    <h2>## 中國語文古文（二）</h2>
+    <h2>中國語文古文（二）（《苛政猛於虎》）</h2>
     
-    <h3># (一) 語譯</h3>
+    <h3>(一) 語譯</h3>
     <div class="question">
       <p>1. *夫子*式而聽之。<br>
-      「夫子」的意思是：<select name="q5" data-question="古文(二) 語譯 1：夫子"><option value="">   </option><option>老師</option><option>父親</option><option>君子</option><option>聖人</option></select></p>
+      「夫子」的意思是：
+      <select name="q11" data-question="古文(二) 語譯 1：夫子">
+        <option value="">請選擇</option>
+        <option>老師</option>
+        <option>積累</option>
+        <option>從前</option>
+        <option>苛刻殘酷的政治</option>
+        <option>後輩</option>
+      </select></p>
     </div>
     <div class="question">
       <p>2. 壹似*重*有憂者。<br>
-      「重」的意思是：<select name="q6" data-question="古文(二) 語譯 2：重"><option value="">   </option><option>積累</option><option>沉重</option><option>重要</option><option>再次</option></select></p>
+      「重」的意思是：
+      <select name="q12" data-question="古文(二) 語譯 2：重">
+        <option value="">請選擇</option>
+        <option>老師</option>
+        <option>積累</option>
+        <option>從前</option>
+        <option>苛刻殘酷的政治</option>
+        <option>後輩</option>
+      </select></p>
     </div>
     <div class="question">
       <p>3. *昔者*吾舅死於虎。<br>
-      「昔者」的意思是：<select name="q7" data-question="古文(二) 語譯 3：昔者"><option value="">   </option><option>從前</option><option>昨天</option><option>後來</option><option>現在</option></select></p>
+      「昔者」的意思是：
+      <select name="q13" data-question="古文(二) 語譯 3：昔者">
+        <option value="">請選擇</option>
+        <option>老師</option>
+        <option>積累</option>
+        <option>從前</option>
+        <option>苛刻殘酷的政治</option>
+        <option>後輩</option>
+      </select></p>
     </div>
     <div class="question">
       <p>4. 曰：「無*苛政*。」<br>
-      「苛政」的意思是：<select name="q8" data-question="古文(二) 語譯 4：苛政"><option value="">   </option><option>苛刻殘酷的政治</option><option>嚴格的法律</option><option>繁重的稅收</option><option>腐敗的官員</option></select></p>
+      「苛政」的意思是：
+      <select name="q14" data-question="古文(二) 語譯 4：苛政">
+        <option value="">請選擇</option>
+        <option>老師</option>
+        <option>積累</option>
+        <option>從前</option>
+        <option>苛刻殘酷的政治</option>
+        <option>後輩</option>
+      </select></p>
     </div>
     <div class="question">
       <p>5. *小子*識之，苛政猛於虎也。<br>
-      「小子」的意思是：<select name="q9" data-question="古文(二) 語譯 5：小子"><option value="">   </option><option>後輩</option><option>小孩</option><option>學生</option><option>年輕人</option></select></p>
+      「小子」的意思是：
+      <select name="q15" data-question="古文(二) 語譯 5：小子">
+        <option value="">請選擇</option>
+        <option>老師</option>
+        <option>積累</option>
+        <option>從前</option>
+        <option>苛刻殘酷的政治</option>
+        <option>後輩</option>
+      </select></p>
+    </div>
+
+    <h3>(二) 填充</h3>
+    <div class="question fill-text">
+      有一天，孔子經過泰山旁邊，看見一位婦人在
+      <select name="q16" data-question="古文(二) 填充 1">
+        <option value="">請選擇</option>
+        <option>厲害</option>
+        <option>苛刻殘酷</option>
+        <option>公公</option>
+        <option>悲痛</option>
+        <option>墳前</option>
+      </select>哭得很傷心。<br>
+      孔子俯身仔細傾聽，並讓子路上前問那婦女。子路問：「你哭成這個樣子，就像有許多
+      <select name="q17" data-question="古文(二) 填充 2">
+        <option value="">請選擇</option>
+        <option>厲害</option>
+        <option>苛刻殘酷</option>
+        <option>公公</option>
+        <option>悲痛</option>
+        <option>墳前</option>
+      </select>。」<br>
+      婦人果然說：「是的。從前我的
+      <select name="q18" data-question="古文(二) 填充 3">
+        <option value="">請選擇</option>
+        <option>厲害</option>
+        <option>苛刻殘酷</option>
+        <option>公公</option>
+        <option>悲痛</option>
+        <option>墳前</option>
+      </select>被老虎咬死了，我的丈夫也被老虎咬死，現在我的（ 兒子 ）又被老虎咬死。」<br>
+      孔子問：「那你為甚麼不離開這個地方呢？」婦人說：「這裡沒有
+      <select name="q19" data-question="古文(二) 填充 4">
+        <option value="">請選擇</option>
+        <option>厲害</option>
+        <option>苛刻殘酷</option>
+        <option>公公</option>
+        <option>悲痛</option>
+        <option>墳前</option>
+      </select>的政令。」<br>
+      孔子對子路說：「你要好好記住，殘暴的政治比老虎還要
+      <select name="q20" data-question="古文(二) 填充 5">
+        <option value="">請選擇</option>
+        <option>厲害</option>
+        <option>苛刻殘酷</option>
+        <option>公公</option>
+        <option>悲痛</option>
+        <option>墳前</option>
+      </select>啊！」
     </div>
   </div>
 
-  <!-- ====================== 中國語文古文（三） ====================== -->
+  <!-- ====================== 中國語文古文（三）（《一鳴驚人》） ====================== -->
   <div class="section">
-    <h2>## 中國語文古文（三）</h2>
+    <h2>中國語文古文（三）（《一鳴驚人》）</h2>
     
-    <h3># (一) 語譯</h3>
+    <h3>(一) 語譯</h3>
     <div class="question">
       <p>1. 齊威王之時*喜隱*。<br>
-      「喜隱」的意思是：<select name="q10" data-question="古文(三) 語譯 1：喜隱"><option value="">   </option><option>喜好隱語</option><option>喜歡隱居</option><option>喜愛隱瞞</option><option>喜好說笑</option></select></p>
+      「喜隱」的意思是：
+      <select name="q21" data-question="古文(三) 語譯 1：喜隱">
+        <option value="">請選擇</option>
+        <option>喜好隱語</option>
+        <option>過分</option>
+        <option>侵略</option>
+        <option>力說</option>
+        <option>殺</option>
+        <option>震動</option>
+      </select></p>
     </div>
     <div class="question">
       <p>2. 好為*淫*樂長夜之飲。<br>
-      「淫」的意思是：<select name="q11" data-question="古文(三) 語譯 2：淫"><option value="">   </option><option>過分</option><option>淫亂</option><option>沉迷</option><option>過度飲酒</option></select></p>
+      「淫」的意思是：
+      <select name="q22" data-question="古文(三) 語譯 2：淫">
+        <option value="">請選擇</option>
+        <option>喜好隱語</option>
+        <option>過分</option>
+        <option>侵略</option>
+        <option>力說</option>
+        <option>殺</option>
+        <option>震動</option>
+      </select></p>
     </div>
     <div class="question">
       <p>3. 諸侯並*侵*。<br>
-      「侵」的意思是：<select name="q12" data-question="古文(三) 語譯 3：侵"><option value="">   </option><option>侵略</option><option>侵佔</option><option>攻打</option><option>騷擾</option></select></p>
+      「侵」的意思是：
+      <select name="q23" data-question="古文(三) 語譯 3：侵">
+        <option value="">請選擇</option>
+        <option>喜好隱語</option>
+        <option>過分</option>
+        <option>侵略</option>
+        <option>力說</option>
+        <option>殺</option>
+        <option>震動</option>
+      </select></p>
     </div>
     <div class="question">
       <p>4. 淳于髡*說*之以隱曰。<br>
-      「說」的意思是：<select name="q13" data-question="古文(三) 語譯 4：說"><option value="">   </option><option>力說</option><option>說服</option><option>講述</option><option>談論</option></select></p>
+      「說」的意思是：
+      <select name="q24" data-question="古文(三) 語譯 4：說">
+        <option value="">請選擇</option>
+        <option>喜好隱語</option>
+        <option>過分</option>
+        <option>侵略</option>
+        <option>力說</option>
+        <option>殺</option>
+        <option>震動</option>
+      </select></p>
     </div>
     <div class="question">
       <p>5. 賞一人，*誅*一人。<br>
-      「誅」的意思是：<select name="q14" data-question="古文(三) 語譯 5：誅"><option value="">   </option><option>殺</option><option>懲罰</option><option>處分</option><option>革職</option></select></p>
+      「誅」的意思是：
+      <select name="q25" data-question="古文(三) 語譯 5：誅">
+        <option value="">請選擇</option>
+        <option>喜好隱語</option>
+        <option>過分</option>
+        <option>侵略</option>
+        <option>力說</option>
+        <option>殺</option>
+        <option>震動</option>
+      </select></p>
     </div>
     <div class="question">
       <p>6. 諸侯*振*驚。<br>
-      「振」的意思是：<select name="q15" data-question="古文(三) 語譯 6：振"><option value="">   </option><option>震動</option><option>震驚</option><option>搖動</option><option>恐慌</option></select></p>
+      「振」的意思是：
+      <select name="q26" data-question="古文(三) 語譯 6：振">
+        <option value="">請選擇</option>
+        <option>喜好隱語</option>
+        <option>過分</option>
+        <option>侵略</option>
+        <option>力說</option>
+        <option>殺</option>
+        <option>震動</option>
+      </select></p>
+    </div>
+
+    <h3>(二) 填充</h3>
+    <div class="question fill-text">
+      齊威王仗着齊國國力強盛，一天到晚飲酒作樂，把國事都推給 (1) 
+      <select name="q27" data-question="古文(三) 填充 (1)">
+        <option value="">請選擇</option>
+        <option>齊威王</option>
+        <option>各級官員</option>
+        <option>三十六年</option>
+        <option>一鳴驚人</option>
+        <option>勸諫</option>
+        <option>淳于髡</option>
+        <option>一飛沖天</option>
+        <option>大鳥</option>
+      </select> 去辦，朝政荒亂，齊國就衰弱了。<br>
+
+      其他國家不放過這機會，出兵攻打齊國，奪去了不少土地，齊國危在旦夕。可是大家都很怕 (2) 
+      <select name="q28" data-question="古文(三) 填充 (2)">
+        <option value="">請選擇</option>
+        <option>齊威王</option>
+        <option>各級官員</option>
+        <option>三十六年</option>
+        <option>一鳴驚人</option>
+        <option>勸諫</option>
+        <option>淳于髡</option>
+        <option>一飛沖天</option>
+        <option>大鳥</option>
+      </select>，誰也不敢 (3) 
+      <select name="q29" data-question="古文(三) 填充 (3)">
+        <option value="">請選擇</option>
+        <option>齊威王</option>
+        <option>各級官員</option>
+        <option>三十六年</option>
+        <option>一鳴驚人</option>
+        <option>勸諫</option>
+        <option>淳于髡</option>
+        <option>一飛沖天</option>
+        <option>大鳥</option>
+      </select>他。<br>
+
+      有個叫做 (4) 
+      <select name="q30" data-question="古文(三) 填充 (4)">
+        <option value="">請選擇</option>
+        <option>齊威王</option>
+        <option>各級官員</option>
+        <option>三十六年</option>
+        <option>一鳴驚人</option>
+        <option>勸諫</option>
+        <option>淳于髡</option>
+        <option>一飛沖天</option>
+        <option>大鳥</option>
+      </select> 的人，跑去對齊威王說：「我國有隻 (5) 
+      <select name="q31" data-question="古文(三) 填充 (5)">
+        <option value="">請選擇</option>
+        <option>齊威王</option>
+        <option>各級官員</option>
+        <option>三十六年</option>
+        <option>一鳴驚人</option>
+        <option>勸諫</option>
+        <option>淳于髡</option>
+        <option>一飛沖天</option>
+        <option>大鳥</option>
+      </select>，在宮廷裏，有好幾年，牠不飛，不知是甚麼原故？」<br>
+
+      齊威王立刻醒悟，明白淳于髡所說的大鳥就是他，說他為甚麼整天待在皇宮，不理朝政。<br>
+
+      他於是笑說：「那大鳥不是不飛，而是不高興飛。如果牠飛翔，就能 (6) 
+      <select name="q32" data-question="古文(三) 填充 (6)">
+        <option value="">請選擇</option>
+        <option>齊威王</option>
+        <option>各級官員</option>
+        <option>三十六年</option>
+        <option>一鳴驚人</option>
+        <option>勸諫</option>
+        <option>淳于髡</option>
+        <option>一飛沖天</option>
+        <option>大鳥</option>
+      </select>。大鳥不是不鳴，要鳴，一定 (7) 
+      <select name="q33" data-question="古文(三) 填充 (7)">
+        <option value="">請選擇</option>
+        <option>齊威王</option>
+        <option>各級官員</option>
+        <option>三十六年</option>
+        <option>一鳴驚人</option>
+        <option>勸諫</option>
+        <option>淳于髡</option>
+        <option>一飛沖天</option>
+        <option>大鳥</option>
+      </select>。」<br>
+
+      齊威王力圖振作，出兵還擊敵人。各國對齊國來勢洶洶，大為震驚，將侵佔的地歸還齊國。齊威王治理國家 (8) 
+      <select name="q34" data-question="古文(三) 填充 (8)">
+        <option value="">請選擇</option>
+        <option>齊威王</option>
+        <option>各級官員</option>
+        <option>三十六年</option>
+        <option>一鳴驚人</option>
+        <option>勸諫</option>
+        <option>淳于髡</option>
+        <option>一飛沖天</option>
+        <option>大鳥</option>
+      </select>。
+      <div class="note">
+        備註: 在《一鳴驚人》一文中，滑稽傳記中提醒齊威王「那大鳥不是不飛，而是不高興飛。如果牠飛翔，就能
+        <select name="q35" data-question="古文(三) 填充 備註">
+          <option value="">請選擇</option>
+          <option>齊威王</option>
+          <option>各級官員</option>
+          <option>三十六年</option>
+          <option>一鳴驚人</option>
+          <option>勸諫</option>
+          <option>淳于髡</option>
+          <option>一飛沖天</option>
+          <option>大鳥</option>
+        </select>。大鳥不是不鳴，要鳴，一定一鳴驚人。」
+      </div>
     </div>
   </div>
 
@@ -337,27 +690,50 @@ function handleQuizSubmit(formId, resultId, itemsId, scoreId, msgId, correctAnsw
   });
 }
 
-// 精確對應 HTML 中 15 個 select 的正確答案
+// 根據題目順序精確設定 35 個下拉選單的正確答案
 const correctAnswers = [
   null,
-  // 古文(一) 語譯
-  "獻之於",
-  "雕琢玉器的工人",
-  "你",
-  "失去",
-  // 古文(二) 語譯
-  "老師",
-  "積累",
-  "從前",
-  "苛刻殘酷的政治",
-  "後輩",
-  // 古文(三) 語譯
-  "喜好隱語",
-  "過分",
-  "侵略",
-  "力說",
-  "殺",
-  "震動"
+  // 古文(一)（《不貪為寶》） (一) 語譯
+  "獻之於",               // q1: 1. 獻諸
+  "雕琢玉器的工人",       // q2: 2. 玉人
+  "你",                   // q3: 3. 爾
+  "失去",                 // q4: 4. 喪
+  // 古文(一) (二) 填充
+  "接受",                 // q5: 填充 1
+  "敢",                   // q6: 填充 2
+  "財寶",                 // q7: 填充 3
+  "珍惜",                 // q9: 填充 5 (各自珍惜自己的寶物)
+  "擁有",                 // q8: 填充 4 (喪失了自己擁有的東西)
+  "接受",                 // q10: 備註
+  // 古文（二）（《苛政猛於虎》） (一) 語譯
+  "老師",                 // q11: 1. 夫子
+  "積累",                 // q12: 2. 重
+  "從前",                 // q13: 3. 昔者
+  "苛刻殘酷的政治",       // q14: 4. 苛政
+  "後輩",                 // q15: 5. 小子
+  // 古文（二） (二) 填充
+  "墳前",                 // q16: 填充 1 (婦人在墳前哭得很傷心)
+  "悲痛",                 // q17: 填充 2 (就像有許多悲痛)
+  "公公",                   // q18: 填充 3 (從前我的公公被老虎咬死)
+  "苛刻殘酷",             // q19: 填充 4 (沒有苛刻殘酷的政令)
+  "厲害",                 // q20: 填充 5 (比老虎還要厲害啊)
+  // 古文（三）（《一鳴驚人》） (一) 語譯
+  "喜好隱語",             // q21: 1. 喜隱
+  "過分",                 // q22: 2. 淫
+  "侵略",                 // q23: 3. 侵
+  "力說",                 // q24: 4. 說
+  "殺",                   // q25: 5. 誅
+  "震動",                 // q26: 6. 振
+  // 古文（三） (二) 填充
+  "各級官員",             // q27: 填充 (1)
+  "齊威王",               // q28: 填充 (2)
+  "勸諫",                 // q29: 填充 (3)
+  "淳于髡",               // q30: 填充 (4)
+  "大鳥",                 // q31: 填充 (5)
+  "一飛沖天",             // q32: 填充 (6)
+  "一鳴驚人",             // q33: 填充 (7)
+  "三十六年",             // q34: 填充 (8)
+  "一飛沖天"              // q35: 備註
 ];
 
 // 初始化執行

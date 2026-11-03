@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self';
+    connect-src *;
+    script-src 'self' 'unsafe-inline';
+    style-src 'self' 'unsafe-inline';
+  ">
+  <title>20261106-中文_成語</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, "Microsoft JhengHei", sans-serif;
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+      line-height: 1.6;
+      color: #333;
+      background-color: #fcfcfc;
+    }
+    h1, h2, h3 {
+      text-align: center;
+      color: #2c3e50;
+      margin: 40px 0 20px;
+    }
+    h2 {
+      border-bottom: 2px solid #2c3e50;
+      padding-bottom: 10px;
+      margin-top: 60px;
+      font-size: 1.8rem;
+    }
+    h3 {
+      text-align: left;
+      color: #34495e;
+      margin-top: 30px;
+      font-size: 1.4rem;
+    }
+    .section {
+      margin-bottom: 60px;
+    }
+    .question {
+      margin: 25px 0;
+      padding: 20px;
+      background: #ffffff;
+      border-radius: 10px;
+      border-left: 5px solid #3498db;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      font-size: 1.25rem;
+      line-height: 2;
+    }
+    .question p {
+      margin: 0 0 12px 0;
+    }
+    strong {
+      color: #e74c3c;
+    }
+    select {
+      padding: 6px 12px;
+      font-size: 1.15rem;
+      min-width: 160px;
+      border-radius: 6px;
+      border: 1.5px solid #bdc3c7;
+      background: white;
+      margin: 0 4px;
+      cursor: pointer;
+    }
+    select:focus {
+      outline: none;
+      border-color: #3498db;
+      box-shadow: 0 0 0 3px rgba(52,152,219,0.2);
+    }
+    .feedback {
+      font-weight: bold;
+      margin-right: 6px;
+      font-size: 1.1rem;
+      vertical-align: middle;
+    }
+    .feedback-correct {
+      color: #27ae60;
+    }
+    .feedback-wrong {
+      color: #c0392b;
+    }
+    button {
+      display: block;
+      margin: 60px auto;
+      padding: 18px 80px;
+      font-size: 1.35rem;
+      font-weight: bold;
+      background: #27ae60;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    button:hover {
+      background: #219653;
+    }
+    .result {
+      display: none;
+      margin: 40px 0;
+      padding: 30px;
+      background: #f4f6f9;
+      border-radius: 12px;
+      border: 1px solid #dfe6ed;
+    }
+    .total-score {
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-align: center;
+      margin: 30px 0 20px;
+      padding: 20px;
+      background: #d4edda;
+      border-radius: 10px;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+    }
+    .item {
+      margin: 18px 0;
+      padding: 16px;
+      background: white;
+      border-radius: 8px;
+      border: 1px solid #eee;
+    }
+    .correct { color: #27ae60; font-weight: bold; }
+    .wrong   { color: #c0392b; font-weight: bold; }
+    .answer-show {
+      margin-top: 8px;
+      font-size: 0.98rem;
+      color: #555;
+    }
+    #submitMessage {
+      text-align: center;
+      margin-top: 25px;
+      font-size: 1.15rem;
+    }
+    .success { color: #27ae60; }
+    .error   { color: #c0392b; }
+    .subtitle {
+      text-align: center;
+      color: #555;
+      margin-bottom: 30px;
+    }
+  </style>
+</head>
+<body>
+
+<h1>20261106-中文_成語</h1>
+<p class="subtitle">請完成所有題目後按下方按鈕一次提交</p>
+
+<form id="allQuizzes">
+
+  <!-- ====================== 成語填充(單元一) 第一組 ====================== -->
+  <div class="section">
+    <h2>成語填充(單元一)</h2>
+    <h3>試把適當的成語寫在(____) 內</h3>
+
+    <div class="question">
+      <p>1. 每逢早上，市場裏都(
+      <select name="q1" data-question="單元一 A-1">
+        <option value="">請選擇</option>
+        <option>大煞風景</option><option>雨後春筍</option><option>排山倒海</option><option>鬼斧神工</option><option>熙來攘往</option><option>門可羅雀</option><option>絡繹不絕</option><option>震耳欲聾</option><option>愁雲慘霧</option><option>如火如荼</option>
+      </select>)，擠滿了買菜的人。</p>
+    </div>
+
+    <div class="question">
+      <p>2. 在這優美的大自然裏，居然有人大聲地高談闊論，真是(
+      <select name="q2" data-question="單元一 A-2">
+        <option value="">請選擇</option>
+        <option>大煞風景</option><option>雨後春筍</option><option>排山倒海</option><option>鬼斧神工</option><option>熙來攘往</option><option>門可羅雀</option><option>絡繹不絕</option><option>震耳欲聾</option><option>愁雲慘霧</option><option>如火如荼</option>
+      </select>)！</p>
+    </div>
+
+    <div class="question">
+      <p>3. 將軍一聲令下，我軍一鼓作氣迎戰；經過一輪(
+      <select name="q3" data-question="單元一 A-3">
+        <option value="">請選擇</option>
+        <option>大煞風景</option><option>雨後春筍</option><option>排山倒海</option><option>鬼斧神工</option><option>熙來攘往</option><option>門可羅雀</option><option>絡繹不絕</option><option>震耳欲聾</option><option>愁雲慘霧</option><option>如火如荼</option>
+      </select>) 的攻勢，終於取得了勝利。</p>
+    </div>
+
+    <div class="question">
+      <p>4. 由於這間動物園上星期發生了老虎咬傷人的意外，所以原本很熱鬧的動物園現在變得(
+      <select name="q4" data-question="單元一 A-4">
+        <option value="">請選擇</option>
+        <option>大煞風景</option><option>雨後春筍</option><option>排山倒海</option><option>鬼斧神工</option><option>熙來攘往</option><option>門可羅雀</option><option>絡繹不絕</option><option>震耳欲聾</option><option>愁雲慘霧</option><option>如火如荼</option>
+      </select>)。</p>
+    </div>
+
+    <div class="question">
+      <p>5. 受到疫情影響，全球經濟急速下滑，各行各業顯得(
+      <select name="q5" data-question="單元一 A-5">
+        <option value="">請選擇</option>
+        <option>大煞風景</option><option>雨後春筍</option><option>排山倒海</option><option>鬼斧神工</option><option>熙來攘往</option><option>門可羅雀</option><option>絡繹不絕</option><option>震耳欲聾</option><option>愁雲慘霧</option><option>如火如荼</option>
+      </select>)，市面一片蕭條。</p>
+    </div>
+
+    <div class="question">
+      <p>6. 聖誕節是普天同慶的節日，無論在商場還是街道，歡度佳節的人(
+      <select name="q6" data-question="單元一 A-6">
+        <option value="">請選擇</option>
+        <option>大煞風景</option><option>雨後春筍</option><option>排山倒海</option><option>鬼斧神工</option><option>熙來攘往</option><option>門可羅雀</option><option>絡繹不絕</option><option>震耳欲聾</option><option>愁雲慘霧</option><option>如火如荼</option>
+      </select>)。</p>
+    </div>
+
+    <div class="question">
+      <p>7. 姑父是個大嗓子，當他興奮忘形地說話時，不時發出令人(
+      <select name="q7" data-question="單元一 A-7">
+        <option value="">請選擇</option>
+        <option>大煞風景</option><option>雨後春筍</option><option>排山倒海</option><option>鬼斧神工</option><option>熙來攘往</option><option>門可羅雀</option><option>絡繹不絕</option><option>震耳欲聾</option><option>愁雲慘霧</option><option>如火如荼</option>
+      </select>) 的笑聲。</p>
+    </div>
+  </div>
+
+  <!-- ====================== 成語填充（單元一） 第二組 ====================== -->
+  <div class="section">
+    <h2>成語填充（單元一）</h2>
+    <h3>試把適當的成語寫在(____) 內</h3>
+
+    <div class="question">
+      <p>1. 敵人無法抵擋我方士兵(
+      <select name="q8" data-question="單元一 B-1">
+        <option value="">請選擇</option>
+        <option>大煞風景</option><option>門可羅雀</option><option>如火如荼</option><option>雨後春筍</option><option>鬼斧神工</option><option>排山倒海</option><option>絡繹不絕</option><option>愁雲慘霧</option><option>熙來攘往</option><option>震耳欲聾</option>
+      </select>)的攻勢，終於投降了。</p>
+    </div>
+
+    <div class="question">
+      <p>2. 每逢假日，動物園的遊客總是(
+      <select name="q9" data-question="單元一 B-2">
+        <option value="">請選擇</option>
+        <option>大煞風景</option><option>門可羅雀</option><option>如火如荼</option><option>雨後春筍</option><option>鬼斧神工</option><option>排山倒海</option><option>絡繹不絕</option><option>愁雲慘霧</option><option>熙來攘往</option><option>震耳欲聾</option>
+      </select>)，十分熱鬧。</p>
+    </div>
+
+    <div class="question">
+      <p>3. 戰亂過後，到處(
+      <select name="q10" data-question="單元一 B-3">
+        <option value="">請選擇</option>
+        <option>大煞風景</option><option>門可羅雀</option><option>如火如荼</option><option>雨後春筍</option><option>鬼斧神工</option><option>排山倒海</option><option>絡繹不絕</option><option>愁雲慘霧</option><option>熙來攘往</option><option>震耳欲聾</option>
+      </select>)，一片淒涼的景象。</p>
+    </div>
+
+    <div class="question">
+      <p>4. 隨著人工智能的興起，科技公司如(
+      <select name="q11" data-question="單元一 B-4">
+        <option value="">請選擇</option>
+        <option>大煞風景</option><option>門可羅雀</option><option>如火如荼</option><option>雨後春筍</option><option>鬼斧神工</option><option>排山倒海</option><option>絡繹不絕</option><option>愁雲慘霧</option><option>熙來攘往</option><option>震耳欲聾</option>
+      </select>)般出現。</p>
+    </div>
+
+    <div class="question">
+      <p>5. 大火燃燒時發出(
+      <select name="q12" data-question="單元一 B-5">
+        <option value="">請選擇</option>
+        <option>大煞風景</option><option>門可羅雀</option><option>如火如荼</option><option>雨後春筍</option><option>鬼斧神工</option><option>排山倒海</option><option>絡繹不絕</option><option>愁雲慘霧</option><option>熙來攘往</option><option>震耳欲聾</option>
+      </select>)的爆炸聲，讓人感到懾人心魄。</p>
+    </div>
+  </div>
+
+  <!-- ====================== (二) 成語（單元二）填充 ====================== -->
+  <div class="section">
+    <h2>(二) 成語（單元二）填充</h2>
+    <h3>把適當的成語填在(____) 內</h3>
+
+    <div class="question">
+      <p>1. 新娘慢慢地走進教堂時,所有賓客(
+      <select name="q13" data-question="單元二 A-1">
+        <option value="">請選擇</option>
+        <option>正襟危坐</option><option>老生常談</option><option>含沙射影</option><option>忍俊不禁</option><option>拾人牙慧</option><option>神色自若</option><option>捲土重來</option><option>趾高氣揚</option><option>循循善誘</option><option>義正辭嚴</option>
+      </select>)，不敢發出半點聲音。</p>
+    </div>
+
+    <div class="question">
+      <p>2. 在聖誕聯歡會上,浩軒幽默的「棟篤笑」表演,讓大家(
+      <select name="q14" data-question="單元二 A-2">
+        <option value="">請選擇</option>
+        <option>正襟危坐</option><option>老生常談</option><option>含沙射影</option><option>忍俊不禁</option><option>拾人牙慧</option><option>神色自若</option><option>捲土重來</option><option>趾高氣揚</option><option>循循善誘</option><option>義正辭嚴</option>
+      </select>)。</p>
+    </div>
+
+    <div class="question">
+      <p>3. 正所謂「明人不做暗事」,你有事不妨直接說出來,不要(
+      <select name="q15" data-question="單元二 A-3">
+        <option value="">請選擇</option>
+        <option>正襟危坐</option><option>老生常談</option><option>含沙射影</option><option>忍俊不禁</option><option>拾人牙慧</option><option>神色自若</option><option>捲土重來</option><option>趾高氣揚</option><option>循循善誘</option><option>義正辭嚴</option>
+      </select>),暗中詆毀我。</p>
+    </div>
+
+    <div class="question">
+      <p>4. 他移居外地後,總會在中秋節時想起「每逢佳節倍思親」這句(
+      <select name="q16" data-question="單元二 A-4">
+        <option value="">請選擇</option>
+        <option>正襟危坐</option><option>老生常談</option><option>含沙射影</option><option>忍俊不禁</option><option>拾人牙慧</option><option>神色自若</option><option>捲土重來</option><option>趾高氣揚</option><option>循循善誘</option><option>義正辭嚴</option>
+      </select>)的話。</p>
+    </div>
+
+    <div class="question">
+      <p>5. 科學家要勇於創新,拒絕(
+      <select name="q17" data-question="單元二 A-5">
+        <option value="">請選擇</option>
+        <option>正襟危坐</option><option>老生常談</option><option>含沙射影</option><option>忍俊不禁</option><option>拾人牙慧</option><option>神色自若</option><option>捲土重來</option><option>趾高氣揚</option><option>循循善誘</option><option>義正辭嚴</option>
+      </select>),才能設計出充滿創意的發明品。</p>
+    </div>
+  </div>
+
+  <!-- ====================== (一) 成語(單元一、二)填充 ====================== -->
+  <div class="section">
+    <h2>(一) 成語(單元一、二)填充</h2>
+    <h3>把適當的成語填在(____) 內</h3>
+
+    <div class="question">
+      <p>1. 那部電影本來很精彩，但最後無聊的結局實在是(
+      <select name="q18" data-question="單元一二 A-1">
+        <option value="">請選擇</option>
+        <option>大煞風景</option><option>門可羅雀</option><option>如火如荼</option><option>雨後春筍</option><option>鬼斧神工</option><option>排山倒海</option><option>絡繹不絕</option><option>愁雲慘霧</option><option>熙來攘往</option><option>震耳欲聾</option><option>正襟危坐</option><option>老生常談</option><option>含沙射影</option><option>忍俊不禁</option><option>拾人牙慧</option><option>神色自若</option><option>捲土重來</option><option>趾高氣揚</option><option>循循善誘</option><option>義正辭嚴</option>
+      </select>)，讓觀眾倍感失望。</p>
+    </div>
+
+    <div class="question">
+      <p>2. 除夕夜、鞭炮聲此起彼落(
+      <select name="q19" data-question="單元一二 A-2">
+        <option value="">請選擇</option>
+        <option>大煞風景</option><option>門可羅雀</option><option>如火如荼</option><option>雨後春筍</option><option>鬼斧神工</option><option>排山倒海</option><option>絡繹不絕</option><option>愁雲慘霧</option><option>熙來攘往</option><option>震耳欲聾</option><option>正襟危坐</option><option>老生常談</option><option>含沙射影</option><option>忍俊不禁</option><option>拾人牙慧</option><option>神色自若</option><option>捲土重來</option><option>趾高氣揚</option><option>循循善誘</option><option>義正辭嚴</option>
+      </select>)，充滿着熱鬧氣氛。</p>
+    </div>
+
+    <div class="question">
+      <p>3. 太魯閣峽谷的壯麗景色宛如天造地設，展現出 (
+      <select name="q20" data-question="單元一二 A-3">
+        <option value="">請選擇</option>
+        <option>大煞風景</option><option>門可羅雀</option><option>如火如荼</option><option>雨後春筍</option><option>鬼斧神工</option><option>排山倒海</option><option>絡繹不絕</option><option>愁雲慘霧</option><option>熙來攘往</option><option>震耳欲聾</option><option>正襟危坐</option><option>老生常談</option><option>含沙射影</option><option>忍俊不禁</option><option>拾人牙慧</option><option>神色自若</option><option>捲土重來</option><option>趾高氣揚</option><option>循循善誘</option><option>義正辭嚴</option>
+      </select> ) 的自然之美。</p>
+    </div>
+
+    <div class="question">
+      <p>4. 父親的事業出現了危機，全家頓時陷入 (
+      <select name="q21" data-question="單元一二 A-4">
+        <option value="">請選擇</option>
+        <option>大煞風景</option><option>門可羅雀</option><option>如火如荼</option><option>雨後春筍</option><option>鬼斧神工</option><option>排山倒海</option><option>絡繹不絕</option><option>愁雲慘霧</option><option>熙來攘往</option><option>震耳欲聾</option><option>正襟危坐</option><option>老生常談</option><option>含沙射影</option><option>忍俊不禁</option><option>拾人牙慧</option><option>神色自若</option><option>捲土重來</option><option>趾高氣揚</option><option>循循善誘</option><option>義正辭嚴</option>
+      </select> ) 之中。</p>
+    </div>
+
+    <div class="question">
+      <p>5. 爸爸面對着股東們(
+      <select name="q22" data-question="單元一二 A-5">
+        <option value="">請選擇</option>
+        <option>大煞風景</option><option>門可羅雀</option><option>如火如荼</option><option>雨後春筍</option><option>鬼斧神工</option><option>排山倒海</option><option>絡繹不絕</option><option>愁雲慘霧</option><option>熙來攘往</option><option>震耳欲聾</option><option>正襟危坐</option><option>老生常談</option><option>含沙射影</option><option>忍俊不禁</option><option>拾人牙慧</option><option>神色自若</option><option>捲土重來</option><option>趾高氣揚</option><option>循循善誘</option><option>義正辭嚴</option>
+      </select> ) 的斥責，頓時顯得坐立難安。</p>
+    </div>
+
+    <div class="question">
+      <p>6. 為了給青少年提供正當的娛樂場所，各種名義的活動中心如 (
+      <select name="q23" data-question="單元一二 A-6">
+        <option value="">請選擇</option>
+        <option>大煞風景</option><option>門可羅雀</option><option>如火如荼</option><option>雨後春筍</option><option>鬼斧神工</option><option>排山倒海</option><option>絡繹不絕</option><option>愁雲慘霧</option><option>熙來攘往</option><option>震耳欲聾</option><option>正襟危坐</option><option>老生常談</option><option>含沙射影</option><option>忍俊不禁</option><option>拾人牙慧</option><option>神色自若</option><option>捲土重來</option><option>趾高氣揚</option><option>循循善誘</option><option>義正辭嚴</option>
+      </select> ) 般湧現。</p>
+    </div>
+
+    <div class="question">
+      <p>7. 這間偏僻的書店開了多年，生意始終不好，(
+      <select name="q24" data-question="單元一二 A-7">
+        <option value="">請選擇</option>
+        <option>大煞風景</option><option>門可羅雀</option><option>如火如荼</option><option>雨後春筍</option><option>鬼斧神工</option><option>排山倒海</option><option>絡繹不絕</option><option>愁雲慘霧</option><option>熙來攘往</option><option>震耳欲聾</option><option>正襟危坐</option><option>老生常談</option><option>含沙射影</option><option>忍俊不禁</option><option>拾人牙慧</option><option>神色自若</option><option>捲土重來</option><option>趾高氣揚</option><option>循循善誘</option><option>義正辭嚴</option>
+      </select> )的景象讓老闆感到十分無奈。</p>
+    </div>
+
+    <div class="question">
+      <p>8. 街口的那家小店價廉物美，所以每天來這裏買東西的人(
+      <select name="q25" data-question="單元一二 A-8">
+        <option value="">請選擇</option>
+        <option>大煞風景</option><option>門可羅雀</option><option>如火如荼</option><option>雨後春筍</option><option>鬼斧神工</option><option>排山倒海</option><option>絡繹不絕</option><option>愁雲慘霧</option><option>熙來攘往</option><option>震耳欲聾</option><option>正襟危坐</option><option>老生常談</option><option>含沙射影</option><option>忍俊不禁</option><option>拾人牙慧</option><option>神色自若</option><option>捲土重來</option><option>趾高氣揚</option><option>循循善誘</option><option>義正辭嚴</option>
+      </select> )。</p>
+    </div>
+
+    <div class="question">
+      <p>9. 木棉花在路邊開得 (
+      <select name="q26" data-question="單元一二 A-9">
+        <option value="">請選擇</option>
+        <option>大煞風景</option><option>門可羅雀</option><option>如火如荼</option><option>雨後春筍</option><option>鬼斧神工</option><option>排山倒海</option><option>絡繹不絕</option><option>愁雲慘霧</option><option>熙來攘往</option><option>震耳欲聾</option><option>正襟危坐</option><option>老生常談</option><option>含沙射影</option><option>忍俊不禁</option><option>拾人牙慧</option><option>神色自若</option><option>捲土重來</option><option>趾高氣揚</option><option>循循善誘</option><option>義正辭嚴</option>
+      </select> )，似在宣告熱鬧的夏天即將來臨。</p>
+    </div>
+
+    <div class="question">
+      <p>10. 夜市(
+      <select name="q27" data-question="單元一二 A-10">
+        <option value="">請選擇</option>
+        <option>大煞風景</option><option>門可羅雀</option><option>如火如荼</option><option>雨後春筍</option><option>鬼斧神工</option><option>排山倒海</option><option>絡繹不絕</option><option>愁雲慘霧</option><option>熙來攘往</option><option>震耳欲聾</option><option>正襟危坐</option><option>老生常談</option><option>含沙射影</option><option>忍俊不禁</option><option>拾人牙慧</option><option>神色自若</option><option>捲土重來</option><option>趾高氣揚</option><option>循循善誘</option><option>義正辭嚴</option>
+      </select> ) 的人潮，突顯了都市生活的特色。</p>
+    </div>
+
+    <div class="question">
+      <p>11. 雖然「失敗為成功之母」是(
+      <select name="q28" data-question="單元一二 A-11">
+        <option value="">請選擇</option>
+        <option>大煞風景</option><option>門可羅雀</option><option>如火如荼</option><option>雨後春筍</option><option>鬼斧神工</option><option>排山倒海</option><option>絡繹不絕</option><option>愁雲慘霧</option><option>熙來攘往</option><option>震耳欲聾</option><option>正襟危坐</option><option>老生常談</option><option>含沙射影</option><option>忍俊不禁</option><option>拾人牙慧</option><option>神色自若</option><option>捲土重來</option><option>趾高氣揚</option><option>循循善誘</option><option>義正辭嚴</option>
+      </select> )的俗語，但確實激勵了許多人。</p>
+    </div>
+
+    <div class="question">
+      <p>12. 發生火警時，消防員(
+      <select name="q29" data-question="單元一二 A-12">
+        <option value="">請選擇</option>
+        <option>大煞風景</option><option>門可羅雀</option><option>如火如荼</option><option>雨後春筍</option><option>鬼斧神工</option><option>排山倒海</option><option>絡繹不絕</option><option>愁雲慘霧</option><option>熙來攘往</option><option>震耳欲聾</option><option>正襟危坐</option><option>老生常談</option><option>含沙射影</option><option>忍俊不禁</option><option>拾人牙慧</option><option>神色自若</option><option>捲土重來</option><option>趾高氣揚</option><option>循循善誘</option><option>義正辭嚴</option>
+      </select> )地引導大家安全疏散，一點兒也不慌張。</p>
+    </div>
+
+    <div class="question">
+      <p>13. 別因為一時的成功就(
+      <select name="q30" data-question="單元一二 A-13">
+        <option value="">請選擇</option>
+        <option>大煞風景</option><option>門可羅雀</option><option>如火如荼</option><option>雨後春筍</option><option>鬼斧神工</option><option>排山倒海</option><option>絡繹不絕</option><option>愁雲慘霧</option><option>熙來攘往</option><option>震耳欲聾</option><option>正襟危坐</option><option>老生常談</option><option>含沙射影</option><option>忍俊不禁</option><option>拾人牙慧</option><option>神色自若</option><option>捲土重來</option><option>趾高氣揚</option><option>循循善誘</option><option>義正辭嚴</option>
+      </select> )，忘記了謙虛的重要。</p>
+    </div>
+
+    <div class="question">
+      <p>14. 那篇文章(
+      <select name="q31" data-question="單元一二 A-14">
+        <option value="">請選擇</option>
+        <option>大煞風景</option><option>門可羅雀</option><option>如火如荼</option><option>雨後春筍</option><option>鬼斧神工</option><option>排山倒海</option><option>絡繹不絕</option><option>愁雲慘霧</option><option>熙來攘往</option><option>震耳欲聾</option><option>正襟危坐</option><option>老生常談</option><option>含沙射影</option><option>忍俊不禁</option><option>拾人牙慧</option><option>神色自若</option><option>捲土重來</option><option>趾高氣揚</option><option>循循善誘</option><option>義正辭嚴</option>
+      </select> )，暗指公司高層處事不公。</p>
+    </div>
+
+    <div class="question">
+      <p>15. 藝術創作最忌諱的就是(
+      <select name="q32" data-question="單元一二 A-15">
+        <option value="">請選擇</option>
+        <option>大煞風景</option><option>門可羅雀</option><option>如火如荼</option><option>雨後春筍</option><option>鬼斧神工</option><option>排山倒海</option><option>絡繹不絕</option><option>愁雲慘霧</option><option>熙來攘往</option><option>震耳欲聾</option><option>正襟危坐</option><option>老生常談</option><option>含沙射影</option><option>忍俊不禁</option><option>拾人牙慧</option><option>神色自若</option><option>捲土重來</option><option>趾高氣揚</option><option>循循善誘</option><option>義正辭嚴</option>
+      </select> )，必須展現個人風格。</p>
+    </div>
+
+    <div class="question">
+      <p>16. 主管(
+      <select name="q33" data-question="單元一二 A-16">
+        <option value="">請選擇</option>
+        <option>大煞風景</option><option>門可羅雀</option><option>如火如荼</option><option>雨後春筍</option><option>鬼斧神工</option><option>排山倒海</option><option>絡繹不絕</option><option>愁雲慘霧</option><option>熙來攘往</option><option>震耳欲聾</option><option>正襟危坐</option><option>老生常談</option><option>含沙射影</option><option>忍俊不禁</option><option>拾人牙慧</option><option>神色自若</option><option>捲土重來</option><option>趾高氣揚</option><option>循循善誘</option><option>義正辭嚴</option>
+      </select> )地重申公司紀律，要求大家遵守。</p>
+    </div>
+
+    <div class="question">
+      <p>17. 這款產品經過改良後(
+      <select name="q34" data-question="單元一二 A-17">
+        <option value="">請選擇</option>
+        <option>大煞風景</option><option>門可羅雀</option><option>如火如荼</option><option>雨後春筍</option><option>鬼斧神工</option><option>排山倒海</option><option>絡繹不絕</option><option>愁雲慘霧</option><option>熙來攘往</option><option>震耳欲聾</option><option>正襟危坐</option><option>老生常談</option><option>含沙射影</option><option>忍俊不禁</option><option>拾人牙慧</option><option>神色自若</option><option>捲土重來</option><option>趾高氣揚</option><option>循循善誘</option><option>義正辭嚴</option>
+      </select> )，重新贏得消費者青睞。</p>
+    </div>
+
+    <div class="question">
+      <p>18. 看到小丑誇張的表演，觀眾(
+      <select name="q35" data-question="單元一二 A-18">
+        <option value="">請選擇</option>
+        <option>大煞風景</option><option>門可羅雀</option><option>如火如荼</option><option>雨後春筍</option><option>鬼斧神工</option><option>排山倒海</option><option>絡繹不絕</option><option>愁雲慘霧</option><option>熙來攘往</option><option>震耳欲聾</option><option>正襟危坐</option><option>老生常談</option><option>含沙射影</option><option>忍俊不禁</option><option>拾人牙慧</option><option>神色自若</option><option>捲土重來</option><option>趾高氣揚</option><option>循循善誘</option><option>義正辭嚴</option>
+      </select> )，笑聲不斷。</p>
+    </div>
+
+    <div class="question">
+      <p>19. 優秀的教育者懂得(
+      <select name="q36" data-question="單元一二 A-19">
+        <option value="">請選擇</option>
+        <option>大煞風景</option><option>門可羅雀</option><option>如火如荼</option><option>雨後春筍</option><option>鬼斧神工</option><option>排山倒海</option><option>絡繹不絕</option><option>愁雲慘霧</option><option>熙來攘往</option><option>震耳欲聾</option><option>正襟危坐</option><option>老生常談</option><option>含沙射影</option><option>忍俊不禁</option><option>拾人牙慧</option><option>神色自若</option><option>捲土重來</option><option>趾高氣揚</option><option>循循善誘</option><option>義正辭嚴</option>
+      </select> )，啟發學生的潛能。</p>
+    </div>
+
+    <div class="question">
+      <p>20. 寺廟裏的僧人(
+      <select name="q37" data-question="單元一二 A-20">
+        <option value="">請選擇</option>
+        <option>大煞風景</option><option>門可羅雀</option><option>如火如荼</option><option>雨後春筍</option><option>鬼斧神工</option><option>排山倒海</option><option>絡繹不絕</option><option>愁雲慘霧</option><option>熙來攘往</option><option>震耳欲聾</option><option>正襟危坐</option><option>老生常談</option><option>含沙射影</option><option>忍俊不禁</option><option>拾人牙慧</option><option>神色自若</option><option>捲土重來</option><option>趾高氣揚</option><option>循循善誘</option><option>義正辭嚴</option>
+      </select> )，閉目誦經，場面莊嚴肅穆。</p>
+    </div>
+  </div>
+
+  <!-- ====================== 成語填充（單元一及二） ====================== -->
+  <div class="section">
+    <h2>成語填充（單元一及二）</h2>
+    <h3>在 ( ) 內填上適當的成語。</h3>
+
+    <div class="question">
+      <p>1. 廟會期間，各地趕來祈福的遊客(
+      <select name="q38" data-question="單元一二 B-1">
+        <option value="">請選擇</option>
+        <option>大煞風景</option><option>門可羅雀</option><option>如火如荼</option><option>雨後春筍</option><option>鬼斧神工</option><option>排山倒海</option><option>絡繹不絕</option><option>愁雲慘霧</option><option>熙來攘往</option><option>震耳欲聾</option><option>正襟危坐</option><option>老生常談</option><option>含沙射影</option><option>忍俊不禁</option><option>拾人牙慧</option><option>神色自若</option><option>捲土重來</option><option>趾高氣揚</option><option>循循善誘</option><option>義正辭嚴</option>
+      </select>)，把整座寺廟擠得水洩不通。</p>
+    </div>
+
+    <div class="question">
+      <p>2. 面對(
+      <select name="q39" data-question="單元一二 B-2">
+        <option value="">請選擇</option>
+        <option>大煞風景</option><option>門可羅雀</option><option>如火如荼</option><option>雨後春筍</option><option>鬼斧神工</option><option>排山倒海</option><option>絡繹不絕</option><option>愁雲慘霧</option><option>熙來攘往</option><option>震耳欲聾</option><option>正襟危坐</option><option>老生常談</option><option>含沙射影</option><option>忍俊不禁</option><option>拾人牙慧</option><option>神色自若</option><option>捲土重來</option><option>趾高氣揚</option><option>循循善誘</option><option>義正辭嚴</option>
+      </select>)的指責，他依然保持冷靜，努力向大家解釋事情的真相。</p>
+    </div>
+
+    <div class="question">
+      <p>3. 學校運動會正在(
+      <select name="q40" data-question="單元一二 B-3">
+        <option value="">請選擇</option>
+        <option>大煞風景</option><option>門可羅雀</option><option>如火如荼</option><option>雨後春筍</option><option>鬼斧神工</option><option>排山倒海</option><option>絡繹不絕</option><option>愁雲慘霧</option><option>熙來攘往</option><option>震耳欲聾</option><option>正襟危坐</option><option>老生常談</option><option>含沙射影</option><option>忍俊不禁</option><option>拾人牙慧</option><option>神色自若</option><option>捲土重來</option><option>趾高氣揚</option><option>循循善誘</option><option>義正辭嚴</option>
+      </select>)地進行，同學們都使出渾身解數，爭取佳績。</p>
+    </div>
+
+    <div class="question">
+      <p>4. 廟會裏的鑼鼓聲(
+      <select name="q41" data-question="單元一二 B-4">
+        <option value="">請選擇</option>
+        <option>大煞風景</option><option>門可羅雀</option><option>如火如荼</option><option>雨後春筍</option><option>鬼斧神工</option><option>排山倒海</option><option>絡繹不絕</option><option>愁雲慘霧</option><option>熙來攘往</option><option>震耳欲聾</option><option>正襟危坐</option><option>老生常談</option><option>含沙射影</option><option>忍俊不禁</option><option>拾人牙慧</option><option>神色自若</option><option>捲土重來</option><option>趾高氣揚</option><option>循循善誘</option><option>義正辭嚴</option>
+      </select>)，熱鬧的氣氛感染了在場的每一個人。</p>
+    </div>
+
+    <div class="question">
+      <p>5. 做人應該謙虛有禮，即使有了成就也不該(
+      <select name="q42" data-question="單元一二 B-5">
+        <option value="">請選擇</option>
+        <option>大煞風景</option><option>門可羅雀</option><option>如火如荼</option><option>雨後春筍</option><option>鬼斧神工</option><option>排山倒海</option><option>絡繹不絕</option><option>愁雲慘霧</option><option>熙來攘往</option><option>震耳欲聾</option><option>正襟危坐</option><option>老生常談</option><option>含沙射影</option><option>忍俊不禁</option><option>拾人牙慧</option><option>神色自若</option><option>捲土重來</option><option>趾高氣揚</option><option>循循善誘</option><option>義正辭嚴</option>
+      </select>)地看不起別人。</p>
+    </div>
+
+    <div class="question">
+      <p>6. 警察(
+      <select name="q43" data-question="單元一二 B-6">
+        <option value="">請選擇</option>
+        <option>大煞風景</option><option>門可羅雀</option><option>如火如荼</option><option>雨後春筍</option><option>鬼斧神工</option><option>排山倒海</option><option>絡繹不絕</option><option>愁雲慘霧</option><option>熙來攘往</option><option>震耳欲聾</option><option>正襟危坐</option><option>老生常談</option><option>含沙射影</option><option>忍俊不禁</option><option>拾人牙慧</option><option>神色自若</option><option>捲土重來</option><option>趾高氣揚</option><option>循循善誘</option><option>義正辭嚴</option>
+      </select>)地警告那些飆車族，如果再不遵守交通規則，就會受到法律的制裁。</p>
+    </div>
+  </div>
+
+  <!-- ====================== 成語填充（單元二）第二組 ====================== -->
+  <div class="section">
+    <h2>成語填充（單元二）</h2>
+    <h3>試把適當的成語寫在 ( ) 內。</h3>
+
+    <div class="question">
+      <p>1. 聽完子華說的笑話後，大家都(
+      <select name="q44" data-question="單元二 B-1">
+        <option value="">請選擇</option>
+        <option>大煞風景</option><option>門可羅雀</option><option>如火如荼</option><option>雨後春筍</option><option>鬼斧神工</option><option>排山倒海</option><option>絡繹不絕</option><option>愁雲慘霧</option><option>熙來攘往</option><option>震耳欲聾</option><option>正襟危坐</option><option>老生常談</option><option>含沙射影</option><option>忍俊不禁</option><option>拾人牙慧</option><option>神色自若</option><option>捲土重來</option><option>趾高氣揚</option><option>循循善誘</option><option>義正辭嚴</option>
+      </select>)地笑了起來。</p>
+    </div>
+
+    <div class="question">
+      <p>2. 不管遇到甚麼問題，爸爸都能(
+      <select name="q45" data-question="單元二 B-2">
+        <option value="">請選擇</option>
+        <option>大煞風景</option><option>門可羅雀</option><option>如火如荼</option><option>雨後春筍</option><option>鬼斧神工</option><option>排山倒海</option><option>絡繹不絕</option><option>愁雲慘霧</option><option>熙來攘往</option><option>震耳欲聾</option><option>正襟危坐</option><option>老生常談</option><option>含沙射影</option><option>忍俊不禁</option><option>拾人牙慧</option><option>神色自若</option><option>捲土重來</option><option>趾高氣揚</option><option>循循善誘</option><option>義正辭嚴</option>
+      </select>)地處理。</p>
+    </div>
+
+    <div class="question">
+      <p>3. 老師一臉嚴肅地走進課室，本身有說有笑的同學馬上變得(
+      <select name="q46" data-question="單元二 B-3">
+        <option value="">請選擇</option>
+        <option>大煞風景</option><option>門可羅雀</option><option>如火如荼</option><option>雨後春筍</option><option>鬼斧神工</option><option>排山倒海</option><option>絡繹不絕</option><option>愁雲慘霧</option><option>熙來攘往</option><option>震耳欲聾</option><option>正襟危坐</option><option>老生常談</option><option>含沙射影</option><option>忍俊不禁</option><option>拾人牙慧</option><option>神色自若</option><option>捲土重來</option><option>趾高氣揚</option><option>循循善誘</option><option>義正辭嚴</option>
+      </select>)。</p>
+    </div>
+
+    <div class="question">
+      <p>4. 「鐵杵磨成針」雖是(
+      <select name="q47" data-question="單元二 B-4">
+        <option value="">請選擇</option>
+        <option>大煞風景</option><option>門可羅雀</option><option>如火如荼</option><option>雨後春筍</option><option>鬼斧神工</option><option>排山倒海</option><option>絡繹不絕</option><option>愁雲慘霧</option><option>熙來攘往</option><option>震耳欲聾</option><option>正襟危坐</option><option>老生常談</option><option>含沙射影</option><option>忍俊不禁</option><option>拾人牙慧</option><option>神色自若</option><option>捲土重來</option><option>趾高氣揚</option><option>循循善誘</option><option>義正辭嚴</option>
+      </select>)的俗語，卻是最佳鼓勵的話語。</p>
+    </div>
+
+    <div class="question">
+      <p>5. 陳先生控告這篇報道(
+      <select name="q48" data-question="單元二 B-5">
+        <option value="">請選擇</option>
+        <option>大煞風景</option><option>門可羅雀</option><option>如火如荼</option><option>雨後春筍</option><option>鬼斧神工</option><option>排山倒海</option><option>絡繹不絕</option><option>愁雲慘霧</option><option>熙來攘往</option><option>震耳欲聾</option><option>正襟危坐</option><option>老生常談</option><option>含沙射影</option><option>忍俊不禁</option><option>拾人牙慧</option><option>神色自若</option><option>捲土重來</option><option>趾高氣揚</option><option>循循善誘</option><option>義正辭嚴</option>
+      </select>)地誹謗他，損害了他的名聲。</p>
+    </div>
+
+    <div class="question">
+      <p>6. 講座開始時，演講者幽默地表示自己將會(
+      <select name="q49" data-question="單元二 B-6">
+        <option value="">請選擇</option>
+        <option>大煞風景</option><option>門可羅雀</option><option>如火如荼</option><option>雨後春筍</option><option>鬼斧神工</option><option>排山倒海</option><option>絡繹不絕</option><option>愁雲慘霧</option><option>熙來攘往</option><option>震耳欲聾</option><option>正襟危坐</option><option>老生常談</option><option>含沙射影</option><option>忍俊不禁</option><option>拾人牙慧</option><option>神色自若</option><option>捲土重來</option><option>趾高氣揚</option><option>循循善誘</option><option>義正辭嚴</option>
+      </select>)，說一番欠缺新鮮感的話，和上個星期的講座內容相同。</p>
+    </div>
+
+    <div class="question">
+      <p>7. 哥哥經常遲到，媽媽(
+      <select name="q50" data-question="單元二 B-7">
+        <option value="">請選擇</option>
+        <option>大煞風景</option><option>門可羅雀</option><option>如火如荼</option><option>雨後春筍</option><option>鬼斧神工</option><option>排山倒海</option><option>絡繹不絕</option><option>愁雲慘霧</option><option>熙來攘往</option><option>震耳欲聾</option><option>正襟危坐</option><option>老生常談</option><option>含沙射影</option><option>忍俊不禁</option><option>拾人牙慧</option><option>神色自若</option><option>捲土重來</option><option>趾高氣揚</option><option>循循善誘</option><option>義正辭嚴</option>
+      </select>)地警告他要改掉這個壞習慣。</p>
+    </div>
+
+    <div class="question">
+      <p>8. 這羣邊緣少年在社工的(
+      <select name="q51" data-question="單元二 B-8">
+        <option value="">請選擇</option>
+        <option>大煞風景</option><option>門可羅雀</option><option>如火如荼</option><option>雨後春筍</option><option>鬼斧神工</option><option>排山倒海</option><option>絡繹不絕</option><option>愁雲慘霧</option><option>熙來攘往</option><option>震耳欲聾</option><option>正襟危坐</option><option>老生常談</option><option>含沙射影</option><option>忍俊不禁</option><option>拾人牙慧</option><option>神色自若</option><option>捲土重來</option><option>趾高氣揚</option><option>循循善誘</option><option>義正辭嚴</option>
+      </select>)下，慢慢戒掉了不良的嗜好。</p>
+    </div>
+
+    <div class="question">
+      <p>9. 雖然去年的音樂會慘淡收場，但主辦單位沒有灰心，決定在今年(
+      <select name="q52" data-question="單元二 B-9">
+        <option value="">請選擇</option>
+        <option>大煞風景</option><option>門可羅雀</option><option>如火如荼</option><option>雨後春筍</option><option>鬼斧神工</option><option>排山倒海</option><option>絡繹不絕</option><option>愁雲慘霧</option><option>熙來攘往</option><option>震耳欲聾</option><option>正襟危坐</option><option>老生常談</option><option>含沙射影</option><option>忍俊不禁</option><option>拾人牙慧</option><option>神色自若</option><option>捲土重來</option><option>趾高氣揚</option><option>循循善誘</option><option>義正辭嚴</option>
+      </select>)。</p>
+    </div>
+
+    <div class="question">
+      <p>10. 他自從升職後，就變得(
+      <select name="q53" data-question="單元二 B-10">
+        <option value="">請選擇</option>
+        <option>大煞風景</option><option>門可羅雀</option><option>如火如荼</option><option>雨後春筍</option><option>鬼斧神工</option><option>排山倒海</option><option>絡繹不絕</option><option>愁雲慘霧</option><option>熙來攘往</option><option>震耳欲聾</option><option>正襟危坐</option><option>老生常談</option><option>含沙射影</option><option>忍俊不禁</option><option>拾人牙慧</option><option>神色自若</option><option>捲土重來</option><option>趾高氣揚</option><option>循循善誘</option><option>義正辭嚴</option>
+      </select>)，看不起職位低的同事。</p>
+    </div>
+  </div>
+
+  <!-- ====================== 成語填充（單元一及二） 第三組 ====================== -->
+  <div class="section">
+    <h2>成語填充（單元一及二）</h2>
+    <h3>在 ( ) 內填上適當的成語。</h3>
+
+    <div class="question">
+      <p>9. 受到疫情影響，全球經濟急速下滑，各行各業將陷入一片(
+      <select name="q54" data-question="單元一二 C-9">
+        <option value="">請選擇</option>
+        <option>大煞風景</option><option>門可羅雀</option><option>如火如荼</option><option>雨後春筍</option><option>鬼斧神工</option><option>排山倒海</option><option>絡繹不絕</option><option>愁雲慘霧</option><option>熙來攘往</option><option>震耳欲聾</option><option>正襟危坐</option><option>老生常談</option><option>含沙射影</option><option>忍俊不禁</option><option>拾人牙慧</option><option>神色自若</option><option>捲土重來</option><option>趾高氣揚</option><option>循循善誘</option><option>義正辭嚴</option>
+      </select>)當中。</p>
+    </div>
+
+    <div class="question">
+      <p>10. 姑父是個大嗓門，興奮忘形時說話往往令人(
+      <select name="q55" data-question="單元一二 C-10">
+        <option value="">請選擇</option>
+        <option>大煞風景</option><option>門可羅雀</option><option>如火如荼</option><option>雨後春筍</option><option>鬼斧神工</option><option>排山倒海</option><option>絡繹不絕</option><option>愁雲慘霧</option><option>熙來攘往</option><option>震耳欲聾</option><option>正襟危坐</option><option>老生常談</option><option>含沙射影</option><option>忍俊不禁</option><option>拾人牙慧</option><option>神色自若</option><option>捲土重來</option><option>趾高氣揚</option><option>循循善誘</option><option>義正辭嚴</option>
+      </select>)。</p>
+    </div>
+
+    <div class="question">
+      <p>11. 我們在開會時，大家(
+      <select name="q56" data-question="單元一二 C-11">
+        <option value="">請選擇</option>
+        <option>大煞風景</option><option>門可羅雀</option><option>如火如荼</option><option>雨後春筍</option><option>鬼斧神工</option><option>排山倒海</option><option>絡繹不絕</option><option>愁雲慘霧</option><option>熙來攘往</option><option>震耳欲聾</option><option>正襟危坐</option><option>老生常談</option><option>含沙射影</option><option>忍俊不禁</option><option>拾人牙慧</option><option>神色自若</option><option>捲土重來</option><option>趾高氣揚</option><option>循循善誘</option><option>義正辭嚴</option>
+      </select>)，嚴肅地討論着今天的議題。</p>
+    </div>
+
+    <div class="question">
+      <p>12. 當電影播放到最驚心動魄的情節時，畫面卻突然中斷了，難道不是(
+      <select name="q57" data-question="單元一二 C-12">
+        <option value="">請選擇</option>
+        <option>大煞風景</option><option>門可羅雀</option><option>如火如荼</option><option>雨後春筍</option><option>鬼斧神工</option><option>排山倒海</option><option>絡繹不絕</option><option>愁雲慘霧</option><option>熙來攘往</option><option>震耳欲聾</option><option>正襟危坐</option><option>老生常談</option><option>含沙射影</option><option>忍俊不禁</option><option>拾人牙慧</option><option>神色自若</option><option>捲土重來</option><option>趾高氣揚</option><option>循循善誘</option><option>義正辭嚴</option>
+      </select>)嗎？</p>
+    </div>
+
+    <div class="question">
+      <p>13. 要不是老師(
+      <select name="q58" data-question="單元一二 C-13">
+        <option value="">請選擇</option>
+        <option>大煞風景</option><option>門可羅雀</option><option>如火如荼</option><option>雨後春筍</option><option>鬼斧神工</option><option>排山倒海</option><option>絡繹不絕</option><option>愁雲慘霧</option><option>熙來攘往</option><option>震耳欲聾</option><option>正襟危坐</option><option>老生常談</option><option>含沙射影</option><option>忍俊不禁</option><option>拾人牙慧</option><option>神色自若</option><option>捲土重來</option><option>趾高氣揚</option><option>循循善誘</option><option>義正辭嚴</option>
+      </select>)的教導，我一定無法在比賽中得獎。</p>
+    </div>
+
+    <div class="question">
+      <p>14. 這種新型病毒的傳染力強，不幸感染的病人如(
+      <select name="q59" data-question="單元一二 C-14">
+        <option value="">請選擇</option>
+        <option>大煞風景</option><option>門可羅雀</option><option>如火如荼</option><option>雨後春筍</option><option>鬼斧神工</option><option>排山倒海</option><option>絡繹不絕</option><option>愁雲慘霧</option><option>熙來攘往</option><option>震耳欲聾</option><option>正襟危坐</option><option>老生常談</option><option>含沙射影</option><option>忍俊不禁</option><option>拾人牙慧</option><option>神色自若</option><option>捲土重來</option><option>趾高氣揚</option><option>循循善誘</option><option>義正辭嚴</option>
+      </select>)般不斷出現。</p>
+    </div>
+
+    <div class="question">
+      <p>15. 幽默滑稽的表演，讓台下觀眾看得(
+      <select name="q60" data-question="單元一二 C-15">
+        <option value="">請選擇</option>
+        <option>大煞風景</option><option>門可羅雀</option><option>如火如荼</option><option>雨後春筍</option><option>鬼斧神工</option><option>排山倒海</option><option>絡繹不絕</option><option>愁雲慘霧</option><option>熙來攘往</option><option>震耳欲聾</option><option>正襟危坐</option><option>老生常談</option><option>含沙射影</option><option>忍俊不禁</option><option>拾人牙慧</option><option>神色自若</option><option>捲土重來</option><option>趾高氣揚</option><option>循循善誘</option><option>義正辭嚴</option>
+      </select>)。</p>
+    </div>
+
+    <div class="question">
+      <p>16. 離開家後，最想念的就是母親那幾句(
+      <select name="q61" data-question="單元一二 C-16">
+        <option value="">請選擇</option>
+        <option>大煞風景</option><option>門可羅雀</option><option>如火如荼</option><option>雨後春筍</option><option>鬼斧神工</option><option>排山倒海</option><option>絡繹不絕</option><option>愁雲慘霧</option><option>熙來攘往</option><option>震耳欲聾</option><option>正襟危坐</option><option>老生常談</option><option>含沙射影</option><option>忍俊不禁</option><option>拾人牙慧</option><option>神色自若</option><option>捲土重來</option><option>趾高氣揚</option><option>循循善誘</option><option>義正辭嚴</option>
+      </select>)的囉嗦。</p>
+    </div>
+  </div>
+
+  <button type="submit">全部提交並顯示答案</button>
+
+  <div id="allResults" class="result">
+    <h2>測驗結果總覽</h2>
+    <div id="scoreTotal" class="total-score"></div>
+    <div id="itemsAll"></div>
+    <div id="submitMessage"></div>
+  </div>
+
+</form>
+
+<script>
+function handleQuizSubmit(formId, resultId, itemsId, scoreId, msgId, correctAnswers) {
+  const form = document.getElementById(formId);
+  const resultDiv = document.getElementById(resultId);
+  const itemsDiv = document.getElementById(itemsId);
+  const scoreDiv = document.getElementById(scoreId);
+  const messageDiv = document.getElementById(msgId);
+
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    const controls = form.querySelectorAll('select');
+    let score = 0;
+    itemsDiv.innerHTML = '';
+
+    const answers = [];
+    const totalQuestions = correctAnswers.length - 1;
+
+    for (let i = 1; i <= totalQuestions; i++) {
+      const q = controls[i-1];
+      const userAnswer = q ? q.value.trim() : '';
+      const correct = correctAnswers[i];
+      const isCorrect = (userAnswer === correct && userAnswer !== '');
+
+      if (isCorrect) score++;
+
+      // 在每個下拉選單前方顯示正確/錯誤標記
+      if (q) {
+        const prevFeedback = q.previousElementSibling;
+        if (prevFeedback && prevFeedback.classList && prevFeedback.classList.contains('feedback')) {
+          prevFeedback.remove();
+        }
+        const feedback = document.createElement('span');
+        feedback.className = 'feedback ' + (isCorrect ? 'feedback-correct' : 'feedback-wrong');
+        feedback.textContent = isCorrect ? '✓ 正確' : '✗ 錯誤';
+        q.parentNode.insertBefore(feedback, q);
+      }
+
+      let questionText = q && q.dataset.question 
+        ? q.dataset.question 
+        : `第 ${i} 題`;
+
+      const item = document.createElement('div');
+      item.className = 'item';
+      item.innerHTML = `
+        <strong>${questionText}</strong><br><br>
+        你的答案： <span class="${isCorrect ? 'correct' : 'wrong'}">${userAnswer || '(未作答)'}</span><br>
+        <div class="answer-show">正確答案： <span class="correct">${correct}</span></div>
+        <div>得分： ${isCorrect ? '1' : '0'}</div>
+      `;
+      itemsDiv.appendChild(item);
+
+      answers.push({
+        questionNumber: i,
+        question: questionText,
+        yourAnswer: userAnswer || '(未作答)',
+        correctAnswer: correct,
+        result: isCorrect ? '正確' : '錯誤'
+      });
+    }
+
+    scoreDiv.textContent = `總 分： ${score} / ${totalQuestions}`;
+    resultDiv.style.display = 'block';
+    resultDiv.scrollIntoView({ behavior: 'smooth' });
+
+    const payload = {
+      _subject: "20261106-中文_成語結果提交",
+      score: `${score} / ${totalQuestions}`,
+      timestamp: new Date().toISOString(),
+      answers: JSON.stringify(answers, null, 2)
+    };
+
+    try {
+      const response = await fetch('https://formspree.io/f/xvzwnvwp', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      messageDiv.innerHTML = response.ok
+        ? '<span class="success">✅ 測驗結果已成功送出！</span>'
+        : '<span class="error">送出失敗，請稍後再試。</span>';
+    } catch (err) {
+      messageDiv.innerHTML = '<span class="error">網路錯誤，無法送出結果。</span>';
+    }
+  });
+}
+
+// 根據題目順序精確對應 61 個下拉選單的正確答案
+const correctAnswers = [
+  null,
+  // 成語填充(單元一) 第一組 (q1-q7)
+  "熙來攘往",
+  "大煞風景",
+  "排山倒海",
+  "門可羅雀",
+  "愁雲慘霧",
+  "絡繹不絕",
+  "震耳欲聾",
+  // 成語填充（單元一） 第二組 (q8-q12)
+  "排山倒海",
+  "絡繹不絕",
+  "愁雲慘霧",
+  "雨後春筍",
+  "震耳欲聾",
+  // (二) 成語（單元二）填充 (q13-q17)
+  "正襟危坐",
+  "忍俊不禁",
+  "含沙射影",
+  "老生常談",
+  "拾人牙慧",
+  // (一) 成語(單元一、二)填充 (q18-q37)
+  "大煞風景",
+  "震耳欲聾",
+  "鬼斧神工",
+  "愁雲慘霧",
+  "排山倒海",
+  "雨後春筍",
+  "門可羅雀",
+  "絡繹不絕",
+  "如火如荼",
+  "熙來攘往",
+  "老生常談",
+  "神色自若",
+  "趾高氣揚",
+  "含沙射影",
+  "拾人牙慧",
+  "義正辭嚴",
+  "捲土重來",
+  "忍俊不禁",
+  "循循善誘",
+  "正襟危坐",
+  // 成語填充（單元一及二） 第二組 (q38-q43)
+  "絡繹不絕",
+  "排山倒海",
+  "如火如荼",
+  "震耳欲聾",
+  "趾高氣揚",
+  "義正辭嚴",
+  // 成語填充（單元二） 第二組 (q44-q53)
+  "忍俊不禁",
+  "神色自若",
+  "正襟危坐",
+  "老生常談",
+  "含沙射影",
+  "拾人牙慧",
+  "義正辭嚴",
+  "循循善誘",
+  "捲土重來",
+  "趾高氣揚",
+  // 成語填充（單元一及二） 第三組 (q54-q61)
+  "愁雲慘霧",
+  "震耳欲聾",
+  "正襟危坐",
+  "大煞風景",
+  "循循善誘",
+  "雨後春筍",
+  "忍俊不禁",
+  "老生常談"
+];
+
+// 初始化執行
+handleQuizSubmit('allQuizzes', 'allResults', 'itemsAll', 'scoreTotal', 'submitMessage', correctAnswers);
+</script>
+
+</body>
+</html>
