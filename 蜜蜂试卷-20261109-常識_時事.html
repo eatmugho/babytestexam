@@ -9,7 +9,7 @@
     script-src 'self' 'unsafe-inline';
     style-src 'self' 'unsafe-inline';
   ">
-  <title>20261106-常識_時事</title>
+  <title>20261109-常識_時事</title>
   <style>
     body {
       font-family: system-ui, -apple-system, "Microsoft JhengHei", sans-serif;
@@ -160,7 +160,7 @@
 </head>
 <body>
 
-<h1>20261106-常識_時事</h1>
+<h1>20261109-常識_時事</h1>
 <p class="subtitle">請選擇所有題目對應的答案下拉選單，完成後點擊最下方按鈕提交</p>
 
 <form id="allQuizzes">
@@ -445,7 +445,7 @@ document.getElementById('allQuizzes').addEventListener('submit', async function(
   resultDiv.scrollIntoView({ behavior: 'smooth' });
 
   const payload = {
-    _subject: "20261106-常識_時事 提交結果",
+    _subject: "20261109-常識_時事 提交結果",
     score: `${score} / ${totalQuestions}`,
     timestamp: new Date().toLocaleString(),
     answers: JSON.stringify(answers, null, 2)
