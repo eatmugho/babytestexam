@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self';
+    connect-src *;
+    script-src 'self' 'unsafe-inline';
+    style-src 'self' 'unsafe-inline';
+  ">
+  <title>20261106-常識_時事</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, "Microsoft JhengHei", sans-serif;
+      max-width: 950px;
+      margin: 30px auto;
+      padding: 0 20px;
+      line-height: 1.6;
+      color: #2c3e50;
+      background-color: #f8f9fa;
+    }
+    h1 {
+      text-align: center;
+      color: #1a365d;
+      margin-bottom: 5px;
+    }
+    .subtitle {
+      text-align: center;
+      color: #718096;
+      margin-bottom: 30px;
+      font-size: 1.1rem;
+    }
+    .article-box {
+      background: #edf2f7;
+      border-left: 4px solid #4a5568;
+      padding: 15px;
+      margin-bottom: 20px;
+      border-radius: 4px;
+      font-size: 0.98rem;
+    }
+    .section {
+      background: white;
+      padding: 25px;
+      margin-bottom: 35px;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+      border: 1px solid #e2e8f0;
+    }
+    h2 {
+      color: #2b6cb0;
+      border-bottom: 2px solid #bee3f8;
+      padding-bottom: 8px;
+      margin-top: 0;
+    }
+    .question {
+      margin: 20px 0;
+      padding: 15px 20px;
+      background: #f7fafc;
+      border-left: 4px solid #4299e1;
+      border-radius: 4px;
+      font-size: 1.05rem;
+    }
+    .question p {
+      margin: 0 0 10px 0;
+      font-weight: bold;
+    }
+    select {
+      padding: 6px 10px;
+      font-size: 1.05rem;
+      border-radius: 6px;
+      border: 1px solid #cbd5e0;
+      background-color: white;
+      margin: 5px 0;
+      max-width: 100%;
+    }
+    select:focus {
+      outline: none;
+      border-color: #4299e1;
+      box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.2);
+    }
+    button[type="submit"] {
+      display: block;
+      margin: 40px auto;
+      padding: 15px 60px;
+      font-size: 1.25rem;
+      font-weight: bold;
+      background: #38a169;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.1s;
+      box-shadow: 0 4px 6px rgba(56, 161, 105, 0.3);
+    }
+    button[type="submit"]:hover {
+      background: #2f855a;
+    }
+    button[type="submit"]:active {
+      transform: scale(0.98);
+    }
+    .result {
+      display: none;
+      margin: 30px 0;
+      padding: 25px;
+      background: white;
+      border-radius: 12px;
+      border: 2px solid #cbd5e0;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    }
+    .total-score {
+      font-size: 1.6rem;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 25px;
+      padding: 15px;
+      background: #ebf8ff;
+      border-radius: 8px;
+      color: #2b6cb0;
+      border: 1px solid #bee3f8;
+    }
+    .item {
+      margin: 12px 0;
+      padding: 12px 16px;
+      background: #f7fafc;
+      border-radius: 6px;
+      border-left: 4px solid #cbd5e0;
+    }
+    .item.is-correct {
+      border-left-color: #38a169;
+    }
+    .item.is-wrong {
+      border-left-color: #e53e3e;
+    }
+    .correct { color: #38a169; font-weight: bold; }
+    .wrong   { color: #e53e3e; font-weight: bold; }
+    
+    .feedback {
+      font-weight: bold;
+      margin-right: 5px;
+      font-size: 0.95rem;
+    }
+    .feedback-correct { color: #38a169; }
+    .feedback-wrong { color: #e53e3e; }
+
+    .answer-show {
+      margin-top: 5px;
+      font-size: 0.95rem;
+      color: #4a5568;
+    }
+    #submitMessage {
+      text-align: center;
+      margin-top: 15px;
+      font-size: 1.1rem;
+      font-weight: bold;
+    }
+    .success { color: #38a169; }
+    .error   { color: #e53e3e; }
+  </style>
+</head>
+<body>
+
+<h1>20261106-常識_時事</h1>
+<p class="subtitle">請選擇所有題目對應的答案下拉選單，完成後點擊最下方按鈕提交</p>
+
+<form id="allQuizzes">
+
+  <!-- ====================== 1. 新春300萬港人外遊市道更愁 ====================== -->
+  <div class="section">
+    <h2>1. 新春300萬港人外遊市道更愁（節錄自東方日報2026年2月23日）</h2>
+    <div class="article-box">
+      農曆新年假期剛結束，政府入境事務處的數據顯示，今年農曆新年假期首8日（2月14日至21日），有超過857萬人次進出香港。其中，港人出境人次錄得顯著增長，較去年同期的246萬，大幅增加近22%。與此同時，同期訪港旅客入境人次約157萬，雖然內地旅客和海外旅客的人數都比去年有所上升，但旅客的人數仍然比外遊的港人數少近一半。<br><br>
+      有經濟學者指出，愈來愈多港人選擇在長假期外遊，而留港消費的意欲下降。學者認為，政府和商戶不能只關注吸引旅客，也要想想如何吸引港人留港消費，否則可能會影響整體消費市道。
+    </div>
+    
+    <div class="question">
+      <p>1. 以下哪個政府部門負責改善本港的旅遊設施？</p>
+      <select name="q1" data-qname="文章1 Q1 負責旅遊設施部門">
+        <option value="">請選擇答案</option>
+        <option value="A. 旅遊業監管局">A. 旅遊業監管局</option>
+        <option value="B. 文化體育及旅遊局">B. 文化體育及旅遊局</option>
+        <option value="C. 入境事務處">C. 入境事務處</option>
+      </select>
+    </div>
+
+    <div class="question">
+      <p>2. 你認為愈來愈多港人選擇在農曆新年期間外遊，對香港的商戶（如酒樓、商店）會有甚麼影響？試舉出一項，並加以解釋。</p>
+      <select name="q2" data-qname="文章1 Q2 外遊對商戶影響">
+        <option value="">請選擇答案</option>
+        <option value="商戶生意額下降。農曆新年是傳統消費旺季，如果大量港人外遊，留在香港消費的人數就會減少。">商戶生意額下降。農曆新年是傳統消費旺季，如果大量港人外遊，留在香港消費的人數就會減少。</option>
+        <option value="商戶生意額大幅上升，因為旅客消費金額遠超港人。">商戶生意額大幅上升，因為旅客消費金額遠超港人。</option>
+        <option value="對商戶完全沒有影響，因為港人在外遊前已完成所有購物。">對商戶完全沒有影響，因為港人在外遊前已完成所有購物。</option>
+      </select>
+    </div>
+
+    <div class="question">
+      <p>3. 你認為政府可採取哪些方法鼓勵市民在長假期「留港消費」？試舉出兩個方法，並加以解釋。</p>
+      <select name="q3" data-qname="文章1 Q3 鼓勵留港消費方法">
+        <option value="">請選擇答案</option>
+        <option value="與商場和餐廳合作，推出「留港消費優惠券」。 加強宣傳香港的本地景點和美食。">與商場和餐廳合作，推出「留港消費優惠券」。 加強宣傳香港的本地景點和美食。</option>
+        <option value="增加市民離境稅，提高外遊成本。 限制市民離境人次。">增加市民離境稅，提高外遊成本。 限制市民離境人次。</option>
+        <option value="關閉所有本地商場與餐廳，鼓勵市民在家休息。">關閉所有本地商場與餐廳，鼓勵市民在家休息。</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- ====================== 2. 食環署引入無人機提升工作效率 ====================== -->
+  <div class="section">
+    <h2>2. 食環署引入無人機提升工作效率（節錄自《明報》5月10日）</h2>
+    <div class="article-box">
+      食物環境衛生署近年積極引入創新科技，其中無人機的應用成為提升執法和巡查效率的重要工具。署方透露，去年成功偵破一宗非法屠宰山羊案件，關鍵正是運用無人機協助搜證，最終將涉案人士拘捕。<br><br>
+      食環署利用無人機進行高空拍攝，再迅速鎖定可疑位置。署方在掌握足夠證據後，隨即採取突擊行動拘捕涉案人士。署方指出，過往主要依賴人手巡查去收集情報，往往只能在外圍觀察。引入無人機後，調查人員可從高空掌握整體環境，包括出入口位置、人員分佈、可疑的停泊車輛和逃走路線等，有助提升行動安全和搜證質素。<br><br>
+      此外，無人機將按預設路線巡航，並透過人工智能分析影像，協助部門及時調派人員處理。配合項目推展，無人機機庫預計將安裝於食環署管理的公廁頂部，作為無人機起降和充電的基地，團隊即將開展飛行測試。機電署高級工程師邱芝瑩表示，部門正向民航處申請相關無人機操作許可。飛行測試將分兩個階段進行，首先以目視和延伸視線操作進行測試，待系統運作穩定後，再推展至超視距操作，實現全自動空中巡視。
+    </div>
+    
+    <div class="question">
+      <p>1. 以下哪個不是食環署負責的工作？把正確答案圈出來。</p>
+      <select name="q4" data-qname="文章2 Q1 非食環署工作">
+        <option value="">請選擇答案</option>
+        <option value="A. 小販管理">A. 小販管理</option>
+        <option value="B. 興建公共房屋">B. 興建公共房屋</option>
+        <option value="C. 防治蟲鼠工作">C. 防治蟲鼠工作</option>
+      </select>
+    </div>
+
+    <div class="question">
+      <p>2. 你贊成政府引入無人機代替人手巡查嗎？為甚麼？試寫出一個原因，並加以解釋。</p>
+      <select name="q5" data-qname="文章2 Q2 贊成引入無人機的原因">
+        <option value="">請選擇答案</option>
+        <option value="我贊成，因為人手巡查往往需要調查人員深入複雜或偏遠的地區，有可能面臨各種潛在威脅。">我贊成，因為人手巡查往往需要調查人員深入複雜或偏遠的地區，有可能面臨各種潛在威脅。</option>
+        <option value="我不贊成，因為無人機完全無法提供任何高空攝影及環境觀察效果。">我不贊成，因為無人機完全無法提供任何高空攝影及環境觀察效果。</option>
+        <option value="我贊成，因為無人機可以完全替代所有執法人員，無需任何人手參與突擊行動。">我贊成，因為無人機可以完全替代所有執法人員，無需任何人手參與突擊行動。</option>
+      </select>
+    </div>
+
+    <div class="question">
+      <p>3. 你認為政府還可以在哪些日常工作中引入無人機技術？試寫出其中兩項並加以說明。</p>
+      <select name="q6" data-qname="文章3 Q3 無人機其他應用範疇">
+        <option value="">請選擇答案</option>
+        <option value="政府可以利用配備感測器的無人機巡查大渠道及斜坡。政府可以將無人機轉化為移動感測站，在渠道，峽谷收集空氣污染物數據，協助規劃過人之通風設計。">政府可以利用配備感測器的無人機巡查大渠道及斜坡。政府可以將無人機轉化為移動感測站，在渠道，峽谷收集空氣污染物數據，協助規劃過人之通風設計。</option>
+        <option value="無人機可用於直接派送所有市區郵件，替代所有郵差。無人機可用於公眾泳池內擔任救生員工作。">無人機可用於直接派送所有市區郵件，替代所有郵差。無人機可用於公眾泳池內擔任救生員工作。</option>
+        <option value="無人機可用於在課室進行現場教學及管理學生秩序。無人機可用於地眾餐廳廚房直接烹飪食物。">無人機可用於在課室進行現場教學及管理學生秩序。無人機可用於地眾餐廳廚房直接烹飪食物。</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- ====================== 3. 農曆新年鹹田灣遊人過多自然環境受破壞 ====================== -->
+  <div class="section">
+    <h2>3. 農曆新年鹹田灣遊人過多自然環境受破壞 （節錄自《東方日報》2月19日）</h2>
+    <div class="article-box">
+      農曆新年期間，西貢鹹田灣再現垃圾遍地情況。有環保團體前日(18/2)晚上進行實地視察，發現鹹田灣和西灣分別有約450和135個帳篷，但兩地本來只是可以容納50多個營位的大型營地，反映遊人過多。<br><br>
+      大量人流亦造成垃圾過多的問題，昨日(19/2)清晨營地的垃圾桶已滿溢，地上滿佈垃圾。由於政府未制定全面的生態旅遊政策，因此沒法預防郊外環境被破壞，只能作出事後清理。環保團體促請政府成立跨部門小組，檢討管理的問題，避免自然環境持續受損，甚至出現不可逆轉的破壞。
+    </div>
+    
+    <div class="question">
+      <p>1. 以下哪個政府部門負責郊野公園及營地的護理工作？把正確答案圈出來。</p>
+      <select name="q7" data-qname="文章3 Q1 負責郊野公園護理部門">
+        <option value="">請選擇答案</option>
+        <option value="A. 環境保護署">A. 環境保護署</option>
+        <option value="B. 漁農自然護理署">B. 漁農自然護理署</option>
+        <option value="C. 地政總署">C. 地政總署</option>
+      </select>
+    </div>
+
+    <div class="question">
+      <p>2. 你認為政府可以怎樣做以預防郊外環境被破壞的情況？試舉出其中兩個方法，並加以說明。</p>
+      <select name="q8" data-qname="文章3 Q2 預防郊外破壞方法">
+        <option value="">請選擇答案</option>
+        <option value="放置多些垃圾箱/請政府成立跨部門小組">放置多些垃圾箱/請政府成立跨部門小組</option>
+        <option value="禁止所有市民進入任何郊野公園及營地">禁止所有市民進入任何郊野公園及營地</option>
+        <option value="將營地全面改建為商業酒店與購物廣場">將營地全面改建為商業酒店與購物廣場</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- ====================== 4. 調查揭近四成兒童患有近視 ====================== -->
+  <div class="section">
+    <h2>4. 調查揭近四成兒童患有近視 (節錄自《東方日報》9月9日)</h2>
+    <div class="article-box">
+      有機構與本地大學醫學院聯合發表關於近視控制的臨床研究結果，指出如果不妥善處理兒童近視問題，將嚴重影響日後的視力健康。<br><br>
+      醫學院於2025年為501名5歲至12歲的兒童進行視力檢查，結果顯示高達39.7%兒童患有近視。研究團隊強調，即使兒童沒有主動表達視力異常，亦應定期接受專業眼科檢查。此外，團隊透過「青光眼社區篩查計劃」分析超過4200名50歲或以上成人的眼科數據，發現44.5%參加者患有近視，其中6.7%屬於深近視。<br><br>
+      該醫學院的眼科學系主任表示，戴眼鏡雖然可以矯正視力模糊的問題，卻無法逆轉眼球過長或消除深近視帶來的永久失明風險，呼籲家長儘早介入治療，以保護兒童的終生視力。<br><br>
+      進行研究的兩個團體向家長提出兩大護眼建議。首先，如果發現子女患有近視，應向專業人士尋求具醫學實證的控制方案，或儘快諮詢合資格的眼科專家，避免依賴普通眼鏡。<br><br>
+      為應對近視問題，兩個團體將推出視力檢查計劃，其中本地大學醫學院會為1000名兒童進行免費眼睛檢查，以及1000名50歲或以上患有近視的成人進行全面眼科篩查。
+    </div>
+    
+    <div class="question">
+      <p>1. 眼睛的哪個部分負責接收光線並形成影像？請圈出正確的答案。</p>
+      <select name="q9" data-qname="文章4 Q1 眼睛構造功能">
+        <option value="">請選擇答案</option>
+        <option value="A. 瞳孔">A. 瞳孔</option>
+        <option value="B. 水晶體">B. 水晶體</option>
+        <option value="C. 視網膜">C. 視網膜</option>
+      </select>
+    </div>
+
+    <div class="question">
+      <p>2. 你贊成強制為全港小學生進行定期的眼睛檢查嗎？為什麼？試加以解釋。</p>
+      <select name="q10" data-qname="文章4 Q2 強制定期檢查意向">
+        <option value="">請選擇答案</option>
+        <option value="我贊成，因為能為學童及早發現視力問題，減低因為眼球過長或深近視帶來的永久失明風險。">我贊成，因為能為學童及早發現視力問題，減低因為眼球過長或深近視帶來的永久失明風險。</option>
+        <option value="我不贊成，因為戴眼鏡可以完全逆轉眼球過長問題，無需進行定期檢查。">我不贊成，因為戴眼鏡可以完全逆轉眼球過長問題，無需進行定期檢查。</option>
+        <option value="我不贊成，因為兒童眼睛在12歲前不會患上近視。">我不贊成，因為兒童眼睛在12歲前不會患上近視。</option>
+      </select>
+    </div>
+
+    <div class="question">
+      <p>3. 除了減少觀看電子屏幕的時間外，試舉出其中兩個小學生在日常生活中可以保護雙眼的生活習慣，並加以解釋。</p>
+      <select name="q11" data-qname="文章4 Q3 護眼日常習慣">
+        <option value="">請選擇答案</option>
+        <option value="i. 定時讓眼睛休息，讓眼部肌肉得到放鬆。 ii. 保持正確的讀寫姿勢與距離，以減少眼部肌肉過度收縮，從而減緩近視加深。">i. 定時讓眼睛休息，讓眼部肌肉得到放鬆。 ii. 保持正確的讀寫姿勢與距離，以減少眼部肌肉過度收縮，從而減緩近視加深。</option>
+        <option value="i. 在強光直射下閱讀以刺激視力。 ii. 躺在床上看書以減輕身體疲勞。">i. 在強光直射下閱讀以刺激視力。 ii. 躺在床上看書以減輕身體疲勞。</option>
+        <option value="i. 長時間配戴深色太陽眼鏡看書。 ii. 頻繁揉眼睛以促進血液循環。">i. 長時間配戴深色太陽眼鏡看書。 ii. 頻繁揉眼睛以促進血液循環。</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- ====================== 5. 全球冰川加速融化 恐導致嚴重災難 ====================== -->
+  <div class="section">
+    <h2>5. 全球冰川加速融化 恐導致嚴重災難（節錄自9月2日《星島日報》）</h2>
+    <div class="article-box">
+      尼泊爾和我國西藏交界地帶發生嚴重泥石流和洪水，造成兩國最少 1000 人喪生。災難源於高山冰川崩塌引發堰塞湖決堤，尼泊爾當局亦呼籲國際社會正視氣候災害。有外國大學團隊指出全球現時有超過 3100 條「躍動冰川」，當中 81 條位於人口稠密的山谷上方，嚴重威脅人們的安全。<br><br>
+      「冰川躍動」是指本來緩慢推進的冰川突然加速移動，將大量的冰層迅速推向前方。研究顯示，超過一半的「躍動冰川」集中在喜馬拉雅山脈等亞洲高山地區，約 48% 分佈在北極和亞北極地區。其中喀喇昆侖山脈的 81 條冰川下方分佈着村落、公路和水電設施，一旦發生災難，後果不堪設想。<br><br>
+      「躍動冰川」花數十甚至數百年時間，慢慢積累冰層，然後在短期內向前推進，令冰層快速消失。冰川躍動的過程不但會吞噬建築物和農地，還可能堵塞河流，形成極不穩定的堰塞湖。一旦決堤，將引發毀滅性的洪水和雪崩。冰川表面的裂縫亦令登山和觀光的風險增加。
+    </div>
+    
+    <div class="question">
+      <p>1. 以下哪個不是自然災害？把正確答案圈出來。 1%</p>
+      <select name="q12" data-qname="文章5 Q1 非自然災害辨識">
+        <option value="">請選擇答案</option>
+        <option value="A. 地震">A. 地震</option>
+        <option value="B. 核電廠爆炸">B. 核電廠爆炸</option>
+        <option value="C. 火山爆發">C. 火山爆發</option>
+      </select>
+    </div>
+
+    <div class="question">
+      <p>2. 怎樣做才能保護環境，藉以預防冰川融化、洪水泛濫等自然災害？試舉出其中兩項，並加以說明。 3%</p>
+      <p>i.</p>
+      <select name="q13" data-qname="文章5 Q2-i 保護環境預防災害措施">
+        <option value="">請選擇答案</option>
+        <option value="減緩氣候變遷：推廣再生能源與低碳生活，減少溫室氣體排放，從根源控制全球升溫，以延緩冰川融化速度。">減緩氣候變遷：推廣再生能源與低碳生活，減少溫室氣體排放，從根源控制全球升溫，以延緩冰川融化速度。</option>
+        <option value="大量砍伐森林建立高牆阻擋冰川移動。">大量砍伐森林建立高牆阻擋冰川移動。</option>
+        <option value="增加化石燃料開採以加速工業化發展。">增加化石燃料開採以加速工業化發展。</option>
+      </select>
+      <br><br>
+      <p>ii.</p>
+      <select name="q14" data-qname="文章5 Q2-ii 保護環境預防災害措施">
+        <option value="">請選擇答案</option>
+        <option value="完善防災監測：在高危山區建立冰川與堰塞湖的實時監測及早期預警系統，及早疏散下游居民以防範洪水。">完善防災監測：在高危山區建立冰川與堰塞湖的實時監測及早期預警系統，及早疏散下游居民以防範洪水。</option>
+        <option value="在冰川上方建造大型人工蓄水池。">在冰川上方建造大型人工蓄水池。</option>
+        <option value="鼓勵更多觀光客前往「躍動冰川」進行登山活動。">鼓勵更多觀光客前往「躍動冰川」進行登山活動。</option>
+      </select>
+    </div>
+  </div>
+
+  <button type="submit">全部提交並顯示答案</button>
+
+  <div id="allResults" class="result">
+    <h2>測驗結果總覽</h2>
+    <div id="scoreTotal" class="total-score"></div>
+    <div id="itemsAll"></div>
+    <div id="submitMessage"></div>
+  </div>
+
+</form>
+
+<script>
+// 正確答案映射表 (1-14題)
+const correctAnswersMap = {
+  1: "B. 文化體育及旅遊局",
+  2: "商戶生意額下降。農曆新年是傳統消費旺季，如果大量港人外遊，留在香港消費的人數就會減少。",
+  3: "與商場和餐廳合作，推出「留港消費優惠券」。 加強宣傳香港的本地景點和美食。",
+  4: "B. 興建公共房屋",
+  5: "我贊成，因為人手巡查往往需要調查人員深入複雜或偏遠的地區，有可能面臨各種潛在威脅。",
+  6: "政府可以利用配備感測器的無人機巡查大渠道及斜坡。政府可以將無人機轉化為移動感測站，在渠道，峽谷收集空氣污染物數據，協助規劃過人之通風設計。",
+  7: "B. 漁農自然護理署",
+  8: "放置多些垃圾箱/請政府成立跨部門小組",
+  9: "C. 視網膜",
+  10: "我贊成，因為能為學童及早發現視力問題，減低因為眼球過長或深近視帶來的永久失明風險。",
+  11: "i. 定時讓眼睛休息，讓眼部肌肉得到放鬆。 ii. 保持正確的讀寫姿勢與距離，以減少眼部肌肉過度收縮，從而減緩近視加深。",
+  12: "B. 核電廠爆炸",
+  13: "減緩氣候變遷：推廣再生能源與低碳生活，減少溫室氣體排放，從根源控制全球升溫，以延緩冰川融化速度。",
+  14: "完善防災監測：在高危山區建立冰川與堰塞湖的實時監測及早期預警系統，及早疏散下游居民以防範洪水。"
+};
+
+document.getElementById('allQuizzes').addEventListener('submit', async function(e) {
+  e.preventDefault();
+
+  const form = e.target;
+  const resultDiv = document.getElementById('allResults');
+  const itemsDiv = document.getElementById('itemsAll');
+  const scoreDiv = document.getElementById('scoreTotal');
+  const messageDiv = document.getElementById('submitMessage');
+
+  const selects = form.querySelectorAll('select');
+  let score = 0;
+  const totalQuestions = selects.length;
+  itemsDiv.innerHTML = '';
+  const answers = [];
+
+  selects.forEach((select, index) => {
+    const qIndex = index + 1;
+    const q = select;
+    const userAnswer = select.value.trim();
+    const correct = correctAnswersMap[qIndex] || '';
+    const isCorrect = (userAnswer === correct && userAnswer !== '');
+
+    if (isCorrect) score++;
+
+    // 清除舊有的反饋標籤
+    const prevFeedback = q.previousElementSibling;
+    if (prevFeedback && prevFeedback.classList && prevFeedback.classList.contains('feedback')) {
+      prevFeedback.remove();
+    }
+
+    // 建立下拉選單前方的即時標籤
+    const feedback = document.createElement('span');
+    feedback.className = 'feedback ' + (isCorrect ? 'feedback-correct' : 'feedback-wrong');
+    feedback.textContent = isCorrect ? '✓ 正確' : '✗ 錯誤';
+    q.parentNode.insertBefore(feedback, q);
+
+    const questionName = select.dataset.qname || `第 ${qIndex} 題`;
+
+    const item = document.createElement('div');
+    item.className = `item ${isCorrect ? 'is-correct' : 'is-wrong'}`;
+    item.innerHTML = `
+      <strong>${questionName}</strong><br>
+      你的答案： <span class="${isCorrect ? 'correct' : 'wrong'}">${userAnswer || '(未作答)'}</span><br>
+      <div class="answer-show">正確答案： <span class="correct">${correct}</span></div>
+    `;
+    itemsDiv.appendChild(item);
+
+    answers.push({
+      id: qIndex,
+      question: questionName,
+      userAnswer: userAnswer || '(未作答)',
+      correctAnswer: correct,
+      result: isCorrect ? '正確' : '錯誤'
+    });
+  });
+
+  scoreDiv.textContent = `總 分： ${score} / ${totalQuestions}`;
+  resultDiv.style.display = 'block';
+  resultDiv.scrollIntoView({ behavior: 'smooth' });
+
+  const payload = {
+    _subject: "20261106-常識_時事 提交結果",
+    score: `${score} / ${totalQuestions}`,
+    timestamp: new Date().toLocaleString(),
+    answers: JSON.stringify(answers, null, 2)
+  };
+
+  try {
+    const response = await fetch('https://formspree.io/f/xvzwnvwp', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+    messageDiv.innerHTML = response.ok
+      ? '<span class="success">✅ 測驗結果已成功提交並紀錄！</span>'
+      : '<span class="error">⚠️ 提交失敗，請檢查網路連線。</span>';
+  } catch (err) {
+    messageDiv.innerHTML = '<span class="error">⚠️ 網路錯誤，無法提交結果。</span>';
+  }
+});
+</script>
+
+</body>
+</html>
